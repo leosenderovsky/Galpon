@@ -1,0 +1,6 @@
+{
+  "name": "GALPÓN Indumentaria Masculina y de Trabajo",
+  "description": "Catálogo digital y landing con pedido directo por WhatsApp para indumentaria masculina y ropa de trabajo pesada.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

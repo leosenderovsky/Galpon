@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-headline: 'Oswald', sans-serif;
+    --font-body: 'Work Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: #191c1e;
+    background-color: #f8f9fb;
+    overscroll-behavior-y: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+  }
+}
+
+.font-headline {
+  font-family: 'Oswald', sans-serif;
+}
+
+.font-body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+/* Custom utilitarian scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #edeef0;
+}
+::-webkit-scrollbar-thumb {
+  background: #7c5733;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #152536;
+}
+
