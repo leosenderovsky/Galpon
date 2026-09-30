@@ -1,5 +1,7 @@
 import React from 'react';
 import { CartProvider, useCart } from './context/CartContext';
+// DEMO ONLY — borrar este import y esta línea, más PrototypeBanner.tsx y demoBanner.config.ts, para pasar este proyecto a un cliente real
+import { PrototypeBanner } from './components/PrototypeBanner';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Catalog } from './components/Catalog';
@@ -17,7 +19,8 @@ const MainAppContent: React.FC = () => {
   const { activeProductModal, setActiveProductModal, totalItems, setIsCartOpen } = useCart();
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f8f9fb] text-[#191c1e] relative">
+    <div className="min-h-screen flex flex-col bg-[#f8f9fb] text-[#191c1e] relative pt-10 sm:pt-9 lg:pt-8 [&>header]:top-10 sm:[&>header]:top-9 lg:[&>header]:top-8">
+      <PrototypeBanner />
       {/* Navigation Header */}
       <Navbar />
 
