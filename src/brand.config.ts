@@ -117,7 +117,7 @@ export const BRAND: BrandConfig = {
     badge: "CONFECCIÓN INDUSTRIAL PESADA • DESDE 1978",
     title: "ROPA HECHA PARA BANCARSE TODO.",
     description: "Básicos pesados y ropa de trabajo resistente. Sin vueltas, sin descartables: directo del galpón textil a tu taller, obra o el asfalto diario.",
-    backgroundImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuBNThUUlrq1MX2h_4dCw0txNQwVbdB9bWBMvrrvQeLuItcs1c_8UL-RZnO6rsnlOeXfdquozGubWrdlnO9usLioXfZoSvr63XSC5AZ8pUAsk43ysbVGJBbzSkNMG_BdwOZYJFp0u6PMnLnmThdBgnR-7wrRSQ1kF6ts0MdsXjX1LfgQmY1RfPcjF0PcpI7Vs1ZlFmg-RIFQEOm1T3uMcnDFndQCsfGhgWyXjsjdaaqme_DbxIKWJWDYBQ",
+    backgroundImage: "/assets/hero/hero-1.jpg",
     ctaCatalogText: "Ver Catálogo Completo",
     ctaHowToBuyText: "¿Cómo Comprar por WhatsApp?",
     valueProps: [
@@ -139,7 +139,7 @@ export const BRAND: BrandConfig = {
     description: "Despachamos pedidos en menos de 24 horas hábiles una vez acreditado el pago o coordinado el expreso.",
     // Video nativo con placeholder funcional MP4 accesible de forma fiable
     videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    posterUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuCLlkvwVSjJK2mgQ8z-1hB8RtPCwal7sUC0NnC623p4lfPlhdnw-l4Zrtkh9rD6n17aL-1_DdP01aLuKHe-Qh7rFVOVNpTP-mskvM7q_pSjKstSq0FFiKEFtH3NSWh6Ns6efxdZNWFy9KiYr9bpGLXWooRY4j_L-HyLZNv3yJVbc9vgjzRFKpBfVromx1YYOl4bd3d-zTzYRSqTwSCmYdu1LWRcxe_zk9BywummsPI0JzgR9MwJw38KmA",
+    posterUrl: "/assets/hero/como-comprar-1.jpg",
     badge: "GUÍA INTERACTIVA",
     duration: "0:45 MIN",
     caption: "Audio en español • Demostración de armado de pedido y despacho por flete o Correo Argentino.",

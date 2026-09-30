@@ -83,10 +83,10 @@ export const PRODUCTS: Product[] = [
       { name: 'Verde Militar (Olive Drab)', hex: '#3a4439' }
     ],
     images: [
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBa1FGUARxgdXlG-1tXyc7xHKjpZB3IenZyGUa-9GFbXaNjj08GkncbyNk1UVkKbr1Q07JNlLAjX5x6vP9lasHffzUUzNHWBjlpL-8qXFSqjT-eZ3vB1njG8u6g5l0Ia9axeWgNKWLji0y3XRrlMPE0QR8xeXbMJrC1O5We9LPokQdj9ESGidk6NEMKtc3PCKlprA1DPpXy8PoTBXQ-jgRJ2uEt6GWSwF-f7MPLod-oqIoADjrdFnnC7g',
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBU9WdZhuGrfpmyxct9KTMHSABZdsBX5becojW2hwZy14RyJ5QDZd6BlMrQASBzncM3b1BUk7XqlaiWS1dVt_HZEvnakwNq6Owqr2aKG3dm7vBpKUy-TpMZIu5SPnOrkkLEhKkOpDCLkieHZxtqLvDaYkql7VLckzdPQ0LMQdREulp25sdHbPmLbgqWBBfdv6Kl2l_j9SLiNP7ah2qIDe63mCZtGQcH2uizGZskBilUhxAm07DCHhJG_Q',
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuAuXc1P3c50Rh0KCd4gj30vjy_WSWXYwWvC81ZaUV2SiNkJB8JUJ9BMshRcYrr9LVETmH8jV6csS1e3jvmDTKwH6TfOhpdrHKYWJOnA40G4QGUOLqb_1AdEc_CwHkRlWbWhy6mHvgCZuDuAXwxpd3fOXzEZaMPDEr3WZKjoU7iYg0F83BakLGL7uyLAov5uqB3qgex2XlcRM_YawXXfqY1hWJxGA7utiO_8J_tN-rW8hHGXzm4SWf9L_g',
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuB5t0ddq008m0IefSbLAzY14rP7ardlx8KsQnKJB22Cgvbuk0zPIQPaCV__HeeYSMg2wn1TnKkaHkSCKB1JXHM4dEwi28rAZRfelEx5cMhgMcbMwwxyt5zIK2WVQx9v2fYemNHoXVSDz7-APdX8fKI5dlnb4D0sheibynjyKEzOguxrH3VMDbIFdZ53TmW4O8m0QXhxuhjIsO-SNlEt4BUmSRUNARwXyTh-y21tQkBB1obZD1zDi3iurw'
+      '/assets/products/campera-chore-canvas.jpg',
+      '/assets/products/campera-chore-canvas-2.jpg',
+      '/assets/products/campera-chore-canvas-3.jpg',
+      '/assets/products/campera-chore-canvas-4.jpg'
     ],
     description: 'Lona de algodón 100% encerado ligero, botones de bronce matrizados y 3 bolsillos de carga exterior reforzados.',
     extendedDescription: 'Confeccionada para cuadrillas de taller, obras y uso diario en intemperie. Resistencia abrasiva de grado industrial con holgura funcional pensada para calzar con un buzo o camisa de abrigo debajo.',
@@ -118,7 +118,7 @@ export const PRODUCTS: Product[] = [
       { name: 'Negro Azabache', hex: '#1e1f20' }
     ],
     images: [
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuD-s44ieIudTWo8k-MJzdWsOoZ1YWAq48exSLpfqSOnh_RPuIGLUsEJw-Y5agnn-xyeGWVMdpVtuhiB6lOWG7Z4HaZ0bpUFlGTsa1CTqXAr3IgKwqIe1pf9hg2j0SP7TjMTPNVeGttr2qErwNr88hTnSGClehttvyrt40g1E69de91DL1hYl5-2YF2-uSkdHHamKwnWFjx9adPZOvcOIwl0mOYMu9Z_5kAsK0RVz_Utm8CJwwvZ0lI76Q'
+      '/assets/products/pantalon-cargo-ripstop.jpg'
     ],
     description: 'Tejido antidesgarro con rodillas preformadas dobles, tiro alto para trabajo y bolsillos fuelle con velcro militar.',
     extendedDescription: 'Diseñado para instaladores, mecánicos y cuadrillas en movimiento continuo. Cuenta con 6 bolsillos estratégicos con atraques en zigzag y pasacintos reforzados para portaherramientas.',
@@ -149,7 +149,7 @@ export const PRODUCTS: Product[] = [
       { name: 'Gris Melange + Carbón', hex: '#505558' }
     ],
     images: [
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuCqdDv0rXHqtpTVzKz8g6FC3bQi6ZEa45n5E7Iq-SjXKwkxcrfCx9bEY8k4QLaGlCRh0viiyL7c_gVomm2NbGYw34vEjoVLjOZ8dpssWAUuqL1_Q4UavEqq1MDxw8L9QevNEPv_PDK6HTpl8oB2wueWj5_eww5Bh3Ef4hZp1PVRvmR2UMpsIgk3utNYhxjHe0COL3qIvTysQMKkUfWt7HqpUy6nuLNVfLQH24QJmsscwzo6kuTV35ASyg'
+      '/assets/products/pack-remeras-heavy-duty.jpg'
     ],
     description: 'Gramaje auténtico 210g sin achique. Cuello en ribb reforzado con tapa costura de hombro a hombro.',
     extendedDescription: 'Remeras de verdadero algodón peinado 24/1 pesado. No se desbocan ni deforman tras los lavados de taller ni exigen cuidados especiales. Vienen en pack sellado de a dos unidades.',
@@ -179,7 +179,7 @@ export const PRODUCTS: Product[] = [
       { name: 'Gris Oscuro Desgastado', hex: '#373a3c' }
     ],
     images: [
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuC5Yu4xxvGqYcpqwM0zmSeqTCvaa9pDNicTcEJ45GbrGlmTb7AWPcDALcB9PyWV2kXYc3S9Ks7JcBEdzU6m6ofJNTw_9NAp51LzNZTH3hilF42DKkIPrOWxHh8g37q_GnmitOt71dX2oZM4HMgMeBgrC5if6oD7hcmqFqite2t_EsZBgSWKiGQRJcKeLxMa4lt1WN9Od7dfS5K4UFYZxpF8GXe36ZLyvVrAzFqgDz1GnmD27era7YnPGQ'
+      '/assets/products/camisa-trabajo-denim.jpg'
     ],
     description: 'Sarga de algodón puro pre-lavado. Botonadura de pasta industrial y bolsillo para lápiz o calibre.',
     extendedDescription: 'Construida para jornadas completas en obra, fábrica o campo. Suave al tacto pero con grosor de 9.5 oz que resiste roces sin desgarrar.',
@@ -209,7 +209,7 @@ export const PRODUCTS: Product[] = [
       { name: 'Negro Grafito', hex: '#212224' }
     ],
     images: [
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBkbIUJVRyiPvE71AT1LBC-lwMtZg3QpIdhBnkk-nwZZ4jnKs22R9LSxIldu3tXjVGmxYo5z5dKxCrHggJgveyf8Ov8w9cx-chYMOQrCa8ATCGyqlTzgVMKzpg35MvX_wMnVM-9UjGoMh2UoRplX3dZKc6-IrlhyjoJIJs43lfzK1T68BetyFmT0uPcEv4wMqVcS48Z3KeY-2oeEsa3mwkYDUz6MTBgvhe8NHUFPNNpqfnmAYBmyjRNBQ'
+      '/assets/products/buzo-frisa-gruesa.jpg'
     ],
     description: 'Interior esmerilado ultra térmico. Puños y cintura con elastómero que no ceden con los lavados de faena.',
     extendedDescription: 'Frisa invisible 320g pesada con afelpado interno que conserva el calor corporal sin limitar el movimiento.',
@@ -239,7 +239,7 @@ export const PRODUCTS: Product[] = [
       { name: 'Verde Bosque', hex: '#2b362c' }
     ],
     images: [
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuAwl9SXfeEhUcd3BdYwU0Au-zZ2_zQMoY6X-knf0djY-3YjjpGLAMfLa2RZ1pP-eK4LI65kCqLkwQYkmwfXIDQIXutDfoUxFJLc5XJ4yjNAoF1vpX6SjVq3CcSjBuc7Ksv8SjsGCnIK10k6PrKtOV7pWYZFTF4fI6jvmeqfqWnUClQAowazZDite61xoSxUHIQq3zM9wDBx87Zu1AO-nztQdf2cdO7gusiyWKmNTomBT3gGDHSxrphaTw'
+      '/assets/products/chaleco-utilitario-termico.jpg'
     ],
     description: 'Línea acolchada liviana con 4 compartimentos frontales, bolsillo interno con cierre y espalda extendida para protección lumbar.',
     extendedDescription: 'Ideal para tareas en intemperie que exigen brazos libres y torso abrigado. Forro interior de tafeta deslizante para poner y sacar sobre buzos o camisas sin trabarse.',
