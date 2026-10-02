@@ -252,6 +252,181 @@ export const PRODUCTS: Product[] = [
       seams: 'Acolchado en rombos con atraque en boca de bolsillos.',
       hardware: 'Cremallera central de diente grueso metálico y broches a presión.'
     }
+  },
+  {
+    id: 'campera-parka-corderito',
+    sku: 'GLP-PRK-44',
+    name: 'Parka Corta Canvas Forro Corderito',
+    category: 'camperas',
+    categoryLabel: 'ART. 4400 • ABRIGO DE INTEMPERIE',
+    price: 78000,
+    wholesalePrice: 60500,
+    wholesaleMinUnits: 6,
+    wholesaleBadge: 'Mayorista x6',
+    sizes: ['M', 'L', 'XL', 'XXL', '3XL'],
+    colors: [
+      { name: 'Negro Taller', hex: '#1f2022' },
+      { name: 'Marrón Tabaco', hex: '#634b35' },
+      { name: 'Verde Militar', hex: '#3a4439' }
+    ],
+    images: ['/assets/products/campera-parka-corderito.jpg'],
+    description: 'Lona encerada con forro corderito, capucha ajustable y cierre doble con tapa de broches de bronce.',
+    extendedDescription: 'Pensada para depósitos, obras y trabajo a la intemperie en pleno invierno. Mantiene el calor sin perder libertad de movimiento y la lona encerada repele lluvia y salpicaduras.',
+    lot: '2025-Q1',
+    origin: 'TALLER INDUSTRIAL BUENOS AIRES',
+    badge: 'INVIERNO',
+    materialTag: 'LONA 12 OZ + CORDERITO',
+    specs: {
+      fabric: 'Lona 100% algodón encerada 12 oz con forro interior de corderito sintético.',
+      seams: 'Costuras dobles reforzadas con atraque en bolsillos y capucha.',
+      hardware: 'Cierre metálico doble corredera y broches de bronce envejecido.'
+    },
+    relatedProductId: 'pantalon-carpintero-canvas'
+  },
+  {
+    id: 'jean-industrial-rigido',
+    sku: 'GLP-JNS-24',
+    name: 'Jean Industrial Rígido 14 oz',
+    category: 'pantalones',
+    categoryLabel: 'ART. 2410 • JEANERÍA PESADA',
+    price: 41000,
+    wholesalePrice: 31800,
+    wholesaleMinUnits: 10,
+    wholesaleBadge: 'Mayorista x10',
+    sizes: ['40', '42', '44', '46', '48'],
+    colors: [
+      { name: 'Azul Índigo Rígido', hex: '#1c3144' },
+      { name: 'Negro Rígido', hex: '#1e1f20' },
+      { name: 'Azul Lavado Oscuro', hex: '#2f4a63' }
+    ],
+    images: ['/assets/products/jean-industrial-rigido.jpg'],
+    description: 'Denim rígido de 14 oz sin elastano, corte recto y remaches de bronce en todos los puntos de tensión.',
+    extendedDescription: 'Un jean de verdad para trabajo pesado: aguanta roce, grasa y lavados de taller sin deformarse. Se va marcando con el uso y mejora con los meses.',
+    lot: '2025-Q1',
+    origin: 'TALLER INDUSTRIAL BUENOS AIRES',
+    materialTag: 'DENIM 14 OZ',
+    specs: {
+      fabric: 'Denim 100% algodón rígido 14 oz.',
+      seams: 'Costura doble pespunteada en hilo ocre y atraques en bolsillos.',
+      hardware: 'Remaches de bronce y botón de alta presión con cierre metálico.'
+    },
+    relatedProductId: 'camisa-trabajo-denim'
+  },
+  {
+    id: 'pantalon-carpintero-canvas',
+    sku: 'GLP-CPT-26',
+    name: 'Pantalón Carpintero Canvas Doble Rodilla',
+    category: 'pantalones',
+    categoryLabel: 'ART. 2620 • PANTALONERÍA',
+    price: 44500,
+    wholesalePrice: 34200,
+    wholesaleMinUnits: 8,
+    wholesaleBadge: 'Mayorista x8',
+    sizes: ['40', '42', '44', '46', '48'],
+    colors: [
+      { name: 'Marrón Tabaco', hex: '#634b35' },
+      { name: 'Carbón', hex: '#2a2b2c' },
+      { name: 'Verde Olive', hex: '#3a4439' }
+    ],
+    images: ['/assets/products/pantalon-carpintero-canvas.jpg'],
+    description: 'Lona pesada con doble rodilla reforzada, portamartillo y bolsillo para regla.',
+    extendedDescription: 'Hecho para carpinteros, instaladores y oficios de piso y rodilla. Los refuerzos dobles duplican la vida útil de la zona que más se gasta.',
+    lot: '2025-Q1',
+    origin: 'TALLER INDUSTRIAL BUENOS AIRES',
+    badge: 'NUEVO',
+    materialTag: 'LONA 10 OZ',
+    specs: {
+      fabric: 'Lona 100% algodón 10 oz con refuerzo doble en rodillas.',
+      seams: 'Costura triple en entrepierna y atraques en portaherramientas.',
+      hardware: 'Cierre YKK metálico y botón de alta presión.'
+    },
+    relatedProductId: 'campera-chore-canvas'
+  },
+  {
+    id: 'chomba-pique-pesada',
+    sku: 'GLP-CHM-12',
+    name: 'Chomba Piqué Pesada de Trabajo',
+    category: 'remeras',
+    categoryLabel: 'ART. 1220 • CHOMBAS',
+    price: 24500,
+    wholesalePrice: 18300,
+    wholesaleMinUnits: 12,
+    wholesaleBadge: 'Mayorista x12',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: [
+      { name: 'Azul Marino', hex: '#1c2833' },
+      { name: 'Gris Melange', hex: '#505558' },
+      { name: 'Negro', hex: '#191c1e' }
+    ],
+    images: ['/assets/products/chomba-pique-pesada.jpg'],
+    description: 'Piqué de algodón pesado, cuello y puños en ribb reforzado, botonadura de dos botones.',
+    extendedDescription: 'La chomba para uniformes de cuadrilla y atención al público: se ve prolija toda la jornada y aguanta los lavados industriales sin deformarse ni perder color.',
+    lot: '2025-Q1',
+    origin: 'HILANDERÍA BUENOS AIRES',
+    materialTag: 'PIQUÉ 220G',
+    specs: {
+      fabric: 'Piqué 100% algodón peinado de 220 gramos.',
+      seams: 'Tapa costura en hombros y dobladillos dobles.',
+      hardware: 'Botones de pasta de 4 agujeros y cuello en ribb indeformable.'
+    }
+  },
+  {
+    id: 'remera-manga-larga-heavy-duty',
+    sku: 'GLP-REM-14',
+    name: 'Remera Manga Larga Heavy Duty 24/1',
+    category: 'remeras',
+    categoryLabel: 'ART. 1140 • BÁSICOS PESADOS',
+    price: 25500,
+    wholesalePrice: 19000,
+    wholesaleMinUnits: 12,
+    wholesaleBadge: 'Mayorista x12',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    colors: [
+      { name: 'Gris Melange', hex: '#505558' },
+      { name: 'Azul Marino', hex: '#1c2833' },
+      { name: 'Verde Militar', hex: '#3a4439' }
+    ],
+    images: ['/assets/products/remera-manga-larga-heavy-duty.jpg'],
+    description: 'Algodón peinado 24/1 de 210g, manga larga y cuello en ribb reforzado para abrigar bajo la campera.',
+    extendedDescription: 'La base térmica de las jornadas frías: gramaje real, no se desboca ni se achica y entra cómoda debajo de un buzo o una campera.',
+    lot: '2025-Q1',
+    origin: 'HILANDERÍA BUENOS AIRES',
+    badge: 'NUEVO',
+    materialTag: 'ALGODÓN 100% PEINADO',
+    specs: {
+      fabric: 'Jersey 24/1 algodón 100% peinado pesado 210 GSM.',
+      seams: 'Tapa costura en escote trasero y puños con costura doble.',
+      hardware: 'Ribb de cuello y puños con elastómero 1x1 indeformable.'
+    },
+    relatedProductId: 'buzo-canguro-frisa'
+  },
+  {
+    id: 'buzo-canguro-frisa',
+    sku: 'GLP-BZC-52',
+    name: 'Buzo Canguro Capucha Frisa Pesada',
+    category: 'chalecos',
+    categoryLabel: 'ART. 5250 • ABRIGO CLÁSICO',
+    price: 36500,
+    wholesalePrice: 27500,
+    wholesaleMinUnits: 8,
+    wholesaleBadge: 'Mayorista x8',
+    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
+    colors: [
+      { name: 'Negro Grafito', hex: '#212224' },
+      { name: 'Gris Melange Industrial', hex: '#7a7e80' },
+      { name: 'Azul Marino Taller', hex: '#16222f' }
+    ],
+    images: ['/assets/products/buzo-canguro-frisa.jpg'],
+    description: 'Frisa pesada con interior afelpado, capucha forrada, bolsillo canguro y puños y cintura en ribb.',
+    extendedDescription: 'Abrigo diario para taller, depósito y calle. El interior esmerilado retiene el calor y la capucha doble protege cuello y nuca sin limitar el movimiento.',
+    lot: '2025-Q1',
+    origin: 'TEJEDURÍA BUENOS AIRES',
+    materialTag: 'FRISA 340G',
+    specs: {
+      fabric: 'Frisa de algodón y poliéster 70/30 de 340 gramos.',
+      seams: 'Overlock de 5 hilos con refuerzo en capucha, hombros y bolsillo.',
+      hardware: 'Cordones de algodón con puntera metálica y ribb con elastómero.'
+    }
   }
 ];
 
