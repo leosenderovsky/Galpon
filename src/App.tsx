@@ -42,7 +42,7 @@ const MainAppContent: React.FC = () => {
         {BRAND.testimonials.length > 0 && <Testimonials />}
       </main>
 
-      {/* Footer with Mandatory sender.ia Legend */}
+      {/* Footer with mandatory demonstration legend */}
       <Footer />
 
       {/* Interactive Overlays & Modals */}

@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const projectRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const sourceRoot = path.join(projectRoot, 'src');
 const assetsRoot = path.join(projectRoot, 'public', 'assets');
+const brandConfigPath = path.join(sourceRoot, 'brand.config.ts');
 const strict = process.argv.includes('--strict');
 const allowedPlaceholders = new Set(['/assets/video/como-comprar.mp4']);
 const sourceExtensions = /\.(?:[cm]?[jt]sx?|vue|svelte|html)$/i;
@@ -39,6 +40,15 @@ for (const sourceFile of sourceFiles) {
     referencedAssets.add(match[2]);
   }
 }
+
+const brandConfig = await readFile(brandConfigPath, 'utf8');
+const prototypeBrandingMatch = brandConfig.match(/assetsWithPrototypeBranding:\s*\[([\s\S]*?)\]/);
+if (!prototypeBrandingMatch) {
+  throw new Error('No se encontró BRAND.assetsWithPrototypeBranding en src/brand.config.ts');
+}
+const prototypeBrandingAssets = new Set(
+  [...prototypeBrandingMatch[1].matchAll(/(['"])(\/assets\/[^'"]+)\1/g)].map((match) => match[2])
+);
 
 const referencedFiles = new Set();
 const missingAssets = [];
@@ -100,6 +110,23 @@ if (heavyFiles.length === 0) {
   for (const file of heavyFiles) console.warn(file);
 }
 
-if (missingAssets.length > 0 || (strict && placeholders.length > 0)) {
+console.log('\nMARCA DEL PROTOTIPO:');
+if (prototypeBrandingAssets.size === 0) {
+  console.log('Ninguna');
+} else {
+  for (const assetPath of [...prototypeBrandingAssets].sort()) {
+    const message = `${assetPath} — regenerar sin la marca ficticia o con la del cliente`;
+    if (strict) {
+      console.error(`ERROR ${message}`);
+    } else {
+      console.warn(`ADVERTENCIA ${message}`);
+    }
+  }
+}
+
+if (
+  missingAssets.length > 0
+  || (strict && (placeholders.length > 0 || prototypeBrandingAssets.size > 0))
+) {
   process.exitCode = 1;
 }

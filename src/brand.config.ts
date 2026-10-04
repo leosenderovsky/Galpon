@@ -7,8 +7,11 @@
  * Todos los componentes visuales consumen directamente esta configuración.
  */
 
+import { getDemoLegend } from './demoBanner.config.ts';
+
 export interface BrandConfig {
   name: string;
+  legalName?: string;
   shortName: string;
   tagline: string;
   foundedYear: string;
@@ -142,10 +145,23 @@ export interface BrandConfig {
 
   // Mandatory Demo Footer Legend
   demoLegend: string;
+  demo: {
+    prefillCart: boolean;
+    customer: {
+      fullName: string;
+      phone: string;
+      email: string;
+      street: string;
+      postalCode: string;
+      notes: string;
+    };
+  };
+  assetsWithPrototypeBranding: string[];
 }
 
 export const BRAND: BrandConfig = {
   name: "GALPÓN",
+  legalName: "GALPÓN INDUMENTARIA",
   shortName: "G",
   tagline: "INDUMENTARIA Y TRABAJO",
   foundedYear: "1978",
@@ -317,5 +333,22 @@ export const BRAND: BrandConfig = {
     }
   ],
 
-  demoLegend: "Marca, productos y precios de ejemplo — prototipo de demostración de sender.ia"
+  demoLegend: getDemoLegend(),
+  demo: {
+    prefillCart: false,
+    customer: {
+      fullName: "Juan Carlos Pérez",
+      phone: "+54 9 11 2345-6789",
+      email: "juancarlos.perez@industria.com.ar",
+      street: "Calle Falsa 123",
+      postalCode: "1824",
+      notes: "Horario de entrega por la mañana de 09:00 a 13:00 hs."
+    }
+  },
+  assetsWithPrototypeBranding: [
+    "/assets/hero/hero-1.jpg",
+    "/assets/hero/como-comprar-1.jpg",
+    "/assets/products/campera-chore-canvas-2.jpg",
+    "/assets/products/campera-chore-canvas-4.jpg"
+  ]
 };

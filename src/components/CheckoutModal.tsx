@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
-import { formatARS } from '../products';
+import { formatARS, getProductImageDimensions } from '../products';
 import { BRAND } from '../brand.config';
 
 export const CheckoutModal: React.FC = () => {
@@ -456,7 +456,11 @@ export const CheckoutModal: React.FC = () => {
                         <img
                           src={item.product.images[0]}
                           alt={item.product.name}
+                          width={getProductImageDimensions(item.product.images[0])?.width}
+                          height={getProductImageDimensions(item.product.images[0])?.height}
                           className="w-11 h-11 object-cover bg-brand-surface-subtle border border-brand-border"
+                          loading="lazy"
+                          decoding="async"
                         />
                         <div className="flex flex-col">
                           <span className="font-body text-xs uppercase font-bold text-brand-primary-deep">

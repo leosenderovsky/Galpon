@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
-import { formatARS } from '../products';
+import { formatARS, getProductImageDimensions } from '../products';
 import { BRAND } from '../brand.config';
 
 export const CartDrawer: React.FC = () => {
@@ -136,7 +136,11 @@ export const CartDrawer: React.FC = () => {
                     <img
                       src={item.product.images[0]}
                       alt={item.product.name}
+                      width={getProductImageDimensions(item.product.images[0])?.width}
+                      height={getProductImageDimensions(item.product.images[0])?.height}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <span className="absolute bottom-0 left-0 bg-brand-primary text-white font-body text-[10px] px-1.5 py-0.5 uppercase font-bold">
                       {item.size}

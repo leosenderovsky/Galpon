@@ -55,6 +55,28 @@ export interface Product {
   relatedProductId?: string; // ID de prenda sugerida para conjunto
 }
 
+const PRODUCT_IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  '/assets/products/buzo-canguro-frisa.jpg': { width: 1024, height: 1024 },
+  '/assets/products/buzo-frisa-gruesa.jpg': { width: 512, height: 279 },
+  '/assets/products/camisa-trabajo-denim.jpg': { width: 512, height: 279 },
+  '/assets/products/campera-chore-canvas.jpg': { width: 512, height: 512 },
+  '/assets/products/campera-chore-canvas-2.jpg': { width: 512, height: 279 },
+  '/assets/products/campera-chore-canvas-3.jpg': { width: 512, height: 279 },
+  '/assets/products/campera-chore-canvas-4.jpg': { width: 512, height: 279 },
+  '/assets/products/campera-parka-corderito.jpg': { width: 1024, height: 1024 },
+  '/assets/products/chaleco-utilitario-termico.jpg': { width: 512, height: 279 },
+  '/assets/products/chomba-pique-pesada.jpg': { width: 1024, height: 1024 },
+  '/assets/products/jean-industrial-rigido.jpg': { width: 1024, height: 1024 },
+  '/assets/products/pack-remeras-heavy-duty.jpg': { width: 512, height: 512 },
+  '/assets/products/pantalon-cargo-ripstop.jpg': { width: 512, height: 512 },
+  '/assets/products/pantalon-carpintero-canvas.jpg': { width: 1024, height: 1024 },
+  '/assets/products/remera-manga-larga-heavy-duty.jpg': { width: 1024, height: 1024 },
+};
+
+export function getProductImageDimensions(src: string) {
+  return PRODUCT_IMAGE_DIMENSIONS[src];
+}
+
 export const CATEGORIES = [
   { id: 'all', label: 'Todos' },
   { id: 'remeras', label: 'Remeras y Chombas' },

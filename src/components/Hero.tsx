@@ -16,6 +16,11 @@ export const Hero: React.FC = () => {
           <img
             src={BRAND.hero.backgroundImage}
             alt={`${BRAND.name} - ${BRAND.tagline}`}
+            width={512}
+            height={286}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover object-center opacity-30 filter contrast-125 saturate-75"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-primary via-brand-primary/85 to-brand-primary/40"></div>

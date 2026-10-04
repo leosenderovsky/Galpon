@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Product, formatARS, PRODUCTS } from '../products';
+import { Product, formatARS, PRODUCTS, getProductImageDimensions } from '../products';
 import { getSizeGuideForProduct } from '../sizeGuide';
 import { useCart } from '../context/CartContext';
 import { BRAND } from '../brand.config';
@@ -92,7 +92,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                 <img
                   src={selectedImage}
                   alt={product.name}
+                  width={getProductImageDimensions(selectedImage)?.width}
+                  height={getProductImageDimensions(selectedImage)?.height}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 {/* SKU Stamped Tag */}
@@ -124,7 +128,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                       <img
                         src={img}
                         alt={`Vista ${idx + 1}`}
+                        width={getProductImageDimensions(img)?.width}
+                        height={getProductImageDimensions(img)?.height}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <span className="absolute inset-x-0 bottom-0 bg-brand-primary-deep/80 text-white font-body text-[9px] py-0.5 text-center truncate px-0.5">
                         {idx === 0 ? 'Frente' : idx === 1 ? 'Botones' : idx === 2 ? 'Remaches' : 'Costura'}

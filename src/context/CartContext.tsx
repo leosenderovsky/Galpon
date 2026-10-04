@@ -75,49 +75,38 @@ const brandStorageSlug = BRAND.name
 const cartStorageKey = `${brandStorageSlug}_cart`;
 const customerStorageKey = `${brandStorageSlug}_customer`;
 
-// Initial sample items to populate cart directly as in the Stitch design preview
-const INITIAL_CART_ITEMS: CartItem[] = [
-  {
-    id: 'campera-chore-canvas-L-Carbón Oscuro (Black Duck)',
-    productId: 'campera-chore-canvas',
-    product: PRODUCTS[0],
-    size: 'L',
-    color: 'Carbón Oscuro',
-    quantity: 1,
-    unitPrice: 54000
-  },
-  {
-    id: 'pantalon-cargo-ripstop-44-Khaki Arena',
-    productId: 'pantalon-cargo-ripstop',
-    product: PRODUCTS[1],
-    size: '44',
-    color: 'Khaki Arena',
-    quantity: 1,
-    unitPrice: 38500
-  },
-  {
-    id: 'pack-remeras-heavy-duty-L-Azul Marino + Verde Militar',
-    productId: 'pack-remeras-heavy-duty',
-    product: PRODUCTS[2],
-    size: 'L',
-    color: 'Azul Marino + Verde Oliva',
-    quantity: 1,
-    unitPrice: 22000
-  }
-];
+const getInitialCartItems = (): CartItem[] => BRAND.demo.prefillCart
+  ? PRODUCTS.slice(0, 3).map(product => {
+    const size = product.sizes[0];
+    const color = product.colors[0].name;
+    return {
+      id: `${product.id}-${size}-${color}`,
+      productId: product.id,
+      product,
+      size,
+      color,
+      quantity: 1,
+      unitPrice: product.price
+    };
+  })
+  : [];
 
-const INITIAL_CUSTOMER_DETAILS: CustomerDetails = {
-  fullName: 'Juan Carlos Pérez',
-  phone: '+54 9 11 2345-6789',
-  email: 'juancarlos.perez@industria.com.ar',
+const getInitialCustomerDetails = (): CustomerDetails => ({
+  ...(BRAND.demo.prefillCart
+    ? BRAND.demo.customer
+    : {
+      fullName: '',
+      phone: '',
+      email: '',
+      street: '',
+      postalCode: '',
+      notes: ''
+    }),
   deliveryMethod: 'envio',
   deliveryMethodLabel: 'Envío a Domicilio (Correo Argentino / Andreani)',
-  street: 'Calle Falsa 123',
   floor: '',
-  postalCode: '1824',
-  city: BRAND.address.city,
-  notes: 'Horario de entrega por la mañana de 09:00 a 13:00 hs.'
-};
+  city: BRAND.address.city
+});
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [items, setItems] = useState<CartItem[]>(() => {
@@ -129,7 +118,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     } catch {
       // fallback
     }
-    return INITIAL_CART_ITEMS;
+    return getInitialCartItems();
   });
 
   const [customerDetails, setCustomerDetails] = useState<CustomerDetails>(() => {
@@ -141,7 +130,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     } catch {
       // fallback
     }
-    return INITIAL_CUSTOMER_DETAILS;
+    return getInitialCustomerDetails();
   });
 
   const [isCartOpen, setIsCartOpen] = useState(false);

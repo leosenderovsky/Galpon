@@ -152,7 +152,7 @@ export const Footer: React.FC = () => {
                   <span className="material-symbols-outlined text-sm">mail</span>
                 </a>
                 <a
-                  href={`tel:${BRAND.whatsapp.rawNumber}`}
+                  href={`tel:+${BRAND.whatsapp.rawNumber}`}
                   aria-label="Teléfono"
                   className="p-2 bg-brand-primary-deep hover:bg-brand-secondary transition-colors text-white flex items-center justify-center border border-white/15"
                 >
@@ -183,7 +183,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Rights Bar */}
         <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 font-body text-[11px] text-brand-text-muted">
-          <p>© {new Date().getFullYear()} {BRAND.name} INDUMENTARIA. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} {BRAND.legalName ?? BRAND.name}. Todos los derechos reservados.</p>
           <div className="flex items-center gap-4">
             <span>CUIT {BRAND.cuit}</span>
             <span className="opacity-40">|</span>

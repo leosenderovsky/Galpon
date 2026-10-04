@@ -33,6 +33,11 @@ export const GalponLogo: React.FC<LogoProps> = ({
     <img
       src={source}
       alt={BRAND.logo.alt}
+      width={1024}
+      height={319}
+      loading="eager"
+      fetchPriority="high"
+      decoding="async"
       className={`${className} w-auto object-contain ${useLightFilter ? 'brightness-0 invert' : ''}`}
       onError={() => {
         if (source !== BRAND.logo.src) {

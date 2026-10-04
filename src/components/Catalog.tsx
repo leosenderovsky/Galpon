@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { PRODUCTS, CATEGORIES, Product, formatARS } from '../products';
+import { PRODUCTS, CATEGORIES, Product, formatARS, getProductImageDimensions } from '../products';
 import { useCart } from '../context/CartContext';
 
 export const Catalog: React.FC = () => {
@@ -166,8 +166,11 @@ export const Catalog: React.FC = () => {
                   <img
                     src={product.images[0]}
                     alt={product.name}
+                    width={getProductImageDimensions(product.images[0])?.width}
+                    height={getProductImageDimensions(product.images[0])?.height}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
 
                   {/* Top Status Badge */}
