@@ -1,38 +1,19 @@
 import React from 'react';
+import { BRAND } from '../brand.config';
 
 export const Testimonials: React.FC = () => {
-  const testimonials = [
-    {
-      initials: 'MR',
-      name: 'Martín Rodríguez',
-      role: 'Logística & Cargas Rosario',
-      text: '“Compramos 25 camperas canvas para los mecánicos de la flota. Aguantan el roce con grasa y fierros pesados sin deshilacharse. Excelente atención y entrega en 48hs a Rosario.”',
-      color: 'bg-[#152536]'
-    },
-    {
-      initials: 'EP',
-      name: 'Esteban Peralta',
-      role: 'Taller Herrería Peralta - Córdoba',
-      text: '“Las remeras 24/1 son verdaderamente pesadas, no tienen nada que ver con lo que te venden habitualmente que se deforma al segundo lavado. El cuello queda siempre intacto.”',
-      color: 'bg-[#7c5733]'
-    },
-    {
-      initials: 'GD',
-      name: 'Gastón Domínguez',
-      role: 'Electromecánica Sur - Neuquén',
-      text: '“Pedimos curva cerrada de pantalones ripstop para cuadrilla de tendido eléctrico. Calce cómodo para trepar y arneses, los refuerzos de rodilla son clave.”',
-      color: 'bg-[#000f20]'
-    }
-  ];
+  const testimonials = BRAND.testimonials;
+
+  if (testimonials.length === 0) return null;
 
   return (
-    <section className="w-full bg-[#f8f9fb] py-16 sm:py-20 border-b border-[#e1e2e4]">
+    <section className="w-full bg-brand-background py-16 sm:py-20 border-b border-brand-border-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex flex-col md:flex-row items-baseline justify-between gap-2 mb-10">
-          <h2 className="font-headline text-2xl sm:text-4xl uppercase text-[#000f20] tracking-tight">
+          <h2 className="font-headline text-2xl sm:text-4xl uppercase text-brand-primary-deep tracking-tight">
             EN EL CUERO DE QUIENES LABURAN
           </h2>
-          <span className="font-body text-xs uppercase text-[#44474c] font-bold tracking-wider">
+          <span className="font-body text-xs uppercase text-brand-text-secondary font-bold tracking-wider">
             CLIENTES VERIFICADOS EN TODO EL PAÍS
           </span>
         </div>
@@ -41,22 +22,22 @@ export const Testimonials: React.FC = () => {
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-[#ffffff] p-6 shadow-sm border border-[#e1e2e4] flex flex-col justify-between gap-6"
+              className="bg-white p-6 shadow-sm border border-brand-border-soft flex flex-col justify-between gap-6"
             >
-              <p className="font-body text-sm sm:text-base text-[#191c1e] italic leading-relaxed">
+              <p className="font-body text-sm sm:text-base text-brand-text italic leading-relaxed">
                 {t.text}
               </p>
-              <div className="flex items-center gap-3 pt-3 border-t border-[#f3f4f6]">
+              <div className="flex items-center gap-3 pt-3 border-t border-brand-surface-muted">
                 <div
-                  className={`w-10 h-10 ${t.color} text-[#ffffff] flex items-center justify-center font-headline text-base font-bold shadow-sm`}
+                  className={`w-10 h-10 ${t.color} text-white flex items-center justify-center font-headline text-base font-bold shadow-sm`}
                 >
                   {t.initials}
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-body text-xs sm:text-sm uppercase text-[#000f20] font-bold">
+                  <span className="font-body text-xs sm:text-sm uppercase text-brand-primary-deep font-bold">
                     {t.name}
                   </span>
-                  <span className="font-body text-[11px] text-[#44474c]">
+                  <span className="font-body text-[11px] text-brand-text-secondary">
                     {t.role}
                   </span>
                 </div>

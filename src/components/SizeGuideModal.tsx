@@ -22,12 +22,12 @@ export const SizeGuideModal: React.FC = () => {
   ];
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#000f20]/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
-      <div className="relative w-full max-w-4xl bg-[#ffffff] shadow-2xl my-auto overflow-hidden text-[#191c1e] border border-[#152536]">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-brand-primary-deep/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+      <div className="relative w-full max-w-4xl bg-white shadow-2xl my-auto overflow-hidden text-brand-text border border-brand-primary">
         {/* Header Bar */}
-        <div className="bg-[#152536] text-[#ffffff] px-5 py-3.5 flex items-center justify-between border-b border-[#ffffff]/15">
+        <div className="bg-brand-primary text-white px-5 py-3.5 flex items-center justify-between border-b border-white/15">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[#ffdcbf] text-xl">square_foot</span>
+            <span className="material-symbols-outlined text-brand-accent-light text-xl">square_foot</span>
             <h2 className="font-headline text-xl uppercase tracking-wider">
               Guía Oficial de Talles y Medidas IRAM
             </h2>
@@ -35,7 +35,7 @@ export const SizeGuideModal: React.FC = () => {
           <button
             onClick={() => setIsSizeGuideModalOpen(false)}
             aria-label="Cerrar guía de talles"
-            className="p-1 hover:bg-[#ffffff]/20 text-[#ffffff] transition-colors cursor-pointer"
+            className="p-1 hover:bg-white/20 text-white transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-2xl">close</span>
           </button>
@@ -43,7 +43,7 @@ export const SizeGuideModal: React.FC = () => {
 
         <div className="p-5 sm:p-7 flex flex-col gap-6">
           {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-2 border-b border-[#e1e2e4] pb-3">
+          <div className="flex flex-wrap items-center gap-2 border-b border-brand-border-soft pb-3">
             {guideTabs.map((tab) => {
               const isActive = selectedCategoryForGuide === tab.id;
               return (
@@ -52,8 +52,8 @@ export const SizeGuideModal: React.FC = () => {
                   onClick={() => setSelectedCategoryForGuide(tab.id)}
                   className={`px-4 py-2 font-body text-xs uppercase tracking-wider font-bold transition-all cursor-pointer border ${
                     isActive
-                      ? 'bg-[#152536] text-[#ffffff] border-[#152536] shadow-sm'
-                      : 'bg-[#edeef0] text-[#191c1e] border-[#c4c6cd] hover:bg-[#e7e8ea]'
+                      ? 'bg-brand-primary text-white border-brand-primary shadow-sm'
+                      : 'bg-brand-surface-subtle text-brand-text border-brand-border hover:bg-brand-surface-hover'
                   }`}
                 >
                   {tab.label}
@@ -63,20 +63,20 @@ export const SizeGuideModal: React.FC = () => {
           </div>
 
           {/* Guide Title & Tolerance */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-[#f3f4f6] p-3 border border-[#c4c6cd]">
-            <span className="font-body text-xs uppercase font-bold text-[#000f20]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-brand-surface-muted p-3 border border-brand-border">
+            <span className="font-body text-xs uppercase font-bold text-brand-primary-deep">
               {currentGuide.title}
             </span>
-            <span className="font-body text-[11px] text-[#7c5733] font-bold">
+            <span className="font-body text-[11px] text-brand-secondary font-bold">
               {currentGuide.tolerance} (Prenda extendida sobre mesa)
             </span>
           </div>
 
           {/* Detailed Table */}
-          <div className="overflow-x-auto w-full border border-[#c4c6cd]">
+          <div className="overflow-x-auto w-full border border-brand-border">
             <table className="w-full text-left font-body text-xs sm:text-sm">
               <thead>
-                <tr className="bg-[#152536] text-[#ffffff] font-body text-xs uppercase tracking-wider font-bold">
+                <tr className="bg-brand-primary text-white font-body text-xs uppercase tracking-wider font-bold">
                   <th className="py-3 px-4">{currentGuide.columns.size}</th>
                   <th className="py-3 px-4">{currentGuide.columns.primaryMeasure}</th>
                   <th className="py-3 px-4">{currentGuide.columns.secondaryMeasure}</th>
@@ -84,21 +84,21 @@ export const SizeGuideModal: React.FC = () => {
                   <th className="py-3 px-4 text-right">{currentGuide.columns.recommendation}</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#e1e2e4]">
+              <tbody className="divide-y divide-brand-border-soft">
                 {currentGuide.rows.map((row, idx) => (
                   <tr
                     key={row.size}
                     className={`transition-colors ${
-                      idx % 2 === 0 ? 'bg-[#ffffff]' : 'bg-[#f8f9fb]'
-                    } hover:bg-[#ffdcbf]/40`}
+                      idx % 2 === 0 ? 'bg-white' : 'bg-brand-background'
+                    } hover:bg-brand-accent-light/40`}
                   >
-                    <td className="py-3 px-4 font-headline text-lg sm:text-xl font-bold text-[#000f20]">
+                    <td className="py-3 px-4 font-headline text-lg sm:text-xl font-bold text-brand-primary-deep">
                       {row.sizeLabel || row.size}
                     </td>
-                    <td className="py-3 px-4 text-[#191c1e]">{row.chestOrWaist}</td>
-                    <td className="py-3 px-4 text-[#191c1e]">{row.length}</td>
-                    <td className="py-3 px-4 text-[#191c1e]">{row.sleeveOrInseam || '-'}</td>
-                    <td className="py-3 px-4 text-right font-medium text-[#7c5733]">
+                    <td className="py-3 px-4 text-brand-text">{row.chestOrWaist}</td>
+                    <td className="py-3 px-4 text-brand-text">{row.length}</td>
+                    <td className="py-3 px-4 text-brand-text">{row.sleeveOrInseam || '-'}</td>
+                    <td className="py-3 px-4 text-right font-medium text-brand-secondary">
                       {row.recommendedHeight || row.recommendedWeight || '-'}
                     </td>
                   </tr>
@@ -108,26 +108,26 @@ export const SizeGuideModal: React.FC = () => {
           </div>
 
           {/* Recommendations Banner */}
-          <div className="bg-[#edeef0] border border-[#c4c6cd] p-4 flex items-start gap-3">
-            <span className="material-symbols-outlined text-[#7c5733] text-xl mt-0.5">info</span>
+          <div className="bg-brand-surface-subtle border border-brand-border p-4 flex items-start gap-3">
+            <span className="material-symbols-outlined text-brand-secondary text-xl mt-0.5">info</span>
             <div className="flex flex-col gap-1">
-              <span className="font-body text-xs uppercase font-bold text-[#000f20]">
+              <span className="font-body text-xs uppercase font-bold text-brand-primary-deep">
                 Consejo de confección y calce:
               </span>
-              <p className="font-body text-xs sm:text-sm text-[#44474c] leading-relaxed">
+              <p className="font-body text-xs sm:text-sm text-brand-text-secondary leading-relaxed">
                 {currentGuide.recommendationNote}
               </p>
             </div>
           </div>
 
           {/* Footer Close */}
-          <div className="flex items-center justify-between pt-2 border-t border-[#e1e2e4]">
-            <span className="font-body text-xs text-[#44474c]">
+          <div className="flex items-center justify-between pt-2 border-t border-brand-border-soft">
+            <span className="font-body text-xs text-brand-text-secondary">
               ¿Tenés dudas con las medidas de tu cuadrilla? Consultanos en tiempo real por WhatsApp.
             </span>
             <button
               onClick={() => setIsSizeGuideModalOpen(false)}
-              className="px-6 py-2.5 bg-[#152536] text-[#ffffff] font-body text-xs uppercase tracking-wider font-bold hover:bg-[#000f20] cursor-pointer"
+              className="px-6 py-2.5 bg-brand-primary text-white font-body text-xs uppercase tracking-wider font-bold hover:bg-brand-primary-deep cursor-pointer"
             >
               Cerrar Guía
             </button>

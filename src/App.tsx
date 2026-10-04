@@ -19,7 +19,7 @@ const MainAppContent: React.FC = () => {
   const { activeProductModal, setActiveProductModal, totalItems, setIsCartOpen } = useCart();
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f8f9fb] text-[#191c1e] relative pt-10 sm:pt-9 lg:pt-8 [&>header]:top-10 sm:[&>header]:top-9 lg:[&>header]:top-8">
+    <div className="min-h-screen flex flex-col bg-brand-background text-brand-text relative pt-10 sm:pt-9 lg:pt-8 [&>header]:top-10 sm:[&>header]:top-9 lg:[&>header]:top-8">
       <PrototypeBanner />
       {/* Navigation Header */}
       <Navbar />
@@ -39,7 +39,7 @@ const MainAppContent: React.FC = () => {
         <WholesaleB2B />
 
         {/* 5. Verified Client Testimonials */}
-        <Testimonials />
+        {BRAND.testimonials.length > 0 && <Testimonials />}
       </main>
 
       {/* Footer with Mandatory sender.ia Legend */}
@@ -68,13 +68,13 @@ const MainAppContent: React.FC = () => {
         <button
           type="button"
           onClick={() => setIsCartOpen(true)}
-          className="w-full bg-[#152536] text-[#ffffff] p-3.5 shadow-2xl flex items-center justify-between font-body text-xs uppercase tracking-wider font-bold border border-[#ffffff]/20 active:scale-98 transition-transform"
+          className="w-full bg-brand-primary text-white p-3.5 shadow-2xl flex items-center justify-between font-body text-xs uppercase tracking-wider font-bold border border-white/20 active:scale-98 transition-transform"
         >
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-lg">shopping_bag</span>
             <span>Ver Mi Pedido ({totalItems})</span>
           </div>
-          <span className="bg-[#7c5733] px-2.5 py-1 text-[#ffffff]">
+          <span className="bg-brand-secondary px-2.5 py-1 text-white">
             Confirmar por WhatsApp →
           </span>
         </button>
@@ -86,7 +86,7 @@ const MainAppContent: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Abrir WhatsApp"
-        className="hidden sm:flex fixed bottom-6 right-6 z-30 w-14 h-14 bg-[#25D366] hover:bg-[#20ba59] text-[#ffffff] rounded-full items-center justify-center shadow-2xl hover:scale-105 transition-transform"
+        className="hidden sm:flex fixed bottom-6 right-6 z-30 w-14 h-14 bg-brand-whatsapp hover:bg-brand-whatsapp-hover text-white rounded-full items-center justify-center shadow-2xl hover:scale-105 transition-transform"
         title="Consultar por WhatsApp"
       >
         <span className="material-symbols-outlined text-3xl">chat</span>

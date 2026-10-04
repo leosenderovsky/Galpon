@@ -31,16 +31,16 @@ export const CheckoutModal: React.FC = () => {
   const whatsappPreview = generateWhatsAppMessage();
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#000f20]/80 backdrop-blur-sm flex items-start justify-center p-2 sm:p-4 lg:p-6">
-      <div className="relative w-full max-w-7xl bg-[#f8f9fb] shadow-2xl my-4 sm:my-8 overflow-hidden text-[#191c1e] border border-[#152536]">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-brand-primary-deep/80 backdrop-blur-sm flex items-start justify-center p-2 sm:p-4 lg:p-6">
+      <div className="relative w-full max-w-7xl bg-brand-background shadow-2xl my-4 sm:my-8 overflow-hidden text-brand-text border border-brand-primary">
         {/* Progress Stepper / Packing Slip Header */}
-        <div className="w-full bg-[#edeef0] px-4 sm:px-8 py-3.5 border-b border-[#c4c6cd]">
+        <div className="w-full bg-brand-surface-subtle px-4 sm:px-8 py-3.5 border-b border-brand-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2 sm:gap-3">
-              <span className="font-headline text-lg sm:text-xl uppercase tracking-wider text-[#000f20] font-bold">
+              <span className="font-headline text-lg sm:text-xl uppercase tracking-wider text-brand-primary-deep font-bold">
                 DESPACHO / CHECKOUT B2B & RETAIL
               </span>
-              <span className="bg-[#7c5733] text-[#ffffff] font-body text-[10px] sm:text-xs uppercase px-2 py-0.5 tracking-wider font-bold">
+              <span className="bg-brand-secondary text-white font-body text-[10px] sm:text-xs uppercase px-2 py-0.5 tracking-wider font-bold">
                 ORDEN #GP-{Math.floor(1000 + Math.random() * 9000)}
               </span>
             </div>
@@ -52,14 +52,14 @@ export const CheckoutModal: React.FC = () => {
                 onClick={() => setIsCheckoutOpen(false)}
                 className="flex items-center gap-1.5 opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
               >
-                <span className="w-5 h-5 bg-[#152536] text-[#ffffff] font-body text-xs flex items-center justify-center font-bold">
+                <span className="w-5 h-5 bg-brand-primary text-white font-body text-xs flex items-center justify-center font-bold">
                   ✓
                 </span>
-                <span className="font-body text-xs uppercase tracking-wider text-[#191c1e]">
+                <span className="font-body text-xs uppercase tracking-wider text-brand-text">
                   1. Catálogo
                 </span>
               </button>
-              <span className="text-[#c4c6cd] font-body text-xs">/</span>
+              <span className="text-brand-border font-body text-xs">/</span>
 
               <button
                 type="button"
@@ -69,30 +69,30 @@ export const CheckoutModal: React.FC = () => {
                 }}
                 className="flex items-center gap-1.5 opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
               >
-                <span className="w-5 h-5 bg-[#152536] text-[#ffffff] font-body text-xs flex items-center justify-center font-bold">
+                <span className="w-5 h-5 bg-brand-primary text-white font-body text-xs flex items-center justify-center font-bold">
                   ✓
                 </span>
-                <span className="font-body text-xs uppercase tracking-wider text-[#191c1e]">
+                <span className="font-body text-xs uppercase tracking-wider text-brand-text">
                   2. Carrito
                 </span>
               </button>
-              <span className="text-[#c4c6cd] font-body text-xs">/</span>
+              <span className="text-brand-border font-body text-xs">/</span>
 
-              <div className="flex items-center gap-1.5 bg-[#152536] text-[#ffffff] px-2.5 py-0.5">
-                <span className="w-5 h-5 bg-[#7c5733] text-[#ffffff] font-body text-xs flex items-center justify-center font-bold">
+              <div className="flex items-center gap-1.5 bg-brand-primary text-white px-2.5 py-0.5">
+                <span className="w-5 h-5 bg-brand-secondary text-white font-body text-xs flex items-center justify-center font-bold">
                   3
                 </span>
                 <span className="font-body text-xs uppercase tracking-wider font-bold">
                   3. Datos de Entrega
                 </span>
               </div>
-              <span className="text-[#c4c6cd] font-body text-xs">/</span>
+              <span className="text-brand-border font-body text-xs">/</span>
 
               <div className="flex items-center gap-1.5 opacity-40">
-                <span className="w-5 h-5 bg-[#d9dadc] text-[#191c1e] font-body text-xs flex items-center justify-center font-bold">
+                <span className="w-5 h-5 bg-brand-border-strong text-brand-text font-body text-xs flex items-center justify-center font-bold">
                   4
                 </span>
-                <span className="font-body text-xs uppercase tracking-wider text-[#191c1e]">
+                <span className="font-body text-xs uppercase tracking-wider text-brand-text">
                   4. WhatsApp
                 </span>
               </div>
@@ -100,7 +100,7 @@ export const CheckoutModal: React.FC = () => {
               {/* Close Button */}
               <button
                 onClick={() => setIsCheckoutOpen(false)}
-                className="ml-4 p-1 hover:bg-[#d9dadc] text-[#000f20] transition-colors"
+                className="ml-4 p-1 hover:bg-brand-border-strong text-brand-primary-deep transition-colors"
                 aria-label="Cerrar checkout"
               >
                 <span className="material-symbols-outlined text-xl">close</span>
@@ -112,21 +112,21 @@ export const CheckoutModal: React.FC = () => {
         {/* Workspace Body */}
         <div className="p-4 sm:p-6 lg:p-8">
           {/* Notice Bar */}
-          <div className="w-full bg-[#e7e8ea] border border-[#c4c6cd] p-4 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
+          <div className="w-full bg-brand-surface-hover border border-brand-border p-4 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-[#7c5733] text-2xl">
+              <span className="material-symbols-outlined text-brand-secondary text-2xl">
                 verified_user
               </span>
               <div>
-                <p className="font-body text-xs uppercase tracking-wider text-[#000f20] font-bold">
+                <p className="font-body text-xs uppercase tracking-wider text-brand-primary-deep font-bold">
                   Sin pasarelas externas ni comisiones extras
                 </p>
-                <p className="font-body text-xs text-[#44474c]">
+                <p className="font-body text-xs text-brand-text-secondary">
                   Coordinás stock, facturación oficial (Factura A o B) y medios de pago (Transferencia / Efectivo al retirar) directamente con nuestro equipo de almacén.
                 </p>
               </div>
             </div>
-            <span className="font-body text-xs text-[#7c5733] uppercase bg-[#ffffff] border border-[#c4c6cd] px-3 py-1 font-bold whitespace-nowrap">
+            <span className="font-body text-xs text-brand-secondary uppercase bg-white border border-brand-border px-3 py-1 font-bold whitespace-nowrap">
               Atención Humana Directa
             </span>
           </div>
@@ -135,24 +135,24 @@ export const CheckoutModal: React.FC = () => {
             {/* LEFT COLUMN: Formularios (7 Cols) */}
             <div className="lg:col-span-7 flex flex-col gap-6">
               {/* Section 1: Contact Data */}
-              <div className="bg-[#ffffff] p-5 sm:p-6 shadow-sm border border-[#e1e2e4]">
-                <div className="flex items-center justify-between mb-4 pb-2 bg-[#f3f4f6] p-2 border-b border-[#e1e2e4]">
+              <div className="bg-white p-5 sm:p-6 shadow-sm border border-brand-border-soft">
+                <div className="flex items-center justify-between mb-4 pb-2 bg-brand-surface-muted p-2 border-b border-brand-border-soft">
                   <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 bg-[#152536] text-[#ffffff] font-body text-xs flex items-center justify-center font-bold">
+                    <span className="w-6 h-6 bg-brand-primary text-white font-body text-xs flex items-center justify-center font-bold">
                       1
                     </span>
-                    <h2 className="font-headline text-lg uppercase tracking-wide text-[#000f20]">
+                    <h2 className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep">
                       Datos de Contacto & Facturación
                     </h2>
                   </div>
-                  <span className="font-body text-[11px] uppercase text-[#7c5733] font-bold">
+                  <span className="font-body text-[11px] uppercase text-brand-secondary font-bold">
                     Requerido
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="sm:col-span-2">
-                    <label className="block font-body text-xs uppercase tracking-wider text-[#191c1e] mb-1 font-bold">
+                    <label className="block font-body text-xs uppercase tracking-wider text-brand-text mb-1 font-bold">
                       Nombre Completo / Razón Social *
                     </label>
                     <input
@@ -161,12 +161,12 @@ export const CheckoutModal: React.FC = () => {
                       value={customerDetails.fullName}
                       onChange={(e) => updateCustomerDetails({ fullName: e.target.value })}
                       placeholder="Ej: Marcelo Rossi / Taller Metalúrgico SA"
-                      className="w-full bg-[#f3f4f6] text-[#000f20] px-3 py-2.5 font-body text-sm border border-[#c4c6cd] focus:bg-[#ffffff] focus:outline-none focus:ring-1 focus:ring-[#7c5733]"
+                      className="w-full bg-brand-surface-muted text-brand-primary-deep px-3 py-2.5 font-body text-sm border border-brand-border focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-body text-xs uppercase tracking-wider text-[#191c1e] mb-1 font-bold">
+                    <label className="block font-body text-xs uppercase tracking-wider text-brand-text mb-1 font-bold">
                       Teléfono / WhatsApp *
                     </label>
                     <input
@@ -175,15 +175,15 @@ export const CheckoutModal: React.FC = () => {
                       value={customerDetails.phone}
                       onChange={(e) => updateCustomerDetails({ phone: e.target.value })}
                       placeholder="+54 9 11 0000-0000"
-                      className="w-full bg-[#f3f4f6] text-[#000f20] px-3 py-2.5 font-body text-sm border border-[#c4c6cd] focus:bg-[#ffffff] focus:outline-none focus:ring-1 focus:ring-[#7c5733]"
+                      className="w-full bg-brand-surface-muted text-brand-primary-deep px-3 py-2.5 font-body text-sm border border-brand-border focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                     />
-                    <p className="font-body text-[11px] text-[#44474c] mt-1">
+                    <p className="font-body text-[11px] text-brand-text-secondary mt-1">
                       Con este número te contactamos para validar el pedido.
                     </p>
                   </div>
 
                   <div>
-                    <label className="block font-body text-xs uppercase tracking-wider text-[#191c1e] mb-1 font-bold">
+                    <label className="block font-body text-xs uppercase tracking-wider text-brand-text mb-1 font-bold">
                       Email (Opcional)
                     </label>
                     <input
@@ -191,9 +191,9 @@ export const CheckoutModal: React.FC = () => {
                       value={customerDetails.email}
                       onChange={(e) => updateCustomerDetails({ email: e.target.value })}
                       placeholder="nombre@correo.com"
-                      className="w-full bg-[#f3f4f6] text-[#000f20] px-3 py-2.5 font-body text-sm border border-[#c4c6cd] focus:bg-[#ffffff] focus:outline-none focus:ring-1 focus:ring-[#7c5733]"
+                      className="w-full bg-brand-surface-muted text-brand-primary-deep px-3 py-2.5 font-body text-sm border border-brand-border focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                     />
-                    <p className="font-body text-[11px] text-[#44474c] mt-1">
+                    <p className="font-body text-[11px] text-brand-text-secondary mt-1">
                       Para recibir la factura electrónica PDF.
                     </p>
                   </div>
@@ -201,17 +201,17 @@ export const CheckoutModal: React.FC = () => {
               </div>
 
               {/* Section 2: Delivery Method */}
-              <div className="bg-[#ffffff] p-5 sm:p-6 shadow-sm border border-[#e1e2e4]">
-                <div className="flex items-center justify-between mb-4 pb-2 bg-[#f3f4f6] p-2 border-b border-[#e1e2e4]">
+              <div className="bg-white p-5 sm:p-6 shadow-sm border border-brand-border-soft">
+                <div className="flex items-center justify-between mb-4 pb-2 bg-brand-surface-muted p-2 border-b border-brand-border-soft">
                   <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 bg-[#152536] text-[#ffffff] font-body text-xs flex items-center justify-center font-bold">
+                    <span className="w-6 h-6 bg-brand-primary text-white font-body text-xs flex items-center justify-center font-bold">
                       2
                     </span>
-                    <h2 className="font-headline text-lg uppercase tracking-wide text-[#000f20]">
+                    <h2 className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep">
                       Modalidad de Despacho
                     </h2>
                   </div>
-                  <span className="font-body text-[11px] uppercase text-[#44474c]">
+                  <span className="font-body text-[11px] uppercase text-brand-text-secondary">
                     Seleccionar 1 opción
                   </span>
                 </div>
@@ -225,8 +225,8 @@ export const CheckoutModal: React.FC = () => {
                     }
                     className={`p-3.5 cursor-pointer flex items-start gap-3 transition-colors border ${
                       customerDetails.deliveryMethod === 'envio'
-                        ? 'bg-[#e7e8ea] border-[#152536]'
-                        : 'bg-[#f8f9fb] border-[#c4c6cd] hover:bg-[#edeef0]'
+                        ? 'bg-brand-surface-hover border-brand-primary'
+                        : 'bg-brand-background border-brand-border hover:bg-brand-surface-subtle'
                     }`}
                   >
                     <input
@@ -234,18 +234,18 @@ export const CheckoutModal: React.FC = () => {
                       name="delivery_method"
                       checked={customerDetails.deliveryMethod === 'envio'}
                       onChange={() => {}}
-                      className="mt-1 accent-[#152536]"
+                      className="mt-1 accent-brand-primary"
                     />
                     <div className="flex flex-col flex-1">
                       <div className="flex items-center justify-between">
-                        <span className="font-headline text-base uppercase text-[#000f20]">
+                        <span className="font-headline text-base uppercase text-brand-primary-deep">
                           Envío a Domicilio / Taller
                         </span>
-                        <span className="font-body text-[10px] uppercase bg-[#152536] text-[#ffffff] px-2 py-0.5 font-bold">
+                        <span className="font-body text-[10px] uppercase bg-brand-primary text-white px-2 py-0.5 font-bold">
                           A Cotizar por CP
                         </span>
                       </div>
-                      <p className="font-body text-xs text-[#44474c] mt-0.5">
+                      <p className="font-body text-xs text-brand-text-secondary mt-0.5">
                         Despacho garantizado por Correo Argentino o Andreani con número de seguimiento en tiempo real.
                       </p>
                     </div>
@@ -254,12 +254,12 @@ export const CheckoutModal: React.FC = () => {
                   {/* Option 2: Retiro en Depósito */}
                   <label
                     onClick={() =>
-                      handleDeliveryChange('retiro', 'Retiro en Depósito Central (Lanús / Parque Patricios)')
+                      handleDeliveryChange('retiro', BRAND.address.pickupLabel)
                     }
                     className={`p-3.5 cursor-pointer flex items-start gap-3 transition-colors border ${
                       customerDetails.deliveryMethod === 'retiro'
-                        ? 'bg-[#e7e8ea] border-[#152536]'
-                        : 'bg-[#f8f9fb] border-[#c4c6cd] hover:bg-[#edeef0]'
+                        ? 'bg-brand-surface-hover border-brand-primary'
+                        : 'bg-brand-background border-brand-border hover:bg-brand-surface-subtle'
                     }`}
                   >
                     <input
@@ -267,18 +267,18 @@ export const CheckoutModal: React.FC = () => {
                       name="delivery_method"
                       checked={customerDetails.deliveryMethod === 'retiro'}
                       onChange={() => {}}
-                      className="mt-1 accent-[#152536]"
+                      className="mt-1 accent-brand-primary"
                     />
                     <div className="flex flex-col flex-1">
                       <div className="flex items-center justify-between">
-                        <span className="font-headline text-base uppercase text-[#000f20]">
-                          Retiro en Depósito Central
+                        <span className="font-headline text-base uppercase text-brand-primary-deep">
+                          {BRAND.address.pickupLabel}
                         </span>
-                        <span className="font-body text-[10px] uppercase bg-[#7c5733] text-[#ffffff] px-2 py-0.5 font-bold">
+                        <span className="font-body text-[10px] uppercase bg-brand-secondary text-white px-2 py-0.5 font-bold">
                           Gratis
                         </span>
                       </div>
-                      <p className="font-body text-xs text-[#44474c] mt-0.5">
+                      <p className="font-body text-xs text-brand-text-secondary mt-0.5">
                         {BRAND.address.full}. {BRAND.address.pickupHours}. Listo en 4 hs hábiles sin costo.
                       </p>
                     </div>
@@ -291,8 +291,8 @@ export const CheckoutModal: React.FC = () => {
                     }
                     className={`p-3.5 cursor-pointer flex items-start gap-3 transition-colors border ${
                       customerDetails.deliveryMethod === 'expreso'
-                        ? 'bg-[#e7e8ea] border-[#152536]'
-                        : 'bg-[#f8f9fb] border-[#c4c6cd] hover:bg-[#edeef0]'
+                        ? 'bg-brand-surface-hover border-brand-primary'
+                        : 'bg-brand-background border-brand-border hover:bg-brand-surface-subtle'
                     }`}
                   >
                     <input
@@ -300,18 +300,18 @@ export const CheckoutModal: React.FC = () => {
                       name="delivery_method"
                       checked={customerDetails.deliveryMethod === 'expreso'}
                       onChange={() => {}}
-                      className="mt-1 accent-[#152536]"
+                      className="mt-1 accent-brand-primary"
                     />
                     <div className="flex flex-col flex-1">
                       <div className="flex items-center justify-between">
-                        <span className="font-headline text-base uppercase text-[#000f20]">
+                        <span className="font-headline text-base uppercase text-brand-primary-deep">
                           Envío Mayorista por Expreso / Flete
                         </span>
-                        <span className="font-body text-[10px] uppercase bg-[#c4c6cd] text-[#191c1e] px-2 py-0.5 font-bold">
+                        <span className="font-body text-[10px] uppercase bg-brand-border text-brand-text px-2 py-0.5 font-bold">
                           Compras por Bulto
                         </span>
                       </div>
-                      <p className="font-body text-xs text-[#44474c] mt-0.5">
+                      <p className="font-body text-xs text-brand-text-secondary mt-0.5">
                         Llevamos el bulto precintado sin cargo al expreso de tu elección en Villa Soldati o Pompeya.
                       </p>
                     </div>
@@ -320,22 +320,22 @@ export const CheckoutModal: React.FC = () => {
 
                 {/* Conditional Address Fields */}
                 {!isRetiro && (
-                  <div className="mt-4 pt-4 bg-[#f3f4f6] p-4 border border-[#c4c6cd]">
+                  <div className="mt-4 pt-4 bg-brand-surface-muted p-4 border border-brand-border">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="font-body text-xs uppercase tracking-wider text-[#000f20] font-bold flex items-center gap-1">
-                        <span className="material-symbols-outlined text-sm text-[#7c5733]">
+                      <span className="font-body text-xs uppercase tracking-wider text-brand-primary-deep font-bold flex items-center gap-1">
+                        <span className="material-symbols-outlined text-sm text-brand-secondary">
                           pin_drop
                         </span>{' '}
                         Destino de Entrega
                       </span>
-                      <span className="font-body text-[11px] text-[#44474c]">
+                      <span className="font-body text-[11px] text-brand-text-secondary">
                         Cotización exacta en la respuesta de WhatsApp
                       </span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-6 gap-3">
                       <div className="sm:col-span-4">
-                        <label className="block font-body text-[11px] uppercase text-[#44474c] mb-1 font-bold">
+                        <label className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold">
                           Calle y Número *
                         </label>
                         <input
@@ -344,25 +344,25 @@ export const CheckoutModal: React.FC = () => {
                           value={customerDetails.street}
                           onChange={(e) => updateCustomerDetails({ street: e.target.value })}
                           placeholder="Ej: Av. Hipólito Yrigoyen 2450"
-                          className="w-full bg-[#ffffff] text-[#000f20] px-3 py-2 font-body text-xs border border-[#c4c6cd] focus:outline-none focus:ring-1 focus:ring-[#7c5733]"
+                          className="w-full bg-white text-brand-primary-deep px-3 py-2 font-body text-xs border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                         />
                       </div>
 
                       <div className="sm:col-span-2">
-                        <label className="block font-body text-[11px] uppercase text-[#44474c] mb-1 font-bold">
-                          Piso / Dpto / Galpón
+                        <label className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold">
+                          Piso / Dpto / Local
                         </label>
                         <input
                           type="text"
                           value={customerDetails.floor}
                           onChange={(e) => updateCustomerDetails({ floor: e.target.value })}
-                          placeholder="Ej: Galpón 4 / Piso 2 B"
-                          className="w-full bg-[#ffffff] text-[#000f20] px-3 py-2 font-body text-xs border border-[#c4c6cd] focus:outline-none focus:ring-1 focus:ring-[#7c5733]"
+                          placeholder="Ej: Local 4 / Piso 2 B"
+                          className="w-full bg-white text-brand-primary-deep px-3 py-2 font-body text-xs border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                         />
                       </div>
 
                       <div className="sm:col-span-2">
-                        <label className="block font-body text-[11px] uppercase text-[#44474c] mb-1 font-bold">
+                        <label className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold">
                           Código Postal *
                         </label>
                         <input
@@ -371,12 +371,12 @@ export const CheckoutModal: React.FC = () => {
                           value={customerDetails.postalCode}
                           onChange={(e) => updateCustomerDetails({ postalCode: e.target.value })}
                           placeholder="Ej: 1824"
-                          className="w-full bg-[#ffffff] text-[#000f20] px-3 py-2 font-body text-xs border border-[#c4c6cd] focus:outline-none focus:ring-1 focus:ring-[#7c5733]"
+                          className="w-full bg-white text-brand-primary-deep px-3 py-2 font-body text-xs border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                         />
                       </div>
 
                       <div className="sm:col-span-4">
-                        <label className="block font-body text-[11px] uppercase text-[#44474c] mb-1 font-bold">
+                        <label className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold">
                           Localidad & Provincia *
                         </label>
                         <input
@@ -384,8 +384,8 @@ export const CheckoutModal: React.FC = () => {
                           required
                           value={customerDetails.city}
                           onChange={(e) => updateCustomerDetails({ city: e.target.value })}
-                          placeholder="Ej: Lanús, Buenos Aires"
-                          className="w-full bg-[#ffffff] text-[#000f20] px-3 py-2 font-body text-xs border border-[#c4c6cd] focus:outline-none focus:ring-1 focus:ring-[#7c5733]"
+                          placeholder={`Ej: ${BRAND.address.city}`}
+                          className="w-full bg-white text-brand-primary-deep px-3 py-2 font-body text-xs border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                         />
                       </div>
                     </div>
@@ -394,22 +394,22 @@ export const CheckoutModal: React.FC = () => {
               </div>
 
               {/* Section 3: Notes */}
-              <div className="bg-[#ffffff] p-5 sm:p-6 shadow-sm border border-[#e1e2e4]">
-                <div className="flex items-center justify-between mb-3 pb-2 bg-[#f3f4f6] p-2 border-b border-[#e1e2e4]">
+              <div className="bg-white p-5 sm:p-6 shadow-sm border border-brand-border-soft">
+                <div className="flex items-center justify-between mb-3 pb-2 bg-brand-surface-muted p-2 border-b border-brand-border-soft">
                   <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 bg-[#152536] text-[#ffffff] font-body text-xs flex items-center justify-center font-bold">
+                    <span className="w-6 h-6 bg-brand-primary text-white font-body text-xs flex items-center justify-center font-bold">
                       3
                     </span>
-                    <h2 className="font-headline text-lg uppercase tracking-wide text-[#000f20]">
+                    <h2 className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep">
                       Instrucciones o Aclaraciones
                     </h2>
                   </div>
-                  <span className="font-body text-[11px] uppercase text-[#44474c]">
+                  <span className="font-body text-[11px] uppercase text-brand-text-secondary">
                     Opcional
                   </span>
                 </div>
 
-                <label className="block font-body text-[11px] uppercase text-[#44474c] mb-1 font-bold">
+                <label className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold">
                   Comentarios para el armado del pedido
                 </label>
                 <textarea
@@ -417,9 +417,9 @@ export const CheckoutModal: React.FC = () => {
                   value={customerDetails.notes}
                   onChange={(e) => updateCustomerDetails({ notes: e.target.value })}
                   placeholder="Ej: Entregar por la mañana; solicitar Factura A con CUIT; si no hay en tono carbón cambiar por verde..."
-                  className="w-full bg-[#f3f4f6] text-[#000f20] p-3 font-body text-sm border border-[#c4c6cd] focus:bg-[#ffffff] focus:outline-none focus:ring-1 focus:ring-[#7c5733]"
+                  className="w-full bg-brand-surface-muted text-brand-primary-deep p-3 font-body text-sm border border-brand-border focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                 />
-                <p className="font-body text-[11px] text-[#44474c] mt-1">
+                <p className="font-body text-[11px] text-brand-text-secondary mt-1">
                   Este texto se sumará al mensaje directo de WhatsApp para que el operario de almacén lo revise antes de empaquetar.
                 </p>
               </div>
@@ -428,11 +428,11 @@ export const CheckoutModal: React.FC = () => {
             {/* RIGHT COLUMN: Resumen & WhatsApp Cierre (5 Cols) */}
             <aside className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-24">
               {/* Order Ledger Preview */}
-              <div className="bg-[#ffffff] p-5 sm:p-6 shadow-md border border-[#c4c6cd]">
-                <div className="flex items-center justify-between pb-2 bg-[#edeef0] p-2 mb-3 border-b border-[#c4c6cd]">
+              <div className="bg-white p-5 sm:p-6 shadow-md border border-brand-border">
+                <div className="flex items-center justify-between pb-2 bg-brand-surface-subtle p-2 mb-3 border-b border-brand-border">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#000f20]">inventory_2</span>
-                    <h3 className="font-headline text-lg uppercase tracking-wide text-[#000f20]">
+                    <span className="material-symbols-outlined text-brand-primary-deep">inventory_2</span>
+                    <h3 className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep">
                       Tu Pedido ({items.length} Artículos)
                     </h3>
                   </div>
@@ -442,32 +442,32 @@ export const CheckoutModal: React.FC = () => {
                       setIsCheckoutOpen(false);
                       setIsCartOpen(true);
                     }}
-                    className="font-body text-xs text-[#7c5733] uppercase hover:underline font-bold cursor-pointer"
+                    className="font-body text-xs text-brand-secondary uppercase hover:underline font-bold cursor-pointer"
                   >
                     Modificar
                   </button>
                 </div>
 
                 {/* Items List */}
-                <div className="flex flex-col divide-y divide-[#edeef0] max-h-60 overflow-y-auto">
+                <div className="flex flex-col divide-y divide-brand-surface-subtle max-h-60 overflow-y-auto">
                   {items.map((item) => (
                     <div key={item.id} className="py-2.5 flex items-center justify-between gap-3">
                       <div className="flex items-center gap-3">
                         <img
                           src={item.product.images[0]}
                           alt={item.product.name}
-                          className="w-11 h-11 object-cover bg-[#edeef0] border border-[#c4c6cd]"
+                          className="w-11 h-11 object-cover bg-brand-surface-subtle border border-brand-border"
                         />
                         <div className="flex flex-col">
-                          <span className="font-body text-xs uppercase font-bold text-[#000f20]">
+                          <span className="font-body text-xs uppercase font-bold text-brand-primary-deep">
                             {item.quantity}x {item.product.name}
                           </span>
-                          <span className="font-body text-[11px] text-[#44474c]">
+                          <span className="font-body text-[11px] text-brand-text-secondary">
                             Talle: {item.size} · {item.color}
                           </span>
                         </div>
                       </div>
-                      <span className="font-headline text-base text-[#000f20] font-bold">
+                      <span className="font-headline text-base text-brand-primary-deep font-bold">
                         {formatARS(item.unitPrice * item.quantity)}
                       </span>
                     </div>
@@ -475,31 +475,31 @@ export const CheckoutModal: React.FC = () => {
                 </div>
 
                 {/* Total Breakdown */}
-                <div className="mt-4 pt-3 bg-[#f3f4f6] p-3 flex flex-col gap-1.5 border border-[#c4c6cd]">
-                  <div className="flex justify-between font-body text-xs text-[#44474c]">
+                <div className="mt-4 pt-3 bg-brand-surface-muted p-3 flex flex-col gap-1.5 border border-brand-border">
+                  <div className="flex justify-between font-body text-xs text-brand-text-secondary">
                     <span>Subtotal Lista Minorista</span>
                     <span>{formatARS(subtotal)}</span>
                   </div>
 
                   {comboDiscount > 0 && (
-                    <div className="flex justify-between font-body text-xs text-[#7c5733] font-bold">
-                      <span>Descuento Promoción Cuadrilla (-10%)</span>
+                    <div className="flex justify-between font-body text-xs text-brand-secondary font-bold">
+                      <span>                                            Combo desde {BRAND.b2b.comboMinItems} prendas (-{BRAND.b2b.comboDiscountPercent}%)</span>
                       <span>-{formatARS(comboDiscount)}</span>
                     </div>
                   )}
 
-                  <div className="flex justify-between font-body text-xs text-[#44474c]">
+                  <div className="flex justify-between font-body text-xs text-brand-text-secondary">
                     <span>Costo de Despacho / Logística</span>
-                    <span className="font-body text-[10px] uppercase bg-[#e7e8ea] px-1 font-bold text-[#000f20]">
+                    <span className="font-body text-[10px] uppercase bg-brand-surface-hover px-1 font-bold text-brand-primary-deep">
                       {isRetiro ? 'Retiro Gratis en Depósito' : 'A Coordinar por WhatsApp'}
                     </span>
                   </div>
 
-                  <div className="mt-2 pt-2 bg-[#ffffff] p-2.5 border border-[#c4c6cd] flex justify-between items-baseline shadow-sm">
-                    <span className="font-headline text-lg uppercase tracking-wide text-[#000f20] font-bold">
+                  <div className="mt-2 pt-2 bg-white p-2.5 border border-brand-border flex justify-between items-baseline shadow-sm">
+                    <span className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep font-bold">
                       Total Estimado
                     </span>
-                    <span className="font-headline text-2xl sm:text-3xl text-[#000f20] font-bold tracking-tight">
+                    <span className="font-headline text-2xl sm:text-3xl text-brand-primary-deep font-bold tracking-tight">
                       {formatARS(total)}
                     </span>
                   </div>
@@ -507,22 +507,22 @@ export const CheckoutModal: React.FC = () => {
               </div>
 
               {/* WhatsApp Live Preview Terminal */}
-              <div className="bg-[#edeef0] p-4 sm:p-5 shadow-sm border border-[#c4c6cd]">
+              <div className="bg-brand-surface-subtle p-4 sm:p-5 shadow-sm border border-brand-border">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-body text-xs uppercase tracking-wider text-[#000f20] font-bold flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#7c5733]"></span>
+                  <span className="font-body text-xs uppercase tracking-wider text-brand-primary-deep font-bold flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-brand-secondary"></span>
                     Vista Previa del Mensaje Automatizado
                   </span>
-                  <span className="font-body text-[10px] text-[#44474c] font-semibold">
+                  <span className="font-body text-[10px] text-brand-text-secondary font-semibold">
                     WhatsApp API Direct
                   </span>
                 </div>
 
                 {/* Mock Chat Bubble */}
-                <div className="bg-[#ffffff] p-3 text-[#000f20] shadow-sm font-mono text-xs leading-relaxed whitespace-pre-wrap select-all overflow-x-auto border border-[#c4c6cd] max-h-56">
+                <div className="bg-white p-3 text-brand-primary-deep shadow-sm font-mono text-xs leading-relaxed whitespace-pre-wrap select-all overflow-x-auto border border-brand-border max-h-56">
                   {whatsappPreview}
                 </div>
-                <p className="font-body text-[11px] text-[#44474c] mt-2 italic">
+                <p className="font-body text-[11px] text-brand-text-secondary mt-2 italic">
                   Podrás editar o agregar consultas directamente en tu chat antes de presionar enviar.
                 </p>
               </div>
@@ -532,15 +532,15 @@ export const CheckoutModal: React.FC = () => {
                 <button
                   type="button"
                   onClick={confirmOrderAndSendWhatsApp}
-                  className="w-full bg-[#152536] hover:bg-[#000f20] text-[#ffffff] py-4 px-4 flex items-center justify-center gap-3 font-body text-sm uppercase tracking-wider font-bold shadow-lg transition-all active:scale-[0.99] cursor-pointer"
+                  className="w-full bg-brand-primary hover:bg-brand-primary-deep text-white py-4 px-4 flex items-center justify-center gap-3 font-body text-sm uppercase tracking-wider font-bold shadow-lg transition-all active:scale-[0.99] cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-2xl text-[#ffdcbf]">chat</span>
+                  <span className="material-symbols-outlined text-2xl text-brand-accent-light">chat</span>
                   <span>Confirmar y Enviar Pedido por WhatsApp</span>
                 </button>
 
-                <div className="bg-[#edeef0] border border-[#c4c6cd] p-2.5 flex items-center justify-center gap-2 text-center">
-                  <span className="material-symbols-outlined text-sm text-[#7c5733]">schedule</span>
-                  <span className="font-body text-xs text-[#44474c]">
+                <div className="bg-brand-surface-subtle border border-brand-border p-2.5 flex items-center justify-center gap-2 text-center">
+                  <span className="material-symbols-outlined text-sm text-brand-secondary">schedule</span>
+                  <span className="font-body text-xs text-brand-text-secondary">
                     Respuesta promedio en <strong>menos de 15 minutos</strong> en horario de almacén ({BRAND.address.pickupHours}).
                   </span>
                 </div>
@@ -548,27 +548,27 @@ export const CheckoutModal: React.FC = () => {
 
               {/* Trust Badges */}
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-[#ffffff] p-3 border border-[#c4c6cd] flex items-center gap-2.5 shadow-sm">
-                  <span className="material-symbols-outlined text-[#7c5733] text-2xl">
+                <div className="bg-white p-3 border border-brand-border flex items-center gap-2.5 shadow-sm">
+                  <span className="material-symbols-outlined text-brand-secondary text-2xl">
                     receipt_long
                   </span>
                   <div className="flex flex-col">
-                    <span className="font-body text-xs uppercase font-bold text-[#000f20]">
+                    <span className="font-body text-xs uppercase font-bold text-brand-primary-deep">
                       Factura Oficial
                     </span>
-                    <span className="font-body text-[11px] text-[#44474c]">Emitimos A o B</span>
+                    <span className="font-body text-[11px] text-brand-text-secondary">Emitimos A o B</span>
                   </div>
                 </div>
 
-                <div className="bg-[#ffffff] p-3 border border-[#c4c6cd] flex items-center gap-2.5 shadow-sm">
-                  <span className="material-symbols-outlined text-[#7c5733] text-2xl">
+                <div className="bg-white p-3 border border-brand-border flex items-center gap-2.5 shadow-sm">
+                  <span className="material-symbols-outlined text-brand-secondary text-2xl">
                     warehouse
                   </span>
                   <div className="flex flex-col">
-                    <span className="font-body text-xs uppercase font-bold text-[#000f20]">
+                    <span className="font-body text-xs uppercase font-bold text-brand-primary-deep">
                       Stock Real
                     </span>
-                    <span className="font-body text-[11px] text-[#44474c]">Separado al instante</span>
+                    <span className="font-body text-[11px] text-brand-text-secondary">Separado al instante</span>
                   </div>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-// DEMO ONLY. Al entregar el sitio a un cliente real: borrar este archivo, PrototypeBanner.tsx, su import en App.tsx (marcado DEMO ONLY) y, en Galpón, los offsets del banner en el wrapper de App.tsx.
+// DEMO ONLY. Al entregar el sitio a un cliente real: borrar este archivo, PrototypeBanner.tsx, su import en App.tsx (marcado DEMO ONLY) y los offsets del banner en el wrapper de App.tsx.
 export const DEMO_BANNER = {
   companyName: (import.meta.env.VITE_DEMO_BRAND_NAME ?? '').trim(),
   link: (import.meta.env.VITE_DEMO_BRAND_URL ?? '').trim(),

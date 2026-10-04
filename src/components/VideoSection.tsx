@@ -7,19 +7,37 @@ export const VideoSection: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(45);
   const [isMuted, setIsMuted] = useState(false);
+  const [videoMissing, setVideoMissing] = useState(false);
+  const [placeholderDismissed, setPlaceholderDismissed] = useState(false);
 
   const togglePlay = () => {
     if (!videoRef.current) return;
+    if (videoMissing) {
+      setPlaceholderDismissed(false);
+      return;
+    }
     if (isPlaying) {
       videoRef.current.pause();
       setIsPlaying(false);
     } else {
       videoRef.current.play().then(() => {
         setIsPlaying(true);
-      }).catch(() => {
-        // Fallback if browser blocks autoplay without gesture
+      }).catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === 'NotSupportedError') {
+          setIsPlaying(false);
+          setVideoMissing(true);
+          setPlaceholderDismissed(false);
+          return;
+        }
+        console.error('No se pudo reproducir el video de cómo comprar.', error);
       });
     }
+  };
+
+  const handleVideoError = () => {
+    setIsPlaying(false);
+    setVideoMissing(true);
+    setPlaceholderDismissed(false);
   };
 
   const handleTimeUpdate = () => {
@@ -58,17 +76,17 @@ export const VideoSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-[#e7e8ea] py-14 sm:py-20 border-y border-[#c4c6cd]" id="como-comprar">
+    <section className="w-full bg-brand-surface-hover py-14 sm:py-20 border-y border-brand-border" id="como-comprar">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Heading */}
         <div className="flex flex-col gap-1 max-w-2xl mb-10">
-          <span className="font-body text-xs uppercase tracking-widest text-[#7c5733] font-bold">
+          <span className="font-body text-xs uppercase tracking-widest text-brand-secondary font-bold">
             {BRAND.howToBuy.tagline}
           </span>
-          <h2 className="font-headline text-3xl sm:text-5xl uppercase text-[#000f20] tracking-tight leading-tight">
+          <h2 className="font-headline text-3xl sm:text-5xl uppercase text-brand-primary-deep tracking-tight leading-tight">
             {BRAND.howToBuy.title}
           </h2>
-          <p className="font-body text-sm sm:text-base text-[#44474c]">
+          <p className="font-body text-sm sm:text-base text-brand-text-secondary">
             {BRAND.howToBuy.description}
           </p>
         </div>
@@ -77,27 +95,28 @@ export const VideoSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Custom Native HTML5 Video Player */}
           <div className="lg:col-span-7 flex flex-col">
-            <div className="relative bg-[#152536] shadow-xl overflow-hidden group aspect-video flex items-center justify-center border border-[#152536]">
+            <div className="relative bg-brand-primary shadow-xl overflow-hidden group aspect-video flex items-center justify-center border border-brand-primary">
               {/* Native HTML5 Video Tag */}
               <video
                 ref={videoRef}
                 src={BRAND.howToBuy.videoUrl}
                 poster={BRAND.howToBuy.posterUrl}
                 playsInline
-                preload="metadata"
+                preload="none"
                 onTimeUpdate={handleTimeUpdate}
                 onEnded={() => setIsPlaying(false)}
+                onError={handleVideoError}
                 onClick={togglePlay}
                 className="w-full h-full object-cover cursor-pointer"
               />
 
               {/* Badges on Top */}
-              <div className="absolute top-4 left-4 bg-[#152536] text-[#ffffff] px-3 py-1 font-body text-[11px] uppercase tracking-wider font-bold flex items-center gap-1.5 shadow-sm pointer-events-none">
-                <span className="w-2 h-2 rounded-full bg-[#ba1a1a] animate-pulse"></span>
+              <div className="absolute top-4 left-4 bg-brand-primary text-white px-3 py-1 font-body text-[11px] uppercase tracking-wider font-bold flex items-center gap-1.5 shadow-sm pointer-events-none">
+                <span className="w-2 h-2 rounded-full bg-brand-danger animate-pulse"></span>
                 <span>{BRAND.howToBuy.badge}</span>
               </div>
 
-              <div className="absolute top-4 right-4 bg-[#000f20]/80 backdrop-blur-sm text-[#ffffff] px-2.5 py-1 font-body text-[11px] font-bold pointer-events-none">
+              <div className="absolute top-4 right-4 bg-brand-primary-deep/80 backdrop-blur-sm text-white px-2.5 py-1 font-body text-[11px] font-bold pointer-events-none">
                 {BRAND.howToBuy.duration}
               </div>
 
@@ -107,34 +126,52 @@ export const VideoSection: React.FC = () => {
                   type="button"
                   onClick={togglePlay}
                   aria-label="Reproducir video de guía de compra"
-                  className="absolute z-20 w-20 h-20 bg-[#7c5733] hover:bg-[#613f1e] text-[#ffffff] flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-transform cursor-pointer"
+                  className="absolute z-20 w-20 h-20 bg-brand-secondary hover:bg-brand-secondary-dark text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-transform cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-5xl ml-1">play_arrow</span>
                 </button>
               )}
 
+              {videoMissing && !placeholderDismissed && (
+                <div
+                  role="status"
+                  className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-4 bg-brand-primary-deep/90 px-6 text-center text-white"
+                >
+                  <p className="max-w-md font-body text-sm sm:text-base leading-relaxed">
+                    {BRAND.howToBuy.placeholderMessage}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setPlaceholderDismissed(true)}
+                    className="bg-brand-secondary px-5 py-2.5 font-body text-xs uppercase tracking-wider font-bold text-white hover:bg-brand-secondary-dark transition-colors"
+                  >
+                    Entendido
+                  </button>
+                </div>
+              )}
+
               {/* Video Player Scrub Bar UI */}
-              <div className="absolute bottom-0 inset-x-0 bg-[#000f20]/90 backdrop-blur-xs p-3 flex flex-col gap-2 z-20">
+              <div className="absolute bottom-0 inset-x-0 bg-brand-primary-deep/90 backdrop-blur-xs p-3 flex flex-col gap-2 z-20">
                 {/* Scrub line */}
                 <div
                   onClick={handleSeek}
-                  className="w-full bg-[#7c8ca1]/30 h-1.5 relative cursor-pointer group/scrub"
+                  className="w-full bg-brand-text-muted/30 h-1.5 relative cursor-pointer group/scrub"
                 >
                   <div
-                    className="bg-[#7c5733] h-full relative"
+                    className="bg-brand-secondary h-full relative"
                     style={{ width: `${(currentTime / (duration || 1)) * 100}%` }}
                   >
-                    <span className="absolute right-0 -top-1 w-3 h-3 bg-[#ffffff] rounded-full shadow-sm opacity-0 group-hover/scrub:opacity-100 transition-opacity"></span>
+                    <span className="absolute right-0 -top-1 w-3 h-3 bg-white rounded-full shadow-sm opacity-0 group-hover/scrub:opacity-100 transition-opacity"></span>
                   </div>
                 </div>
 
                 {/* Controls Bar */}
-                <div className="flex items-center justify-between text-[#ffffff] font-body text-xs">
+                <div className="flex items-center justify-between text-white font-body text-xs">
                   <div className="flex items-center gap-3">
                     <button
                       type="button"
                       onClick={togglePlay}
-                      className="hover:text-[#ffdcbf] transition-colors cursor-pointer"
+                      className="hover:text-brand-accent-light transition-colors cursor-pointer"
                       aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
                     >
                       <span className="material-symbols-outlined text-lg">
@@ -144,7 +181,7 @@ export const VideoSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={toggleMute}
-                      className="hover:text-[#ffdcbf] transition-colors cursor-pointer"
+                      className="hover:text-brand-accent-light transition-colors cursor-pointer"
                       aria-label="Silenciar"
                     >
                       <span className="material-symbols-outlined text-lg">
@@ -156,14 +193,14 @@ export const VideoSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3 text-[#ffdcbf]">
+                  <div className="flex items-center gap-3 text-brand-accent-light">
                     <span className="font-bold text-[11px] uppercase tracking-wider hidden sm:inline">
                       PASO 1 • SELECCIÓN DE CURVAS
                     </span>
                     <button
                       type="button"
                       onClick={toggleFullscreen}
-                      className="hover:text-[#ffffff] transition-colors cursor-pointer"
+                      className="hover:text-white transition-colors cursor-pointer"
                       aria-label="Pantalla completa"
                     >
                       <span className="material-symbols-outlined text-lg">fullscreen</span>
@@ -173,7 +210,7 @@ export const VideoSection: React.FC = () => {
               </div>
             </div>
 
-            <span className="font-body text-xs uppercase tracking-wider text-[#44474c] pt-2">
+            <span className="font-body text-xs uppercase tracking-wider text-brand-text-secondary pt-2">
               {BRAND.howToBuy.caption}
             </span>
           </div>
@@ -183,25 +220,25 @@ export const VideoSection: React.FC = () => {
             {BRAND.howToBuy.steps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-[#ffffff] p-5 shadow-sm border border-[#c4c6cd] flex items-start gap-4 hover:border-[#152536] transition-colors"
+                className="bg-white p-5 shadow-sm border border-brand-border flex items-start gap-4 hover:border-brand-primary transition-colors"
               >
                 <div
                   className={`w-12 h-12 flex-shrink-0 flex items-center justify-center font-headline text-2xl font-bold shadow-sm ${
                     idx === 2
-                      ? 'bg-[#7c5733] text-[#ffffff]'
-                      : 'bg-[#152536] text-[#ffffff]'
+                      ? 'bg-brand-secondary text-white'
+                      : 'bg-brand-primary text-white'
                   }`}
                 >
                   {step.number}
                 </div>
                 <div className="flex flex-col gap-1">
-                  <span className="font-body text-[11px] uppercase tracking-wider text-[#7c5733] font-bold">
+                  <span className="font-body text-[11px] uppercase tracking-wider text-brand-secondary font-bold">
                     {step.badge}
                   </span>
-                  <h3 className="font-headline text-xl uppercase text-[#000f20]">
+                  <h3 className="font-headline text-xl uppercase text-brand-primary-deep">
                     {step.title}
                   </h3>
-                  <p className="font-body text-xs sm:text-sm text-[#44474c]">
+                  <p className="font-body text-xs sm:text-sm text-brand-text-secondary">
                     {step.description}
                   </p>
                 </div>

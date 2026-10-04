@@ -65,6 +65,15 @@ interface CartContextType {
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
+const brandStorageSlug = BRAND.name
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .toLowerCase()
+  .trim()
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/^-|-$/g, '');
+const cartStorageKey = `${brandStorageSlug}_cart`;
+const customerStorageKey = `${brandStorageSlug}_customer`;
 
 // Initial sample items to populate cart directly as in the Stitch design preview
 const INITIAL_CART_ITEMS: CartItem[] = [
@@ -106,14 +115,14 @@ const INITIAL_CUSTOMER_DETAILS: CustomerDetails = {
   street: 'Calle Falsa 123',
   floor: '',
   postalCode: '1824',
-  city: 'Lanús, Buenos Aires',
+  city: BRAND.address.city,
   notes: 'Horario de entrega por la mañana de 09:00 a 13:00 hs.'
 };
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [items, setItems] = useState<CartItem[]>(() => {
     try {
-      const saved = localStorage.getItem('galpon_cart');
+      const saved = localStorage.getItem(cartStorageKey);
       if (saved) {
         return JSON.parse(saved);
       }
@@ -125,7 +134,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const [customerDetails, setCustomerDetails] = useState<CustomerDetails>(() => {
     try {
-      const saved = localStorage.getItem('galpon_customer');
+      const saved = localStorage.getItem(customerStorageKey);
       if (saved) {
         return JSON.parse(saved);
       }
@@ -143,7 +152,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   useEffect(() => {
     try {
-      localStorage.setItem('galpon_cart', JSON.stringify(items));
+      localStorage.setItem(cartStorageKey, JSON.stringify(items));
     } catch {
       // ignore
     }
@@ -151,7 +160,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   useEffect(() => {
     try {
-      localStorage.setItem('galpon_customer', JSON.stringify(customerDetails));
+      localStorage.setItem(customerStorageKey, JSON.stringify(customerDetails));
     } catch {
       // ignore
     }
@@ -208,7 +217,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   // Calculations
-  const wholesaleThreshold = 130000; // Objetivo para curva mayorista / beneficio B2B
+  const wholesaleThreshold = BRAND.b2b.cartWholesaleTarget;
 
   const { totalItems, subtotal } = useMemo(() => {
     let count = 0;
@@ -225,10 +234,10 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return { totalItems: count, subtotal: sum };
   }, [items]);
 
-  // Descuento por compra en combo si lleva 3 o más prendas (10% OFF), igual que en el diseño de Stitch
+  // Descuento por compra en combo según la configuración de la marca.
   const comboDiscount = useMemo(() => {
-    if (totalItems >= 3) {
-      return Math.round(subtotal * 0.1);
+    if (totalItems >= BRAND.b2b.comboMinItems) {
+      return Math.round(subtotal * (BRAND.b2b.comboDiscountPercent / 100));
     }
     return 0;
   }, [totalItems, subtotal]);
@@ -243,7 +252,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const isRetiro = customerDetails.deliveryMethod === 'retiro';
     
     let addressLine = isRetiro
-      ? `Retiro en Depósito Central (${BRAND.address.full})`
+      ? `${BRAND.address.pickupLabel} (${BRAND.address.full})`
       : `${customerDetails.street}${customerDetails.floor ? ', ' + customerDetails.floor : ''}${customerDetails.postalCode ? ' (CP ' + customerDetails.postalCode + ')' : ''}${customerDetails.city ? ', ' + customerDetails.city : ''}`;
 
     if (!addressLine.trim()) {
@@ -255,7 +264,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }).join('\n');
 
     const discountLine = comboDiscount > 0
-      ? `\nDescuento Combo (10% OFF): -${formatARS(comboDiscount)}`
+      ? `\nDescuento Combo desde ${BRAND.b2b.comboMinItems} prendas (${BRAND.b2b.comboDiscountPercent}% OFF): -${formatARS(comboDiscount)}`
       : '';
 
     const lines = [
