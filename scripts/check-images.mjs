@@ -3,6 +3,7 @@ import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
+import { imageDimensionsAreCurrent, isDimensionImage } from './image-dimensions.mjs';
 
 const projectRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const assetsRoot = path.join(projectRoot, 'public', 'assets');
@@ -80,6 +81,21 @@ for (const filePath of images.sort()) {
   const reportFlags = flags.length > 0 ? flags.join(', ') : 'OK';
   if (flags.length > 0) hasFindings = true;
   console.log(`${relativePath} | ${resolution} | ${size} | ${reportFlags}`);
+}
+
+const dimensionEntries = records
+  .filter((record) => isDimensionImage(record.filePath))
+  .map((record) => [
+    `/assets/${path.relative(assetsRoot, record.filePath).replaceAll(path.sep, '/')}`,
+    { width: record.width, height: record.height }
+  ])
+  .sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0));
+const dimensionsCurrent = await imageDimensionsAreCurrent(projectRoot, Object.fromEntries(dimensionEntries));
+if (!dimensionsCurrent) {
+  const message = 'imageDimensions.json no coincide con las imágenes reales; ejecutá npm run generate:image-dimensions';
+  if (strict) console.error(`ERROR ${message}`);
+  else console.warn(`ADVERTENCIA ${message}`);
+  hasFindings = true;
 }
 
 const duplicateGroups = new Map();

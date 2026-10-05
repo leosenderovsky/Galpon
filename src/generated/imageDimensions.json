@@ -1,0 +1,82 @@
+{
+  "/assets/hero/como-comprar-1.jpg": {
+    "width": 512,
+    "height": 279
+  },
+  "/assets/hero/hero-1.jpg": {
+    "width": 512,
+    "height": 286
+  },
+  "/assets/logo/apple-touch-icon.png": {
+    "width": 180,
+    "height": 180
+  },
+  "/assets/logo/favicon-32.png": {
+    "width": 32,
+    "height": 32
+  },
+  "/assets/logo/logo.png": {
+    "width": 1024,
+    "height": 319
+  },
+  "/assets/products/buzo-canguro-frisa.jpg": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/products/buzo-frisa-gruesa.jpg": {
+    "width": 512,
+    "height": 279
+  },
+  "/assets/products/camisa-trabajo-denim.jpg": {
+    "width": 512,
+    "height": 279
+  },
+  "/assets/products/campera-chore-canvas-2.jpg": {
+    "width": 512,
+    "height": 279
+  },
+  "/assets/products/campera-chore-canvas-3.jpg": {
+    "width": 512,
+    "height": 279
+  },
+  "/assets/products/campera-chore-canvas-4.jpg": {
+    "width": 512,
+    "height": 279
+  },
+  "/assets/products/campera-chore-canvas.jpg": {
+    "width": 512,
+    "height": 512
+  },
+  "/assets/products/campera-parka-corderito.jpg": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/products/chaleco-utilitario-termico.jpg": {
+    "width": 512,
+    "height": 279
+  },
+  "/assets/products/chomba-pique-pesada.jpg": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/products/jean-industrial-rigido.jpg": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/products/pack-remeras-heavy-duty.jpg": {
+    "width": 512,
+    "height": 512
+  },
+  "/assets/products/pantalon-cargo-ripstop.jpg": {
+    "width": 512,
+    "height": 512
+  },
+  "/assets/products/pantalon-carpintero-canvas.jpg": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/products/remera-manga-larga-heavy-duty.jpg": {
+    "width": 1024,
+    "height": 1024
+  }
+}

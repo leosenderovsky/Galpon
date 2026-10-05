@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BRAND } from '../brand.config';
+import { getImageDimensions } from '../products';
 
 interface LogoProps {
   className?: string;
@@ -16,6 +17,7 @@ export const GalponLogo: React.FC<LogoProps> = ({
     ? BRAND.logo.srcLight
     : BRAND.logo.src;
   const useLightFilter = variant === 'light' && (!BRAND.logo.srcLight || useDefaultSource);
+  const dimensions = getImageDimensions(source);
 
   if (imageFailed) {
     return (
@@ -33,8 +35,8 @@ export const GalponLogo: React.FC<LogoProps> = ({
     <img
       src={source}
       alt={BRAND.logo.alt}
-      width={1024}
-      height={319}
+      width={dimensions?.width}
+      height={dimensions?.height}
       loading="eager"
       fetchPriority="high"
       decoding="async"

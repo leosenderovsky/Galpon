@@ -1,6 +1,7 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getImageDimensions, imageDimensionsAreCurrent } from './image-dimensions.mjs';
 
 const projectRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const sourceRoot = path.join(projectRoot, 'src');
@@ -49,6 +50,13 @@ if (!prototypeBrandingMatch) {
 const prototypeBrandingAssets = new Set(
   [...prototypeBrandingMatch[1].matchAll(/(['"])(\/assets\/[^'"]+)\1/g)].map((match) => match[2])
 );
+const actualImageDimensions = await getImageDimensions(projectRoot);
+const imageDimensionsCurrent = await imageDimensionsAreCurrent(projectRoot, actualImageDimensions);
+if (!imageDimensionsCurrent) {
+  const message = 'imageDimensions.json no coincide con las imágenes reales; ejecutá npm run generate:image-dimensions';
+  if (strict) console.error(`ERROR ${message}`);
+  else console.warn(`ADVERTENCIA ${message}`);
+}
 
 const referencedFiles = new Set();
 const missingAssets = [];
@@ -126,6 +134,7 @@ if (prototypeBrandingAssets.size === 0) {
 
 if (
   missingAssets.length > 0
+  || (strict && !imageDimensionsCurrent)
   || (strict && (placeholders.length > 0 || prototypeBrandingAssets.size > 0))
 ) {
   process.exitCode = 1;

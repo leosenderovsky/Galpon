@@ -1,7 +1,9 @@
 import React from 'react';
 import { BRAND } from '../brand.config';
+import { getImageDimensions } from '../products';
 
 export const Hero: React.FC = () => {
+  const dimensions = getImageDimensions(BRAND.hero.backgroundImage);
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -16,8 +18,8 @@ export const Hero: React.FC = () => {
           <img
             src={BRAND.hero.backgroundImage}
             alt={`${BRAND.name} - ${BRAND.tagline}`}
-            width={512}
-            height={286}
+            width={dimensions?.width}
+            height={dimensions?.height}
             loading="eager"
             fetchPriority="high"
             decoding="async"

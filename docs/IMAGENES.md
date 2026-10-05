@@ -1,5 +1,9 @@
 # Informe y validación de imágenes
 
+Las medidas de las imágenes se generan automáticamente en `src/generated/imageDimensions.json` a partir de los archivos de `public/assets`. Al agregar o reemplazar imágenes no hay que editar ni mantener dimensiones a mano: `npm run dev` y `npm run build` regeneran el JSON antes de ejecutarse. El archivo generado se incluye en el repositorio para que los builds desplegados y las copias del sitio para clientes también tengan las dimensiones disponibles.
+
+`npm run check:images` y `npm run check:assets` advierten si el JSON no coincide con las imágenes reales; sus variantes `:strict` terminan con error en ese caso. Para regenerarlo explícitamente, ejecutar `npm run generate:image-dimensions`.
+
 Ejecutar `npm run check:images` para informar las dimensiones y el peso de cada imagen bajo `public/assets`, buscar duplicados byte a byte mediante MD5 y revisar resolución y proporción. El comando es informativo y termina con código 0 aunque reporte observaciones.
 
 Las comprobaciones por uso son:
