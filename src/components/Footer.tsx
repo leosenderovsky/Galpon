@@ -191,7 +191,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* MANDATORY SENDER.IA PROTOTYPE NOTICE */}
+        {/* Leyenda de demostración (ver demoBanner.config.ts) */}
         <div className="mt-8 pt-4 border-t border-white/10 text-center">
           <p className="font-body text-[10px] text-brand-text-muted uppercase tracking-widest opacity-80 hover:opacity-100 transition-opacity">
             {BRAND.demoLegend}

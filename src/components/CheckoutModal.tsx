@@ -218,10 +218,10 @@ export const CheckoutModal: React.FC = () => {
 
                 {/* Radio Options */}
                 <div className="flex flex-col gap-3">
-                  {/* Option 1: Correo Andreani */}
+                  {/* Option 1: Envío a domicilio */}
                   <label
                     onClick={() =>
-                      handleDeliveryChange('envio', 'Envío a Domicilio (Correo Argentino / Andreani)')
+                      handleDeliveryChange('envio', BRAND.shipping.homeDeliveryLabel)
                     }
                     className={`p-3.5 cursor-pointer flex items-start gap-3 transition-colors border ${
                       customerDetails.deliveryMethod === 'envio'
@@ -239,14 +239,14 @@ export const CheckoutModal: React.FC = () => {
                     <div className="flex flex-col flex-1">
                       <div className="flex items-center justify-between">
                         <span className="font-headline text-base uppercase text-brand-primary-deep">
-                          Envío a Domicilio / Taller
+                          {BRAND.shipping.homeDeliveryLabel}
                         </span>
                         <span className="font-body text-[10px] uppercase bg-brand-primary text-white px-2 py-0.5 font-bold">
                           A Cotizar por CP
                         </span>
                       </div>
                       <p className="font-body text-xs text-brand-text-secondary mt-0.5">
-                        Despacho garantizado por Correo Argentino o Andreani con número de seguimiento en tiempo real.
+                        {BRAND.shipping.homeDeliveryDescription}
                       </p>
                     </div>
                   </label>

@@ -103,7 +103,7 @@ const getInitialCustomerDetails = (): CustomerDetails => ({
       notes: ''
     }),
   deliveryMethod: 'envio',
-  deliveryMethodLabel: 'Envío a Domicilio (Correo Argentino / Andreani)',
+  deliveryMethodLabel: BRAND.shipping.homeDeliveryLabel,
   floor: '',
   city: BRAND.address.city
 });

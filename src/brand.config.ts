@@ -70,6 +70,10 @@ export interface BrandConfig {
     pickupLabel: string;
     pickupHours: string;
   };
+  shipping: {
+    homeDeliveryLabel: string;
+    homeDeliveryDescription: string;
+  };
   logo: {
     src: string;
     srcLight?: string;
@@ -223,6 +227,11 @@ export const BRAND: BrandConfig = {
     packingLabel: "Control de Empaque Galpón",
     pickupLabel: "Retiro en Depósito Central (Lanús / Parque Patricios)",
     pickupHours: "Lunes a Viernes de 07:30 a 16:30 hs"
+  },
+
+  shipping: {
+    homeDeliveryLabel: "Envío a Domicilio (Correo Argentino / Andreani)",
+    homeDeliveryDescription: "Despacho garantizado por Correo Argentino o Andreani con número de seguimiento en tiempo real."
   },
 
   logo: {
