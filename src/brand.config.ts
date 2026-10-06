@@ -216,7 +216,7 @@ export const BRAND: BrandConfig = {
   seo: {
     titleSuffix: "Indumentaria Masculina y de Trabajo",
     description: "Catálogo digital y landing con pedido directo por WhatsApp para indumentaria masculina y ropa de trabajo pesada.",
-    socialImage: "/assets/hero/hero-1.jpg"
+    socialImage: "/assets/misc/og-image.jpg"
   },
 
   address: {

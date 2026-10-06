@@ -4,6 +4,10 @@ Las medidas de las imágenes se generan automáticamente en `src/generated/image
 
 `npm run check:images` y `npm run check:assets` advierten si el JSON no coincide con las imágenes reales; sus variantes `:strict` terminan con error en ese caso. Para regenerarlo explícitamente, ejecutar `npm run generate:image-dimensions`.
 
+`npm run logo:optimize` conserva una copia del logo original en `.image-originals/` (directorio ignorado por Git) y optimiza `public/assets/logo/logo.png` como PNG con transparencia, hasta 800 px de ancho y un máximo de 120 KB. Ejecutar `npm run make:icons` después de cambiar el logo; `npm run check:icons` verifica que los íconos generados estén al día y que el Apple Touch Icon sea opaco y de 180 × 180 px.
+
+`npm run make:og` genera `public/assets/misc/og-image.jpg` recortando al centro la imagen principal a 1200 × 630 px y hasta 200 KB. Esa imagen se usa como vista previa de enlaces.
+
 Ejecutar `npm run check:images` para informar las dimensiones y el peso de cada imagen bajo `public/assets`, buscar duplicados byte a byte mediante MD5 y revisar resolución y proporción. El comando es informativo y termina con código 0 aunque reporte observaciones.
 
 Las comprobaciones por uso son:

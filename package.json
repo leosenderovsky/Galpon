@@ -15,8 +15,11 @@
     "check:assets:strict": "node scripts/check-assets.mjs --strict",
     "check:images": "node scripts/check-images.mjs",
     "check:images:strict": "node scripts/check-images.mjs --strict",
+    "check:icons": "node scripts/check-icons.mjs",
     "generate:image-dimensions": "node scripts/generate-image-dimensions.mjs",
-    "make:icons": "node scripts/make-icons.mjs"
+    "make:icons": "node scripts/make-icons.mjs",
+    "logo:optimize": "node scripts/optimize-logo.mjs",
+    "make:og": "node scripts/make-og-image.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
