@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
+    "verify:deploy": "node scripts/verify-deploy.mjs",
     "check:assets": "node scripts/check-assets.mjs",
     "check:assets:strict": "node scripts/check-assets.mjs --strict",
     "check:images": "node scripts/check-images.mjs",

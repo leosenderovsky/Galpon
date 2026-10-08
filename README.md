@@ -107,15 +107,28 @@ Otros comandos disponibles para trabajar con assets:
 | `VITE_SITE_URL` | URL canónica y base de la imagen social; se lee del entorno de Vite y también de `process.env`. |
 | `VITE_DEMO_BRAND_NAME` | Nombre opcional para el banner de demo. |
 | `VITE_DEMO_BRAND_URL` | Enlace HTTP(S) opcional del banner. |
-| `DEPLOY_PRIME_URL` | URL de deploy preview de Netlify; fallback para la URL del sitio. |
-| `URL` | URL de deploy de Netlify; fallback posterior a `DEPLOY_PRIME_URL`. |
+| `DEPLOY_PRIME_URL` | URL específica del deploy de Netlify; se prioriza fuera de production. |
+| `URL` | URL del sitio de Netlify; se prioriza en context `production`. |
 | `DISABLE_HMR` | Con valor `true`, desactiva HMR y el watcher; se lee en `vite.config.ts`. |
 
 Las tres variables `VITE_*` están documentadas en `.env.example`; las otras se consumen desde la configuración de Vite.
-El orden de resolución de la URL es: `VITE_SITE_URL` cargada por Vite para el modo actual,
-`process.env.VITE_SITE_URL`, `process.env.DEPLOY_PRIME_URL`, `process.env.URL` y, si ninguna tiene valor, cadena vacía.
-La primera variable truthy se elige antes de aplicar `trim()`; por eso un valor compuesto solo por espacios no habilita
-el fallback siguiente. El resultado se recorta y, si queda vacío, no se establece URL; si no, se valida y una URL inválida detiene la configuración.
+El orden de resolución es `VITE_SITE_URL` (entorno Vite y luego `process.env`); después, `URL` en context `production`
+o `DEPLOY_PRIME_URL` en otros contextos; como fallback se prueban `URL` y `DEPLOY_PRIME_URL`, en ese orden.
+La URL se recorta y valida; una URL inválida detiene la configuración.
+
+## Verificar un deploy
+
+Cada build publica `build-info.json` en la raíz de `dist`, con el commit, branch, contexto, URL pública y fuente
+de esa URL, además del estado booleano de las variables de marca. El archivo no-cachea y no debe indexarse.
+El `<head>` de `index.html` también incluye `<meta name="build-commit" content="...">` con los primeros siete
+caracteres del commit publicado.
+
+Para comparar el deploy con `main`, comprobar las variables informadas y verificar que canonical y `og:image`
+respondan correctamente:
+
+```sh
+npm run verify:deploy -- https://<sitio>.netlify.app
+```
 
 ## Modo demo
 
@@ -137,7 +150,8 @@ Revisá también `demoLegend`, los datos de `BRAND.demo` y las imágenes de marc
 
 Configurá el build con `npm run build` y el directorio publicable como `dist`.
 `prebuild` genera las dimensiones antes del build. Para una URL canónica propia, definí `VITE_SITE_URL`;
-si la dejás vacía, la configuración usa primero la URL de preview y después la URL de deploy que provee Netlify.
+si la dejás vacía, production usa primero `URL` y los deploy previews/branch deploys usan primero
+`DEPLOY_PRIME_URL`; en ambos casos se prueba la otra URL de Netlify como fallback.
 
 ## Antes de entregar
 
