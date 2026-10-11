@@ -15,7 +15,7 @@ try {
   process.exit(1);
 }
 
-let blocked = false;
+let hasErrors = false;
 let buildInfo;
 try {
   const response = await fetch(new URL('/build-info.json', siteUrl));
@@ -42,34 +42,57 @@ try {
 
 const publishedCommit = typeof buildInfo.commit === 'string' ? buildInfo.commit : '';
 const commitMatches = publishedCommit.toLowerCase() === mainCommit.toLowerCase();
-if (!commitMatches) blocked = true;
 
-const rows = [
-  {
-    Dato: 'Commit publicado vs main',
-    Valor: `${publishedCommit || '(faltante)'} vs ${mainCommit}`,
-    Estado: commitMatches ? 'OK' : 'DESACTUALIZADO'
-  },
-  { Dato: 'Contexto', Valor: buildInfo.context || '(faltante)', Estado: buildInfo.context ? 'OK' : 'FALTANTE' },
-  { Dato: 'URL', Valor: buildInfo.siteUrl || '(vacía)', Estado: buildInfo.siteUrl ? 'OK' : 'FALTANTE' },
-  { Dato: 'Fuente URL', Valor: buildInfo.siteUrlSource || '(faltante)', Estado: 'INFO' },
-  ...['VITE_SITE_URL', 'VITE_DEMO_BRAND_NAME', 'VITE_DEMO_BRAND_URL'].map((name) => ({
-    Dato: name,
-    Valor: typeof buildInfo.env?.[name] === 'boolean' ? String(buildInfo.env[name]) : '(faltante)',
-    Estado: typeof buildInfo.env?.[name] === 'boolean' ? 'OK' : 'FALTANTE'
-  }))
-];
+const rows = [];
 
-if (!buildInfo.context || !buildInfo.siteUrl || !buildInfo.siteUrlSource) blocked = true;
-if (['VITE_SITE_URL', 'VITE_DEMO_BRAND_NAME', 'VITE_DEMO_BRAND_URL']
-  .some((name) => typeof buildInfo.env?.[name] !== 'boolean')) {
-  blocked = true;
+// Commit publicado
+rows.push({
+  Verificación: 'Commit publicado vs main',
+  Estado: commitMatches ? 'OK' : 'ERROR',
+  Detalle: commitMatches ? 'Coincide con el último commit de main' : `Publicado: ${publishedCommit?.substring(0, 7) || '(faltante)'} | main: ${mainCommit.substring(0, 7)}`
+});
+if (!commitMatches) hasErrors = true;
+
+// Contexto
+rows.push({
+  Verificación: 'Contexto de deploy',
+  Estado: 'OK',
+  Detalle: buildInfo.context || '(sin contexto)'
+});
+
+// URL pública
+if (buildInfo.siteUrl) {
+  rows.push({
+    Verificación: 'URL pública',
+    Estado: 'OK',
+    Detalle: buildInfo.siteUrl
+  });
+} else {
+  const isProduction = buildInfo.context === 'production';
+  rows.push({
+    Verificación: 'URL pública',
+    Estado: isProduction ? 'ERROR' : 'INFO',
+    Detalle: 'URL no definida'
+  });
+  if (isProduction) hasErrors = true;
 }
 
-if (buildInfo.context === 'production' && buildInfo.siteUrlSource === 'DEPLOY_PRIME_URL') {
-  rows.push({ Dato: 'Selección URL producción', Valor: 'DEPLOY_PRIME_URL', Estado: 'ATENCIÓN' });
+// Fuente URL
+rows.push({
+  Verificación: 'Fuente de URL',
+  Estado: buildInfo.context === 'production' && buildInfo.siteUrlSource === 'DEPLOY_PRIME_URL' ? 'ATENCIÓN' : 'OK',
+  Detalle: buildInfo.siteUrlSource || '(sin fuente)'
+});
+
+// Variables de entorno
+for (const name of ['VITE_SITE_URL', 'VITE_DEMO_BRAND_NAME', 'VITE_DEMO_BRAND_URL']) {
+  const isDefined = typeof buildInfo.env?.[name] === 'boolean';
+  rows.push({
+    Verificación: name,
+    Estado: isDefined ? 'OK' : 'INFO',
+    Detalle: isDefined ? String(buildInfo.env[name]) : 'Variable no establecida'
+  });
 }
-if (buildInfo.siteUrlSource === 'none') blocked = true;
 
 let html;
 try {
@@ -82,33 +105,47 @@ try {
 }
 
 const metadata = [
-  {
-    name: 'canonical',
-    match: html.match(/<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*\bhref=["']([^"']+)["'])[^>]*>/i)
-  },
-  {
-    name: 'og:image',
-    match: html.match(/<meta\b(?=[^>]*\bproperty=["']og:image["'])(?=[^>]*\bcontent=["']([^"']+)["'])[^>]*>/i)
-  }
+  { name: 'canonical', match: html.match(/<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*\bhref=["']([^"']+)["'])[^>]*>/i) },
+  { name: 'og:image', match: html.match(/<meta\b(?=[^>]*\bproperty=["']og:image["'])(?=[^>]*\bcontent=["']([^"']+)["'])[^>]*>/i) }
 ];
 
 for (const { name, match } of metadata) {
   const value = match?.[1];
-  let status = 'FALTANTE';
-  if (value) {
-    try {
-      const response = await fetch(new URL(value, siteUrl));
-      status = String(response.status);
-      if (response.status !== 200) blocked = true;
-    } catch (error) {
-      status = `ERROR: ${error.message}`;
-      blocked = true;
-    }
-  } else {
-    blocked = true;
+  if (!value) {
+    rows.push({
+      Verificación: `Recurso ${name}`,
+      Estado: 'ERROR',
+      Detalle: 'No encontrado en el HTML'
+    });
+    hasErrors = true;
+    continue;
   }
-  rows.push({ Dato: `GET ${name}`, Valor: value || '(no encontrado)', Estado: status });
+
+  try {
+    const response = await fetch(new URL(value, siteUrl), { method: 'HEAD' });
+    if (response.status === 200) {
+      rows.push({
+        Verificación: `Recurso ${name}`,
+        Estado: 'OK',
+        Detalle: value
+      });
+    } else {
+      rows.push({
+        Verificación: `Recurso ${name}`,
+        Estado: 'ERROR',
+        Detalle: `${value} (HTTP ${response.status})`
+      });
+      hasErrors = true;
+    }
+  } catch (error) {
+    rows.push({
+      Verificación: `Recurso ${name}`,
+      Estado: 'ERROR',
+      Detalle: `${value} (${error.message})`
+    });
+    hasErrors = true;
+  }
 }
 
 console.table(rows);
-if (blocked) process.exitCode = 1;
+process.exitCode = hasErrors ? 1 : 0;

@@ -5,7 +5,7 @@ Prototipo white-label para duplicar en clientes reales. Stack: React ^19.0.1, Ty
 
 ## Cómo empezar
 
-Requiere Node.js y npm.
+Requiere Node.js ^20.19.0 || >=22.12.0 (recomendado 22.x) y npm. Podés usar `nvm use` para activar la versión correcta.
 
 ```sh
 npm install
