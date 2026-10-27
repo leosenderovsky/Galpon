@@ -1,4 +1,5 @@
 import React from 'react';
+import { Txt } from './components/Txt';
 import { CartProvider, useCart } from './context/CartContext';
 // DEMO ONLY — borrar este import y esta línea, más PrototypeBanner.tsx y demoBanner.config.ts, para pasar este proyecto a un cliente real
 import { PrototypeBanner } from './components/PrototypeBanner';
@@ -13,7 +14,7 @@ import { ProductModal } from './components/ProductModal';
 import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { SizeGuideModal } from './components/SizeGuideModal';
-import { BRAND } from './brand.config';
+import { BRAND, formatText } from './brand.config';
 
 const MainAppContent: React.FC = () => {
   const { activeProductModal, setActiveProductModal, totalItems, setIsCartOpen } = useCart();
@@ -72,11 +73,9 @@ const MainAppContent: React.FC = () => {
         >
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-lg">shopping_bag</span>
-            <span>Ver Mi Pedido ({totalItems})</span>
+            <span>{formatText(BRAND.ui.cartBar.label, { count: String(totalItems) })}</span>
           </div>
-          <span className="bg-brand-secondary px-2.5 py-1 text-white">
-            Confirmar por WhatsApp →
-          </span>
+          <Txt as="span" className="bg-brand-secondary px-2.5 py-1 text-white" value={BRAND.ui.cartBar.confirm} />
         </button>
       </div>
 
@@ -85,9 +84,9 @@ const MainAppContent: React.FC = () => {
         href={`https://wa.me/${BRAND.whatsapp.rawNumber}?text=${encodeURIComponent(BRAND.whatsapp.defaultInquiryText)}`}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Abrir WhatsApp"
+        aria-label={BRAND.ui.whatsappFloating.label}
         className="hidden sm:flex fixed bottom-6 right-6 z-30 w-14 h-14 bg-brand-whatsapp hover:bg-brand-whatsapp-hover text-white rounded-full items-center justify-center shadow-2xl hover:scale-105 transition-transform"
-        title="Consultar por WhatsApp"
+        title={BRAND.ui.whatsappFloating.title}
       >
         <span className="material-symbols-outlined text-3xl">chat</span>
       </a>

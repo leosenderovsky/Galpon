@@ -1,4 +1,6 @@
 import React from 'react';
+import { Txt } from './Txt';
+import { BRAND, formatText } from '../brand.config';
 import { useCart } from '../context/CartContext';
 import { SIZE_GUIDES } from '../sizeGuide';
 
@@ -15,10 +17,10 @@ export const SizeGuideModal: React.FC = () => {
   const currentGuide = SIZE_GUIDES[selectedCategoryForGuide] || SIZE_GUIDES['camperas'];
 
   const guideTabs = [
-    { id: 'camperas', label: 'Camperas de Trabajo' },
-    { id: 'pantalones', label: 'Pantalones Cargo' },
-    { id: 'remeras', label: 'Remeras Básicas 24/1' },
-    { id: 'chalecos', label: 'Buzos y Chalecos' }
+    { id: 'camperas', label: BRAND.ui.sizeGuide.tabJackets },
+    { id: 'pantalones', label: BRAND.ui.sizeGuide.tabPants },
+    { id: 'remeras', label: BRAND.ui.sizeGuide.tabTshirts },
+    { id: 'chalecos', label: BRAND.ui.sizeGuide.tabHoodies }
   ];
 
   return (
@@ -28,13 +30,11 @@ export const SizeGuideModal: React.FC = () => {
         <div className="bg-brand-primary text-white px-5 py-3.5 flex items-center justify-between border-b border-white/15">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-brand-accent-light text-xl">square_foot</span>
-            <h2 className="font-headline text-xl uppercase tracking-wider">
-              Guía Oficial de Talles y Medidas IRAM
-            </h2>
+            <Txt as="h2" className="font-headline text-xl uppercase tracking-wider" value={BRAND.ui.sizeGuide.title} />
           </div>
           <button
             onClick={() => setIsSizeGuideModalOpen(false)}
-            aria-label="Cerrar guía de talles"
+            aria-label={BRAND.ui.sizeGuide.closeLabel}
             className="p-1 hover:bg-white/20 text-white transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-2xl">close</span>
@@ -68,7 +68,7 @@ export const SizeGuideModal: React.FC = () => {
               {currentGuide.title}
             </span>
             <span className="font-body text-[11px] text-brand-secondary font-bold">
-              {currentGuide.tolerance} (Prenda extendida sobre mesa)
+              {formatText(BRAND.ui.sizeGuide.toleranceLine, { tolerance: currentGuide.tolerance })}
             </span>
           </div>
 
@@ -111,9 +111,7 @@ export const SizeGuideModal: React.FC = () => {
           <div className="bg-brand-surface-subtle border border-brand-border p-4 flex items-start gap-3">
             <span className="material-symbols-outlined text-brand-secondary text-xl mt-0.5">info</span>
             <div className="flex flex-col gap-1">
-              <span className="font-body text-xs uppercase font-bold text-brand-primary-deep">
-                Consejo de confección y calce:
-              </span>
+              <Txt as="span" className="font-body text-xs uppercase font-bold text-brand-primary-deep" value={BRAND.ui.sizeGuide.tipTitle} />
               <p className="font-body text-xs sm:text-sm text-brand-text-secondary leading-relaxed">
                 {currentGuide.recommendationNote}
               </p>
@@ -122,15 +120,10 @@ export const SizeGuideModal: React.FC = () => {
 
           {/* Footer Close */}
           <div className="flex items-center justify-between pt-2 border-t border-brand-border-soft">
-            <span className="font-body text-xs text-brand-text-secondary">
-              ¿Tenés dudas con las medidas de tu cuadrilla? Consultanos en tiempo real por WhatsApp.
-            </span>
-            <button
+            <Txt as="span" className="font-body text-xs text-brand-text-secondary" value={BRAND.ui.sizeGuide.help} />
+            <Txt as="button"
               onClick={() => setIsSizeGuideModalOpen(false)}
-              className="px-6 py-2.5 bg-brand-primary text-white font-body text-xs uppercase tracking-wider font-bold hover:bg-brand-primary-deep cursor-pointer"
-            >
-              Cerrar Guía
-            </button>
+              className="px-6 py-2.5 bg-brand-primary text-white font-body text-xs uppercase tracking-wider font-bold hover:bg-brand-primary-deep cursor-pointer" value={BRAND.ui.sizeGuide.close} />
           </div>
         </div>
       </div>

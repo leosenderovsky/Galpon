@@ -28,7 +28,10 @@ El JSON generado se commitea; no lo edites a mano. Al cambiar imágenes, los hoo
 - `src/`: aplicación React y estilos.
 - `src/components/`: secciones y componentes de la tienda.
 - `src/context/CartContext.tsx`: estado del carrito y datos del pedido.
-- `src/brand.config.ts`: configuración white-label de la marca.
+- `src/data/brand.json`: **todos los datos y textos editables** de la marca y de la interfaz.
+- `src/data/brand.schema.json`: esquema con etiquetas en español, tipos y reglas; `docs/CAMPOS.md` es la tabla de campos generada.
+- `src/brand.config.ts`: envoltorio que importa `brand.json` y exporta `BRAND` (no se edita).
+- `src/components/Txt.tsx`: muestra un texto editable y no dibuja nada si está vacío.
 - `src/products.ts`: categorías, talles y datos del catálogo.
 - `src/sizeGuide.ts`: tablas de medidas por categoría.
 - `src/generated/`: datos generados, hoy dimensiones de imágenes.
@@ -41,7 +44,7 @@ El JSON generado se commitea; no lo edites a mano. Al cambiar imágenes, los hoo
 
 ## Adaptar para un cliente
 
-Editá los bloques de `BRAND` en `src/brand.config.ts`, en este orden:
+Editá los bloques de `src/data/brand.json` (la tabla completa de campos está en `docs/CAMPOS.md`), en este orden:
 
 - `name`, `legalName`, `shortName`, `tagline`, `foundedYear` y `cuit`: identificación de la marca.
 - `whatsapp` y `email`: canales de consulta y textos iniciales.
@@ -58,13 +61,36 @@ Editá los bloques de `BRAND` en `src/brand.config.ts`, en este orden:
 - `testimonials`: testimonios mostrados en la landing.
 - `demo`: activación del carrito precargado y datos de cliente de ejemplo.
 - `assetsWithPrototypeBranding`: imágenes que todavía tienen la marca ficticia.
+- `footer`, `testimonialsSection` y `ui`: textos del pie, de los testimonios y de toda la interfaz (carrito, checkout, ficha técnica, guía de talles, formularios y mensajes de WhatsApp).
 
-Las reglas de precios mayoristas y descuento por combo están en `BRAND.b2b`.
+Las reglas de precios mayoristas y descuento por combo están en `b2b` (en `brand.json`).
 El catálogo está en `src/products.ts`; cada producto puede definir `sku`, `price`, `wholesalePrice`,
 `wholesaleMinUnits`, `sizes`, `colors`, `images` y `specs`, además de sus textos y otros datos opcionales.
 La guía de talles vive en `src/sizeGuide.ts`.
 El campo `category` es una unión de tipos (`camperas`, `pantalones`, `remeras`, `chalecos`):
 si cambiás el rubro, actualizá también esa unión y las categorías relacionadas.
+
+### Todos los textos son editables (y quitables)
+
+Ningún texto visible está escrito en el código: todo sale de `src/data/brand.json`, incluidos botones, títulos, avisos, etiquetas de accesibilidad y los mensajes de WhatsApp.
+
+- **Cambiar un texto:** editá su valor (por ejemplo `footer.b2bTitle` de "Canales Mayoristas" a "Empresas").
+- **Quitar un elemento:** dejá su texto **vacío** (`""`); el elemento no se dibuja.
+- **Textos con variables:** `{name}`, `{count}`, `{amount}`, etc. se reemplazan solos; el esquema indica cuáles admite cada texto y `check:config` falla si usás una desconocida.
+- Nombres, descripciones y especificaciones de productos están en `src/products.ts` y las medidas en `src/sizeGuide.ts` (también datos editables).
+
+Si agregás un componente, sus textos van a `brand.json` y a `brand.schema.json`; `npm run check:texts` lo verifica.
+
+## Datos, validación y pruebas
+
+| Comando | Para qué sirve |
+| --- | --- |
+| `npm run generate:types` | Genera `src/generated/brand.types.ts` desde el esquema (corre solo en `dev` y `build`; el archivo se commitea). |
+| `npm run check:config` | Valida `brand.json` contra el esquema, imágenes, URLs, colores, WhatsApp y variables de texto. |
+| `npm run check:config:strict` | Además exige reemplazar los datos de ejemplo y rechaza los textos de `prototype-markers.json`. **Falla en el prototipo, a propósito.** |
+| `npm run check:texts` | Falla si algún texto visible está escrito en el código en vez de salir de `brand.json`. |
+| `npm run check:render` | Renderiza la aplicación sin navegador y falla ante cualquier excepción. |
+| `npm run docs:fields` | Regenera `docs/CAMPOS.md`. |
 
 ## Logo, video e imágenes
 
@@ -79,8 +105,8 @@ si cambiás el rubro, actualizá también esa unión y las categorías relaciona
 | `public/assets/video/como-comprar.mp4` | Video final de la guía. | H.264 + AAC, 1280 × 720 px, 16:9, 30–60 s y máximo 15 MB. **Pendiente: todavía no existe.** |
 
 La sección “Cómo comprar” usa la miniatura `public/assets/hero/como-comprar-1.jpg`.
-Mientras falte el video, funciona como placeholder y muestra el texto configurado en `BRAND.howToBuy.placeholderMessage`.
-`BRAND.assetsWithPrototypeBranding` marca imágenes con la marca ficticia incrustada; hay que regenerarlas para un cliente real:
+Mientras falte el video, funciona como placeholder y muestra el texto configurado en `howToBuy.placeholderMessage` (en `brand.json`).
+`assetsWithPrototypeBranding` (en `brand.json`) marca imágenes con la marca ficticia incrustada; hay que regenerarlas para un cliente real:
 
 - `public/assets/hero/hero-1.jpg`
 - `public/assets/hero/como-comprar-1.jpg`
@@ -136,15 +162,15 @@ npm run verify:deploy -- https://<sitio>.netlify.app
 `src/demoBanner.config.ts` toma el nombre y enlace desde las variables de entorno y `getDemoLegend()` arma la leyenda del pie.
 Si configurás un enlace, solo se usan URLs HTTP o HTTPS válidas.
 
-`BRAND.demo.prefillCart` está en `false` en este prototipo. Si lo activás, el carrito se inicia con los primeros tres productos
-y `BRAND.demo.customer` completa los datos de ejemplo: Juan Carlos Pérez, teléfono, correo, domicilio, código postal y notas.
+`demo.prefillCart` está en `false` en este prototipo. Si lo activás, el carrito se inicia con los primeros tres productos
+y `demo.customer` completa los datos de ejemplo: Juan Carlos Pérez, teléfono, correo, domicilio, código postal y notas.
 Reemplazá esos datos por los del cliente o dejá la precarga desactivada.
 
 Al entregar un sitio real, sacá el banner demo y su compensación de layout:
 el import y el componente `PrototypeBanner` en `src/App.tsx`, el archivo `src/components/PrototypeBanner.tsx`,
 la configuración `src/demoBanner.config.ts` y las clases `pt-10`, `sm:pt-9`, `lg:pt-8`
 y los offsets del header que desplazan la página para dejar lugar al banner.
-Revisá también `demoLegend`, los datos de `BRAND.demo` y las imágenes de marca ficticia.
+Revisá también `demoLegend`, los datos de `demo` y las imágenes de marca ficticia.
 
 ## Deploy en Netlify
 
@@ -155,7 +181,7 @@ si la dejás vacía, production usa primero `URL` y los deploy previews/branch d
 
 ## Antes de entregar
 
-- Reemplazá datos, contactos, textos, colores, tipografías, SEO, logo y enlaces de `BRAND`.
+- Reemplazá datos, contactos, textos, colores, tipografías, SEO, logo y enlaces en `src/data/brand.json` hasta que pase `npm run check:config:strict`.
 - Actualizá productos, precios, imágenes, talles y guía de medidas.
 - Regenerá los assets que tienen marca ficticia y agregá el video final de “Cómo comprar”.
 - Regenerá el JSON de dimensiones con `npm run generate:image-dimensions`.

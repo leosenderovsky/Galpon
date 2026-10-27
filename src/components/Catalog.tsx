@@ -1,4 +1,6 @@
 import React, { useState, useMemo } from 'react';
+import { Txt } from './Txt';
+import { BRAND, formatText } from '../brand.config';
 import { PRODUCTS, CATEGORIES, Product, formatARS, getProductImageDimensions } from '../products';
 import { useCart } from '../context/CartContext';
 
@@ -34,7 +36,7 @@ export const Catalog: React.FC = () => {
     e.stopPropagation();
     // Use default first size and first color
     const defaultSize = product.sizes[0] || 'L';
-    const defaultColor = product.colors[0]?.name || 'Estándar';
+    const defaultColor = product.colors[0]?.name || BRAND.ui.catalog.standardColor;
     addToCart(product, defaultSize, defaultColor, 1);
 
     setAddedToast({ name: product.name, price: product.price });
@@ -49,21 +51,15 @@ export const Catalog: React.FC = () => {
         {/* Section Header & Ledger Meta */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8">
           <div className="flex flex-col gap-1">
-            <span className="font-body text-xs uppercase tracking-widest text-brand-secondary font-bold">
-              DESPACHO DIRECTO DE PRODUCCIÓN
-            </span>
-            <h2 className="font-headline text-3xl sm:text-5xl uppercase text-brand-primary-deep tracking-tight leading-tight">
-              CATÁLOGO DE EXISTENCIAS 2025
-            </h2>
-            <p className="font-body text-sm sm:text-base text-brand-text-secondary">
-              Filtrá por categoría y talles. Precios unitarios minoristas y escalas de curva mayorista por caja o bulto.
-            </p>
+            <Txt as="span" className="font-body text-xs uppercase tracking-widest text-brand-secondary font-bold" value={BRAND.ui.catalog.eyebrow} />
+            <Txt as="h2" className="font-headline text-3xl sm:text-5xl uppercase text-brand-primary-deep tracking-tight leading-tight" value={BRAND.ui.catalog.title} />
+            <Txt as="p" className="font-body text-sm sm:text-base text-brand-text-secondary" value={BRAND.ui.catalog.description} />
           </div>
 
           <div className="flex items-center gap-2 self-start md:self-auto bg-brand-surface-hover px-4 py-2 text-brand-text shadow-sm">
             <span className="material-symbols-outlined text-brand-secondary text-lg">tune</span>
             <span className="font-body text-xs sm:text-sm uppercase font-bold tracking-wider">
-              {filteredProducts.length} ARTÍCULOS ACTIVOS
+              {formatText(BRAND.ui.catalog.activeCount, { count: String(filteredProducts.length) })}
             </span>
           </div>
         </div>
@@ -94,9 +90,7 @@ export const Catalog: React.FC = () => {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-1 bg-brand-surface-muted p-3 border border-brand-border-soft">
             {/* Size Selector Pills */}
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-              <span className="font-body text-xs uppercase tracking-wider text-brand-text-secondary font-bold pr-1">
-                Talle:
-              </span>
+              <Txt as="span" className="font-body text-xs uppercase tracking-wider text-brand-text-secondary font-bold pr-1" value={BRAND.ui.catalog.sizeFilterLabel} />
               {filterSizes.map((size) => {
                 const isActive =
                   selectedSizeFilter === size ||
@@ -131,21 +125,19 @@ export const Catalog: React.FC = () => {
                 className="hidden sm:flex items-center gap-1.5 text-brand-secondary hover:text-brand-primary-deep font-body text-xs uppercase tracking-wider font-bold transition-colors cursor-pointer"
               >
                 <span className="material-symbols-outlined text-sm">straighten</span>
-                <span>Guía de Talles</span>
+                <Txt as="span" value={BRAND.ui.catalog.sizeGuideButton} />
               </button>
 
               <div className="flex items-center gap-2">
-                <span className="font-body text-xs uppercase tracking-wider text-brand-text-secondary font-bold">
-                  Ordenar:
-                </span>
+                <Txt as="span" className="font-body text-xs uppercase tracking-wider text-brand-text-secondary font-bold" value={BRAND.ui.catalog.sortLabel} />
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as any)}
                   className="bg-white text-brand-text font-body text-xs uppercase tracking-wider px-3 py-1.5 font-bold border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary cursor-pointer"
                 >
-                  <option value="featured">Más Vendidos</option>
-                  <option value="price-asc">Menor Precio</option>
-                  <option value="price-desc">Mayor Precio</option>
+                  <option value="featured">{BRAND.ui.catalog.sortPopular}</option>
+                  <option value="price-asc">{BRAND.ui.catalog.sortPriceAsc}</option>
+                  <option value="price-desc">{BRAND.ui.catalog.sortPriceDesc}</option>
                 </select>
               </div>
             </div>
@@ -200,9 +192,7 @@ export const Catalog: React.FC = () => {
                   {/* Quick Inspect Overlay */}
                   <div className="absolute inset-0 bg-brand-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                     <span className="bg-white text-brand-primary-deep px-3.5 py-1.5 font-body text-xs uppercase tracking-wider font-bold shadow-md flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-sm">visibility</span>
-                      Ver Ficha Técnica
-                    </span>
+                      <span className="material-symbols-outlined text-sm">visibility</span>{BRAND.ui.catalog.viewSheet}</span>
                   </div>
                 </div>
 
@@ -220,9 +210,7 @@ export const Catalog: React.FC = () => {
 
                   {/* Sizes Chips */}
                   <div className="flex items-center gap-1.5 pt-2 flex-wrap">
-                    <span className="font-body text-[11px] uppercase text-brand-text-secondary font-bold pr-1">
-                      Talles:
-                    </span>
+                    <Txt as="span" className="font-body text-[11px] uppercase text-brand-text-secondary font-bold pr-1" value={BRAND.ui.catalog.cardSizes} />
                     {product.sizes.map((s) => (
                       <span
                         key={s}
@@ -235,9 +223,7 @@ export const Catalog: React.FC = () => {
 
                   {/* Colors Preview Dots */}
                   <div className="flex items-center gap-1.5 pt-1">
-                    <span className="font-body text-[11px] uppercase text-brand-text-secondary font-bold pr-1">
-                      Tonos:
-                    </span>
+                    <Txt as="span" className="font-body text-[11px] uppercase text-brand-text-secondary font-bold pr-1" value={BRAND.ui.catalog.cardColors} />
                     {product.colors.map((c, i) => (
                       <span
                         key={i}
@@ -254,9 +240,7 @@ export const Catalog: React.FC = () => {
               <div className="p-4 sm:p-5 pt-0 flex flex-col gap-3">
                 <div className="bg-brand-surface-muted p-3 flex items-center justify-between border border-brand-border-soft">
                   <div>
-                    <span className="font-body text-[10px] uppercase tracking-wider text-brand-text-secondary block">
-                      Precio Minorista
-                    </span>
+                    <Txt as="span" className="font-body text-[10px] uppercase tracking-wider text-brand-text-secondary block" value={BRAND.ui.catalog.retailPrice} />
                     <span className="font-headline text-xl text-brand-primary-deep font-bold leading-none">
                       {formatARS(product.price)}
                     </span>
@@ -278,7 +262,7 @@ export const Catalog: React.FC = () => {
                     className="w-full bg-brand-surface-subtle hover:bg-brand-surface-hover text-brand-text py-2.5 font-body text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-1 transition-colors border border-brand-border cursor-pointer"
                   >
                     <span className="material-symbols-outlined text-sm">straighten</span>
-                    <span>Medidas</span>
+                    <Txt as="span" value={BRAND.ui.catalog.measures} />
                   </button>
                   <button
                     type="button"
@@ -286,7 +270,7 @@ export const Catalog: React.FC = () => {
                     className="w-full bg-brand-primary hover:bg-brand-primary-deep text-white py-2.5 font-body text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-sm active:translate-y-0.5"
                   >
                     <span className="material-symbols-outlined text-sm">shopping_cart</span>
-                    <span>Sumar</span>
+                    <Txt as="span" value={BRAND.ui.catalog.add} />
                   </button>
                 </div>
               </div>
@@ -298,17 +282,14 @@ export const Catalog: React.FC = () => {
         {filteredProducts.length === 0 && (
           <div className="p-12 text-center bg-white border border-brand-border-soft my-6">
             <span className="material-symbols-outlined text-4xl text-brand-secondary mb-2">inventory_2</span>
-            <p className="font-headline text-xl uppercase text-brand-primary-deep">No encontramos prendas para este filtro</p>
-            <p className="font-body text-sm text-brand-text-secondary mt-1">Probá seleccionando otra categoría o limpiando el filtro de talles.</p>
-            <button
+            <Txt as="p" className="font-headline text-xl uppercase text-brand-primary-deep" value={BRAND.ui.catalog.emptyTitle} />
+            <Txt as="p" className="font-body text-sm text-brand-text-secondary mt-1" value={BRAND.ui.catalog.emptyDescription} />
+            <Txt as="button"
               onClick={() => {
                 setSelectedCategory('all');
                 setSelectedSizeFilter('all');
               }}
-              className="mt-4 px-6 py-2.5 bg-brand-primary text-white font-body text-xs uppercase tracking-wider font-bold"
-            >
-              Ver Todo el Catálogo
-            </button>
+              className="mt-4 px-6 py-2.5 bg-brand-primary text-white font-body text-xs uppercase tracking-wider font-bold" value={BRAND.ui.catalog.viewAll} />
           </div>
         )}
 
@@ -317,23 +298,16 @@ export const Catalog: React.FC = () => {
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-brand-secondary text-3xl">precision_manufacturing</span>
             <div>
-              <span className="font-body text-sm sm:text-base uppercase text-brand-primary-deep font-bold block">
-                ¿Buscás una tabla de medidas exacta para tu equipo?
-              </span>
-              <span className="font-body text-xs sm:text-sm text-brand-text-secondary">
-                Todas las prendas son confeccionadas bajo norma IRAM de holgura de trabajo y faena pesada.
-              </span>
+              <Txt as="span" className="font-body text-sm sm:text-base uppercase text-brand-primary-deep font-bold block" value={BRAND.ui.catalog.sizeCtaTitle} />
+              <Txt as="span" className="font-body text-xs sm:text-sm text-brand-text-secondary" value={BRAND.ui.catalog.sizeCtaText} />
             </div>
           </div>
-          <button
+          <Txt as="button"
             onClick={() => {
               setSelectedCategoryForGuide('camperas');
               setIsSizeGuideModalOpen(true);
             }}
-            className="bg-brand-primary text-white px-6 py-3 font-body text-xs uppercase tracking-wider font-bold hover:bg-brand-primary-deep transition-colors cursor-pointer shrink-0 shadow-sm"
-          >
-            Ver Tabla de Medidas Oficial (IRAM)
-          </button>
+            className="bg-brand-primary text-white px-6 py-3 font-body text-xs uppercase tracking-wider font-bold hover:bg-brand-primary-deep transition-colors cursor-pointer shrink-0 shadow-sm" value={BRAND.ui.catalog.sizeCtaButton} />
         </div>
       </div>
 
@@ -342,19 +316,14 @@ export const Catalog: React.FC = () => {
         <div className="fixed bottom-6 right-6 bg-brand-primary-deep text-white p-4 shadow-2xl z-50 flex items-center gap-3 border-l-4 border-brand-secondary animate-bounce-short">
           <span className="material-symbols-outlined text-brand-accent text-2xl">check_circle</span>
           <div className="flex flex-col">
-            <span className="font-body text-xs uppercase font-bold tracking-wider text-brand-accent">
-              ¡Agregado al Pedido!
-            </span>
+            <Txt as="span" className="font-body text-xs uppercase font-bold tracking-wider text-brand-accent" value={BRAND.ui.catalog.addedToast} />
             <span className="font-body text-sm text-white">
               {addedToast.name} — {formatARS(addedToast.price)}
             </span>
           </div>
-          <button
+          <Txt as="button"
             onClick={() => setIsCartOpen(true)}
-            className="ml-3 px-3 py-1.5 bg-brand-secondary hover:bg-brand-secondary-dark text-white font-body text-xs uppercase font-bold"
-          >
-            Ver Carrito
-          </button>
+            className="ml-3 px-3 py-1.5 bg-brand-secondary hover:bg-brand-secondary-dark text-white font-body text-xs uppercase font-bold" value={BRAND.ui.catalog.viewCart} />
         </div>
       )}
     </section>

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useMemo, ReactNode } from 'react';
 import { Product, formatARS, PRODUCTS } from '../products';
-import { BRAND } from '../brand.config';
+import { BRAND, formatText } from '../brand.config';
 
 export interface CartItem {
   id: string; // `${productId}-${size}-${color}`
@@ -245,31 +245,32 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       : `${customerDetails.street}${customerDetails.floor ? ', ' + customerDetails.floor : ''}${customerDetails.postalCode ? ' (CP ' + customerDetails.postalCode + ')' : ''}${customerDetails.city ? ', ' + customerDetails.city : ''}`;
 
     if (!addressLine.trim()) {
-      addressLine = 'A coordinar por WhatsApp';
+      addressLine = BRAND.ui.whatsapp.shippingPending;
     }
 
     const itemsSummary = items.map(item => {
-      return `- ${item.quantity}x ${item.product.name} (Talle ${item.size}, ${item.color}) [${formatARS(item.unitPrice * item.quantity)}]`;
+      return formatText(BRAND.ui.whatsapp.itemLine, { quantity: String(item.quantity), name: item.product.name, size: item.size, color: item.color, price: formatARS(item.unitPrice * item.quantity) });
     }).join('\n');
 
     const discountLine = comboDiscount > 0
-      ? `\nDescuento Combo desde ${BRAND.b2b.comboMinItems} prendas (${BRAND.b2b.comboDiscountPercent}% OFF): -${formatARS(comboDiscount)}`
+      ? `\n${formatText(BRAND.ui.whatsapp.discountLine, { min: String(BRAND.b2b.comboMinItems), percent: String(BRAND.b2b.comboDiscountPercent), amount: formatARS(comboDiscount) })}`
       : '';
 
+    const w = BRAND.ui.whatsapp;
     const lines = [
-      `Hola ${BRAND.name}! 👋 Quiero confirmar mi pedido:`,
-      itemsSummary || '- (Sin productos seleccionados)',
+      formatText(w.orderTitle, { name: BRAND.name }),
+      itemsSummary || w.noItems,
       '───────────────────',
-      `Subtotal: ${formatARS(subtotal)}${discountLine}`,
-      `Total Estimado: ${formatARS(total)}`,
-      `Cliente: ${customerDetails.fullName || 'No especificado'}`,
-      `Tel: ${customerDetails.phone || 'No especificado'}`,
-      customerDetails.email ? `Email: ${customerDetails.email}` : '',
-      `Modalidad: ${customerDetails.deliveryMethodLabel}`,
-      `Destino: ${addressLine}`,
-      `Notas: ${customerDetails.notes || 'Sin notas adicionales.'}`,
+      formatText(w.subtotalLine, { subtotal: formatARS(subtotal), discount: discountLine }),
+      formatText(w.totalLine, { total: formatARS(total) }),
+      formatText(w.customerLine, { value: customerDetails.fullName || w.notSpecified }),
+      formatText(w.phoneLine, { value: customerDetails.phone || w.notSpecified }),
+      customerDetails.email ? formatText(w.emailLine, { value: customerDetails.email }) : '',
+      formatText(w.modeLine, { value: customerDetails.deliveryMethodLabel }),
+      formatText(w.destinationLine, { value: addressLine }),
+      formatText(w.notesLine, { value: customerDetails.notes || w.noNotes }),
       '───────────────────',
-      '¿Tienen stock disponible para coordinar pago y despacho?'
+      w.closing
     ].filter(Boolean);
 
     return lines.join('\n');

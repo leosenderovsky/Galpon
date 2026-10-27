@@ -1,4 +1,5 @@
 import React from 'react';
+import { Txt } from './Txt';
 import { BRAND } from '../brand.config';
 
 export const Testimonials: React.FC = () => {
@@ -10,12 +11,8 @@ export const Testimonials: React.FC = () => {
     <section className="w-full bg-brand-background py-16 sm:py-20 border-b border-brand-border-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex flex-col md:flex-row items-baseline justify-between gap-2 mb-10">
-          <h2 className="font-headline text-2xl sm:text-4xl uppercase text-brand-primary-deep tracking-tight">
-            EN EL CUERO DE QUIENES LABURAN
-          </h2>
-          <span className="font-body text-xs uppercase text-brand-text-secondary font-bold tracking-wider">
-            CLIENTES VERIFICADOS EN TODO EL PAÍS
-          </span>
+          <Txt as="h2" className="font-headline text-2xl sm:text-4xl uppercase text-brand-primary-deep tracking-tight" value={BRAND.testimonialsSection.title} />
+          <Txt as="span" className="font-body text-xs uppercase text-brand-text-secondary font-bold tracking-wider" value={BRAND.testimonialsSection.badge} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">

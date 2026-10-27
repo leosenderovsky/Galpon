@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Txt } from './Txt';
 import { BRAND } from '../brand.config';
 
 export const VideoSection: React.FC = () => {
@@ -29,7 +30,7 @@ export const VideoSection: React.FC = () => {
           setPlaceholderDismissed(false);
           return;
         }
-        console.error('No se pudo reproducir el video de cómo comprar.', error);
+        console.error(BRAND.ui.video.playError, error);
       });
     }
   };
@@ -125,7 +126,7 @@ export const VideoSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={togglePlay}
-                  aria-label="Reproducir video de guía de compra"
+                  aria-label={BRAND.ui.video.playGuideLabel}
                   className="absolute z-20 w-20 h-20 bg-brand-secondary hover:bg-brand-secondary-dark text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-transform cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-5xl ml-1">play_arrow</span>
@@ -140,13 +141,10 @@ export const VideoSection: React.FC = () => {
                   <p className="max-w-md font-body text-sm sm:text-base leading-relaxed">
                     {BRAND.howToBuy.placeholderMessage}
                   </p>
-                  <button
+                  <Txt as="button"
                     type="button"
                     onClick={() => setPlaceholderDismissed(true)}
-                    className="bg-brand-secondary px-5 py-2.5 font-body text-xs uppercase tracking-wider font-bold text-white hover:bg-brand-secondary-dark transition-colors"
-                  >
-                    Entendido
-                  </button>
+                    className="bg-brand-secondary px-5 py-2.5 font-body text-xs uppercase tracking-wider font-bold text-white hover:bg-brand-secondary-dark transition-colors" value={BRAND.ui.video.dismiss} />
                 </div>
               )}
 
@@ -172,7 +170,7 @@ export const VideoSection: React.FC = () => {
                       type="button"
                       onClick={togglePlay}
                       className="hover:text-brand-accent-light transition-colors cursor-pointer"
-                      aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
+                      aria-label={isPlaying ? BRAND.ui.video.pauseLabel : BRAND.ui.video.playLabel}
                     >
                       <span className="material-symbols-outlined text-lg">
                         {isPlaying ? 'pause' : 'play_arrow'}
@@ -182,7 +180,7 @@ export const VideoSection: React.FC = () => {
                       type="button"
                       onClick={toggleMute}
                       className="hover:text-brand-accent-light transition-colors cursor-pointer"
-                      aria-label="Silenciar"
+                      aria-label={BRAND.ui.video.muteLabel}
                     >
                       <span className="material-symbols-outlined text-lg">
                         {isMuted ? 'volume_off' : 'volume_up'}
@@ -194,14 +192,12 @@ export const VideoSection: React.FC = () => {
                   </div>
 
                   <div className="flex items-center gap-3 text-brand-accent-light">
-                    <span className="font-bold text-[11px] uppercase tracking-wider hidden sm:inline">
-                      PASO 1 • SELECCIÓN DE CURVAS
-                    </span>
+                    <Txt as="span" className="font-bold text-[11px] uppercase tracking-wider hidden sm:inline" value={BRAND.ui.video.stepBadge} />
                     <button
                       type="button"
                       onClick={toggleFullscreen}
                       className="hover:text-white transition-colors cursor-pointer"
-                      aria-label="Pantalla completa"
+                      aria-label={BRAND.ui.video.fullscreenLabel}
                     >
                       <span className="material-symbols-outlined text-lg">fullscreen</span>
                     </button>
