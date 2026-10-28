@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Txt } from './Txt';
 import { Product, formatARS, PRODUCTS, getProductImageDimensions } from '../products';
 import { getSizeGuideForProduct } from '../sizeGuide';
 import { useCart } from '../context/CartContext';
-import { BRAND } from '../brand.config';
+import { BRAND, formatText } from '../brand.config';
 
 interface ProductModalProps {
   product: Product;
@@ -15,7 +16,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
   // Selected visual state
   const [selectedImage, setSelectedImage] = useState<string>(product.images[0]);
   const [selectedColor, setSelectedColor] = useState<string>(
-    product.colors[0]?.name || 'Carbón Oscuro'
+    product.colors[0]?.name || BRAND.ui.productModal.defaultColor
   );
   const [selectedSize, setSelectedSize] = useState<string>(
     product.sizes.includes('L') ? 'L' : product.sizes[0]
@@ -63,19 +64,17 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
         {/* Top Warehouse Spec Header Bar */}
         <div className="bg-brand-primary text-white px-4 py-2.5 flex items-center justify-between border-b border-white/15">
           <div className="flex items-center gap-3 font-body text-xs uppercase tracking-widest">
-            <span className="bg-brand-secondary px-2.5 py-0.5 text-white font-bold">
-              FICHA TÉCNICA
-            </span>
+            <Txt as="span" className="bg-brand-secondary px-2.5 py-0.5 text-white font-bold" value={BRAND.ui.productModal.title} />
             <span className="text-brand-text-muted hidden sm:inline">
-              LOTE: {product.lot || '2025-Q1'}
+              {formatText(BRAND.ui.productModal.lotLine, { value: product.lot || BRAND.ui.productModal.defaultLot })}
             </span>
             <span className="hidden sm:inline text-white/40">/</span>
-            <span className="text-xs">ORIGEN: {product.origin || 'TALLER INDUSTRIAL BUENOS AIRES'}</span>
+            <span className="text-xs">{formatText(BRAND.ui.productModal.originLine, { value: product.origin || BRAND.ui.productModal.subtitle })}</span>
           </div>
 
           <button
             onClick={onClose}
-            aria-label="Cerrar modal"
+            aria-label={BRAND.ui.productModal.closeLabel}
             className="p-1 hover:bg-white/20 text-white transition-colors flex items-center justify-center cursor-pointer"
           >
             <span className="material-symbols-outlined text-2xl">close</span>
@@ -101,13 +100,13 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
 
                 {/* SKU Stamped Tag */}
                 <div className="absolute top-2 left-2 bg-white/90 px-2.5 py-1 font-body text-[11px] text-brand-primary-deep font-bold tracking-widest shadow-sm border border-brand-border-soft">
-                  {product.materialTag || 'SERIE 01 // PESADA'}
+                  {product.materialTag || BRAND.ui.productModal.series}
                 </div>
 
                 {/* Zoom indicator */}
                 <div className="absolute bottom-2 right-2 bg-brand-primary-deep/85 text-white px-2 py-1 flex items-center gap-1 font-body text-[10px] tracking-wider uppercase backdrop-blur-xs">
                   <span className="material-symbols-outlined text-xs">zoom_in</span>
-                  <span>Detalle Real</span>
+                  <Txt as="span" value={BRAND.ui.productModal.detailTitle} />
                 </div>
               </div>
 
@@ -127,7 +126,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                     >
                       <img
                         src={img}
-                        alt={`Vista ${idx + 1}`}
+                        alt={formatText(BRAND.ui.productModal.viewAlt, { number: String(idx + 1) })}
                         width={getProductImageDimensions(img)?.width}
                         height={getProductImageDimensions(img)?.height}
                         className="w-full h-full object-cover"
@@ -135,7 +134,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                         decoding="async"
                       />
                       <span className="absolute inset-x-0 bottom-0 bg-brand-primary-deep/80 text-white font-body text-[9px] py-0.5 text-center truncate px-0.5">
-                        {idx === 0 ? 'Frente' : idx === 1 ? 'Botones' : idx === 2 ? 'Remaches' : 'Costura'}
+                        {idx === 0 ? BRAND.ui.productModal.view1 : idx === 1 ? BRAND.ui.productModal.view2 : idx === 2 ? BRAND.ui.productModal.view3 : BRAND.ui.productModal.view4}
                       </span>
                     </button>
                   );
@@ -147,9 +146,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
             <div className="bg-brand-surface-subtle p-4 shadow-sm flex flex-col gap-2 border border-brand-border">
               <div className="flex items-center gap-1.5 text-brand-secondary">
                 <span className="material-symbols-outlined text-base">verified</span>
-                <span className="font-body text-xs font-bold uppercase tracking-wider">
-                  Especificaciones de Fábrica
-                </span>
+                <Txt as="span" className="font-body text-xs font-bold uppercase tracking-wider" value={BRAND.ui.productModal.specsTitle} />
               </div>
 
               <div className="flex flex-col gap-1.5 text-brand-text-secondary font-body text-xs">
@@ -158,8 +155,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                     fiber_manual_record
                   </span>
                   <span>
-                    <strong>Tejido:</strong>{' '}
-                    {product.specs?.fabric || 'Lona 100% Algodón de alto gramaje con torsión industrial.'}
+                    <Txt as="strong" value={BRAND.ui.productModal.specFabric} />{' '}
+                    {product.specs?.fabric || BRAND.ui.productModal.defaultFabric}
                   </span>
                 </div>
                 <div className="flex items-start gap-2">
@@ -167,8 +164,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                     fiber_manual_record
                   </span>
                   <span>
-                    <strong>Confección:</strong>{' '}
-                    {product.specs?.seams || 'Costuras dobles reforzadas con atraques en zonas de tensión.'}
+                    <Txt as="strong" value={BRAND.ui.productModal.specStitching} />{' '}
+                    {product.specs?.seams || BRAND.ui.productModal.defaultStitching}
                   </span>
                 </div>
                 <div className="flex items-start gap-2">
@@ -176,8 +173,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                     fiber_manual_record
                   </span>
                   <span>
-                    <strong>Herrajes:</strong>{' '}
-                    {product.specs?.hardware || 'Botonadura maciza de alta durabilidad.'}
+                    <Txt as="strong" value={BRAND.ui.productModal.specHardware} />{' '}
+                    {product.specs?.hardware || BRAND.ui.productModal.defaultHardware}
                   </span>
                 </div>
               </div>
@@ -191,14 +188,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               <div className="flex flex-wrap items-center justify-between gap-2 pb-1 border-b border-brand-surface-muted">
                 <div className="flex items-center gap-2 font-body text-xs uppercase tracking-wider text-brand-text-secondary">
                   <span>
-                    SKU: <strong className="text-brand-primary-deep">{product.sku}</strong>
+                    {BRAND.ui.productModal.skuLabel}{' '}<strong className="text-brand-primary-deep">{product.sku}</strong>
                   </span>
                   <span className="text-brand-border">|</span>
-                  <span>LÍNEA TRABAJO CONTINUO</span>
+                  <Txt as="span" value={BRAND.ui.productModal.line} />
                 </div>
                 <div className="inline-flex items-center gap-1.5 bg-brand-border-soft text-brand-text px-2.5 py-0.5 font-body text-[11px] uppercase font-bold tracking-wider">
                   <span className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse"></span>
-                  <span>Stock Disponible Inmediato</span>
+                  <Txt as="span" value={BRAND.ui.productModal.stock} />
                 </div>
               </div>
 
@@ -215,37 +212,33 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               {/* Tiered Dual-Price Block (Retail & Wholesale) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-brand-surface-subtle p-2 border border-brand-border">
                 <div className="bg-white p-3 flex flex-col justify-center border border-brand-border-soft">
-                  <span className="font-body text-[10px] uppercase tracking-wider text-brand-text-secondary">
-                    Precio Unitario Minorista
-                  </span>
+                  <Txt as="span" className="font-body text-[10px] uppercase tracking-wider text-brand-text-secondary" value={BRAND.ui.productModal.retailPrice} />
                   <div className="flex items-baseline gap-1 mt-0.5">
                     <span className="font-headline text-3xl font-bold text-brand-primary-deep">
                       {formatARS(product.price)}
                     </span>
-                    <span className="font-body text-[11px] text-brand-text-secondary">IVA incl.</span>
+                    <Txt as="span" className="font-body text-[11px] text-brand-text-secondary" value={BRAND.ui.productModal.vatIncluded} />
                   </div>
-                  <span className="font-body text-[11px] text-brand-text-secondary">
-                    Compra individual / factura A o B
-                  </span>
+                  <Txt as="span" className="font-body text-[11px] text-brand-text-secondary" value={BRAND.ui.productModal.invoiceNote} />
                 </div>
 
                 <div className="bg-brand-accent-light text-brand-accent-on p-3 flex flex-col justify-center relative overflow-hidden border border-brand-accent">
                   <div className="flex items-center justify-between">
                     <span className="font-body text-[10px] uppercase tracking-wider font-bold text-brand-secondary">
-                      A partir de {product.wholesaleMinUnits} unidades
+                      {formatText(BRAND.ui.productModal.wholesaleFromUnits, { units: String(product.wholesaleMinUnits) })}
                     </span>
                     <span className="bg-brand-secondary text-white px-1.5 py-0.2 font-body text-[10px] font-bold">
-                      {Math.round(((product.price - product.wholesalePrice) / product.price) * 100)}% OFF
+                      {formatText(BRAND.ui.productModal.offBadge, { percent: String(Math.round(((product.price - product.wholesalePrice) / product.price) * 100)) })}
                     </span>
                   </div>
                   <div className="flex items-baseline gap-1 mt-0.5">
                     <span className="font-headline text-3xl font-bold text-brand-accent-on">
                       {formatARS(product.wholesalePrice)}
                     </span>
-                    <span className="font-body text-[11px] font-semibold">c/u mayorista</span>
+                    <Txt as="span" className="font-body text-[11px] font-semibold" value={BRAND.ui.productModal.wholesaleEach} />
                   </div>
                   <span className="font-body text-[11px] text-brand-secondary-dark">
-                    Ahorrás {formatARS(product.price - product.wholesalePrice)} por prenda
+                    {formatText(BRAND.ui.productModal.savingsLine, { amount: formatARS(product.price - product.wholesalePrice) })}
                   </span>
                 </div>
               </div>
@@ -254,11 +247,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <label className="font-body text-xs uppercase tracking-wider font-bold text-brand-primary-deep">
-                    Color Seleccionado:{' '}
+                    {BRAND.ui.productModal.selectedColor}{' '}
                     <span className="text-brand-secondary font-bold">{selectedColor}</span>
                   </label>
                   <span className="font-body text-[11px] text-brand-text-secondary uppercase">
-                    {product.colors.length} Tonos Industriales
+                    {formatText(BRAND.ui.productModal.colorsCount, { count: String(product.colors.length) })}
                   </span>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
@@ -291,9 +284,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               <div className="flex flex-col gap-2 pt-1">
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <div className="flex items-center gap-2">
-                    <label className="font-body text-xs uppercase tracking-wider font-bold text-brand-primary-deep">
-                      Talle Seleccionado:
-                    </label>
+                    <Txt as="label" className="font-body text-xs uppercase tracking-wider font-bold text-brand-primary-deep" value={BRAND.ui.productModal.selectedSize} />
                     <span className="font-body text-sm font-bold text-brand-secondary">
                       {selectedSize}
                     </span>
@@ -306,7 +297,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                     className="flex items-center gap-1 text-brand-secondary hover:text-brand-primary-deep transition-colors font-body text-xs font-bold uppercase tracking-wider cursor-pointer"
                   >
                     <span className="material-symbols-outlined text-sm">straighten</span>
-                    <span>Guía de Medidas Exactas</span>
+                    <Txt as="span" value={BRAND.ui.productModal.sizeGuide} />
                     <span
                       className={`material-symbols-outlined text-base transition-transform duration-200 ${
                         sizeGuideOpen ? 'rotate-180' : ''
@@ -413,7 +404,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                     type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     className="w-11 h-full flex items-center justify-center font-headline text-xl text-brand-primary-deep hover:bg-brand-border-strong transition-colors cursor-pointer select-none"
-                    aria-label="Disminuir cantidad"
+                    aria-label={BRAND.ui.productModal.decreaseLabel}
                   >
                     -
                   </button>
@@ -424,7 +415,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                     type="button"
                     onClick={() => setQuantity(quantity + 1)}
                     className="w-11 h-full flex items-center justify-center font-headline text-xl text-brand-primary-deep hover:bg-brand-border-strong transition-colors cursor-pointer select-none"
-                    aria-label="Aumentar cantidad"
+                    aria-label={BRAND.ui.productModal.increaseLabel}
                   >
                     +
                   </button>
@@ -445,8 +436,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                       {addedSuccess ? 'check' : 'shopping_cart_checkout'}
                     </span>
                     {addedSuccess
-                      ? `¡SUMADO AL PEDIDO (${quantity} UNID)!`
-                      : 'AGREGAR AL PEDIDO'}
+                      ? formatText(BRAND.ui.productModal.addedToOrder, { quantity: String(quantity) })
+                      : BRAND.ui.productModal.addToOrder}
                   </span>
                   <span className="font-headline text-xl font-bold">
                     {formatARS(totalPrice)}
@@ -457,25 +448,25 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               {/* Wholesale Whatsapp Direct Inquiry */}
               <a
                 href={`https://wa.me/${BRAND.whatsapp.rawNumber}?text=${encodeURIComponent(
-                  `Hola ${BRAND.name}, quisiera consultar por la prenda ${product.name} (SKU ${product.sku}) por curva mayorista de ${quantity >= product.wholesaleMinUnits ? quantity : product.wholesaleMinUnits} unidades.`
+                  formatText(BRAND.ui.productModal.whatsappInquiry, { name: BRAND.name, product: product.name, sku: product.sku, units: String(quantity >= product.wholesaleMinUnits ? quantity : product.wholesaleMinUnits) })
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full h-10 bg-brand-surface-subtle hover:bg-brand-surface-hover text-brand-primary-deep border border-brand-border flex items-center justify-center gap-2 font-body text-xs uppercase tracking-wider font-bold transition-colors"
               >
                 <span className="material-symbols-outlined text-brand-secondary text-base">chat</span>
-                <span>Consultar stock de este talle por WhatsApp</span>
+                <Txt as="span" value={BRAND.ui.productModal.askStock} />
               </a>
 
               {/* Assurance Micro-Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 border-t border-brand-surface-muted">
                 <div className="flex items-center gap-2 text-brand-text-secondary font-body text-[11px] uppercase tracking-wider">
                   <span className="material-symbols-outlined text-brand-secondary text-sm">sync_alt</span>
-                  <span>Cambio de talle sin costo (15 días)</span>
+                  <Txt as="span" value={BRAND.ui.productModal.trustExchange} />
                 </div>
                 <div className="flex items-center gap-2 text-brand-text-secondary font-body text-[11px] uppercase tracking-wider">
                   <span className="material-symbols-outlined text-brand-secondary text-sm">local_shipping</span>
-                  <span>Despacho express a todo el país</span>
+                  <Txt as="span" value={BRAND.ui.productModal.trustShipping} />
                 </div>
               </div>
             </div>
@@ -486,11 +477,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
         {relatedProduct && (
           <div className="bg-brand-surface-hover px-4 py-2.5 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-brand-border">
             <div className="flex items-center gap-2">
-              <span className="bg-brand-primary text-white font-body text-[10px] px-2 py-0.5 uppercase tracking-wider font-bold">
-                Conjunto Cuadrilla
-              </span>
-              <span className="font-body text-xs text-brand-primary-deep">
-                Combiná esta prenda con: <strong>{relatedProduct.name}</strong>
+              <Txt as="span" className="bg-brand-primary text-white font-body text-[10px] px-2 py-0.5 uppercase tracking-wider font-bold" value={BRAND.ui.productModal.crossSellTitle} />
+              <span className="font-body text-xs text-brand-primary-deep">{BRAND.ui.productModal.crossSellText}{" "}<strong>{relatedProduct.name}</strong>
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -502,7 +490,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                 onClick={() => setActiveProductModal(relatedProduct)}
                 className="font-body text-xs uppercase tracking-wider text-brand-secondary font-bold hover:underline flex items-center gap-0.5 cursor-pointer"
               >
-                <span>Ver Prenda</span>
+                <Txt as="span" value={BRAND.ui.productModal.crossSellButton} />
                 <span className="material-symbols-outlined text-xs">arrow_forward</span>
               </button>
             </div>

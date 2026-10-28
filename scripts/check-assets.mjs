@@ -6,10 +6,10 @@ import { getImageDimensions, imageDimensionsAreCurrent } from './image-dimension
 const projectRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const sourceRoot = path.join(projectRoot, 'src');
 const assetsRoot = path.join(projectRoot, 'public', 'assets');
-const brandConfigPath = path.join(sourceRoot, 'brand.config.ts');
+const brandConfigPath = path.join(sourceRoot, 'data', 'brand.json');
 const strict = process.argv.includes('--strict');
 const allowedPlaceholders = new Set(['/assets/video/como-comprar.mp4']);
-const sourceExtensions = /\.(?:[cm]?[jt]sx?|vue|svelte|html)$/i;
+const sourceExtensions = /\.(?:[cm]?[jt]sx?|vue|svelte|html|json)$/i;
 const assetLiteral = /(['"`])(\/assets\/[^'"`\s$]+)\1/g;
 
 async function listFiles(directory) {
@@ -33,7 +33,8 @@ async function listFiles(directory) {
   return files;
 }
 
-const sourceFiles = (await listFiles(sourceRoot)).filter((file) => sourceExtensions.test(file));
+const generatedDir = path.join(sourceRoot, 'generated') + path.sep;
+const sourceFiles = (await listFiles(sourceRoot)).filter((file) => sourceExtensions.test(file) && !file.startsWith(generatedDir) && !file.endsWith('.schema.json') && !file.endsWith('prototype-markers.json'));
 const referencedAssets = new Set();
 for (const sourceFile of sourceFiles) {
   const content = await readFile(sourceFile, 'utf8');
@@ -42,14 +43,11 @@ for (const sourceFile of sourceFiles) {
   }
 }
 
-const brandConfig = await readFile(brandConfigPath, 'utf8');
-const prototypeBrandingMatch = brandConfig.match(/assetsWithPrototypeBranding:\s*\[([\s\S]*?)\]/);
-if (!prototypeBrandingMatch) {
-  throw new Error('No se encontró BRAND.assetsWithPrototypeBranding en src/brand.config.ts');
+const brandData = JSON.parse(await readFile(brandConfigPath, 'utf8'));
+if (!Array.isArray(brandData.assetsWithPrototypeBranding)) {
+  throw new Error('No se encontró assetsWithPrototypeBranding en src/data/brand.json');
 }
-const prototypeBrandingAssets = new Set(
-  [...prototypeBrandingMatch[1].matchAll(/(['"])(\/assets\/[^'"]+)\1/g)].map((match) => match[2])
-);
+const prototypeBrandingAssets = new Set(brandData.assetsWithPrototypeBranding);
 const actualImageDimensions = await getImageDimensions(projectRoot);
 const imageDimensionsCurrent = await imageDimensionsAreCurrent(projectRoot, actualImageDimensions);
 if (!imageDimensionsCurrent) {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { BRAND } from '../brand.config';
+import { Txt } from './Txt';
+import { BRAND, formatText } from '../brand.config';
 import { useCart } from '../context/CartContext';
 import { GalponLogo } from './GalponLogo';
 
@@ -20,99 +21,70 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col gap-4">
             <GalponLogo className="h-10" variant="light" />
 
-            <p className="font-body text-xs sm:text-sm text-brand-text-on-dark leading-relaxed">
-              Ropa de trabajo y básicos pensados para durar. Venta minorista y por curva mayorista para cuadrillas, talleres y comercios de todo el país.
-            </p>
+            <Txt as="p" className="font-body text-xs sm:text-sm text-brand-text-on-dark leading-relaxed" value={BRAND.footer.about} />
 
             <div className="flex items-center gap-2 pt-2">
               <span className="material-symbols-outlined text-brand-accent-light text-lg">shield</span>
-              <span className="font-body text-[11px] uppercase tracking-wider text-brand-text-on-dark font-semibold">
-                Garantía de confección industrial
-              </span>
+              <Txt as="span" className="font-body text-[11px] uppercase tracking-wider text-brand-text-on-dark font-semibold" value={BRAND.footer.guarantee} />
             </div>
           </div>
 
           {/* Col 2: Guides & Support */}
           <div className="flex flex-col gap-3">
-            <span className="font-body text-xs uppercase tracking-wider text-brand-accent-light font-bold">
-              Asistencia y Guías
-            </span>
+            <Txt as="span" className="font-body text-xs uppercase tracking-wider text-brand-accent-light font-bold" value={BRAND.footer.helpTitle} />
             <ul className="flex flex-col gap-2 font-body text-xs sm:text-sm text-brand-text-on-dark">
               <li>
-                <button
+                <Txt as="button"
                   type="button"
                   onClick={() => {
                     setSelectedCategoryForGuide('camperas');
                     setIsSizeGuideModalOpen(true);
                   }}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Guía de Talles y Medidas Exactas (IRAM)
-                </button>
+                  className="hover:text-white transition-colors cursor-pointer text-left" value={BRAND.footer.helpSizeGuide} />
               </li>
               <li>
-                <button
+                <Txt as="button"
                   type="button"
                   onClick={() => scrollTo('como-comprar')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Políticas de Cambio y Devolución (15 días)
-                </button>
+                  className="hover:text-white transition-colors cursor-pointer text-left" value={BRAND.footer.helpReturns} />
               </li>
               <li>
-                <button
+                <Txt as="button"
                   type="button"
                   onClick={() => scrollTo('como-comprar')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Envíos a todo el país por Expreso y Correo
-                </button>
+                  className="hover:text-white transition-colors cursor-pointer text-left" value={BRAND.footer.helpShipping} />
               </li>
               <li>
-                <button
+                <Txt as="button"
                   type="button"
                   onClick={() => setIsCartOpen(true)}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Estado y Seguimiento de tu Pedido
-                </button>
+                  className="hover:text-white transition-colors cursor-pointer text-left" value={BRAND.footer.helpTracking} />
               </li>
             </ul>
           </div>
 
           {/* Col 3: Wholesale Channels */}
           <div className="flex flex-col gap-3">
-            <span className="font-body text-xs uppercase tracking-wider text-brand-accent-light font-bold">
-              Canales Mayoristas
-            </span>
+            <Txt as="span" className="font-body text-xs uppercase tracking-wider text-brand-accent-light font-bold" value={BRAND.footer.b2bTitle} />
             <ul className="flex flex-col gap-2 font-body text-xs sm:text-sm text-brand-text-on-dark">
               <li>
-                <button
+                <Txt as="button"
                   type="button"
                   onClick={() => scrollTo('mayoristas')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Presupuestos por Volumen & Licitaciones
-                </button>
+                  className="hover:text-white transition-colors cursor-pointer text-left" value={BRAND.footer.b2bQuotes} />
               </li>
               <li>
-                <button
+                <Txt as="button"
                   type="button"
                   onClick={() => scrollTo('mayoristas')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Facturación Oficial A / CUIT
-                </button>
+                  className="hover:text-white transition-colors cursor-pointer text-left" value={BRAND.footer.b2bInvoice} />
               </li>
               <li>
-                <a
+                <Txt as="a"
                   href={`https://wa.me/${BRAND.whatsapp.rawNumber}?text=${encodeURIComponent(BRAND.whatsapp.wholesaleInquiryText)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  Mesa WhatsApp Comercial B2B
-                </a>
+                  className="hover:text-white transition-colors" value={BRAND.footer.b2bDesk} />
               </li>
               <li>
                 <span className="text-brand-text-on-dark">{BRAND.address.pickupLabel}</span>
@@ -122,15 +94,13 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Warehouse & Contact */}
           <div className="flex flex-col gap-3">
-            <span className="font-body text-xs uppercase tracking-wider text-brand-accent-light font-bold">
-              Depósito & Contacto
-            </span>
+            <Txt as="span" className="font-body text-xs uppercase tracking-wider text-brand-accent-light font-bold" value={BRAND.footer.contactTitle} />
             <div className="flex flex-col gap-1.5 font-body text-xs sm:text-sm text-brand-text-on-dark">
               <span className="text-white font-medium">{BRAND.address.full}</span>
               <span>{BRAND.address.pickupHours}</span>
               <span className="text-brand-accent-light">{BRAND.email}</span>
               <span className="text-white font-bold mt-1">
-                WhatsApp: {BRAND.whatsapp.display}
+                {formatText(BRAND.footer.whatsappLine, { phone: BRAND.whatsapp.display })}
               </span>
 
               {/* Social Icons */}
@@ -139,29 +109,29 @@ export const Footer: React.FC = () => {
                   href={`https://wa.me/${BRAND.whatsapp.rawNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="WhatsApp"
+                  aria-label={BRAND.footer.whatsappAria}
                   className="p-2 bg-brand-primary-deep hover:bg-brand-secondary transition-colors text-white flex items-center justify-center border border-white/15"
                 >
                   <span className="material-symbols-outlined text-sm">chat</span>
                 </a>
                 <a
                   href={`mailto:${BRAND.email}`}
-                  aria-label="Email"
+                  aria-label={BRAND.footer.emailAria}
                   className="p-2 bg-brand-primary-deep hover:bg-brand-secondary transition-colors text-white flex items-center justify-center border border-white/15"
                 >
                   <span className="material-symbols-outlined text-sm">mail</span>
                 </a>
                 <a
                   href={`tel:+${BRAND.whatsapp.rawNumber}`}
-                  aria-label="Teléfono"
+                  aria-label={BRAND.footer.phoneAria}
                   className="p-2 bg-brand-primary-deep hover:bg-brand-secondary transition-colors text-white flex items-center justify-center border border-white/15"
                 >
                   <span className="material-symbols-outlined text-sm">call</span>
                 </a>
                 {([
-                  ['instagram', 'photo_camera', 'Instagram'],
-                  ['facebook', 'public', 'Facebook'],
-                  ['linkedin', 'work', 'LinkedIn']
+                  ['instagram', 'photo_camera', BRAND.footer.instagramLabel],
+                  ['facebook', 'public', BRAND.footer.facebookLabel],
+                  ['linkedin', 'work', BRAND.footer.linkedinLabel]
                 ] as const).map(([network, icon, label]) =>
                   BRAND.social[network] ? (
                     <a
@@ -183,11 +153,11 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Rights Bar */}
         <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 font-body text-[11px] text-brand-text-muted">
-          <p>© {new Date().getFullYear()} {BRAND.legalName ?? BRAND.name}. Todos los derechos reservados.</p>
+          <Txt as="p" value={formatText(BRAND.footer.copyright, { year: String(new Date().getFullYear()), name: BRAND.legalName ?? BRAND.name })} />
           <div className="flex items-center gap-4">
-            <span>CUIT {BRAND.cuit}</span>
+            <Txt as="span" value={formatText(BRAND.footer.cuitLine, { cuit: BRAND.cuit })} />
             <span className="opacity-40">|</span>
-            <span>DEFENSA DEL CONSUMIDOR</span>
+            <Txt as="span" value={BRAND.footer.consumerDefense} />
           </div>
         </div>
 

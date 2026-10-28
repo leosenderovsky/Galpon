@@ -1,7 +1,8 @@
 import React from 'react';
+import { Txt } from './Txt';
 import { useCart } from '../context/CartContext';
 import { formatARS, getProductImageDimensions } from '../products';
-import { BRAND } from '../brand.config';
+import { BRAND, formatText } from '../brand.config';
 
 export const CheckoutModal: React.FC = () => {
   const {
@@ -37,11 +38,9 @@ export const CheckoutModal: React.FC = () => {
         <div className="w-full bg-brand-surface-subtle px-4 sm:px-8 py-3.5 border-b border-brand-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2 sm:gap-3">
-              <span className="font-headline text-lg sm:text-xl uppercase tracking-wider text-brand-primary-deep font-bold">
-                DESPACHO / CHECKOUT B2B & RETAIL
-              </span>
+              <Txt as="span" className="font-headline text-lg sm:text-xl uppercase tracking-wider text-brand-primary-deep font-bold" value={BRAND.ui.checkout.title} />
               <span className="bg-brand-secondary text-white font-body text-[10px] sm:text-xs uppercase px-2 py-0.5 tracking-wider font-bold">
-                ORDEN #GP-{Math.floor(1000 + Math.random() * 9000)}
+                {formatText(BRAND.ui.checkout.orderNumber, { number: String(Math.floor(1000 + Math.random() * 9000)) })}
               </span>
             </div>
 
@@ -55,9 +54,7 @@ export const CheckoutModal: React.FC = () => {
                 <span className="w-5 h-5 bg-brand-primary text-white font-body text-xs flex items-center justify-center font-bold">
                   ✓
                 </span>
-                <span className="font-body text-xs uppercase tracking-wider text-brand-text">
-                  1. Catálogo
-                </span>
+                <Txt as="span" className="font-body text-xs uppercase tracking-wider text-brand-text" value={BRAND.ui.checkout.step1} />
               </button>
               <span className="text-brand-border font-body text-xs">/</span>
 
@@ -72,9 +69,7 @@ export const CheckoutModal: React.FC = () => {
                 <span className="w-5 h-5 bg-brand-primary text-white font-body text-xs flex items-center justify-center font-bold">
                   ✓
                 </span>
-                <span className="font-body text-xs uppercase tracking-wider text-brand-text">
-                  2. Carrito
-                </span>
+                <Txt as="span" className="font-body text-xs uppercase tracking-wider text-brand-text" value={BRAND.ui.checkout.step2} />
               </button>
               <span className="text-brand-border font-body text-xs">/</span>
 
@@ -82,9 +77,7 @@ export const CheckoutModal: React.FC = () => {
                 <span className="w-5 h-5 bg-brand-secondary text-white font-body text-xs flex items-center justify-center font-bold">
                   3
                 </span>
-                <span className="font-body text-xs uppercase tracking-wider font-bold">
-                  3. Datos de Entrega
-                </span>
+                <Txt as="span" className="font-body text-xs uppercase tracking-wider font-bold" value={BRAND.ui.checkout.step3} />
               </div>
               <span className="text-brand-border font-body text-xs">/</span>
 
@@ -92,16 +85,14 @@ export const CheckoutModal: React.FC = () => {
                 <span className="w-5 h-5 bg-brand-border-strong text-brand-text font-body text-xs flex items-center justify-center font-bold">
                   4
                 </span>
-                <span className="font-body text-xs uppercase tracking-wider text-brand-text">
-                  4. WhatsApp
-                </span>
+                <Txt as="span" className="font-body text-xs uppercase tracking-wider text-brand-text" value={BRAND.ui.checkout.step4} />
               </div>
 
               {/* Close Button */}
               <button
                 onClick={() => setIsCheckoutOpen(false)}
                 className="ml-4 p-1 hover:bg-brand-border-strong text-brand-primary-deep transition-colors"
-                aria-label="Cerrar checkout"
+                aria-label={BRAND.ui.checkout.closeLabel}
               >
                 <span className="material-symbols-outlined text-xl">close</span>
               </button>
@@ -118,17 +109,11 @@ export const CheckoutModal: React.FC = () => {
                 verified_user
               </span>
               <div>
-                <p className="font-body text-xs uppercase tracking-wider text-brand-primary-deep font-bold">
-                  Sin pasarelas externas ni comisiones extras
-                </p>
-                <p className="font-body text-xs text-brand-text-secondary">
-                  Coordinás stock, facturación oficial (Factura A o B) y medios de pago (Transferencia / Efectivo al retirar) directamente con nuestro equipo de almacén.
-                </p>
+                <Txt as="p" className="font-body text-xs uppercase tracking-wider text-brand-primary-deep font-bold" value={BRAND.ui.checkout.noGatewayTitle} />
+                <Txt as="p" className="font-body text-xs text-brand-text-secondary" value={BRAND.ui.checkout.noGatewayText} />
               </div>
             </div>
-            <span className="font-body text-xs text-brand-secondary uppercase bg-white border border-brand-border px-3 py-1 font-bold whitespace-nowrap">
-              Atención Humana Directa
-            </span>
+            <Txt as="span" className="font-body text-xs text-brand-secondary uppercase bg-white border border-brand-border px-3 py-1 font-bold whitespace-nowrap" value={BRAND.ui.checkout.humanBadge} />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -141,34 +126,26 @@ export const CheckoutModal: React.FC = () => {
                     <span className="w-6 h-6 bg-brand-primary text-white font-body text-xs flex items-center justify-center font-bold">
                       1
                     </span>
-                    <h2 className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep">
-                      Datos de Contacto & Facturación
-                    </h2>
+                    <Txt as="h2" className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep" value={BRAND.ui.checkout.contactTitle} />
                   </div>
-                  <span className="font-body text-[11px] uppercase text-brand-secondary font-bold">
-                    Requerido
-                  </span>
+                  <Txt as="span" className="font-body text-[11px] uppercase text-brand-secondary font-bold" value={BRAND.ui.checkout.required} />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="sm:col-span-2">
-                    <label className="block font-body text-xs uppercase tracking-wider text-brand-text mb-1 font-bold">
-                      Nombre Completo / Razón Social *
-                    </label>
+                    <Txt as="label" className="block font-body text-xs uppercase tracking-wider text-brand-text mb-1 font-bold" value={BRAND.ui.checkout.nameLabel} />
                     <input
                       type="text"
                       required
                       value={customerDetails.fullName}
                       onChange={(e) => updateCustomerDetails({ fullName: e.target.value })}
-                      placeholder="Ej: Marcelo Rossi / Taller Metalúrgico SA"
+                      placeholder={BRAND.ui.checkout.namePlaceholder}
                       className="w-full bg-brand-surface-muted text-brand-primary-deep px-3 py-2.5 font-body text-sm border border-brand-border focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-body text-xs uppercase tracking-wider text-brand-text mb-1 font-bold">
-                      Teléfono / WhatsApp *
-                    </label>
+                    <Txt as="label" className="block font-body text-xs uppercase tracking-wider text-brand-text mb-1 font-bold" value={BRAND.ui.checkout.phoneLabel} />
                     <input
                       type="tel"
                       required
@@ -177,25 +154,19 @@ export const CheckoutModal: React.FC = () => {
                       placeholder="+54 9 11 0000-0000"
                       className="w-full bg-brand-surface-muted text-brand-primary-deep px-3 py-2.5 font-body text-sm border border-brand-border focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                     />
-                    <p className="font-body text-[11px] text-brand-text-secondary mt-1">
-                      Con este número te contactamos para validar el pedido.
-                    </p>
+                    <Txt as="p" className="font-body text-[11px] text-brand-text-secondary mt-1" value={BRAND.ui.checkout.phoneHelp} />
                   </div>
 
                   <div>
-                    <label className="block font-body text-xs uppercase tracking-wider text-brand-text mb-1 font-bold">
-                      Email (Opcional)
-                    </label>
+                    <Txt as="label" className="block font-body text-xs uppercase tracking-wider text-brand-text mb-1 font-bold" value={BRAND.ui.checkout.emailLabel} />
                     <input
                       type="email"
                       value={customerDetails.email}
                       onChange={(e) => updateCustomerDetails({ email: e.target.value })}
-                      placeholder="nombre@correo.com"
+                      placeholder={BRAND.ui.checkout.emailPlaceholder}
                       className="w-full bg-brand-surface-muted text-brand-primary-deep px-3 py-2.5 font-body text-sm border border-brand-border focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                     />
-                    <p className="font-body text-[11px] text-brand-text-secondary mt-1">
-                      Para recibir la factura electrónica PDF.
-                    </p>
+                    <Txt as="p" className="font-body text-[11px] text-brand-text-secondary mt-1" value={BRAND.ui.checkout.emailHelp} />
                   </div>
                 </div>
               </div>
@@ -207,13 +178,9 @@ export const CheckoutModal: React.FC = () => {
                     <span className="w-6 h-6 bg-brand-primary text-white font-body text-xs flex items-center justify-center font-bold">
                       2
                     </span>
-                    <h2 className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep">
-                      Modalidad de Despacho
-                    </h2>
+                    <Txt as="h2" className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep" value={BRAND.ui.checkout.deliveryTitle} />
                   </div>
-                  <span className="font-body text-[11px] uppercase text-brand-text-secondary">
-                    Seleccionar 1 opción
-                  </span>
+                  <Txt as="span" className="font-body text-[11px] uppercase text-brand-text-secondary" value={BRAND.ui.checkout.deliveryHint} />
                 </div>
 
                 {/* Radio Options */}
@@ -241,9 +208,7 @@ export const CheckoutModal: React.FC = () => {
                         <span className="font-headline text-base uppercase text-brand-primary-deep">
                           {BRAND.shipping.homeDeliveryLabel}
                         </span>
-                        <span className="font-body text-[10px] uppercase bg-brand-primary text-white px-2 py-0.5 font-bold">
-                          A Cotizar por CP
-                        </span>
+                        <Txt as="span" className="font-body text-[10px] uppercase bg-brand-primary text-white px-2 py-0.5 font-bold" value={BRAND.ui.checkout.quoteByZip} />
                       </div>
                       <p className="font-body text-xs text-brand-text-secondary mt-0.5">
                         {BRAND.shipping.homeDeliveryDescription}
@@ -274,12 +239,10 @@ export const CheckoutModal: React.FC = () => {
                         <span className="font-headline text-base uppercase text-brand-primary-deep">
                           {BRAND.address.pickupLabel}
                         </span>
-                        <span className="font-body text-[10px] uppercase bg-brand-secondary text-white px-2 py-0.5 font-bold">
-                          Gratis
-                        </span>
+                        <Txt as="span" className="font-body text-[10px] uppercase bg-brand-secondary text-white px-2 py-0.5 font-bold" value={BRAND.ui.checkout.free} />
                       </div>
                       <p className="font-body text-xs text-brand-text-secondary mt-0.5">
-                        {BRAND.address.full}. {BRAND.address.pickupHours}. Listo en 4 hs hábiles sin costo.
+                        {formatText(BRAND.ui.checkout.pickupDetails, { address: BRAND.address.full, hours: BRAND.address.pickupHours })}
                       </p>
                     </div>
                   </label>
@@ -287,7 +250,7 @@ export const CheckoutModal: React.FC = () => {
                   {/* Option 3: Expreso al Interior */}
                   <label
                     onClick={() =>
-                      handleDeliveryChange('expreso', 'Expreso o Transporte al Interior a convenir')
+                      handleDeliveryChange('expreso', BRAND.ui.checkout.expressLabel)
                     }
                     className={`p-3.5 cursor-pointer flex items-start gap-3 transition-colors border ${
                       customerDetails.deliveryMethod === 'expreso'
@@ -304,16 +267,10 @@ export const CheckoutModal: React.FC = () => {
                     />
                     <div className="flex flex-col flex-1">
                       <div className="flex items-center justify-between">
-                        <span className="font-headline text-base uppercase text-brand-primary-deep">
-                          Envío Mayorista por Expreso / Flete
-                        </span>
-                        <span className="font-body text-[10px] uppercase bg-brand-border text-brand-text px-2 py-0.5 font-bold">
-                          Compras por Bulto
-                        </span>
+                        <Txt as="span" className="font-headline text-base uppercase text-brand-primary-deep" value={BRAND.ui.checkout.expressTitle} />
+                        <Txt as="span" className="font-body text-[10px] uppercase bg-brand-border text-brand-text px-2 py-0.5 font-bold" value={BRAND.ui.checkout.expressBadge} />
                       </div>
-                      <p className="font-body text-xs text-brand-text-secondary mt-0.5">
-                        Llevamos el bulto precintado sin cargo al expreso de tu elección en Villa Soldati o Pompeya.
-                      </p>
+                      <Txt as="p" className="font-body text-xs text-brand-text-secondary mt-0.5" value={BRAND.ui.checkout.expressDescription} />
                     </div>
                   </label>
                 </div>
@@ -326,65 +283,55 @@ export const CheckoutModal: React.FC = () => {
                         <span className="material-symbols-outlined text-sm text-brand-secondary">
                           pin_drop
                         </span>{' '}
-                        Destino de Entrega
+                        {BRAND.ui.checkout.destinationTitle}
                       </span>
-                      <span className="font-body text-[11px] text-brand-text-secondary">
-                        Cotización exacta en la respuesta de WhatsApp
-                      </span>
+                      <Txt as="span" className="font-body text-[11px] text-brand-text-secondary" value={BRAND.ui.checkout.destinationHint} />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-6 gap-3">
                       <div className="sm:col-span-4">
-                        <label className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold">
-                          Calle y Número *
-                        </label>
+                        <Txt as="label" className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold" value={BRAND.ui.checkout.streetLabel} />
                         <input
                           type="text"
                           required
                           value={customerDetails.street}
                           onChange={(e) => updateCustomerDetails({ street: e.target.value })}
-                          placeholder="Ej: Av. Hipólito Yrigoyen 2450"
+                          placeholder={BRAND.ui.checkout.streetPlaceholder}
                           className="w-full bg-white text-brand-primary-deep px-3 py-2 font-body text-xs border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                         />
                       </div>
 
                       <div className="sm:col-span-2">
-                        <label className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold">
-                          Piso / Dpto / Local
-                        </label>
+                        <Txt as="label" className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold" value={BRAND.ui.checkout.apartmentLabel} />
                         <input
                           type="text"
                           value={customerDetails.floor}
                           onChange={(e) => updateCustomerDetails({ floor: e.target.value })}
-                          placeholder="Ej: Local 4 / Piso 2 B"
+                          placeholder={BRAND.ui.checkout.apartmentPlaceholder}
                           className="w-full bg-white text-brand-primary-deep px-3 py-2 font-body text-xs border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                         />
                       </div>
 
                       <div className="sm:col-span-2">
-                        <label className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold">
-                          Código Postal *
-                        </label>
+                        <Txt as="label" className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold" value={BRAND.ui.checkout.zipLabel} />
                         <input
                           type="text"
                           required
                           value={customerDetails.postalCode}
                           onChange={(e) => updateCustomerDetails({ postalCode: e.target.value })}
-                          placeholder="Ej: 1824"
+                          placeholder={BRAND.ui.checkout.zipPlaceholder}
                           className="w-full bg-white text-brand-primary-deep px-3 py-2 font-body text-xs border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                         />
                       </div>
 
                       <div className="sm:col-span-4">
-                        <label className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold">
-                          Localidad & Provincia *
-                        </label>
+                        <Txt as="label" className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold" value={BRAND.ui.checkout.cityLabel} />
                         <input
                           type="text"
                           required
                           value={customerDetails.city}
                           onChange={(e) => updateCustomerDetails({ city: e.target.value })}
-                          placeholder={`Ej: ${BRAND.address.city}`}
+                          placeholder={formatText(BRAND.ui.checkout.cityPlaceholder, { city: BRAND.address.city })}
                           className="w-full bg-white text-brand-primary-deep px-3 py-2 font-body text-xs border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                         />
                       </div>
@@ -400,28 +347,20 @@ export const CheckoutModal: React.FC = () => {
                     <span className="w-6 h-6 bg-brand-primary text-white font-body text-xs flex items-center justify-center font-bold">
                       3
                     </span>
-                    <h2 className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep">
-                      Instrucciones o Aclaraciones
-                    </h2>
+                    <Txt as="h2" className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep" value={BRAND.ui.checkout.notesTitle} />
                   </div>
-                  <span className="font-body text-[11px] uppercase text-brand-text-secondary">
-                    Opcional
-                  </span>
+                  <Txt as="span" className="font-body text-[11px] uppercase text-brand-text-secondary" value={BRAND.ui.checkout.optional} />
                 </div>
 
-                <label className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold">
-                  Comentarios para el armado del pedido
-                </label>
+                <Txt as="label" className="block font-body text-[11px] uppercase text-brand-text-secondary mb-1 font-bold" value={BRAND.ui.checkout.notesLabel} />
                 <textarea
                   rows={3}
                   value={customerDetails.notes}
                   onChange={(e) => updateCustomerDetails({ notes: e.target.value })}
-                  placeholder="Ej: Entregar por la mañana; solicitar Factura A con CUIT; si no hay en tono carbón cambiar por verde..."
+                  placeholder={BRAND.ui.checkout.notesPlaceholder}
                   className="w-full bg-brand-surface-muted text-brand-primary-deep p-3 font-body text-sm border border-brand-border focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                 />
-                <p className="font-body text-[11px] text-brand-text-secondary mt-1">
-                  Este texto se sumará al mensaje directo de WhatsApp para que el operario de almacén lo revise antes de empaquetar.
-                </p>
+                <Txt as="p" className="font-body text-[11px] text-brand-text-secondary mt-1" value={BRAND.ui.checkout.notesHelp} />
               </div>
             </div>
 
@@ -433,19 +372,16 @@ export const CheckoutModal: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-brand-primary-deep">inventory_2</span>
                     <h3 className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep">
-                      Tu Pedido ({items.length} Artículos)
+                      {formatText(BRAND.ui.checkout.summaryTitle, { count: String(items.length) })}
                     </h3>
                   </div>
-                  <button
+                  <Txt as="button"
                     type="button"
                     onClick={() => {
                       setIsCheckoutOpen(false);
                       setIsCartOpen(true);
                     }}
-                    className="font-body text-xs text-brand-secondary uppercase hover:underline font-bold cursor-pointer"
-                  >
-                    Modificar
-                  </button>
+                    className="font-body text-xs text-brand-secondary uppercase hover:underline font-bold cursor-pointer" value={BRAND.ui.checkout.edit} />
                 </div>
 
                 {/* Items List */}
@@ -467,7 +403,7 @@ export const CheckoutModal: React.FC = () => {
                             {item.quantity}x {item.product.name}
                           </span>
                           <span className="font-body text-[11px] text-brand-text-secondary">
-                            Talle: {item.size} · {item.color}
+                            {formatText(BRAND.ui.checkout.sizeColor, { size: item.size, color: item.color })}
                           </span>
                         </div>
                       </div>
@@ -481,28 +417,26 @@ export const CheckoutModal: React.FC = () => {
                 {/* Total Breakdown */}
                 <div className="mt-4 pt-3 bg-brand-surface-muted p-3 flex flex-col gap-1.5 border border-brand-border">
                   <div className="flex justify-between font-body text-xs text-brand-text-secondary">
-                    <span>Subtotal Lista Minorista</span>
+                    <Txt as="span" value={BRAND.ui.checkout.subtotal} />
                     <span>{formatARS(subtotal)}</span>
                   </div>
 
                   {comboDiscount > 0 && (
                     <div className="flex justify-between font-body text-xs text-brand-secondary font-bold">
-                      <span>                                            Combo desde {BRAND.b2b.comboMinItems} prendas (-{BRAND.b2b.comboDiscountPercent}%)</span>
+                      <span>{formatText(BRAND.ui.checkout.combo, { min: String(BRAND.b2b.comboMinItems), percent: String(BRAND.b2b.comboDiscountPercent) })}</span>
                       <span>-{formatARS(comboDiscount)}</span>
                     </div>
                   )}
 
                   <div className="flex justify-between font-body text-xs text-brand-text-secondary">
-                    <span>Costo de Despacho / Logística</span>
+                    <Txt as="span" value={BRAND.ui.checkout.shippingCost} />
                     <span className="font-body text-[10px] uppercase bg-brand-surface-hover px-1 font-bold text-brand-primary-deep">
-                      {isRetiro ? 'Retiro Gratis en Depósito' : 'A Coordinar por WhatsApp'}
+                      {isRetiro ? BRAND.ui.checkout.pickupFree : BRAND.ui.checkout.shippingByWhatsapp}
                     </span>
                   </div>
 
                   <div className="mt-2 pt-2 bg-white p-2.5 border border-brand-border flex justify-between items-baseline shadow-sm">
-                    <span className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep font-bold">
-                      Total Estimado
-                    </span>
+                    <Txt as="span" className="font-headline text-lg uppercase tracking-wide text-brand-primary-deep font-bold" value={BRAND.ui.checkout.total} />
                     <span className="font-headline text-2xl sm:text-3xl text-brand-primary-deep font-bold tracking-tight">
                       {formatARS(total)}
                     </span>
@@ -514,21 +448,15 @@ export const CheckoutModal: React.FC = () => {
               <div className="bg-brand-surface-subtle p-4 sm:p-5 shadow-sm border border-brand-border">
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-body text-xs uppercase tracking-wider text-brand-primary-deep font-bold flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-brand-secondary"></span>
-                    Vista Previa del Mensaje Automatizado
-                  </span>
-                  <span className="font-body text-[10px] text-brand-text-secondary font-semibold">
-                    WhatsApp API Direct
-                  </span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-brand-secondary"></span>{BRAND.ui.checkout.previewTitle}</span>
+                  <Txt as="span" className="font-body text-[10px] text-brand-text-secondary font-semibold" value={BRAND.ui.checkout.previewBadge} />
                 </div>
 
                 {/* Mock Chat Bubble */}
                 <div className="bg-white p-3 text-brand-primary-deep shadow-sm font-mono text-xs leading-relaxed whitespace-pre-wrap select-all overflow-x-auto border border-brand-border max-h-56">
                   {whatsappPreview}
                 </div>
-                <p className="font-body text-[11px] text-brand-text-secondary mt-2 italic">
-                  Podrás editar o agregar consultas directamente en tu chat antes de presionar enviar.
-                </p>
+                <Txt as="p" className="font-body text-[11px] text-brand-text-secondary mt-2 italic" value={BRAND.ui.checkout.previewNote} />
               </div>
 
               {/* High-Impact CTA Button */}
@@ -539,13 +467,13 @@ export const CheckoutModal: React.FC = () => {
                   className="w-full bg-brand-primary hover:bg-brand-primary-deep text-white py-4 px-4 flex items-center justify-center gap-3 font-body text-sm uppercase tracking-wider font-bold shadow-lg transition-all active:scale-[0.99] cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-2xl text-brand-accent-light">chat</span>
-                  <span>Confirmar y Enviar Pedido por WhatsApp</span>
+                  <Txt as="span" value={BRAND.ui.checkout.confirm} />
                 </button>
 
                 <div className="bg-brand-surface-subtle border border-brand-border p-2.5 flex items-center justify-center gap-2 text-center">
                   <span className="material-symbols-outlined text-sm text-brand-secondary">schedule</span>
                   <span className="font-body text-xs text-brand-text-secondary">
-                    Respuesta promedio en <strong>menos de 15 minutos</strong> en horario de almacén ({BRAND.address.pickupHours}).
+                    {BRAND.ui.checkout.responseStart} <strong>{BRAND.ui.checkout.responseStrong}</strong> {formatText(BRAND.ui.checkout.responseEnd, { hours: BRAND.address.pickupHours })}
                   </span>
                 </div>
               </div>
@@ -557,10 +485,8 @@ export const CheckoutModal: React.FC = () => {
                     receipt_long
                   </span>
                   <div className="flex flex-col">
-                    <span className="font-body text-xs uppercase font-bold text-brand-primary-deep">
-                      Factura Oficial
-                    </span>
-                    <span className="font-body text-[11px] text-brand-text-secondary">Emitimos A o B</span>
+                    <Txt as="span" className="font-body text-xs uppercase font-bold text-brand-primary-deep" value={BRAND.ui.checkout.trustInvoiceTitle} />
+                    <Txt as="span" className="font-body text-[11px] text-brand-text-secondary" value={BRAND.ui.checkout.trustInvoiceText} />
                   </div>
                 </div>
 
@@ -569,10 +495,8 @@ export const CheckoutModal: React.FC = () => {
                     warehouse
                   </span>
                   <div className="flex flex-col">
-                    <span className="font-body text-xs uppercase font-bold text-brand-primary-deep">
-                      Stock Real
-                    </span>
-                    <span className="font-body text-[11px] text-brand-text-secondary">Separado al instante</span>
+                    <Txt as="span" className="font-body text-xs uppercase font-bold text-brand-primary-deep" value={BRAND.ui.checkout.trustStockTitle} />
+                    <Txt as="span" className="font-body text-[11px] text-brand-text-secondary" value={BRAND.ui.checkout.trustStockText} />
                   </div>
                 </div>
               </div>

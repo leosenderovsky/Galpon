@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BRAND } from '../brand.config';
+import { Txt } from './Txt';
+import { BRAND, formatText } from '../brand.config';
 
 export const WholesaleB2B: React.FC = () => {
   const [companyName, setCompanyName] = useState('');
@@ -9,12 +10,12 @@ export const WholesaleB2B: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = [
-      `Hola ${BRAND.name}! 👋 Quiero solicitar cotización mayorista para mi empresa:`,
-      `• Razón Social / Contacto: ${companyName || 'A definir'}`,
-      `• Teléfono: ${phone || 'A definir'}`,
-      `• Prendas estimadas / Cantidad: ${estimatedGarments || 'Curva estándar para cuadrilla'}`,
+      formatText(BRAND.ui.b2bForm.intro, { name: BRAND.name }),
+      formatText(BRAND.ui.b2bForm.companyLine, { value: companyName || BRAND.ui.b2bForm.pending }),
+      formatText(BRAND.ui.b2bForm.phoneLine, { value: phone || BRAND.ui.b2bForm.pending }),
+      formatText(BRAND.ui.b2bForm.quantityLine, { value: estimatedGarments || BRAND.ui.b2bForm.defaultQuantity }),
       '───────────────────',
-      '¿Me podrían pasar la lista de precios por bulto cerrado y plazos de entrega?'
+      BRAND.ui.b2bForm.closing
     ].join('\n');
 
     const url = `https://wa.me/${BRAND.whatsapp.rawNumber}?text=${encodeURIComponent(text)}`;
@@ -61,33 +62,25 @@ export const WholesaleB2B: React.FC = () => {
           {/* Interactive B2B Quote Card */}
           <div className="w-full lg:w-96 bg-white text-brand-text p-6 shadow-xl flex flex-col gap-4 flex-shrink-0 border border-brand-border">
             <div className="flex flex-col gap-1 border-b border-brand-border-soft pb-3">
-              <span className="font-headline text-2xl uppercase text-brand-primary-deep font-bold">
-                Solicitar Cotización
-              </span>
-              <span className="font-body text-xs text-brand-text-secondary">
-                Respuesta en menos de 2 horas hábiles por WhatsApp.
-              </span>
+              <Txt as="span" className="font-headline text-2xl uppercase text-brand-primary-deep font-bold" value={BRAND.ui.b2bForm.title} />
+              <Txt as="span" className="font-body text-xs text-brand-text-secondary" value={BRAND.ui.b2bForm.subtitle} />
             </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <div>
-                <label className="block font-body text-[11px] uppercase font-bold text-brand-text-secondary mb-1">
-                  Nombre / Razón Social *
-                </label>
+                <Txt as="label" className="block font-body text-[11px] uppercase font-bold text-brand-text-secondary mb-1" value={BRAND.ui.b2bForm.nameLabel} />
                 <input
                   type="text"
                   required
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
-                  placeholder="Ej: Metalúrgica San Martín SRL"
+                  placeholder={BRAND.ui.b2bForm.namePlaceholder}
                   className="w-full bg-brand-surface-muted px-3 py-2 font-body text-xs text-brand-primary-deep border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                 />
               </div>
 
               <div>
-                <label className="block font-body text-[11px] uppercase font-bold text-brand-text-secondary mb-1">
-                  WhatsApp de Contacto *
-                </label>
+                <Txt as="label" className="block font-body text-[11px] uppercase font-bold text-brand-text-secondary mb-1" value={BRAND.ui.b2bForm.phoneLabel} />
                 <input
                   type="tel"
                   required
@@ -99,15 +92,13 @@ export const WholesaleB2B: React.FC = () => {
               </div>
 
               <div>
-                <label className="block font-body text-[11px] uppercase font-bold text-brand-text-secondary mb-1">
-                  Prendas estimadas / Cantidad *
-                </label>
+                <Txt as="label" className="block font-body text-[11px] uppercase font-bold text-brand-text-secondary mb-1" value={BRAND.ui.b2bForm.quantityLabel} />
                 <input
                   type="text"
                   required
                   value={estimatedGarments}
                   onChange={(e) => setEstimatedGarments(e.target.value)}
-                  placeholder="Ej: 30 Pantalones cargo + 50 remeras"
+                  placeholder={BRAND.ui.b2bForm.quantityPlaceholder}
                   className="w-full bg-brand-surface-muted px-3 py-2 font-body text-xs text-brand-primary-deep border border-brand-border focus:outline-none focus:ring-1 focus:ring-brand-secondary"
                 />
               </div>
@@ -117,7 +108,7 @@ export const WholesaleB2B: React.FC = () => {
                 className="w-full mt-2 bg-brand-secondary hover:bg-brand-secondary-dark text-white py-3.5 font-body text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-md active:translate-y-0.5"
               >
                 <span className="material-symbols-outlined text-base">send</span>
-                <span>Hablar con Asesor B2B</span>
+                <Txt as="span" value={BRAND.ui.b2bForm.submit} />
               </button>
             </form>
           </div>
