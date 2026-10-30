@@ -296,7 +296,7 @@ export type ComoComprarTitulo = string;
  */
 export type ComoComprarDescripcion = string;
 /**
- * Texto editable. Dejalo vacío para ocultar el elemento.
+ * Video de compra en formato H.264 + AAC, proporción 16:9, entre 30 y 60 segundos y hasta 15 MB.
  */
 export type ComoComprarVideoUrl = string;
 /**
@@ -401,7 +401,7 @@ export type TestimoniosCargo = string;
  */
 export type TestimoniosTexto = string;
 /**
- * Texto editable. Dejalo vacío para ocultar el elemento.
+ * Clase técnica de Tailwind con color hexadecimal, no un selector de color. Como alternativa, usar tokens del tema.
  */
 export type TestimoniosColor = string;
 /**

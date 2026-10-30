@@ -9,7 +9,7 @@ export const DEMO_BANNER = {
 };
 
 export function getDemoLegend(): string {
-  const base = 'Marca, productos y precios de ejemplo — prototipo de Tienda ON!';
+  const base = 'Marca, productos y precios de ejemplo — prototipo de demostración';
   const companyName = DEMO_BANNER.companyName;
   return companyName && companyName !== '[EMPRESA]' ? `${base} de ${companyName}` : base;
 }

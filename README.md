@@ -68,6 +68,7 @@ Las reglas de precios mayoristas y descuento por combo están en `b2b` (en `bran
 El catálogo está en `src/data/catalog.json`; cada producto puede definir `sku`, `price`, `wholesalePrice`,
 `wholesaleMinUnits`, `sizes`, `colors`, `images` y `specs`, además de sus textos y otros datos opcionales.
 La guía de talles vive en `src/data/size-guide.json`. Las pestañas recorren las guías presentes y la primera es la predeterminada; no hay una unión fija de categorías en el código.
+Para cambiar el rubro, editá `categories`, `products[].category` y las entradas de `size-guide.json` juntas: el código no conoce nombres de categorías, pero un producto debe referenciar una categoría existente. Las guías pueden ser 2, 6 o 10; el primer registro es el predeterminado.
 
 ### Todos los textos son editables (y quitables)
 

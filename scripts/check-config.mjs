@@ -112,6 +112,13 @@ if (strict) {
       for (const m of markers.strings ?? []) if (lower.includes(m.toLowerCase())) errors.push(`[strict] ${p}: contiene el marcador de prototipo "${m}"`);
     } else if (typeof node === 'object') for (const [k, v] of Object.entries(node)) checkCatalogMarkers(v, p ? `${p}.${k}` : k);
   })(catalog, 'catalog.json');
+  (function checkSizeGuideMarkers(node, p) {
+    if (node == null) return;
+    if (typeof node === 'string') {
+      const lower = node.toLowerCase();
+      for (const m of markers.strings ?? []) if (lower.includes(m.toLowerCase())) errors.push(`[strict] ${p}: contiene el marcador de prototipo "${m}"`);
+    } else if (typeof node === 'object') for (const [k, v] of Object.entries(node)) checkSizeGuideMarkers(v, p ? `${p}.${k}` : k);
+  })(sizeGuide, 'size-guide.json');
 }
 
 if (warnings.length) { console.warn(`\nAdvertencias (${warnings.length}):`); warnings.forEach((w) => console.warn(`  ⚠ ${w}`)); }

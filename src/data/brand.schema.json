@@ -206,7 +206,7 @@
       "properties": {
         "primary": {
           "title": "Colores: color principal",
-          "x-group": "Marca",
+          "x-group": "Botones",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -215,7 +215,7 @@
         },
         "primaryDeep": {
           "title": "Colores: primary profundo",
-          "x-group": "Marca",
+          "x-group": "Botones",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -224,7 +224,7 @@
         },
         "secondary": {
           "title": "Colores: color secundario",
-          "x-group": "Marca",
+          "x-group": "Botones",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -233,7 +233,7 @@
         },
         "secondaryDark": {
           "title": "Colores: secundario oscuro",
-          "x-group": "Marca",
+          "x-group": "Botones",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -242,7 +242,7 @@
         },
         "accent": {
           "title": "Colores: acento",
-          "x-group": "Marca",
+          "x-group": "Acentos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -251,7 +251,7 @@
         },
         "accentLight": {
           "title": "Colores: acento claro",
-          "x-group": "Marca",
+          "x-group": "Acentos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -260,16 +260,17 @@
         },
         "accentOn": {
           "title": "Colores: acento sobre",
-          "x-group": "Marca",
+          "x-group": "Textos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
           "pattern": "^#[0-9a-fA-F]{6}$",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-contrastWith": "accent"
         },
         "background": {
           "title": "Colores: fondo",
-          "x-group": "Marca",
+          "x-group": "Fondos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -278,7 +279,7 @@
         },
         "surface": {
           "title": "Colores: fondo de página",
-          "x-group": "Marca",
+          "x-group": "Fondos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -287,7 +288,7 @@
         },
         "surfaceMuted": {
           "title": "Colores: fondo apagado",
-          "x-group": "Marca",
+          "x-group": "Fondos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -296,7 +297,7 @@
         },
         "surfaceSubtle": {
           "title": "Colores: fondo sutil",
-          "x-group": "Marca",
+          "x-group": "Fondos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -305,7 +306,7 @@
         },
         "surfaceHover": {
           "title": "Colores: fondo cursor encima",
-          "x-group": "Marca",
+          "x-group": "Fondos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -314,7 +315,7 @@
         },
         "border": {
           "title": "Colores: borde",
-          "x-group": "Marca",
+          "x-group": "Bordes",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -323,7 +324,7 @@
         },
         "borderSoft": {
           "title": "Colores: borde suave",
-          "x-group": "Marca",
+          "x-group": "Bordes",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -332,7 +333,7 @@
         },
         "borderStrong": {
           "title": "Colores: borde fuerte",
-          "x-group": "Marca",
+          "x-group": "Bordes",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -341,43 +342,47 @@
         },
         "text": {
           "title": "Colores: texto",
-          "x-group": "Marca",
+          "x-group": "Textos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
           "pattern": "^#[0-9a-fA-F]{6}$",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-contrastWith": "background"
         },
         "textSecondary": {
           "title": "Colores: texto secondary",
-          "x-group": "Marca",
+          "x-group": "Textos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
           "pattern": "^#[0-9a-fA-F]{6}$",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-contrastWith": "background"
         },
         "textMuted": {
           "title": "Colores: texto apagado",
-          "x-group": "Marca",
+          "x-group": "Textos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
           "pattern": "^#[0-9a-fA-F]{6}$",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-contrastWith": "background"
         },
         "textOnDark": {
           "title": "Colores: texto sobre oscuro",
-          "x-group": "Marca",
+          "x-group": "Textos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
           "pattern": "^#[0-9a-fA-F]{6}$",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-contrastWith": "primary"
         },
         "danger": {
           "title": "Colores: peligro",
-          "x-group": "Marca",
+          "x-group": "Estados",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -386,7 +391,7 @@
         },
         "whatsapp": {
           "title": "Colores: whatsApp",
-          "x-group": "Marca",
+          "x-group": "Botones",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -395,7 +400,7 @@
         },
         "whatsappHover": {
           "title": "Colores: whatsApp cursor encima",
-          "x-group": "Marca",
+          "x-group": "Botones",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -404,7 +409,7 @@
         },
         "selection": {
           "title": "Colores: selección",
-          "x-group": "Marca",
+          "x-group": "Acentos",
           "type": "string",
           "x-widget": "color",
           "description": "Color en formato #RRGGBB.",
@@ -500,7 +505,13 @@
           "type": "string",
           "x-widget": "image",
           "description": "Ruta pública de la imagen (carpeta public/assets).",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-asset": {
+            "path": "/assets/misc/og-image.jpg",
+            "minWidth": 1200,
+            "ratio": "1200:630",
+            "maxKB": 200
+          }
         }
       }
     },
@@ -662,7 +673,11 @@
           "type": "string",
           "x-widget": "image",
           "description": "Ruta pública de la imagen (carpeta public/assets).",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-asset": {
+            "path": "/assets/logo/logo.png",
+            "maxKB": 120
+          }
         },
         "alt": {
           "title": "Logo: texto alternativo",
@@ -678,7 +693,10 @@
           "type": "string",
           "x-widget": "image",
           "description": "Ruta pública de la imagen (carpeta public/assets).",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-asset": {
+            "path": "/assets/logo/favicon-32.png"
+          }
         },
         "appleTouchIcon": {
           "title": "Logo: apple touch icon",
@@ -686,14 +704,20 @@
           "type": "string",
           "x-widget": "image",
           "description": "Ruta pública de la imagen (carpeta public/assets).",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-asset": {
+            "path": "/assets/logo/apple-touch-icon.png"
+          }
         },
         "srcLight": {
           "type": "string",
           "title": "Logo para fondos oscuros",
           "description": "Ruta opcional de una versión clara del logo (public/assets/logo-light.png).",
           "x-group": "Marca",
-          "x-widget": "image"
+          "x-widget": "image",
+          "x-asset": {
+            "path": "/assets/logo/logo-light.png"
+          }
         }
       }
     },
@@ -753,7 +777,12 @@
           "type": "string",
           "x-widget": "image",
           "description": "Ruta pública de la imagen (carpeta public/assets).",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-asset": {
+            "path": "/assets/hero/hero-1.jpg",
+            "minWidth": 1600,
+            "maxKB": 250
+          }
         },
         "ctaCatalogText": {
           "title": "Portada: cta catálogo texto",
@@ -919,7 +948,7 @@
           "x-group": "Textos",
           "type": "string",
           "x-widget": "text",
-          "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
+          "description": "Video de compra en formato H.264 + AAC, proporción 16:9, entre 30 y 60 segundos y hasta 15 MB.",
           "x-skipMarkers": true
         },
         "posterUrl": {
@@ -928,7 +957,11 @@
           "type": "string",
           "x-widget": "image",
           "description": "Ruta pública de la imagen (carpeta public/assets).",
-          "x-skipMarkers": true
+          "x-skipMarkers": true,
+          "x-asset": {
+            "path": "/assets/hero/como-comprar-1.jpg",
+            "minWidth": 1600
+          }
         },
         "placeholderMessage": {
           "title": "Cómo comprar: ayuda mensaje",
@@ -1234,7 +1267,7 @@
             "x-group": "Textos",
             "type": "string",
             "x-widget": "text",
-            "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
+            "description": "Clase técnica de Tailwind con color hexadecimal, no un selector de color. Como alternativa, usar tokens del tema.",
             "x-skipMarkers": true
           }
         }
@@ -1376,14 +1409,14 @@
           "properties": {
             "confirm": {
               "title": "Barra de pedido (celular): botón confirmar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "label": {
               "title": "Barra de pedido (celular): etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.",
@@ -1406,14 +1439,14 @@
           "properties": {
             "label": {
               "title": "Botón flotante de WhatsApp: etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "title": {
               "title": "Botón flotante de WhatsApp: título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
@@ -1460,168 +1493,180 @@
           "properties": {
             "closeLabel": {
               "title": "Carrito: etiqueta accesible de cerrar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "b2bTitle": {
               "title": "Carrito: mayorista título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "targetReached": {
               "title": "Carrito: objetivo alcanzado",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "b2bReachedMessage": {
               "title": "Carrito: mayorista alcanzado mensaje",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "emptyTitle": {
               "title": "Carrito: título vacío",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "emptyDescription": {
               "title": "Carrito: descripción vacía",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Explorá el catálogo de existencias para sumar camperas, pantalones o remeras de trabajo."
+              ]
             },
             "emptyButton": {
               "title": "Carrito: botón vacío",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "sizeLabel": {
               "title": "Carrito: talle etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "reinforcedBadge": {
               "title": "Carrito: reinforced sello",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "decreaseLabel": {
               "title": "Carrito: etiqueta accesible de restar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "increaseLabel": {
               "title": "Carrito: etiqueta accesible de sumar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "remove": {
               "title": "Carrito: quitar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "packingNote": {
               "title": "Carrito: empaque nota",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "textarea",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Cada prenda es revisada individualmente y embalada en bolsa sellada de alta densidad para flete o correo pesado."
+              ]
             },
             "shipping": {
               "title": "Carrito: envío",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "shippingNote": {
               "title": "Carrito: nota de envío",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "total": {
               "title": "Carrito: total",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "totalNote": {
               "title": "Carrito: nota del total",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "noGatewayEmphasis": {
               "title": "Carrito: sin pasarela emphasis",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "noGatewayText": {
               "title": "Carrito: sin pasarela texto",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "continue": {
               "title": "Carrito: botón continuar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "keepShopping": {
               "title": "Carrito: botón seguir comprando",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "trustHuman": {
               "title": "Carrito: confianza humana",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "trustDispatch": {
               "title": "Carrito: confianza despacho",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Despachos en 24hs hábiles"
+              ]
             },
             "title": {
               "title": "Carrito: título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.",
@@ -1631,7 +1676,7 @@
             },
             "missing": {
               "title": "Carrito: missing",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {amount}. Dejalo vacío para ocultar el elemento.",
@@ -1641,7 +1686,7 @@
             },
             "b2bProgress": {
               "title": "Carrito: mayorista avance",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "textarea",
               "description": "Texto con variables que el sitio reemplaza solo: {amount}, {target}. Dejalo vacío para ocultar el elemento.",
@@ -1652,14 +1697,14 @@
             },
             "colorLabel": {
               "title": "Carrito: color etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "subtotal": {
               "title": "Carrito: subtotal",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.",
@@ -1669,7 +1714,7 @@
             },
             "combo": {
               "title": "Carrito: combo",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {min}, {percent}. Dejalo vacío para ocultar el elemento.",
@@ -1717,7 +1762,7 @@
           "properties": {
             "standardColor": {
               "title": "Catálogo: estándar color",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
@@ -1731,169 +1776,179 @@
             },
             "eyebrow": {
               "title": "Catálogo: sobretítulo",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "title": {
               "title": "Catálogo: título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con la variable {year}, que indica el año actual del catálogo.",
-              "x-vars": ["year"]
+              "x-vars": [
+                "year"
+              ]
             },
             "description": {
               "title": "Catálogo: descripción",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "textarea",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "sizeFilterLabel": {
               "title": "Catálogo: talle filtro etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "sizeGuideButton": {
               "title": "Catálogo: talle guía botón",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "sortLabel": {
               "title": "Catálogo: orden etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "sortPopular": {
               "title": "Catálogo: orden populares",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "sortPriceAsc": {
               "title": "Catálogo: orden precio ascendente",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "sortPriceDesc": {
               "title": "Catálogo: orden precio descendente",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "viewSheet": {
               "title": "Catálogo: ver ficha",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "cardSizes": {
               "title": "Catálogo: tarjeta talles",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "cardColors": {
               "title": "Catálogo: tarjeta colores",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "retailPrice": {
               "title": "Catálogo: minorista precio",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "measures": {
               "title": "Catálogo: medidas",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "add": {
               "title": "Catálogo: botón agregar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "emptyTitle": {
               "title": "Catálogo: título vacío",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "emptyDescription": {
               "title": "Catálogo: descripción vacía",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "viewAll": {
               "title": "Catálogo: botón ver todos",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "sizeCtaTitle": {
               "title": "Catálogo: talle cta título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "sizeCtaText": {
               "title": "Catálogo: talle cta texto",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Todas las prendas son confeccionadas bajo norma IRAM de holgura de trabajo y faena pesada."
+              ]
             },
             "sizeCtaButton": {
               "title": "Catálogo: talle cta botón",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Ver Tabla de Medidas Oficial (IRAM)"
+              ]
             },
             "addedToast": {
               "title": "Catálogo: agregado aviso",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "viewCart": {
               "title": "Catálogo: ver carrito",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "activeCount": {
               "title": "Catálogo: activos count",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.",
@@ -1977,357 +2032,365 @@
           "properties": {
             "title": {
               "title": "Checkout: título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "step1": {
               "title": "Checkout: paso 1",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "step2": {
               "title": "Checkout: paso 2",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "step3": {
               "title": "Checkout: paso 3",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "step4": {
               "title": "Checkout: paso 4",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "closeLabel": {
               "title": "Checkout: etiqueta accesible de cerrar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "noGatewayTitle": {
               "title": "Checkout: sin pasarela título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "humanBadge": {
               "title": "Checkout: humana sello",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "contactTitle": {
               "title": "Checkout: contacto título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "required": {
               "title": "Checkout: obligatorio",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "nameLabel": {
               "title": "Checkout: campo nombre",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "namePlaceholder": {
               "title": "Checkout: nombre ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "phoneLabel": {
               "title": "Checkout: campo teléfono",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "phoneHelp": {
               "title": "Checkout: ayuda del teléfono",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "emailLabel": {
               "title": "Checkout: correo etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "emailHelp": {
               "title": "Checkout: correo ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "deliveryTitle": {
               "title": "Checkout: entrega título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "deliveryHint": {
               "title": "Checkout: entrega pista",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "quoteByZip": {
               "title": "Checkout: quote por código postal",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "free": {
               "title": "Checkout: gratis",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "expressTitle": {
               "title": "Checkout: exprés título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "expressBadge": {
               "title": "Checkout: exprés sello",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "expressDescription": {
               "title": "Checkout: exprés descripción",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "textarea",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Llevamos el bulto precintado sin cargo al expreso de tu elección en Villa Soldati o Pompeya."
+              ]
             },
             "destinationHint": {
               "title": "Checkout: destino pista",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "streetLabel": {
               "title": "Checkout: calle etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "streetPlaceholder": {
               "title": "Checkout: calle ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "apartmentLabel": {
               "title": "Checkout: piso/depto etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "apartmentPlaceholder": {
               "title": "Checkout: piso/depto ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "zipLabel": {
               "title": "Checkout: código postal etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "zipPlaceholder": {
               "title": "Checkout: código postal ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "cityLabel": {
               "title": "Checkout: ciudad etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "notesTitle": {
               "title": "Checkout: notas título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "optional": {
               "title": "Checkout: opcional",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "notesLabel": {
               "title": "Checkout: notas etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "notesPlaceholder": {
               "title": "Checkout: ayuda del campo aclaraciones",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "textarea",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Ej: Entregar por la mañana; solicitar Factura A con CUIT; si no hay en tono carbón cambiar por verde..."
+              ]
             },
             "notesHelp": {
               "title": "Checkout: notas ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "textarea",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "edit": {
               "title": "Checkout: editar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "subtotal": {
               "title": "Checkout: subtotal",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "shippingCost": {
               "title": "Checkout: envío costo",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "pickupFree": {
               "title": "Checkout: retiro gratis",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "shippingByWhatsapp": {
               "title": "Checkout: envío por WhatsApp",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "total": {
               "title": "Checkout: total",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "previewTitle": {
               "title": "Checkout: título de la vista previa",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "previewBadge": {
               "title": "Checkout: sello de la vista previa",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "previewNote": {
               "title": "Checkout: vista previa nota",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "confirm": {
               "title": "Checkout: botón confirmar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "trustInvoiceTitle": {
               "title": "Checkout: confianza factura título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "trustInvoiceText": {
               "title": "Checkout: confianza factura texto",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "trustStockTitle": {
               "title": "Checkout: confianza stock título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "trustStockText": {
               "title": "Checkout: confianza stock texto",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "orderNumber": {
               "title": "Checkout: pedido número",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {number}. Dejalo vacío para ocultar el elemento.",
@@ -2337,28 +2400,28 @@
             },
             "noGatewayText": {
               "title": "Checkout: sin pasarela texto",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "textarea",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "expressLabel": {
               "title": "Checkout: exprés etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "destinationTitle": {
               "title": "Checkout: destino título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "cityPlaceholder": {
               "title": "Checkout: ciudad ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {city}. Dejalo vacío para ocultar el elemento.",
@@ -2368,7 +2431,7 @@
             },
             "summaryTitle": {
               "title": "Checkout: resumen título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.",
@@ -2378,7 +2441,7 @@
             },
             "sizeColor": {
               "title": "Checkout: talle color",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {size}, {color}. Dejalo vacío para ocultar el elemento.",
@@ -2389,7 +2452,7 @@
             },
             "combo": {
               "title": "Checkout: combo",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {min}, {percent}. Dejalo vacío para ocultar el elemento.",
@@ -2400,32 +2463,36 @@
             },
             "pickupDetails": {
               "title": "Checkout: retiro details",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {address}, {hours}. Dejalo vacío para ocultar el elemento.",
               "x-vars": [
                 "address",
                 "hours"
+              ],
+              "x-exampleData": true,
+              "examples": [
+                "{address}. {hours}. Listo en 4 hs hábiles sin costo."
               ]
             },
             "responseStart": {
               "title": "Checkout: response start",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "responseStrong": {
               "title": "Checkout: response fuerte",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "responseEnd": {
               "title": "Checkout: response end",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {hours}. Dejalo vacío para ocultar el elemento.",
@@ -2435,7 +2502,7 @@
             },
             "emailPlaceholder": {
               "title": "Checkout: correo ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
@@ -2472,119 +2539,127 @@
           "properties": {
             "topShipping": {
               "title": "Barra de navegación: superior envío",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "topWholesale": {
               "title": "Barra de navegación: superior mayorista",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "topSizeTable": {
               "title": "Barra de navegación: superior talle table",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "TABLA DE MEDIDAS IRAM"
+              ]
             },
             "catalog": {
               "title": "Barra de navegación: catálogo",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "howToBuy": {
               "title": "Barra de navegación: how to buy",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "b2b": {
               "title": "Barra de navegación: mayorista",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "contact": {
               "title": "Barra de navegación: contacto",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "whatsapp": {
               "title": "Barra de navegación: whatsApp",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "cartLabel": {
               "title": "Barra de navegación: etiqueta accesible del carrito",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "cartTotal": {
               "title": "Barra de navegación: carrito total",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "menuLabel": {
               "title": "Barra de navegación: menú etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "mobileCatalog": {
               "title": "Barra de navegación: móvil catálogo",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "mobileHowToBuy": {
               "title": "Barra de navegación: móvil how to buy",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "mobileB2b": {
               "title": "Barra de navegación: móvil mayorista",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Canal Mayorista & Cuadrillas"
+              ]
             },
             "mobileSizeGuide": {
               "title": "Barra de navegación: móvil talle guía",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "mobileContact": {
               "title": "Barra de navegación: móvil contacto",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "topWarehouseLine": {
               "title": "Barra de navegación: superior depósito línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {place}. Dejalo vacío para ocultar el elemento.",
@@ -2594,7 +2669,7 @@
             },
             "homeLabel": {
               "title": "Barra de navegación: domicilio etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {name}. Dejalo vacío para ocultar el elemento.",
@@ -2604,7 +2679,7 @@
             },
             "mobileWhatsappLine": {
               "title": "Barra de navegación: móvil WhatsApp línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {phone}. Dejalo vacío para ocultar el elemento.",
@@ -2671,253 +2746,267 @@
           "properties": {
             "defaultColor": {
               "title": "Ficha técnica: predeterminado color",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "title": {
               "title": "Ficha técnica: título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "subtitle": {
               "title": "Ficha técnica: subtítulo",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "closeLabel": {
               "title": "Ficha técnica: etiqueta accesible de cerrar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "series": {
               "title": "Ficha técnica: serie",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "detailTitle": {
               "title": "Ficha técnica: detalle título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "view1": {
               "title": "Ficha técnica: vista 1",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "view2": {
               "title": "Ficha técnica: vista 2",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "view3": {
               "title": "Ficha técnica: vista 3",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "view4": {
               "title": "Ficha técnica: vista 4",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "specsTitle": {
               "title": "Ficha técnica: especificaciones título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "specFabric": {
               "title": "Ficha técnica: especificación tela",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "defaultFabric": {
               "title": "Ficha técnica: predeterminado tela",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Lona 100% Algodón de alto gramaje con torsión industrial."
+              ]
             },
             "specStitching": {
               "title": "Ficha técnica: especificación confección",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "defaultStitching": {
               "title": "Ficha técnica: predeterminado confección",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "specHardware": {
               "title": "Ficha técnica: especificación herrajes",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "defaultHardware": {
               "title": "Ficha técnica: predeterminado herrajes",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "line": {
               "title": "Ficha técnica: línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "stock": {
               "title": "Ficha técnica: stock",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "retailPrice": {
               "title": "Ficha técnica: minorista precio",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "vatIncluded": {
               "title": "Ficha técnica: iVA incluido",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "invoiceNote": {
               "title": "Ficha técnica: factura nota",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "wholesaleEach": {
               "title": "Ficha técnica: mayorista c/u",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "selectedSize": {
               "title": "Ficha técnica: seleccionado talle",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "sizeGuide": {
               "title": "Ficha técnica: talle guía",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "decreaseLabel": {
               "title": "Ficha técnica: etiqueta accesible de restar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "increaseLabel": {
               "title": "Ficha técnica: etiqueta accesible de sumar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "addToOrder": {
               "title": "Ficha técnica: botón agregar al pedido",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "askStock": {
               "title": "Ficha técnica: consultar stock",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "trustExchange": {
               "title": "Ficha técnica: confianza cambio",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio.",
-              "x-vars": ["days"]
+              "x-vars": [
+                "days"
+              ]
             },
             "trustShipping": {
               "title": "Ficha técnica: confianza envío",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "crossSellTitle": {
               "title": "Ficha técnica: venta cruzada venta título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Conjunto Cuadrilla"
+              ]
             },
             "crossSellText": {
               "title": "Ficha técnica: venta cruzada venta texto",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "crossSellButton": {
               "title": "Ficha técnica: venta cruzada venta botón",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "defaultLot": {
               "title": "Ficha técnica: predeterminado lote",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "2025-Q1"
+              ]
             },
             "lotLine": {
               "title": "Ficha técnica: lote línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -2927,7 +3016,7 @@
             },
             "originLine": {
               "title": "Ficha técnica: origen línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -2937,7 +3026,7 @@
             },
             "viewAlt": {
               "title": "Ficha técnica: ver texto alternativo",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {number}. Dejalo vacío para ocultar el elemento.",
@@ -2947,7 +3036,7 @@
             },
             "wholesaleFromUnits": {
               "title": "Ficha técnica: mayorista from units",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {units}. Dejalo vacío para ocultar el elemento.",
@@ -2957,7 +3046,7 @@
             },
             "offBadge": {
               "title": "Ficha técnica: descuento sello",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {percent}. Dejalo vacío para ocultar el elemento.",
@@ -2967,7 +3056,7 @@
             },
             "savingsLine": {
               "title": "Ficha técnica: ahorro línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {amount}. Dejalo vacío para ocultar el elemento.",
@@ -2977,24 +3066,28 @@
             },
             "selectedColor": {
               "title": "Ficha técnica: seleccionado color",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "colorsCount": {
               "title": "Ficha técnica: colores count",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.",
               "x-vars": [
                 "count"
+              ],
+              "x-exampleData": true,
+              "examples": [
+                "{count} Tonos Industriales"
               ]
             },
             "addedToOrder": {
               "title": "Ficha técnica: agregado to pedido",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {quantity}. Dejalo vacío para ocultar el elemento.",
@@ -3004,7 +3097,7 @@
             },
             "whatsappInquiry": {
               "title": "Ficha técnica: whatsApp consulta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "textarea",
               "description": "Texto con variables que el sitio reemplaza solo: {name}, {product}, {sku}, {units}. Dejalo vacío para ocultar el elemento.",
@@ -3017,7 +3110,7 @@
             },
             "skuLabel": {
               "title": "Ficha técnica: sKU etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
@@ -3041,42 +3134,50 @@
           "properties": {
             "title": {
               "title": "Guía de talles: título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Guía Oficial de Talles y Medidas IRAM"
+              ]
             },
             "closeLabel": {
               "title": "Guía de talles: etiqueta accesible de cerrar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "tipTitle": {
               "title": "Guía de talles: consejo título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "help": {
               "title": "Guía de talles: ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "¿Tenés dudas con las medidas de tu cuadrilla? Consultanos en tiempo real por WhatsApp."
+              ]
             },
             "close": {
               "title": "Guía de talles: cerrar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "toleranceLine": {
               "title": "Guía de talles: tolerancia línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {tolerance}. Dejalo vacío para ocultar el elemento.",
@@ -3105,56 +3206,56 @@
           "properties": {
             "playError": {
               "title": "Video: reproducir error",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "playGuideLabel": {
               "title": "Video: reproducir guía etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "dismiss": {
               "title": "Video: descartar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "pauseLabel": {
               "title": "Video: pausar etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "playLabel": {
               "title": "Video: reproducir etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "muteLabel": {
               "title": "Video: silenciar etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "stepBadge": {
               "title": "Video: step sello",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "fullscreenLabel": {
               "title": "Video: pantalla completa etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
@@ -3187,84 +3288,96 @@
           "properties": {
             "pending": {
               "title": "Formulario mayorista: pendiente",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "defaultQuantity": {
               "title": "Formulario mayorista: predeterminado cantidad",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Curva estándar para cuadrilla"
+              ]
             },
             "closing": {
               "title": "Formulario mayorista: cierre",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "title": {
               "title": "Formulario mayorista: título",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "subtitle": {
               "title": "Formulario mayorista: subtítulo",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Respuesta en menos de 2 horas hábiles por WhatsApp."
+              ]
             },
             "nameLabel": {
               "title": "Formulario mayorista: campo nombre",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "namePlaceholder": {
               "title": "Formulario mayorista: nombre ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "phoneLabel": {
               "title": "Formulario mayorista: campo teléfono",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "quantityLabel": {
               "title": "Formulario mayorista: cantidad etiqueta",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "quantityPlaceholder": {
               "title": "Formulario mayorista: cantidad ayuda",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento.",
+              "x-exampleData": true,
+              "examples": [
+                "Ej: 30 Pantalones cargo + 50 remeras"
+              ]
             },
             "submit": {
               "title": "Formulario mayorista: enviar",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "intro": {
               "title": "Formulario mayorista: introducción",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {name}. Dejalo vacío para ocultar el elemento.",
@@ -3274,7 +3387,7 @@
             },
             "companyLine": {
               "title": "Formulario mayorista: empresa línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -3284,7 +3397,7 @@
             },
             "phoneLine": {
               "title": "Formulario mayorista: línea del teléfono",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -3294,7 +3407,7 @@
             },
             "quantityLine": {
               "title": "Formulario mayorista: cantidad línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -3331,35 +3444,35 @@
           "properties": {
             "shippingPending": {
               "title": "Mensaje del pedido: envío pendiente",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "notSpecified": {
               "title": "Mensaje del pedido: no especificado",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "noNotes": {
               "title": "Mensaje del pedido: sin notas",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "closing": {
               "title": "Mensaje del pedido: cierre",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "orderTitle": {
               "title": "Mensaje del pedido: título del pedido",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {name}. Dejalo vacío para ocultar el elemento.",
@@ -3369,7 +3482,7 @@
             },
             "itemLine": {
               "title": "Mensaje del pedido: línea de producto",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {quantity}, {name}, {size}, {color}, {price}. Dejalo vacío para ocultar el elemento.",
@@ -3383,14 +3496,14 @@
             },
             "noItems": {
               "title": "Mensaje del pedido: sin prendas",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
             "discountLine": {
               "title": "Mensaje del pedido: descuento línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {min}, {percent}, {amount}. Dejalo vacío para ocultar el elemento.",
@@ -3402,7 +3515,7 @@
             },
             "subtotalLine": {
               "title": "Mensaje del pedido: subtotal línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {subtotal}, {discount}. Dejalo vacío para ocultar el elemento.",
@@ -3413,7 +3526,7 @@
             },
             "totalLine": {
               "title": "Mensaje del pedido: línea del total",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {total}. Dejalo vacío para ocultar el elemento.",
@@ -3423,7 +3536,7 @@
             },
             "customerLine": {
               "title": "Mensaje del pedido: línea del cliente",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -3433,7 +3546,7 @@
             },
             "phoneLine": {
               "title": "Mensaje del pedido: línea del teléfono",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -3443,7 +3556,7 @@
             },
             "emailLine": {
               "title": "Mensaje del pedido: correo línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -3453,7 +3566,7 @@
             },
             "modeLine": {
               "title": "Mensaje del pedido: línea de modalidad",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -3463,7 +3576,7 @@
             },
             "destinationLine": {
               "title": "Mensaje del pedido: destino línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -3473,7 +3586,7 @@
             },
             "notesLine": {
               "title": "Mensaje del pedido: notas línea",
-              "x-group": "Textos",
+              "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",
               "description": "Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.",
@@ -3518,7 +3631,7 @@
       "properties": {
         "about": {
           "title": "Pie de página: acerca de",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "textarea",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3529,7 +3642,7 @@
         },
         "guarantee": {
           "title": "Pie de página: garantía",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3540,7 +3653,7 @@
         },
         "helpTitle": {
           "title": "Pie de página: ayuda título",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3551,7 +3664,7 @@
         },
         "helpSizeGuide": {
           "title": "Pie de página: ayuda talle guía",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3562,11 +3675,13 @@
         },
         "helpReturns": {
           "title": "Pie de página: ayuda devoluciones",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio.",
-          "x-vars": ["days"],
+          "x-vars": [
+            "days"
+          ],
           "x-exampleData": true,
           "examples": [
             "Políticas de Cambio y Devolución (15 días)"
@@ -3574,7 +3689,7 @@
         },
         "helpShipping": {
           "title": "Pie de página: ayuda envío",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3585,7 +3700,7 @@
         },
         "helpTracking": {
           "title": "Pie de página: ayuda seguimiento",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3596,7 +3711,7 @@
         },
         "b2bTitle": {
           "title": "Pie de página: mayorista título",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3607,7 +3722,7 @@
         },
         "b2bQuotes": {
           "title": "Pie de página: mayorista presupuestos",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3618,7 +3733,7 @@
         },
         "b2bInvoice": {
           "title": "Pie de página: mayorista factura",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3629,7 +3744,7 @@
         },
         "b2bDesk": {
           "title": "Pie de página: mayorista mesa",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3640,7 +3755,7 @@
         },
         "contactTitle": {
           "title": "Pie de página: contacto título",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3651,7 +3766,7 @@
         },
         "whatsappAria": {
           "title": "Pie de página: whatsApp accesibilidad",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3662,7 +3777,7 @@
         },
         "emailAria": {
           "title": "Pie de página: correo accesibilidad",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3673,7 +3788,7 @@
         },
         "phoneAria": {
           "title": "Pie de página: teléfono accesibilidad",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3684,7 +3799,7 @@
         },
         "instagramLabel": {
           "title": "Pie de página: instagram etiqueta",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3695,7 +3810,7 @@
         },
         "facebookLabel": {
           "title": "Pie de página: facebook etiqueta",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3706,7 +3821,7 @@
         },
         "linkedinLabel": {
           "title": "Pie de página: linkedIn etiqueta",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3717,7 +3832,7 @@
         },
         "consumerDefense": {
           "title": "Pie de página: consumidor defensa",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
@@ -3728,7 +3843,7 @@
         },
         "whatsappLine": {
           "title": "Pie de página: whatsApp línea",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto con variables que el sitio reemplaza solo: {phone}. Dejalo vacío para ocultar el elemento.",
@@ -3742,7 +3857,7 @@
         },
         "copyright": {
           "title": "Pie de página: derechos de autor",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto con variables que el sitio reemplaza solo: {year}, {name}. Dejalo vacío para ocultar el elemento.",
@@ -3757,7 +3872,7 @@
         },
         "cuitLine": {
           "title": "Pie de página: cUIT línea",
-          "x-group": "Textos",
+          "x-group": "Textos de interfaz",
           "type": "string",
           "x-widget": "text",
           "description": "Texto con variables que el sitio reemplaza solo: {cuit}. Dejalo vacío para ocultar el elemento.",
