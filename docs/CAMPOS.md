@@ -1,6 +1,8 @@
-# Diccionario de Campos Editables
+# Diccionario de campos editables
 
-Este documento lista todos los campos editables del archivo `src/data/brand.json` definidos en `src/data/brand.schema.json`.
+Este documento se genera desde `brand.schema.json`, `catalog.schema.json` y `size-guide.schema.json`.
+
+## BrandConfig
 
 | Ruta | Título | Descripción | Widget | Asset | Ejemplo |
 |---|---|---|---|---|---|
@@ -54,6 +56,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `address.packingLabel` | Depósito y retiro: empaque etiqueta | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Control de Empaque Galpón |
 | `address.pickupLabel` | Depósito y retiro: retiro etiqueta | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Retiro en Depósito Central (Lanús / Parque Patricios) |
 | `address.pickupHours` | Depósito y retiro: retiro horario | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Lunes a Viernes de 07:30 a 16:30 hs |
+| `shipping.exchangeDays` | Días para cambios | Cantidad de días disponibles para solicitar un cambio. | `number` |  |  |
 | `shipping.homeDeliveryLabel` | Envíos: domicilio entrega etiqueta | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Envío a Domicilio (Correo Argentino / Andreani) |
 | `shipping.homeDeliveryDescription` | Envíos: domicilio entrega descripción | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | Despacho garantizado por Correo Argentino o Andreani con número de seguimiento en tiempo real. |
 | `logo.src` | Logo: archivo | Ruta pública de la imagen (carpeta public/assets). | `image` |  |  |
@@ -100,6 +103,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `testimonials[].role` | Testimonios: cargo | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Logística & Cargas Rosario |
 | `testimonials[].text` | Testimonios: texto | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | “Compramos 25 camperas canvas para los mecánicos de la flota. Aguantan el roce con grasa y fierros pesados sin deshilacharse. Excelente atención y entrega en 48hs a Rosario.” |
 | `testimonials[].color` | Testimonios: color | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `demo.showPrototypeBanner` | Mostrar aviso de prototipo | Muestra el aviso de demostración de Tienda ON!. | `boolean` |  |  |
 | `demo.prefillCart` | Demostración: precarga carrito | Activa o desactiva este elemento. | `boolean` |  |  |
 | `demo.customer.fullName` | Cliente de ejemplo: completo nombre | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `demo.customer.phone` | Cliente de ejemplo: teléfono | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -142,8 +146,9 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.cart.subtotal` | Carrito: subtotal | Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.combo` | Carrito: combo | Texto con variables que el sitio reemplaza solo: {min}, {percent}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.catalog.standardColor` | Catálogo: estándar color | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.catalog.allCategoryLabel` | Catálogo: etiqueta de todas las categorías | Texto que aparece para mostrar todos los productos. Dejalo vacío para ocultar la opción. | `text` |  |  |
 | `ui.catalog.eyebrow` | Catálogo: sobretítulo | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.catalog.title` | Catálogo: título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.catalog.title` | Catálogo: título | Texto con la variable {year}, que indica el año actual del catálogo. | `text` |  |  |
 | `ui.catalog.description` | Catálogo: descripción | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `textarea` |  |  |
 | `ui.catalog.sizeFilterLabel` | Catálogo: talle filtro etiqueta | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.catalog.sizeGuideButton` | Catálogo: talle guía botón | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -277,7 +282,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.productModal.increaseLabel` | Ficha técnica: etiqueta accesible de sumar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.addToOrder` | Ficha técnica: botón agregar al pedido | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.askStock` | Ficha técnica: consultar stock | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.productModal.trustExchange` | Ficha técnica: confianza cambio | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.productModal.trustExchange` | Ficha técnica: confianza cambio | Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio. | `text` |  |  |
 | `ui.productModal.trustShipping` | Ficha técnica: confianza envío | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.crossSellTitle` | Ficha técnica: venta cruzada venta título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.crossSellText` | Ficha técnica: venta cruzada venta texto | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -294,10 +299,6 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.productModal.addedToOrder` | Ficha técnica: agregado to pedido | Texto con variables que el sitio reemplaza solo: {quantity}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.whatsappInquiry` | Ficha técnica: whatsApp consulta | Texto con variables que el sitio reemplaza solo: {name}, {product}, {sku}, {units}. Dejalo vacío para ocultar el elemento. | `textarea` |  |  |
 | `ui.productModal.skuLabel` | Ficha técnica: sKU etiqueta | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.sizeGuide.tabJackets` | Guía de talles: pestaña jackets | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.sizeGuide.tabPants` | Guía de talles: pestaña pants | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.sizeGuide.tabTshirts` | Guía de talles: pestaña tshirts | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.sizeGuide.tabHoodies` | Guía de talles: pestaña hoodies | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.sizeGuide.title` | Guía de talles: título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.sizeGuide.closeLabel` | Guía de talles: etiqueta accesible de cerrar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.sizeGuide.tipTitle` | Guía de talles: consejo título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -347,7 +348,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `footer.guarantee` | Pie de página: garantía | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Garantía de confección industrial |
 | `footer.helpTitle` | Pie de página: ayuda título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Asistencia y Guías |
 | `footer.helpSizeGuide` | Pie de página: ayuda talle guía | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Guía de Talles y Medidas Exactas (IRAM) |
-| `footer.helpReturns` | Pie de página: ayuda devoluciones | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Políticas de Cambio y Devolución (15 días) |
+| `footer.helpReturns` | Pie de página: ayuda devoluciones | Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio. | `text` |  | Políticas de Cambio y Devolución (15 días) |
 | `footer.helpShipping` | Pie de página: ayuda envío | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Envíos a todo el país por Expreso y Correo |
 | `footer.helpTracking` | Pie de página: ayuda seguimiento | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Estado y Seguimiento de tu Pedido |
 | `footer.b2bTitle` | Pie de página: mayorista título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Canales Mayoristas |
@@ -368,3 +369,111 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `testimonialsSection.title` | Sección de testimonios: título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | EN EL CUERO DE QUIENES LABURAN |
 | `testimonialsSection.badge` | Sección de testimonios: sello | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | CLIENTES VERIFICADOS EN TODO EL PAÍS |
 | `demoLegend` | Leyenda de demostración | Texto base de prototipo. El sitio lo completa con el nombre del servicio (no se edita en brand.json). | `textarea` |  | Marca, productos y precios de ejemplo — prototipo de demostración |
+
+## CatalogConfig
+
+| Ruta | Título | Descripción | Widget | Asset | Ejemplo |
+|---|---|---|---|---|---|
+| `$schema` | Campo catálogo.$schema | Dato editable del catálogo. | `text` |  |  |
+| `schemaVersion` | Campo catálogo.schemaVersion | Dato editable del catálogo. | `number` |  |  |
+| `categories[].id` | Campo catálogo.categories[].id | Dato editable del catálogo. | `text` |  |  |
+| `categories[].label` | Campo catálogo.categories[].label | Dato editable del catálogo. | `text` |  |  |
+| `availableSizes` |  |  | `text` |  |  |
+| `products[].id` | Campo catálogo.products[].id | Dato editable del catálogo. | `text` |  |  |
+| `products[].sku` | Campo catálogo.products[].sku | Dato editable del catálogo. | `text` |  |  |
+| `products[].name` | Campo catálogo.products[].name | Dato editable del catálogo. | `text` |  |  |
+| `products[].category` | Campo catálogo.products[].category | Dato editable del catálogo. | `text` |  |  |
+| `products[].price` | Campo catálogo.products[].price | Dato editable del catálogo. | `number` |  |  |
+| `products[].wholesalePrice` | Campo catálogo.products[].wholesalePrice | Dato editable del catálogo. | `number` |  |  |
+| `products[].wholesaleMinUnits` | Campo catálogo.products[].wholesaleMinUnits | Dato editable del catálogo. | `number` |  |  |
+| `products[].wholesaleBadge` | Campo catálogo.products[].wholesaleBadge | Dato editable del catálogo. | `text` |  |  |
+| `products[].sizes` |  |  | `text` |  |  |
+| `products[].colors[].name` | Campo catálogo.products[].colors[].name | Dato editable del catálogo. | `text` |  |  |
+| `products[].colors[].hex` | Campo catálogo.products[].colors[].hex | Dato editable del catálogo. | `text` |  |  |
+| `products[].images` |  |  | `text` |  |  |
+| `products[].description` | Campo catálogo.products[].description | Dato editable del catálogo. | `text` |  |  |
+| `products[].lot` | Campo catálogo.products[].lot | Dato editable del catálogo. | `text` |  |  |
+| `products[].origin` | Campo catálogo.products[].origin | Dato editable del catálogo. | `text` |  |  |
+| `products[].badge` | Campo catálogo.products[].badge | Dato editable del catálogo. | `text` |  |  |
+| `products[].specs.fabric` | Campo catálogo.products[].specs.fabric | Dato editable del catálogo. | `text` |  |  |
+| `products[].specs.seams` | Campo catálogo.products[].specs.seams | Dato editable del catálogo. | `text` |  |  |
+| `products[].specs.hardware` | Campo catálogo.products[].specs.hardware | Dato editable del catálogo. | `text` |  |  |
+| `products[].relatedProductId` | Campo catálogo.products[].relatedProductId | Dato editable del catálogo. | `text` |  |  |
+| `products[].longDescription` | Campo catálogo.products[].longDescription | Dato editable del catálogo. | `text` |  |  |
+| `products[].material` | Campo catálogo.products[].material | Dato editable del catálogo. | `text` |  |  |
+
+## SizeGuideConfig
+
+| Ruta | Título | Descripción | Widget | Asset | Ejemplo |
+|---|---|---|---|---|---|
+| `$schema` | Campo guía de talles.$schema | Dato editable del catálogo. | `text` |  |  |
+| `schemaVersion` | Campo guía de talles.schemaVersion | Dato editable del catálogo. | `number` |  |  |
+| `guides.camperas.category` | Campo guía de talles.guides.camperas.category | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.title` | Campo guía de talles.guides.camperas.title | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.tolerance` | Campo guía de talles.guides.camperas.tolerance | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.columns.size` | Campo guía de talles.guides.camperas.columns.size | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.columns.primaryMeasure` | Campo guía de talles.guides.camperas.columns.primaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.columns.secondaryMeasure` | Campo guía de talles.guides.camperas.columns.secondaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.columns.tertiaryMeasure` | Campo guía de talles.guides.camperas.columns.tertiaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.columns.recommendation` | Campo guía de talles.guides.camperas.columns.recommendation | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.rows[].size` | Campo guía de talles.guides.chalecos.rows[].size | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.rows[].sizeLabel` | Campo guía de talles.guides.chalecos.rows[].sizeLabel | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.rows[].chestOrWaist` | Campo guía de talles.guides.chalecos.rows[].chestOrWaist | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.rows[].length` | Campo guía de talles.guides.chalecos.rows[].length | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.rows[].sleeveOrInseam` | Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.rows[].recommendedHeight` | Campo guía de talles.guides.chalecos.rows[].recommendedHeight | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.rows[].recommendedWeight` | Campo guía de talles.guides.chalecos.rows[].recommendedWeight | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.recommendationNote` | Campo guía de talles.guides.camperas.recommendationNote | Dato editable del catálogo. | `text` |  |  |
+| `guides.camperas.tabLabel` | Campo guía de talles.guides.camperas.tabLabel | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.category` | Campo guía de talles.guides.pantalones.category | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.title` | Campo guía de talles.guides.pantalones.title | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.tolerance` | Campo guía de talles.guides.pantalones.tolerance | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.columns.size` | Campo guía de talles.guides.pantalones.columns.size | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.columns.primaryMeasure` | Campo guía de talles.guides.pantalones.columns.primaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.columns.secondaryMeasure` | Campo guía de talles.guides.pantalones.columns.secondaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.columns.tertiaryMeasure` | Campo guía de talles.guides.pantalones.columns.tertiaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.columns.recommendation` | Campo guía de talles.guides.pantalones.columns.recommendation | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.rows[].size` | Campo guía de talles.guides.chalecos.rows[].size | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.rows[].sizeLabel` | Campo guía de talles.guides.chalecos.rows[].sizeLabel | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.rows[].chestOrWaist` | Campo guía de talles.guides.chalecos.rows[].chestOrWaist | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.rows[].length` | Campo guía de talles.guides.chalecos.rows[].length | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.rows[].sleeveOrInseam` | Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.rows[].recommendedHeight` | Campo guía de talles.guides.chalecos.rows[].recommendedHeight | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.rows[].recommendedWeight` | Campo guía de talles.guides.chalecos.rows[].recommendedWeight | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.recommendationNote` | Campo guía de talles.guides.pantalones.recommendationNote | Dato editable del catálogo. | `text` |  |  |
+| `guides.pantalones.tabLabel` | Campo guía de talles.guides.pantalones.tabLabel | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.category` | Campo guía de talles.guides.remeras.category | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.title` | Campo guía de talles.guides.remeras.title | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.tolerance` | Campo guía de talles.guides.remeras.tolerance | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.columns.size` | Campo guía de talles.guides.remeras.columns.size | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.columns.primaryMeasure` | Campo guía de talles.guides.remeras.columns.primaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.columns.secondaryMeasure` | Campo guía de talles.guides.remeras.columns.secondaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.columns.tertiaryMeasure` | Campo guía de talles.guides.remeras.columns.tertiaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.columns.recommendation` | Campo guía de talles.guides.remeras.columns.recommendation | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.rows[].size` | Campo guía de talles.guides.chalecos.rows[].size | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.rows[].sizeLabel` | Campo guía de talles.guides.chalecos.rows[].sizeLabel | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.rows[].chestOrWaist` | Campo guía de talles.guides.chalecos.rows[].chestOrWaist | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.rows[].length` | Campo guía de talles.guides.chalecos.rows[].length | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.rows[].sleeveOrInseam` | Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.rows[].recommendedHeight` | Campo guía de talles.guides.chalecos.rows[].recommendedHeight | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.rows[].recommendedWeight` | Campo guía de talles.guides.chalecos.rows[].recommendedWeight | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.recommendationNote` | Campo guía de talles.guides.remeras.recommendationNote | Dato editable del catálogo. | `text` |  |  |
+| `guides.remeras.tabLabel` | Campo guía de talles.guides.remeras.tabLabel | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.category` | Campo guía de talles.guides.chalecos.category | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.title` | Campo guía de talles.guides.chalecos.title | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.tolerance` | Campo guía de talles.guides.chalecos.tolerance | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.columns.size` | Campo guía de talles.guides.chalecos.columns.size | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.columns.primaryMeasure` | Campo guía de talles.guides.chalecos.columns.primaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.columns.secondaryMeasure` | Campo guía de talles.guides.chalecos.columns.secondaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.columns.tertiaryMeasure` | Campo guía de talles.guides.chalecos.columns.tertiaryMeasure | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.columns.recommendation` | Campo guía de talles.guides.chalecos.columns.recommendation | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.rows[].size` | Campo guía de talles.guides.chalecos.rows[].size | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.rows[].sizeLabel` | Campo guía de talles.guides.chalecos.rows[].sizeLabel | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.rows[].chestOrWaist` | Campo guía de talles.guides.chalecos.rows[].chestOrWaist | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.rows[].length` | Campo guía de talles.guides.chalecos.rows[].length | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.rows[].sleeveOrInseam` | Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.rows[].recommendedHeight` | Campo guía de talles.guides.chalecos.rows[].recommendedHeight | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.rows[].recommendedWeight` | Campo guía de talles.guides.chalecos.rows[].recommendedWeight | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.recommendationNote` | Campo guía de talles.guides.chalecos.recommendationNote | Dato editable del catálogo. | `text` |  |  |
+| `guides.chalecos.tabLabel` | Campo guía de talles.guides.chalecos.tabLabel | Dato editable del catálogo. | `text` |  |  |
+

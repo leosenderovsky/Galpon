@@ -18,10 +18,13 @@ import { BRAND, formatText } from './brand.config';
 
 const MainAppContent: React.FC = () => {
   const { activeProductModal, setActiveProductModal, totalItems, setIsCartOpen } = useCart();
+  const demoLayoutClass = BRAND.demo.showPrototypeBanner
+    ? 'pt-10 sm:pt-9 lg:pt-8 [&>header]:top-10 sm:[&>header]:top-9 lg:[&>header]:top-8'
+    : '';
 
   return (
-    <div className="min-h-screen flex flex-col bg-brand-background text-brand-text relative pt-10 sm:pt-9 lg:pt-8 [&>header]:top-10 sm:[&>header]:top-9 lg:[&>header]:top-8">
-      <PrototypeBanner />
+    <div className={`min-h-screen flex flex-col bg-brand-background text-brand-text relative ${demoLayoutClass}`}>
+      {BRAND.demo.showPrototypeBanner && <PrototypeBanner />}
       {/* Navigation Header */}
       <Navbar />
 

@@ -201,6 +201,10 @@ export type DepositoYRetiroRetiroEtiqueta = string;
  */
 export type DepositoYRetiroRetiroHorario = string;
 /**
+ * Cantidad de días disponibles para solicitar un cambio.
+ */
+export type DiasParaCambios = number;
+/**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
 export type EnviosDomicilioEntregaEtiqueta = string;
@@ -411,6 +415,10 @@ export type Testimonios = {
   color: TestimoniosColor;
 }[];
 /**
+ * Muestra el aviso de demostración de Tienda ON!.
+ */
+export type MostrarAvisoDePrototipo = boolean;
+/**
  * Activa o desactiva este elemento.
  */
 export type DemostracionPrecargaCarrito = boolean;
@@ -579,11 +587,15 @@ export type CarritoCombo = string;
  */
 export type CatalogoEstandarColor = string;
 /**
+ * Texto que aparece para mostrar todos los productos. Dejalo vacío para ocultar la opción.
+ */
+export type CatalogoEtiquetaDeTodasLasCategorias = string;
+/**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
 export type CatalogoSobretitulo = string;
 /**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ * Texto con la variable {year}, que indica el año actual del catálogo.
  */
 export type CatalogoTitulo = string;
 /**
@@ -1119,7 +1131,7 @@ export type FichaTecnicaBotonAgregarAlPedido = string;
  */
 export type FichaTecnicaConsultarStock = string;
 /**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ * Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio.
  */
 export type FichaTecnicaConfianzaCambio = string;
 /**
@@ -1186,22 +1198,6 @@ export type FichaTecnicaWhatsAppConsulta = string;
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
 export type FichaTecnicaSKUEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type GuiaDeTallesPestanaJackets = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type GuiaDeTallesPestanaPants = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type GuiaDeTallesPestanaTshirts = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type GuiaDeTallesPestanaHoodies = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
@@ -1399,7 +1395,7 @@ export type PieDePaginaAyudaTitulo = string;
  */
 export type PieDePaginaAyudaTalleGuia = string;
 /**
- * Texto editable. Dejalo vacío para ocultar el elemento.
+ * Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio.
  */
 export type PieDePaginaAyudaDevoluciones = string;
 /**
@@ -1585,6 +1581,7 @@ export interface DepositoYRetiro {
  * Textos de la opción de envío a domicilio.
  */
 export interface Envios {
+  exchangeDays: DiasParaCambios;
   homeDeliveryLabel: EnviosDomicilioEntregaEtiqueta;
   homeDeliveryDescription: EnviosDomicilioEntregaDescripcion;
 }
@@ -1658,6 +1655,7 @@ export interface RedesSociales {
  * Datos de ejemplo del prototipo.
  */
 export interface Demostracion {
+  showPrototypeBanner: MostrarAvisoDePrototipo;
   prefillCart: DemostracionPrecargaCarrito;
   customer: ClienteDeEjemplo;
 }
@@ -1741,6 +1739,7 @@ export interface Carrito {
  */
 export interface Catalogo {
   standardColor: CatalogoEstandarColor;
+  allCategoryLabel: CatalogoEtiquetaDeTodasLasCategorias;
   eyebrow: CatalogoSobretitulo;
   title: CatalogoTitulo;
   description: CatalogoDescripcion;
@@ -1913,10 +1912,6 @@ export interface FichaTecnica {
  * Ventana de la guía de medidas.
  */
 export interface GuiaDeTalles {
-  tabJackets: GuiaDeTallesPestanaJackets;
-  tabPants: GuiaDeTallesPestanaPants;
-  tabTshirts: GuiaDeTallesPestanaTshirts;
-  tabHoodies: GuiaDeTallesPestanaHoodies;
   title: GuiaDeTallesTitulo;
   closeLabel: GuiaDeTallesEtiquetaAccesibleDeCerrar;
   tipTitle: GuiaDeTallesConsejoTitulo;

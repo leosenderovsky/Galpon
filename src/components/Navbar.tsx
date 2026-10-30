@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Txt } from './Txt';
 import { useCart } from '../context/CartContext';
 import { BRAND, formatText } from '../brand.config';
-import { formatARS } from '../products';
+import { formatARS } from '../catalog';
 import { GalponLogo } from './GalponLogo';
 
 export const Navbar: React.FC = () => {

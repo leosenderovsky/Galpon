@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Txt } from './Txt';
-import { Product, formatARS, PRODUCTS, getProductImageDimensions } from '../products';
+import { Product, formatARS, PRODUCTS, getProductImageDimensions } from '../catalog';
 import { getSizeGuideForProduct } from '../sizeGuide';
 import { useCart } from '../context/CartContext';
 import { BRAND, formatText } from '../brand.config';
@@ -100,7 +100,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
 
                 {/* SKU Stamped Tag */}
                 <div className="absolute top-2 left-2 bg-white/90 px-2.5 py-1 font-body text-[11px] text-brand-primary-deep font-bold tracking-widest shadow-sm border border-brand-border-soft">
-                  {product.materialTag || BRAND.ui.productModal.series}
+                  {product.material || BRAND.ui.productModal.series}
                 </div>
 
                 {/* Zoom indicator */}
@@ -205,7 +205,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                   {product.name}
                 </h1>
                 <p className="font-body text-sm text-brand-text-secondary mt-1.5 leading-relaxed">
-                  {product.extendedDescription || product.description}
+                  {product.longDescription || product.description}
                 </p>
               </div>
 
@@ -462,7 +462,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 border-t border-brand-surface-muted">
                 <div className="flex items-center gap-2 text-brand-text-secondary font-body text-[11px] uppercase tracking-wider">
                   <span className="material-symbols-outlined text-brand-secondary text-sm">sync_alt</span>
-                  <Txt as="span" value={BRAND.ui.productModal.trustExchange} />
+                      <Txt as="span" value={formatText(BRAND.ui.productModal.trustExchange, { days: String(BRAND.shipping.exchangeDays) })} />
                 </div>
                 <div className="flex items-center gap-2 text-brand-text-secondary font-body text-[11px] uppercase tracking-wider">
                   <span className="material-symbols-outlined text-brand-secondary text-sm">local_shipping</span>

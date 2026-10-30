@@ -32,9 +32,10 @@ El JSON generado se commitea; no lo edites a mano. Al cambiar imágenes, los hoo
 - `src/data/brand.schema.json`: esquema con etiquetas en español, tipos y reglas; `docs/CAMPOS.md` es la tabla de campos generada.
 - `src/brand.config.ts`: envoltorio que importa `brand.json` y exporta `BRAND` (no se edita).
 - `src/components/Txt.tsx`: muestra un texto editable y no dibuja nada si está vacío.
-- `src/products.ts`: categorías, talles y datos del catálogo.
-- `src/sizeGuide.ts`: tablas de medidas por categoría.
-- `src/generated/`: datos generados, hoy dimensiones de imágenes.
+- `src/data/catalog.json` y `src/data/catalog.schema.json`: categorías, talles y datos del catálogo.
+- `src/data/size-guide.json` y `src/data/size-guide.schema.json`: tablas de medidas por categoría.
+- `src/catalog.ts` y `src/sizeGuide.ts`: envoltorios de compatibilidad; no se editan.
+- `src/generated/`: tipos generados y dimensiones de imágenes.
 - `public/assets/hero/`: hero y miniatura de “Cómo comprar”.
 - `public/assets/logo/`: logo, favicon y Apple Touch Icon.
 - `public/assets/products/`: fotos del catálogo.
@@ -64,11 +65,9 @@ Editá los bloques de `src/data/brand.json` (la tabla completa de campos está e
 - `footer`, `testimonialsSection` y `ui`: textos del pie, de los testimonios y de toda la interfaz (carrito, checkout, ficha técnica, guía de talles, formularios y mensajes de WhatsApp).
 
 Las reglas de precios mayoristas y descuento por combo están en `b2b` (en `brand.json`).
-El catálogo está en `src/products.ts`; cada producto puede definir `sku`, `price`, `wholesalePrice`,
+El catálogo está en `src/data/catalog.json`; cada producto puede definir `sku`, `price`, `wholesalePrice`,
 `wholesaleMinUnits`, `sizes`, `colors`, `images` y `specs`, además de sus textos y otros datos opcionales.
-La guía de talles vive en `src/sizeGuide.ts`.
-El campo `category` es una unión de tipos (`camperas`, `pantalones`, `remeras`, `chalecos`):
-si cambiás el rubro, actualizá también esa unión y las categorías relacionadas.
+La guía de talles vive en `src/data/size-guide.json`. Las pestañas recorren las guías presentes y la primera es la predeterminada; no hay una unión fija de categorías en el código.
 
 ### Todos los textos son editables (y quitables)
 
@@ -77,7 +76,7 @@ Ningún texto visible está escrito en el código: todo sale de `src/data/brand.
 - **Cambiar un texto:** editá su valor (por ejemplo `footer.b2bTitle` de "Canales Mayoristas" a "Empresas").
 - **Quitar un elemento:** dejá su texto **vacío** (`""`); el elemento no se dibuja.
 - **Textos con variables:** `{name}`, `{count}`, `{amount}`, etc. se reemplazan solos; el esquema indica cuáles admite cada texto y `check:config` falla si usás una desconocida.
-- Nombres, descripciones y especificaciones de productos están en `src/products.ts` y las medidas en `src/sizeGuide.ts` (también datos editables).
+- Nombres, descripciones, precios y especificaciones están en `src/data/catalog.json`; las medidas están en `src/data/size-guide.json`.
 
 Si agregás un componente, sus textos van a `brand.json` y a `brand.schema.json`; `npm run check:texts` lo verifica.
 
@@ -85,11 +84,12 @@ Si agregás un componente, sus textos van a `brand.json` y a `brand.schema.json`
 
 | Comando | Para qué sirve |
 | --- | --- |
-| `npm run generate:types` | Genera `src/generated/brand.types.ts` desde el esquema (corre solo en `dev` y `build`; el archivo se commitea). |
+| `npm run generate:types` | Genera los tipos de marca, catálogo y guía desde sus esquemas. |
 | `npm run check:config` | Valida `brand.json` contra el esquema, imágenes, URLs, colores, WhatsApp y variables de texto. |
 | `npm run check:config:strict` | Además exige reemplazar los datos de ejemplo y rechaza los textos de `prototype-markers.json`. **Falla en el prototipo, a propósito.** |
 | `npm run check:texts` | Falla si algún texto visible está escrito en el código en vez de salir de `brand.json`. |
 | `npm run check:render` | Renderiza la aplicación sin navegador y falla ante cualquier excepción. |
+| `npm run check:coupling` | Falla si una categoría del catálogo queda escrita como literal en `src`. |
 | `npm run docs:fields` | Regenera `docs/CAMPOS.md`. |
 
 ## Logo, video e imágenes
@@ -125,6 +125,7 @@ Otros comandos disponibles para trabajar con assets:
 - `npm run make:icons`: genera los dos íconos a partir del logo.
 - `npm run check:icons`: verifica que los íconos estén al día.
 - `npm run make:og`: genera la imagen Open Graph de 1200 × 630 px y hasta 200 KB.
+- `npm run images:optimize`: optimiza JPG grandes y conserva originales en `.image-originals/`.
 
 ## Variables de entorno
 

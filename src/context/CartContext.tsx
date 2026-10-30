@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useMemo, ReactNode } from 'react';
-import { Product, formatARS, PRODUCTS } from '../products';
+import { Product, formatARS, PRODUCTS } from '../catalog';
+import { DEFAULT_SIZE_GUIDE_CATEGORY } from '../sizeGuide';
 import { BRAND, formatText } from '../brand.config';
 
 export interface CartItem {
@@ -137,7 +138,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [activeProductModal, setActiveProductModal] = useState<Product | null>(null);
   const [isSizeGuideModalOpen, setIsSizeGuideModalOpen] = useState(false);
-  const [selectedCategoryForGuide, setSelectedCategoryForGuide] = useState<string>('camperas');
+  const [selectedCategoryForGuide, setSelectedCategoryForGuide] = useState<string>(DEFAULT_SIZE_GUIDE_CATEGORY);
 
   useEffect(() => {
     try {

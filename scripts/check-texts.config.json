@@ -1,6 +1,5 @@
 {
   "excludeFiles": [
-    "src/products.ts",
     "src/sizeGuide.ts",
     "src/components/PrototypeBanner.tsx",
     "src/demoBanner.config.ts",

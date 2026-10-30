@@ -12,6 +12,10 @@ import addFormats from 'ajv-formats';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dataPath = path.join(root, 'src/data/brand.json');
 const schemaPath = path.join(root, 'src/data/brand.schema.json');
+const catalogPath = path.join(root, 'src/data/catalog.json');
+const catalogSchemaPath = path.join(root, 'src/data/catalog.schema.json');
+const sizeGuidePath = path.join(root, 'src/data/size-guide.json');
+const sizeGuideSchemaPath = path.join(root, 'src/data/size-guide.schema.json');
 const markersPath = path.join(root, 'src/data/prototype-markers.json');
 const publicDir = path.join(root, 'public');
 const strict = process.argv.includes('--strict');
@@ -22,12 +26,42 @@ const errors = [];
 const warnings = [];
 const schema = JSON.parse(await readFile(schemaPath, 'utf8'));
 const data = JSON.parse(await readFile(dataPath, 'utf8'));
+const catalog = JSON.parse(await readFile(catalogPath, 'utf8'));
+const catalogSchema = JSON.parse(await readFile(catalogSchemaPath, 'utf8'));
+const sizeGuide = JSON.parse(await readFile(sizeGuidePath, 'utf8'));
+const sizeGuideSchema = JSON.parse(await readFile(sizeGuideSchemaPath, 'utf8'));
 const markers = JSON.parse(await readFile(markersPath, 'utf8'));
 
 const ajv = new Ajv({ allErrors: true, strict: false });
 addFormats(ajv);
 const validate = ajv.compile(schema);
 if (!validate(data)) for (const err of validate.errors ?? []) errors.push(`brand.json ${err.instancePath || '/'}: ${err.message}${err.params?.additionalProperty ? ` (${err.params.additionalProperty})` : ''}`);
+for (const [name, value, schemaValue] of [['catalog.json', catalog, catalogSchema], ['size-guide.json', sizeGuide, sizeGuideSchema]]) {
+  const check = ajv.compile(schemaValue);
+  if (!check(value)) for (const err of check.errors ?? []) errors.push(`${name} ${err.instancePath || '/'}: ${err.message}`);
+}
+
+const categoryIds = new Set(catalog.categories.map((category) => category.id));
+const productIds = new Set();
+for (const [index, product] of catalog.products.entries()) {
+  const p = `catalog.json products[${index}]`;
+  if (productIds.has(product.id)) errors.push(`${p}.id: id duplicado "${product.id}"`);
+  productIds.add(product.id);
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.id)) errors.push(`${p}.id: debe estar en kebab-case ("${product.id}")`);
+  if (!categoryIds.has(product.category)) errors.push(`${p}.category: categoría inexistente "${product.category}"`);
+  if (!(product.price > 0)) errors.push(`${p}.price: debe ser mayor que cero`);
+  if (product.compareAtPrice !== undefined && !(product.compareAtPrice > product.price)) errors.push(`${p}.compareAtPrice: debe ser mayor que price`);
+  for (const [imageIndex, image] of product.images.entries()) {
+    try { await stat(path.join(publicDir, image.replace(/^\//, ''))); } catch { errors.push(`${p}.images[${imageIndex}]: la imagen no existe en public/: ${image}`); }
+  }
+}
+const referencedProductImages = new Set(catalog.products.flatMap((product) => product.images.map((image) => path.basename(image))));
+const productsDir = path.join(publicDir, 'assets', 'products');
+try {
+  for (const file of await (await import('node:fs/promises')).readdir(productsDir)) {
+    if (!referencedProductImages.has(file)) warnings.push(`public/assets/products/${file}: no está asociado a ningún producto`);
+  }
+} catch (error) { if (error.code !== 'ENOENT') throw error; }
 
 const getPath = (obj, p) => p.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
 
@@ -71,6 +105,13 @@ if (strict) {
     if (typeof node === 'string') { const lower = node.toLowerCase(); for (const m of markers.strings ?? []) if (lower.includes(m.toLowerCase())) errors.push(`[strict] brand.json ${p}: contiene el marcador de prototipo "${m}"`); }
     else if (typeof node === 'object') for (const [k, v] of Object.entries(node)) checkMarkers(v, p ? `${p}.${k}` : k);
   })(data, '');
+  (function checkCatalogMarkers(node, p) {
+    if (node == null) return;
+    if (typeof node === 'string') {
+      const lower = node.toLowerCase();
+      for (const m of markers.strings ?? []) if (lower.includes(m.toLowerCase())) errors.push(`[strict] ${p}: contiene el marcador de prototipo "${m}"`);
+    } else if (typeof node === 'object') for (const [k, v] of Object.entries(node)) checkCatalogMarkers(v, p ? `${p}.${k}` : k);
+  })(catalog, 'catalog.json');
 }
 
 if (warnings.length) { console.warn(`\nAdvertencias (${warnings.length}):`); warnings.forEach((w) => console.warn(`  ⚠ ${w}`)); }

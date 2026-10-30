@@ -1,6 +1,6 @@
 import React from 'react';
 import { BRAND } from '../brand.config';
-import { getImageDimensions } from '../products';
+import { getImageDimensions } from '../catalog';
 
 export const Hero: React.FC = () => {
   const dimensions = getImageDimensions(BRAND.hero.backgroundImage);

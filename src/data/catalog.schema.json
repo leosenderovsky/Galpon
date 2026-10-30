@@ -1,0 +1,284 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "./catalog.schema.json",
+  "title": "CatalogConfig",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "x-group": "Textos",
+      "x-widget": "text",
+      "title": "Campo catálogo.$schema",
+      "description": "Dato editable del catálogo."
+    },
+    "schemaVersion": {
+      "type": "integer",
+      "x-group": "Textos",
+      "x-widget": "number",
+      "title": "Campo catálogo.schemaVersion",
+      "description": "Dato editable del catálogo."
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.categories[].id",
+            "description": "Dato editable del catálogo."
+          },
+          "label": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.categories[].label",
+            "description": "Dato editable del catálogo."
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ]
+      }
+    },
+    "availableSizes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-group": "Textos",
+        "x-widget": "text",
+        "title": "Campo catálogo.availableSizes[]",
+        "description": "Dato editable del catálogo."
+      }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].id",
+            "description": "Dato editable del catálogo."
+          },
+          "sku": {
+            "type": "string",
+            "x-group": "Comercial",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].sku",
+            "description": "Dato editable del catálogo."
+          },
+          "name": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].name",
+            "description": "Dato editable del catálogo."
+          },
+          "category": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].category",
+            "description": "Dato editable del catálogo."
+          },
+          "price": {
+            "type": "integer",
+            "x-group": "Comercial",
+            "x-widget": "number",
+            "title": "Campo catálogo.products[].price",
+            "description": "Dato editable del catálogo."
+          },
+          "wholesalePrice": {
+            "type": "integer",
+            "x-group": "Textos",
+            "x-widget": "number",
+            "title": "Campo catálogo.products[].wholesalePrice",
+            "description": "Dato editable del catálogo."
+          },
+          "wholesaleMinUnits": {
+            "type": "integer",
+            "x-group": "Textos",
+            "x-widget": "number",
+            "title": "Campo catálogo.products[].wholesaleMinUnits",
+            "description": "Dato editable del catálogo."
+          },
+          "wholesaleBadge": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].wholesaleBadge",
+            "description": "Dato editable del catálogo."
+          },
+          "sizes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo catálogo.products[].sizes[]",
+              "description": "Dato editable del catálogo."
+            }
+          },
+          "colors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo catálogo.products[].colors[].name",
+                  "description": "Dato editable del catálogo."
+                },
+                "hex": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo catálogo.products[].colors[].hex",
+                  "description": "Dato editable del catálogo."
+                }
+              },
+              "required": [
+                "name",
+                "hex"
+              ]
+            }
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "x-group": "Imágenes",
+              "x-widget": "image",
+              "title": "Campo catálogo.products[].images[]",
+              "description": "Dato editable del catálogo.",
+              "x-asset": {
+                "path": "/assets/products/{id}.jpg",
+                "minWidth": 900,
+                "ratio": "1:1",
+                "maxKB": 250
+              }
+            }
+          },
+          "description": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].description",
+            "description": "Dato editable del catálogo."
+          },
+          "lot": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].lot",
+            "description": "Dato editable del catálogo."
+          },
+          "origin": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].origin",
+            "description": "Dato editable del catálogo."
+          },
+          "badge": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].badge",
+            "description": "Dato editable del catálogo."
+          },
+          "specs": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fabric": {
+                "type": "string",
+                "x-group": "Textos",
+                "x-widget": "text",
+                "title": "Campo catálogo.products[].specs.fabric",
+                "description": "Dato editable del catálogo."
+              },
+              "seams": {
+                "type": "string",
+                "x-group": "Textos",
+                "x-widget": "text",
+                "title": "Campo catálogo.products[].specs.seams",
+                "description": "Dato editable del catálogo."
+              },
+              "hardware": {
+                "type": "string",
+                "x-group": "Textos",
+                "x-widget": "text",
+                "title": "Campo catálogo.products[].specs.hardware",
+                "description": "Dato editable del catálogo."
+              }
+            },
+            "required": [
+              "fabric",
+              "seams",
+              "hardware"
+            ]
+          },
+          "relatedProductId": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].relatedProductId",
+            "description": "Dato editable del catálogo."
+          },
+          "longDescription": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].longDescription",
+            "description": "Dato editable del catálogo."
+          },
+          "material": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Campo catálogo.products[].material",
+            "description": "Dato editable del catálogo."
+          }
+        },
+        "required": [
+          "id",
+          "sku",
+          "name",
+          "category",
+          "price",
+          "wholesalePrice",
+          "wholesaleMinUnits",
+          "wholesaleBadge",
+          "sizes",
+          "colors",
+          "images",
+          "description",
+          "lot",
+          "origin",
+          "specs",
+          "longDescription",
+          "material"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "categories",
+    "availableSizes",
+    "products"
+  ]
+}

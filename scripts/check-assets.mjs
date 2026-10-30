@@ -7,6 +7,7 @@ const projectRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const sourceRoot = path.join(projectRoot, 'src');
 const assetsRoot = path.join(projectRoot, 'public', 'assets');
 const brandConfigPath = path.join(sourceRoot, 'data', 'brand.json');
+const catalogPath = path.join(sourceRoot, 'data', 'catalog.json');
 const strict = process.argv.includes('--strict');
 const allowedPlaceholders = new Set(['/assets/video/como-comprar.mp4']);
 const sourceExtensions = /\.(?:[cm]?[jt]sx?|vue|svelte|html|json)$/i;
@@ -42,6 +43,14 @@ for (const sourceFile of sourceFiles) {
     referencedAssets.add(match[2]);
   }
 }
+
+const catalogData = JSON.parse(await readFile(catalogPath, 'utf8'));
+function collectCatalogAssets(value) {
+  if (typeof value === 'string' && value.startsWith('/assets/')) referencedAssets.add(value);
+  else if (Array.isArray(value)) for (const item of value) collectCatalogAssets(item);
+  else if (value && typeof value === 'object') for (const item of Object.values(value)) collectCatalogAssets(item);
+}
+collectCatalogAssets(catalogData);
 
 const brandData = JSON.parse(await readFile(brandConfigPath, 'utf8'));
 if (!Array.isArray(brandData.assetsWithPrototypeBranding)) {

@@ -8,7 +8,7 @@ Los archivos de esta tabla forman parte de la marca/catálogo y se reemplazan al
 | `public/assets/hero/hero-1.jpg` | Imagen principal del sitio. | Sección Hero; ruta en `hero.backgroundImage`. | 1920 × 1080 px; máximo 250 KB. El prototipo actual mide 512 × 286 px. | Cliente |
 | `public/assets/hero/como-comprar-1.jpg` | Miniatura visible del video. | Sección “Cómo comprar”; ruta en `howToBuy.posterUrl`. | 16:9, 1280 × 720 px; máximo 200 KB. El prototipo actual mide 512 × 279 px. | Cliente |
 | `public/assets/video/como-comprar.mp4` | Video final de la guía de compra. | Reproductor HTML5 de “Cómo comprar”; ruta en `howToBuy.videoUrl`. | H.264 + AAC, 16:9, 1280 × 720 px, 30 a 60 s; máximo 15 MB. **PENDIENTE en el prototipo.** | Cliente (video de muestra preparado con IA a partir de su catálogo) |
-| `public/assets/products/*` | Fotografías de productos del catálogo. | Catálogo, fichas y carrito; rutas en los datos `PRODUCTS` de `src/products.ts`. | Según el catálogo; usar imágenes nítidas y optimizadas para web. | Cliente |
+| `public/assets/products/*` | Fotografías de productos del catálogo. | Catálogo, fichas y carrito; rutas en `src/data/catalog.json`. | Según el catálogo; usar imágenes nítidas y optimizadas para web. | Cliente |
 
 Las imágenes listadas en `assetsWithPrototypeBranding` contienen marca ficticia incrustada y deben regenerarse sin esa marca o con la del cliente antes de entregar el sitio:
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Txt } from './Txt';
 import { BRAND, formatText } from '../brand.config';
 import { useCart } from '../context/CartContext';
-import { SIZE_GUIDES } from '../sizeGuide';
+import { DEFAULT_SIZE_GUIDE_CATEGORY, SIZE_GUIDES } from '../sizeGuide';
 
 export const SizeGuideModal: React.FC = () => {
   const {
@@ -14,14 +14,8 @@ export const SizeGuideModal: React.FC = () => {
 
   if (!isSizeGuideModalOpen) return null;
 
-  const currentGuide = SIZE_GUIDES[selectedCategoryForGuide] || SIZE_GUIDES['camperas'];
-
-  const guideTabs = [
-    { id: 'camperas', label: BRAND.ui.sizeGuide.tabJackets },
-    { id: 'pantalones', label: BRAND.ui.sizeGuide.tabPants },
-    { id: 'remeras', label: BRAND.ui.sizeGuide.tabTshirts },
-    { id: 'chalecos', label: BRAND.ui.sizeGuide.tabHoodies }
-  ];
+  const currentGuide = SIZE_GUIDES[selectedCategoryForGuide] || SIZE_GUIDES[DEFAULT_SIZE_GUIDE_CATEGORY];
+  const guideTabs = Object.entries(SIZE_GUIDES).map(([id, guide]) => ({ id, label: guide.tabLabel }));
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-brand-primary-deep/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">

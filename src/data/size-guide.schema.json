@@ -1,0 +1,695 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "./size-guide.schema.json",
+  "title": "SizeGuideConfig",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "x-group": "Textos",
+      "x-widget": "text",
+      "title": "Campo guía de talles.$schema",
+      "description": "Dato editable del catálogo."
+    },
+    "schemaVersion": {
+      "type": "integer",
+      "x-group": "Textos",
+      "x-widget": "number",
+      "title": "Campo guía de talles.schemaVersion",
+      "description": "Dato editable del catálogo."
+    },
+    "guides": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "camperas": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.camperas.category",
+              "description": "Dato editable del catálogo."
+            },
+            "title": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.camperas.title",
+              "description": "Dato editable del catálogo."
+            },
+            "tolerance": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.camperas.tolerance",
+              "description": "Dato editable del catálogo."
+            },
+            "columns": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "size": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.camperas.columns.size",
+                  "description": "Dato editable del catálogo."
+                },
+                "primaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.camperas.columns.primaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "secondaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.camperas.columns.secondaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "tertiaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.camperas.columns.tertiaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "recommendation": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.camperas.columns.recommendation",
+                  "description": "Dato editable del catálogo."
+                }
+              },
+              "required": [
+                "size",
+                "primaryMeasure",
+                "secondaryMeasure",
+                "tertiaryMeasure",
+                "recommendation"
+              ]
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "size": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].size",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "sizeLabel": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].sizeLabel",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "chestOrWaist": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].chestOrWaist",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "length": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].length",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "sleeveOrInseam": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "recommendedHeight": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].recommendedHeight",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "recommendedWeight": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].recommendedWeight",
+                    "description": "Dato editable del catálogo."
+                  }
+                },
+                "required": [
+                  "size",
+                  "sizeLabel",
+                  "chestOrWaist",
+                  "length",
+                  "sleeveOrInseam",
+                  "recommendedHeight"
+                ]
+              }
+            },
+            "recommendationNote": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.camperas.recommendationNote",
+              "description": "Dato editable del catálogo."
+            },
+            "tabLabel": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.camperas.tabLabel",
+              "description": "Dato editable del catálogo."
+            }
+          },
+          "required": [
+            "category",
+            "title",
+            "tolerance",
+            "columns",
+            "rows",
+            "recommendationNote",
+            "tabLabel"
+          ]
+        },
+        "pantalones": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.pantalones.category",
+              "description": "Dato editable del catálogo."
+            },
+            "title": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.pantalones.title",
+              "description": "Dato editable del catálogo."
+            },
+            "tolerance": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.pantalones.tolerance",
+              "description": "Dato editable del catálogo."
+            },
+            "columns": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "size": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.pantalones.columns.size",
+                  "description": "Dato editable del catálogo."
+                },
+                "primaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.pantalones.columns.primaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "secondaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.pantalones.columns.secondaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "tertiaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.pantalones.columns.tertiaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "recommendation": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.pantalones.columns.recommendation",
+                  "description": "Dato editable del catálogo."
+                }
+              },
+              "required": [
+                "size",
+                "primaryMeasure",
+                "secondaryMeasure",
+                "tertiaryMeasure",
+                "recommendation"
+              ]
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "size": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].size",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "sizeLabel": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].sizeLabel",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "chestOrWaist": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].chestOrWaist",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "length": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].length",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "sleeveOrInseam": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "recommendedHeight": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].recommendedHeight",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "recommendedWeight": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].recommendedWeight",
+                    "description": "Dato editable del catálogo."
+                  }
+                },
+                "required": [
+                  "size",
+                  "sizeLabel",
+                  "chestOrWaist",
+                  "length",
+                  "sleeveOrInseam",
+                  "recommendedHeight"
+                ]
+              }
+            },
+            "recommendationNote": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.pantalones.recommendationNote",
+              "description": "Dato editable del catálogo."
+            },
+            "tabLabel": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.pantalones.tabLabel",
+              "description": "Dato editable del catálogo."
+            }
+          },
+          "required": [
+            "category",
+            "title",
+            "tolerance",
+            "columns",
+            "rows",
+            "recommendationNote",
+            "tabLabel"
+          ]
+        },
+        "remeras": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.remeras.category",
+              "description": "Dato editable del catálogo."
+            },
+            "title": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.remeras.title",
+              "description": "Dato editable del catálogo."
+            },
+            "tolerance": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.remeras.tolerance",
+              "description": "Dato editable del catálogo."
+            },
+            "columns": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "size": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.remeras.columns.size",
+                  "description": "Dato editable del catálogo."
+                },
+                "primaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.remeras.columns.primaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "secondaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.remeras.columns.secondaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "tertiaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.remeras.columns.tertiaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "recommendation": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.remeras.columns.recommendation",
+                  "description": "Dato editable del catálogo."
+                }
+              },
+              "required": [
+                "size",
+                "primaryMeasure",
+                "secondaryMeasure",
+                "tertiaryMeasure",
+                "recommendation"
+              ]
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "size": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].size",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "sizeLabel": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].sizeLabel",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "chestOrWaist": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].chestOrWaist",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "length": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].length",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "sleeveOrInseam": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "recommendedHeight": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].recommendedHeight",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "recommendedWeight": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].recommendedWeight",
+                    "description": "Dato editable del catálogo."
+                  }
+                },
+                "required": [
+                  "size",
+                  "sizeLabel",
+                  "chestOrWaist",
+                  "length",
+                  "sleeveOrInseam",
+                  "recommendedHeight"
+                ]
+              }
+            },
+            "recommendationNote": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.remeras.recommendationNote",
+              "description": "Dato editable del catálogo."
+            },
+            "tabLabel": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.remeras.tabLabel",
+              "description": "Dato editable del catálogo."
+            }
+          },
+          "required": [
+            "category",
+            "title",
+            "tolerance",
+            "columns",
+            "rows",
+            "recommendationNote",
+            "tabLabel"
+          ]
+        },
+        "chalecos": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.chalecos.category",
+              "description": "Dato editable del catálogo."
+            },
+            "title": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.chalecos.title",
+              "description": "Dato editable del catálogo."
+            },
+            "tolerance": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.chalecos.tolerance",
+              "description": "Dato editable del catálogo."
+            },
+            "columns": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "size": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.chalecos.columns.size",
+                  "description": "Dato editable del catálogo."
+                },
+                "primaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.chalecos.columns.primaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "secondaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.chalecos.columns.secondaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "tertiaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.chalecos.columns.tertiaryMeasure",
+                  "description": "Dato editable del catálogo."
+                },
+                "recommendation": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Campo guía de talles.guides.chalecos.columns.recommendation",
+                  "description": "Dato editable del catálogo."
+                }
+              },
+              "required": [
+                "size",
+                "primaryMeasure",
+                "secondaryMeasure",
+                "tertiaryMeasure",
+                "recommendation"
+              ]
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "size": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].size",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "sizeLabel": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].sizeLabel",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "chestOrWaist": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].chestOrWaist",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "length": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].length",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "sleeveOrInseam": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "recommendedHeight": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].recommendedHeight",
+                    "description": "Dato editable del catálogo."
+                  },
+                  "recommendedWeight": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Campo guía de talles.guides.chalecos.rows[].recommendedWeight",
+                    "description": "Dato editable del catálogo."
+                  }
+                },
+                "required": [
+                  "size",
+                  "sizeLabel",
+                  "chestOrWaist",
+                  "length",
+                  "sleeveOrInseam",
+                  "recommendedHeight"
+                ]
+              }
+            },
+            "recommendationNote": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.chalecos.recommendationNote",
+              "description": "Dato editable del catálogo."
+            },
+            "tabLabel": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Campo guía de talles.guides.chalecos.tabLabel",
+              "description": "Dato editable del catálogo."
+            }
+          },
+          "required": [
+            "category",
+            "title",
+            "tolerance",
+            "columns",
+            "rows",
+            "recommendationNote",
+            "tabLabel"
+          ]
+        }
+      },
+      "required": [
+        "camperas",
+        "pantalones",
+        "remeras",
+        "chalecos"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "guides"
+  ]
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Txt } from './Txt';
 import { useCart } from '../context/CartContext';
-import { formatARS, getProductImageDimensions } from '../products';
+import { formatARS, getProductImageDimensions } from '../catalog';
 import { BRAND, formatText } from '../brand.config';
 
 export const CheckoutModal: React.FC = () => {

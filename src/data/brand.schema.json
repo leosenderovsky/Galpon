@@ -606,10 +606,19 @@
       "description": "Textos de la opción de envío a domicilio.",
       "x-group": "Contacto",
       "required": [
+        "exchangeDays",
         "homeDeliveryLabel",
         "homeDeliveryDescription"
       ],
       "properties": {
+        "exchangeDays": {
+          "title": "Días para cambios",
+          "x-group": "Comercial",
+          "type": "integer",
+          "minimum": 0,
+          "x-widget": "number",
+          "description": "Cantidad de días disponibles para solicitar un cambio."
+        },
         "homeDeliveryLabel": {
           "title": "Envíos: domicilio entrega etiqueta",
           "x-group": "Contacto",
@@ -1238,10 +1247,18 @@
       "description": "Datos de ejemplo del prototipo.",
       "x-group": "Marca",
       "required": [
+        "showPrototypeBanner",
         "prefillCart",
         "customer"
       ],
       "properties": {
+        "showPrototypeBanner": {
+          "title": "Mostrar aviso de prototipo",
+          "x-group": "Marca",
+          "type": "boolean",
+          "description": "Muestra el aviso de demostración de Tienda ON!.",
+          "x-widget": "boolean"
+        },
         "prefillCart": {
           "title": "Demostración: precarga carrito",
           "x-group": "Marca",
@@ -1671,6 +1688,7 @@
           "x-group": "Textos",
           "required": [
             "standardColor",
+            "allCategoryLabel",
             "eyebrow",
             "title",
             "description",
@@ -1704,6 +1722,13 @@
               "x-widget": "text",
               "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
             },
+            "allCategoryLabel": {
+              "title": "Catálogo: etiqueta de todas las categorías",
+              "x-group": "Textos de interfaz",
+              "type": "string",
+              "x-widget": "text",
+              "description": "Texto que aparece para mostrar todos los productos. Dejalo vacío para ocultar la opción."
+            },
             "eyebrow": {
               "title": "Catálogo: sobretítulo",
               "x-group": "Textos",
@@ -1716,7 +1741,8 @@
               "x-group": "Textos",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto con la variable {year}, que indica el año actual del catálogo.",
+              "x-vars": ["year"]
             },
             "description": {
               "title": "Catálogo: descripción",
@@ -2851,7 +2877,8 @@
               "x-group": "Textos",
               "type": "string",
               "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
+              "description": "Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio.",
+              "x-vars": ["days"]
             },
             "trustShipping": {
               "title": "Ficha técnica: confianza envío",
@@ -3004,10 +3031,6 @@
           "description": "Ventana de la guía de medidas.",
           "x-group": "Textos",
           "required": [
-            "tabJackets",
-            "tabPants",
-            "tabTshirts",
-            "tabHoodies",
             "title",
             "closeLabel",
             "tipTitle",
@@ -3016,34 +3039,6 @@
             "toleranceLine"
           ],
           "properties": {
-            "tabJackets": {
-              "title": "Guía de talles: pestaña jackets",
-              "x-group": "Textos",
-              "type": "string",
-              "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
-            },
-            "tabPants": {
-              "title": "Guía de talles: pestaña pants",
-              "x-group": "Textos",
-              "type": "string",
-              "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
-            },
-            "tabTshirts": {
-              "title": "Guía de talles: pestaña tshirts",
-              "x-group": "Textos",
-              "type": "string",
-              "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
-            },
-            "tabHoodies": {
-              "title": "Guía de talles: pestaña hoodies",
-              "x-group": "Textos",
-              "type": "string",
-              "x-widget": "text",
-              "description": "Texto de la interfaz. Dejalo vacío para ocultar el elemento."
-            },
             "title": {
               "title": "Guía de talles: título",
               "x-group": "Textos",
@@ -3570,7 +3565,8 @@
           "x-group": "Textos",
           "type": "string",
           "x-widget": "text",
-          "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
+          "description": "Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio.",
+          "x-vars": ["days"],
           "x-exampleData": true,
           "examples": [
             "Políticas de Cambio y Devolución (15 días)"

@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { Txt } from './Txt';
 import { BRAND, formatText } from '../brand.config';
-import { PRODUCTS, CATEGORIES, Product, formatARS, getProductImageDimensions } from '../products';
+import { PRODUCTS, CATEGORIES, Product, formatARS, getProductImageDimensions } from '../catalog';
+import { DEFAULT_SIZE_GUIDE_CATEGORY, SIZE_GUIDES } from '../sizeGuide';
 import { useCart } from '../context/CartContext';
 
 export const Catalog: React.FC = () => {
@@ -52,7 +53,7 @@ export const Catalog: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8">
           <div className="flex flex-col gap-1">
             <Txt as="span" className="font-body text-xs uppercase tracking-widest text-brand-secondary font-bold" value={BRAND.ui.catalog.eyebrow} />
-            <Txt as="h2" className="font-headline text-3xl sm:text-5xl uppercase text-brand-primary-deep tracking-tight leading-tight" value={BRAND.ui.catalog.title} />
+            <Txt as="h2" className="font-headline text-3xl sm:text-5xl uppercase text-brand-primary-deep tracking-tight leading-tight" value={formatText(BRAND.ui.catalog.title, { year: String(new Date().getFullYear()) })} />
             <Txt as="p" className="font-body text-sm sm:text-base text-brand-text-secondary" value={BRAND.ui.catalog.description} />
           </div>
 
@@ -118,7 +119,7 @@ export const Catalog: React.FC = () => {
               <button
                 onClick={() => {
                   setSelectedCategoryForGuide(
-                    selectedCategory === 'all' ? 'camperas' : selectedCategory
+                    selectedCategory === 'all' || !SIZE_GUIDES[selectedCategory] ? DEFAULT_SIZE_GUIDE_CATEGORY : selectedCategory
                   );
                   setIsSizeGuideModalOpen(true);
                 }}
@@ -183,9 +184,9 @@ export const Catalog: React.FC = () => {
                   )}
 
                   {/* Material Spec Tag */}
-                  {product.materialTag && (
+                  {product.material && (
                     <div className="absolute bottom-3 right-3 bg-brand-primary-deep/90 text-white px-2 py-0.5 font-body text-[10px] uppercase font-bold tracking-wider backdrop-blur-xs">
-                      {product.materialTag}
+                      {product.material}
                     </div>
                   )}
 
@@ -199,7 +200,7 @@ export const Catalog: React.FC = () => {
                 {/* Content Area */}
                 <div className="p-4 sm:p-5 flex flex-col gap-2">
                   <span className="font-body text-[11px] uppercase tracking-wider text-brand-secondary font-bold">
-                    {product.categoryLabel}
+                    {CATEGORIES.find((category) => category.id === product.category)?.label}
                   </span>
                   <h3 className="font-headline text-2xl uppercase text-brand-primary-deep leading-tight group-hover:text-brand-secondary transition-colors">
                     {product.name}
@@ -304,7 +305,7 @@ export const Catalog: React.FC = () => {
           </div>
           <Txt as="button"
             onClick={() => {
-              setSelectedCategoryForGuide('camperas');
+              setSelectedCategoryForGuide(DEFAULT_SIZE_GUIDE_CATEGORY);
               setIsSizeGuideModalOpen(true);
             }}
             className="bg-brand-primary text-white px-6 py-3 font-body text-xs uppercase tracking-wider font-bold hover:bg-brand-primary-deep transition-colors cursor-pointer shrink-0 shadow-sm" value={BRAND.ui.catalog.sizeCtaButton} />
