@@ -42,6 +42,10 @@ for (const [name, value, schemaValue] of [['catalog.json', catalog, catalogSchem
 }
 
 const categoryIds = new Set(catalog.categories.map((category) => category.id));
+for (const [guideId, guide] of Object.entries(sizeGuide.guides ?? {})) {
+  if (!categoryIds.has(guideId)) errors.push(`size-guide.json guides.${guideId}: no existe en catalog.json categories[].id`);
+  if (guide.category !== guideId) errors.push(`size-guide.json guides.${guideId}.category: debe coincidir con la clave "${guideId}"`);
+}
 const productIds = new Set();
 for (const [index, product] of catalog.products.entries()) {
   const p = `catalog.json products[${index}]`;
@@ -65,6 +69,44 @@ try {
 
 const getPath = (obj, p) => p.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
 
+function colorToLinear(value) {
+  const channel = Number.parseInt(value, 16) / 255;
+  return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+}
+
+function luminance(color) {
+  if (typeof color !== 'string' || !/^#[0-9a-f]{6}$/i.test(color)) return undefined;
+  const channels = color.slice(1).match(/.{2}/g);
+  if (!channels || channels.length !== 3) return undefined;
+  const [red, green, blue] = channels.map(colorToLinear);
+  return 0.2126 * red + 0.7152 * green + 0.0722 * blue;
+}
+
+function contrastRatio(first, second) {
+  const firstLuminance = luminance(first);
+  const secondLuminance = luminance(second);
+  if (firstLuminance === undefined || secondLuminance === undefined) return undefined;
+  const light = Math.max(firstLuminance, secondLuminance);
+  const dark = Math.min(firstLuminance, secondLuminance);
+  return (light + 0.05) / (dark + 0.05);
+}
+
+function checkThemeContrast(schemaNode, themeData, themePath = '') {
+  if (!schemaNode || !schemaNode.properties || !themeData) return;
+  for (const [token, childSchema] of Object.entries(schemaNode.properties)) {
+    const contrastToken = childSchema['x-contrastWith'];
+    const ratio = contrastToken && contrastRatio(themeData[token], themeData[contrastToken]);
+    if (ratio !== undefined && ratio < 4.5) {
+      warnings.push(
+        `brand.json ${themePath}${token}: contraste ${ratio.toFixed(2)}:1 con ${contrastToken}; se recomienda al menos 4,5:1 para texto normal`,
+      );
+    }
+    if (childSchema.properties) checkThemeContrast(childSchema, themeData[token], `${themePath}${token}.`);
+  }
+}
+
+checkThemeContrast(schema.properties?.theme, data.theme, 'theme.');
+
 // Recorrido paralelo esquema ↔ datos
 async function walk(sNode, dNode, p) {
   if (!sNode || dNode === undefined || dNode === null) return;
@@ -86,9 +128,36 @@ async function walk(sNode, dNode, p) {
   // variables {x}: solo las declaradas en el esquema
   const allowed = new Set(sNode['x-vars'] ?? []);
   for (const m of dNode.matchAll(/\{(\w+)\}/g)) if (!allowed.has(m[1])) errors.push(`brand.json ${p}: variable desconocida {${m[1]}} (permitidas: ${[...allowed].map((v) => `{${v}}`).join(', ') || 'ninguna'})`);
-  if (strict && sNode['x-exampleData'] && Array.isArray(sNode.examples) && dNode === sNode.examples[0]) errors.push(`[strict] brand.json ${p}: sigue el texto de ejemplo ("${dNode.slice(0, 60)}")`);
+  if (strict && sNode['x-exampleData'] && Array.isArray(sNode.examples) && sNode.examples.includes(dNode)) errors.push(`[strict] brand.json ${p}: sigue el texto de ejemplo ("${dNode.slice(0, 60)}")`);
 }
 await walk(schema, data, '');
+
+async function checkExamples(schemaNode, dataNode, fileName, fieldPath = '') {
+  if (!schemaNode || dataNode === undefined || dataNode === null) return;
+  if (schemaNode['x-exampleData'] && Array.isArray(schemaNode.examples) && schemaNode.examples.includes(dataNode)) {
+    errors.push(`[strict] ${fileName} ${fieldPath}: sigue el texto de ejemplo ("${String(dataNode).slice(0, 60)}")`);
+  }
+  if (Array.isArray(dataNode)) {
+    for (const [index, item] of dataNode.entries()) {
+      await checkExamples(schemaNode.items, item, fileName, `${fieldPath}[${index}]`);
+    }
+    return;
+  }
+  if (typeof dataNode !== 'object') return;
+  for (const [key, childData] of Object.entries(dataNode)) {
+    const childSchema = schemaNode.properties?.[key]
+      ?? Object.entries(schemaNode.patternProperties ?? {}).find(([pattern]) => new RegExp(pattern).test(key))?.[1]
+      ?? schemaNode.additionalProperties;
+    if (childSchema && typeof childSchema === 'object') {
+      await checkExamples(childSchema, childData, fileName, fieldPath ? `${fieldPath}.${key}` : key);
+    }
+  }
+}
+
+if (strict) {
+  await checkExamples(catalogSchema, catalog, 'catalog.json');
+  await checkExamples(sizeGuideSchema, sizeGuide, 'size-guide.json');
+}
 
 for (const field of DIGIT_FIELDS) {
   const v = getPath(data, field);

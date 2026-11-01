@@ -80,7 +80,8 @@
       },
       "relatedProductId": "pantalon-cargo-ripstop",
       "longDescription": "Confeccionada para cuadrillas de taller, obras y uso diario en intemperie. Resistencia abrasiva de grado industrial con holgura funcional pensada para calzar con un buzo o camisa de abrigo debajo.",
-      "material": "LONA 12 OZ"
+      "material": "LONA 12 OZ",
+      "badgeTone": "secondary"
     },
     {
       "id": "pantalon-cargo-ripstop",
@@ -125,7 +126,8 @@
         "hardware": "Cierre YKK metálico de bronce y botón de alta presión."
       },
       "longDescription": "Diseñado para instaladores, mecánicos y cuadrillas en movimiento continuo. Cuenta con 6 bolsillos estratégicos con atraques en zigzag y pasacintos reforzados para portaherramientas.",
-      "material": "RIPSTOP ANTIDESGARRO"
+      "material": "RIPSTOP ANTIDESGARRO",
+      "badgeTone": "primary"
     },
     {
       "id": "pack-remeras-heavy-duty",
@@ -170,7 +172,8 @@
         "hardware": "Ribb de cuello con elastómero 1x1 indeformable."
       },
       "longDescription": "Remeras de verdadero algodón peinado 24/1 pesado. No se desbocan ni deforman tras los lavados de taller ni exigen cuidados especiales. Vienen en pack sellado de a dos unidades.",
-      "material": "ALGODÓN 100% PEINADO"
+      "material": "ALGODÓN 100% PEINADO",
+      "badgeTone": "accent"
     },
     {
       "id": "camisa-trabajo-denim",
@@ -297,7 +300,8 @@
         "hardware": "Cremallera central de diente grueso metálico y broches a presión."
       },
       "longDescription": "Ideal para tareas en intemperie que exigen brazos libres y torso abrigado. Forro interior de tafeta deslizante para poner y sacar sobre buzos o camisas sin trabarse.",
-      "material": "GUATTA 150G + TAFETA"
+      "material": "GUATTA 150G + TAFETA",
+      "badgeTone": "secondary"
     },
     {
       "id": "campera-parka-corderito",
@@ -343,7 +347,8 @@
       },
       "relatedProductId": "pantalon-carpintero-canvas",
       "longDescription": "Pensada para depósitos, obras y trabajo a la intemperie en pleno invierno. Mantiene el calor sin perder libertad de movimiento y la lona encerada repele lluvia y salpicaduras.",
-      "material": "LONA 12 OZ + CORDERITO"
+      "material": "LONA 12 OZ + CORDERITO",
+      "badgeTone": "secondary"
     },
     {
       "id": "jean-industrial-rigido",
@@ -434,7 +439,8 @@
       },
       "relatedProductId": "campera-chore-canvas",
       "longDescription": "Hecho para carpinteros, instaladores y oficios de piso y rodilla. Los refuerzos dobles duplican la vida útil de la zona que más se gasta.",
-      "material": "LONA 10 OZ"
+      "material": "LONA 10 OZ",
+      "badgeTone": "secondary"
     },
     {
       "id": "chomba-pique-pesada",
@@ -524,7 +530,8 @@
       },
       "relatedProductId": "buzo-canguro-frisa",
       "longDescription": "La base térmica de las jornadas frías: gramaje real, no se desboca ni se achica y entra cómoda debajo de un buzo o una campera.",
-      "material": "ALGODÓN 100% PEINADO"
+      "material": "ALGODÓN 100% PEINADO",
+      "badgeTone": "secondary"
     },
     {
       "id": "buzo-canguro-frisa",

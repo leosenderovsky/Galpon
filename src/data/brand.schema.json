@@ -3035,7 +3035,7 @@
               ]
             },
             "wholesaleFromUnits": {
-              "title": "Ficha técnica: mayorista from units",
+              "title": "Texto desde la cantidad mínima mayorista",
               "x-group": "Textos de interfaz",
               "type": "string",
               "x-widget": "text",

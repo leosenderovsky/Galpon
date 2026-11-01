@@ -9,15 +9,15 @@
       "type": "string",
       "x-group": "Textos",
       "x-widget": "text",
-      "title": "Campo catálogo.$schema",
-      "description": "Dato editable del catálogo."
+      "title": "Esquema de datos",
+      "description": "Referencia al esquema que valida estos datos."
     },
     "schemaVersion": {
       "type": "integer",
       "x-group": "Textos",
       "x-widget": "number",
-      "title": "Campo catálogo.schemaVersion",
-      "description": "Dato editable del catálogo."
+      "title": "Versión del formato",
+      "description": "Versión del formato de datos utilizado."
     },
     "categories": {
       "type": "array",
@@ -29,22 +29,24 @@
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.categories[].id",
-            "description": "Dato editable del catálogo."
+            "title": "Identificador de la categoría",
+            "description": "Identificador estable de la categoría, en kebab-case."
           },
           "label": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.categories[].label",
-            "description": "Dato editable del catálogo."
+            "title": "Nombre visible de la categoría",
+            "description": "Texto que se muestra para identificar la categoría."
           }
         },
         "required": [
           "id",
           "label"
         ]
-      }
+      },
+      "title": "Categorías del catálogo",
+      "description": "Categorías disponibles en el catálogo."
     },
     "availableSizes": {
       "type": "array",
@@ -52,9 +54,11 @@
         "type": "string",
         "x-group": "Textos",
         "x-widget": "text",
-        "title": "Campo catálogo.availableSizes[]",
-        "description": "Dato editable del catálogo."
-      }
+        "title": "Talle disponible",
+        "description": "Talle que se puede seleccionar para los productos."
+      },
+      "title": "Talles disponibles",
+      "description": "Lista completa y ordenada de talles que ofrece el negocio."
     },
     "products": {
       "type": "array",
@@ -66,57 +70,57 @@
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].id",
-            "description": "Dato editable del catálogo."
+            "title": "Identificador del producto",
+            "description": "Identificador estable de la categoría, en kebab-case."
           },
           "sku": {
             "type": "string",
             "x-group": "Comercial",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].sku",
-            "description": "Dato editable del catálogo."
+            "title": "Código interno del producto",
+            "description": "Código interno utilizado para identificar el producto."
           },
           "name": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].name",
-            "description": "Dato editable del catálogo."
+            "title": "Nombre del producto",
+            "description": "Nombre que se muestra en el catálogo."
           },
           "category": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].category",
-            "description": "Dato editable del catálogo."
+            "title": "Identificador de la categoría",
+            "description": "Debe coincidir con una categoría definida en el catálogo."
           },
           "price": {
             "type": "integer",
             "x-group": "Comercial",
             "x-widget": "number",
-            "title": "Campo catálogo.products[].price",
-            "description": "Dato editable del catálogo."
+            "title": "Precio de venta",
+            "description": "Precio de venta del producto."
           },
           "wholesalePrice": {
             "type": "integer",
             "x-group": "Textos",
             "x-widget": "number",
-            "title": "Campo catálogo.products[].wholesalePrice",
-            "description": "Dato editable del catálogo."
+            "title": "Precio mayorista",
+            "description": "Precio por unidad para compras mayoristas."
           },
           "wholesaleMinUnits": {
             "type": "integer",
             "x-group": "Textos",
             "x-widget": "number",
-            "title": "Campo catálogo.products[].wholesaleMinUnits",
-            "description": "Dato editable del catálogo."
+            "title": "Cantidad mínima mayorista",
+            "description": "Cantidad mínima para acceder al precio mayorista."
           },
           "wholesaleBadge": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].wholesaleBadge",
-            "description": "Dato editable del catálogo."
+            "title": "Etiqueta del precio mayorista",
+            "description": "Texto que acompaña el precio mayorista."
           },
           "sizes": {
             "type": "array",
@@ -124,9 +128,11 @@
               "type": "string",
               "x-group": "Textos",
               "x-widget": "text",
-              "title": "Campo catálogo.products[].sizes[]",
-              "description": "Dato editable del catálogo."
-            }
+              "title": "Talle disponible",
+              "description": "Talle que se puede seleccionar para los productos."
+            },
+            "title": "Talles del producto",
+            "description": "Talles disponibles para este producto."
           },
           "colors": {
             "type": "array",
@@ -138,22 +144,24 @@
                   "type": "string",
                   "x-group": "Textos",
                   "x-widget": "text",
-                  "title": "Campo catálogo.products[].colors[].name",
-                  "description": "Dato editable del catálogo."
+                  "title": "Nombre del color",
+                  "description": "Nombre visible del color del producto."
                 },
                 "hex": {
                   "type": "string",
                   "x-group": "Textos",
                   "x-widget": "text",
-                  "title": "Campo catálogo.products[].colors[].hex",
-                  "description": "Dato editable del catálogo."
+                  "title": "Color del producto",
+                  "description": "Color en formato #RRGGBB."
                 }
               },
               "required": [
                 "name",
                 "hex"
               ]
-            }
+            },
+            "title": "Colores disponibles",
+            "description": "Colores disponibles para este producto."
           },
           "images": {
             "type": "array",
@@ -161,43 +169,58 @@
               "type": "string",
               "x-group": "Imágenes",
               "x-widget": "image",
-              "title": "Campo catálogo.products[].images[]",
-              "description": "Dato editable del catálogo.",
+              "title": "Ruta de la imagen del producto",
+              "description": "Ruta pública de una imagen asociada al producto.",
               "x-asset": {
                 "path": "/assets/products/{id}.jpg",
                 "minWidth": 900,
                 "ratio": "1:1",
                 "maxKB": 250
               }
-            }
+            },
+            "title": "Imágenes del producto",
+            "description": "Rutas de las imágenes asociadas al producto."
           },
           "description": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].description",
-            "description": "Dato editable del catálogo."
+            "title": "Descripción breve del producto",
+            "description": "Descripción breve que aparece en el catálogo."
           },
           "lot": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].lot",
-            "description": "Dato editable del catálogo."
+            "title": "Lote del producto",
+            "description": "Lote informado para el producto."
           },
           "origin": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].origin",
-            "description": "Dato editable del catálogo."
+            "title": "Origen del producto",
+            "description": "Origen informado para el producto."
           },
           "badge": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].badge",
-            "description": "Dato editable del catálogo."
+            "title": "Etiqueta destacada del producto",
+            "description": "Texto breve que destaca una característica del producto."
+          },
+          "badgeTone": {
+            "type": "string",
+            "x-group": "Secciones",
+            "x-widget": "select",
+            "title": "Color de la etiqueta destacada",
+            "description": "Define el color visual de la etiqueta sin depender del texto que muestra.",
+            "enum": [
+              "secondary",
+              "primary",
+              "accent"
+            ],
+            "x-skipMarkers": true
           },
           "specs": {
             "type": "object",
@@ -207,50 +230,52 @@
                 "type": "string",
                 "x-group": "Textos",
                 "x-widget": "text",
-                "title": "Campo catálogo.products[].specs.fabric",
-                "description": "Dato editable del catálogo."
+                "title": "Tela y material",
+                "description": "Descripción de la tela y sus características."
               },
               "seams": {
                 "type": "string",
                 "x-group": "Textos",
                 "x-widget": "text",
-                "title": "Campo catálogo.products[].specs.seams",
-                "description": "Dato editable del catálogo."
+                "title": "Costuras",
+                "description": "Descripción de las costuras y los refuerzos."
               },
               "hardware": {
                 "type": "string",
                 "x-group": "Textos",
                 "x-widget": "text",
-                "title": "Campo catálogo.products[].specs.hardware",
-                "description": "Dato editable del catálogo."
+                "title": "Herrajes",
+                "description": "Descripción de botones, cierres u otros componentes."
               }
             },
             "required": [
               "fabric",
               "seams",
               "hardware"
-            ]
+            ],
+            "title": "Especificaciones del producto",
+            "description": "Detalles de materiales, confección y componentes."
           },
           "relatedProductId": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].relatedProductId",
-            "description": "Dato editable del catálogo."
+            "title": "Identificador del producto relacionado",
+            "description": "Identificador de otro producto relacionado."
           },
           "longDescription": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].longDescription",
-            "description": "Dato editable del catálogo."
+            "title": "Descripción completa del producto",
+            "description": "Descripción ampliada que aparece en el detalle."
           },
           "material": {
             "type": "string",
             "x-group": "Textos",
             "x-widget": "text",
-            "title": "Campo catálogo.products[].material",
-            "description": "Dato editable del catálogo."
+            "title": "Material principal",
+            "description": "Material principal del producto."
           }
         },
         "required": [
@@ -272,7 +297,9 @@
           "longDescription",
           "material"
         ]
-      }
+      },
+      "title": "Productos del catálogo",
+      "description": "Productos que aparecen en el catálogo."
     }
   },
   "required": [

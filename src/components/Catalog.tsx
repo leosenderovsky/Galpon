@@ -1,20 +1,29 @@
 import React, { useState, useMemo } from 'react';
 import { Txt } from './Txt';
 import { BRAND, formatText } from '../brand.config';
-import { PRODUCTS, CATEGORIES, Product, formatARS, getProductImageDimensions } from '../catalog';
+import { PRODUCTS, CATEGORIES, AVAILABLE_SIZES, Product, formatARS, getProductImageDimensions } from '../catalog';
 import { DEFAULT_SIZE_GUIDE_CATEGORY, SIZE_GUIDES } from '../sizeGuide';
 import { useCart } from '../context/CartContext';
+
+const BADGE_TONE_CLASSES: Record<NonNullable<Product['badgeTone']>, string> = {
+  secondary: 'bg-brand-secondary text-white',
+  primary: 'bg-brand-primary text-white',
+  accent: 'bg-brand-accent text-brand-accent-on',
+};
 
 export const Catalog: React.FC = () => {
   const { addToCart, setActiveProductModal, setIsSizeGuideModalOpen, setSelectedCategoryForGuide, setIsCartOpen } = useCart();
 
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [selectedSizeFilter, setSelectedSizeFilter] = useState<string>('all');
+  const [selectedSizeFilter, setSelectedSizeFilter] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc'>('featured');
   const [addedToast, setAddedToast] = useState<{ name: string; price: number } | null>(null);
 
   // Available size buttons for quick filter
-  const filterSizes = ['TODOS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '40', '42', '44', '46', '48'];
+  const filterSizes = [
+    { value: null, label: BRAND.ui.catalog.allCategoryLabel.toLocaleUpperCase('es-AR') },
+    ...AVAILABLE_SIZES.map((size) => ({ value: size, label: size })),
+  ];
 
   // Filtered and sorted products
   const filteredProducts = useMemo(() => {
@@ -22,8 +31,7 @@ export const Catalog: React.FC = () => {
       const matchesCategory =
         selectedCategory === 'all' || product.category === selectedCategory;
       const matchesSize =
-        selectedSizeFilter === 'all' ||
-        selectedSizeFilter === 'TODOS' ||
+        selectedSizeFilter === null ||
         product.sizes.includes(selectedSizeFilter);
       return matchesCategory && matchesSize;
     }).sort((a, b) => {
@@ -36,7 +44,7 @@ export const Catalog: React.FC = () => {
   const handleQuickAdd = (product: Product, e: React.MouseEvent) => {
     e.stopPropagation();
     // Use default first size and first color
-    const defaultSize = product.sizes[0] || 'L';
+    const defaultSize = product.sizes[0] || AVAILABLE_SIZES[0] || '';
     const defaultColor = product.colors[0]?.name || BRAND.ui.catalog.standardColor;
     addToCart(product, defaultSize, defaultColor, 1);
 
@@ -93,22 +101,18 @@ export const Catalog: React.FC = () => {
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
               <Txt as="span" className="font-body text-xs uppercase tracking-wider text-brand-text-secondary font-bold pr-1" value={BRAND.ui.catalog.sizeFilterLabel} />
               {filterSizes.map((size) => {
-                const isActive =
-                  selectedSizeFilter === size ||
-                  (size === 'TODOS' && selectedSizeFilter === 'all');
+                const isActive = selectedSizeFilter === size.value;
                 return (
                   <button
-                    key={size}
-                    onClick={() =>
-                      setSelectedSizeFilter(size === 'TODOS' ? 'all' : size)
-                    }
+                    key={size.value ?? 'all-sizes'}
+                    onClick={() => setSelectedSizeFilter(size.value)}
                     className={`min-w-8 h-8 px-2 text-xs font-body font-bold flex items-center justify-center transition-all cursor-pointer ${
                       isActive
                         ? 'bg-brand-primary text-white shadow-sm'
                         : 'bg-white text-brand-text hover:bg-brand-surface-subtle border border-brand-border-strong'
                     }`}
                   >
-                    {size}
+                    {size.label}
                   </button>
                 );
               })}
@@ -169,15 +173,7 @@ export const Catalog: React.FC = () => {
                   {/* Top Status Badge */}
                   {product.badge && (
                     <div
-                      className={`absolute top-3 left-3 px-2.5 py-1 font-body text-[11px] uppercase tracking-widest font-bold shadow-sm ${
-                        product.badge === 'DESTACADO'
-                          ? 'bg-brand-secondary text-white'
-                          : product.badge === 'MÁS VENDIDO'
-                          ? 'bg-brand-primary text-white'
-                          : product.badge === 'PACK X2'
-                          ? 'bg-brand-accent text-brand-accent-on'
-                          : 'bg-brand-secondary text-white'
-                      }`}
+                      className={`absolute top-3 left-3 px-2.5 py-1 font-body text-[11px] uppercase tracking-widest font-bold shadow-sm ${BADGE_TONE_CLASSES[product.badgeTone ?? 'secondary']}`}
                     >
                       {product.badge}
                     </div>
@@ -288,7 +284,7 @@ export const Catalog: React.FC = () => {
             <Txt as="button"
               onClick={() => {
                 setSelectedCategory('all');
-                setSelectedSizeFilter('all');
+                setSelectedSizeFilter(null);
               }}
               className="mt-4 px-6 py-2.5 bg-brand-primary text-white font-body text-xs uppercase tracking-wider font-bold" value={BRAND.ui.catalog.viewAll} />
           </div>

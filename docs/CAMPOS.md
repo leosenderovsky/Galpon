@@ -291,7 +291,7 @@ Este documento se genera desde `brand.schema.json`, `catalog.schema.json` y `siz
 | `ui.productModal.lotLine` | Ficha técnica: lote línea | Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.originLine` | Ficha técnica: origen línea | Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.viewAlt` | Ficha técnica: ver texto alternativo | Texto con variables que el sitio reemplaza solo: {number}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.productModal.wholesaleFromUnits` | Ficha técnica: mayorista from units | Texto con variables que el sitio reemplaza solo: {units}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.productModal.wholesaleFromUnits` | Texto desde la cantidad mínima mayorista | Texto con variables que el sitio reemplaza solo: {units}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.offBadge` | Ficha técnica: descuento sello | Texto con variables que el sitio reemplaza solo: {percent}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.savingsLine` | Ficha técnica: ahorro línea | Texto con variables que el sitio reemplaza solo: {amount}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.selectedColor` | Ficha técnica: seleccionado color | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -374,106 +374,56 @@ Este documento se genera desde `brand.schema.json`, `catalog.schema.json` y `siz
 
 | Ruta | Título | Descripción | Widget | Asset | Ejemplo |
 |---|---|---|---|---|---|
-| `$schema` | Campo catálogo.$schema | Dato editable del catálogo. | `text` |  |  |
-| `schemaVersion` | Campo catálogo.schemaVersion | Dato editable del catálogo. | `number` |  |  |
-| `categories[].id` | Campo catálogo.categories[].id | Dato editable del catálogo. | `text` |  |  |
-| `categories[].label` | Campo catálogo.categories[].label | Dato editable del catálogo. | `text` |  |  |
-| `availableSizes` |  |  | `text` |  |  |
-| `products[].id` | Campo catálogo.products[].id | Dato editable del catálogo. | `text` |  |  |
-| `products[].sku` | Campo catálogo.products[].sku | Dato editable del catálogo. | `text` |  |  |
-| `products[].name` | Campo catálogo.products[].name | Dato editable del catálogo. | `text` |  |  |
-| `products[].category` | Campo catálogo.products[].category | Dato editable del catálogo. | `text` |  |  |
-| `products[].price` | Campo catálogo.products[].price | Dato editable del catálogo. | `number` |  |  |
-| `products[].wholesalePrice` | Campo catálogo.products[].wholesalePrice | Dato editable del catálogo. | `number` |  |  |
-| `products[].wholesaleMinUnits` | Campo catálogo.products[].wholesaleMinUnits | Dato editable del catálogo. | `number` |  |  |
-| `products[].wholesaleBadge` | Campo catálogo.products[].wholesaleBadge | Dato editable del catálogo. | `text` |  |  |
-| `products[].sizes` |  |  | `text` |  |  |
-| `products[].colors[].name` | Campo catálogo.products[].colors[].name | Dato editable del catálogo. | `text` |  |  |
-| `products[].colors[].hex` | Campo catálogo.products[].colors[].hex | Dato editable del catálogo. | `text` |  |  |
-| `products[].images` |  |  | `text` |  |  |
-| `products[].description` | Campo catálogo.products[].description | Dato editable del catálogo. | `text` |  |  |
-| `products[].lot` | Campo catálogo.products[].lot | Dato editable del catálogo. | `text` |  |  |
-| `products[].origin` | Campo catálogo.products[].origin | Dato editable del catálogo. | `text` |  |  |
-| `products[].badge` | Campo catálogo.products[].badge | Dato editable del catálogo. | `text` |  |  |
-| `products[].specs.fabric` | Campo catálogo.products[].specs.fabric | Dato editable del catálogo. | `text` |  |  |
-| `products[].specs.seams` | Campo catálogo.products[].specs.seams | Dato editable del catálogo. | `text` |  |  |
-| `products[].specs.hardware` | Campo catálogo.products[].specs.hardware | Dato editable del catálogo. | `text` |  |  |
-| `products[].relatedProductId` | Campo catálogo.products[].relatedProductId | Dato editable del catálogo. | `text` |  |  |
-| `products[].longDescription` | Campo catálogo.products[].longDescription | Dato editable del catálogo. | `text` |  |  |
-| `products[].material` | Campo catálogo.products[].material | Dato editable del catálogo. | `text` |  |  |
+| `$schema` | Esquema de datos | Referencia al esquema que valida estos datos. | `text` |  |  |
+| `schemaVersion` | Versión del formato | Versión del formato de datos utilizado. | `number` |  |  |
+| `categories[].id` | Identificador de la categoría | Identificador estable de la categoría, en kebab-case. | `text` |  |  |
+| `categories[].label` | Nombre visible de la categoría | Texto que se muestra para identificar la categoría. | `text` |  |  |
+| `availableSizes` | Talles disponibles | Lista completa y ordenada de talles que ofrece el negocio. | `text` |  |  |
+| `products[].id` | Identificador del producto | Identificador estable de la categoría, en kebab-case. | `text` |  |  |
+| `products[].sku` | Código interno del producto | Código interno utilizado para identificar el producto. | `text` |  |  |
+| `products[].name` | Nombre del producto | Nombre que se muestra en el catálogo. | `text` |  |  |
+| `products[].category` | Identificador de la categoría | Debe coincidir con una categoría definida en el catálogo. | `text` |  |  |
+| `products[].price` | Precio de venta | Precio de venta del producto. | `number` |  |  |
+| `products[].wholesalePrice` | Precio mayorista | Precio por unidad para compras mayoristas. | `number` |  |  |
+| `products[].wholesaleMinUnits` | Cantidad mínima mayorista | Cantidad mínima para acceder al precio mayorista. | `number` |  |  |
+| `products[].wholesaleBadge` | Etiqueta del precio mayorista | Texto que acompaña el precio mayorista. | `text` |  |  |
+| `products[].sizes` | Talles del producto | Talles disponibles para este producto. | `text` |  |  |
+| `products[].colors[].name` | Nombre del color | Nombre visible del color del producto. | `text` |  |  |
+| `products[].colors[].hex` | Color del producto | Color en formato #RRGGBB. | `text` |  |  |
+| `products[].images` | Imágenes del producto | Rutas de las imágenes asociadas al producto. | `text` |  |  |
+| `products[].description` | Descripción breve del producto | Descripción breve que aparece en el catálogo. | `text` |  |  |
+| `products[].lot` | Lote del producto | Lote informado para el producto. | `text` |  |  |
+| `products[].origin` | Origen del producto | Origen informado para el producto. | `text` |  |  |
+| `products[].badge` | Etiqueta destacada del producto | Texto breve que destaca una característica del producto. | `text` |  |  |
+| `products[].badgeTone` | Color de la etiqueta destacada | Define el color visual de la etiqueta sin depender del texto que muestra. | `select` |  |  |
+| `products[].specs.fabric` | Tela y material | Descripción de la tela y sus características. | `text` |  |  |
+| `products[].specs.seams` | Costuras | Descripción de las costuras y los refuerzos. | `text` |  |  |
+| `products[].specs.hardware` | Herrajes | Descripción de botones, cierres u otros componentes. | `text` |  |  |
+| `products[].relatedProductId` | Identificador del producto relacionado | Identificador de otro producto relacionado. | `text` |  |  |
+| `products[].longDescription` | Descripción completa del producto | Descripción ampliada que aparece en el detalle. | `text` |  |  |
+| `products[].material` | Material principal | Material principal del producto. | `text` |  |  |
 
 ## SizeGuideConfig
 
 | Ruta | Título | Descripción | Widget | Asset | Ejemplo |
 |---|---|---|---|---|---|
-| `$schema` | Campo guía de talles.$schema | Dato editable del catálogo. | `text` |  |  |
-| `schemaVersion` | Campo guía de talles.schemaVersion | Dato editable del catálogo. | `number` |  |  |
-| `guides.camperas.category` | Campo guía de talles.guides.camperas.category | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.title` | Campo guía de talles.guides.camperas.title | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.tolerance` | Campo guía de talles.guides.camperas.tolerance | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.columns.size` | Campo guía de talles.guides.camperas.columns.size | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.columns.primaryMeasure` | Campo guía de talles.guides.camperas.columns.primaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.columns.secondaryMeasure` | Campo guía de talles.guides.camperas.columns.secondaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.columns.tertiaryMeasure` | Campo guía de talles.guides.camperas.columns.tertiaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.columns.recommendation` | Campo guía de talles.guides.camperas.columns.recommendation | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.rows[].size` | Campo guía de talles.guides.chalecos.rows[].size | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.rows[].sizeLabel` | Campo guía de talles.guides.chalecos.rows[].sizeLabel | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.rows[].chestOrWaist` | Campo guía de talles.guides.chalecos.rows[].chestOrWaist | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.rows[].length` | Campo guía de talles.guides.chalecos.rows[].length | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.rows[].sleeveOrInseam` | Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.rows[].recommendedHeight` | Campo guía de talles.guides.chalecos.rows[].recommendedHeight | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.rows[].recommendedWeight` | Campo guía de talles.guides.chalecos.rows[].recommendedWeight | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.recommendationNote` | Campo guía de talles.guides.camperas.recommendationNote | Dato editable del catálogo. | `text` |  |  |
-| `guides.camperas.tabLabel` | Campo guía de talles.guides.camperas.tabLabel | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.category` | Campo guía de talles.guides.pantalones.category | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.title` | Campo guía de talles.guides.pantalones.title | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.tolerance` | Campo guía de talles.guides.pantalones.tolerance | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.columns.size` | Campo guía de talles.guides.pantalones.columns.size | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.columns.primaryMeasure` | Campo guía de talles.guides.pantalones.columns.primaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.columns.secondaryMeasure` | Campo guía de talles.guides.pantalones.columns.secondaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.columns.tertiaryMeasure` | Campo guía de talles.guides.pantalones.columns.tertiaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.columns.recommendation` | Campo guía de talles.guides.pantalones.columns.recommendation | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.rows[].size` | Campo guía de talles.guides.chalecos.rows[].size | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.rows[].sizeLabel` | Campo guía de talles.guides.chalecos.rows[].sizeLabel | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.rows[].chestOrWaist` | Campo guía de talles.guides.chalecos.rows[].chestOrWaist | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.rows[].length` | Campo guía de talles.guides.chalecos.rows[].length | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.rows[].sleeveOrInseam` | Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.rows[].recommendedHeight` | Campo guía de talles.guides.chalecos.rows[].recommendedHeight | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.rows[].recommendedWeight` | Campo guía de talles.guides.chalecos.rows[].recommendedWeight | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.recommendationNote` | Campo guía de talles.guides.pantalones.recommendationNote | Dato editable del catálogo. | `text` |  |  |
-| `guides.pantalones.tabLabel` | Campo guía de talles.guides.pantalones.tabLabel | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.category` | Campo guía de talles.guides.remeras.category | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.title` | Campo guía de talles.guides.remeras.title | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.tolerance` | Campo guía de talles.guides.remeras.tolerance | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.columns.size` | Campo guía de talles.guides.remeras.columns.size | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.columns.primaryMeasure` | Campo guía de talles.guides.remeras.columns.primaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.columns.secondaryMeasure` | Campo guía de talles.guides.remeras.columns.secondaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.columns.tertiaryMeasure` | Campo guía de talles.guides.remeras.columns.tertiaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.columns.recommendation` | Campo guía de talles.guides.remeras.columns.recommendation | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.rows[].size` | Campo guía de talles.guides.chalecos.rows[].size | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.rows[].sizeLabel` | Campo guía de talles.guides.chalecos.rows[].sizeLabel | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.rows[].chestOrWaist` | Campo guía de talles.guides.chalecos.rows[].chestOrWaist | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.rows[].length` | Campo guía de talles.guides.chalecos.rows[].length | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.rows[].sleeveOrInseam` | Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.rows[].recommendedHeight` | Campo guía de talles.guides.chalecos.rows[].recommendedHeight | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.rows[].recommendedWeight` | Campo guía de talles.guides.chalecos.rows[].recommendedWeight | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.recommendationNote` | Campo guía de talles.guides.remeras.recommendationNote | Dato editable del catálogo. | `text` |  |  |
-| `guides.remeras.tabLabel` | Campo guía de talles.guides.remeras.tabLabel | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.category` | Campo guía de talles.guides.chalecos.category | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.title` | Campo guía de talles.guides.chalecos.title | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.tolerance` | Campo guía de talles.guides.chalecos.tolerance | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.columns.size` | Campo guía de talles.guides.chalecos.columns.size | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.columns.primaryMeasure` | Campo guía de talles.guides.chalecos.columns.primaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.columns.secondaryMeasure` | Campo guía de talles.guides.chalecos.columns.secondaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.columns.tertiaryMeasure` | Campo guía de talles.guides.chalecos.columns.tertiaryMeasure | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.columns.recommendation` | Campo guía de talles.guides.chalecos.columns.recommendation | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.rows[].size` | Campo guía de talles.guides.chalecos.rows[].size | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.rows[].sizeLabel` | Campo guía de talles.guides.chalecos.rows[].sizeLabel | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.rows[].chestOrWaist` | Campo guía de talles.guides.chalecos.rows[].chestOrWaist | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.rows[].length` | Campo guía de talles.guides.chalecos.rows[].length | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.rows[].sleeveOrInseam` | Campo guía de talles.guides.chalecos.rows[].sleeveOrInseam | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.rows[].recommendedHeight` | Campo guía de talles.guides.chalecos.rows[].recommendedHeight | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.rows[].recommendedWeight` | Campo guía de talles.guides.chalecos.rows[].recommendedWeight | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.recommendationNote` | Campo guía de talles.guides.chalecos.recommendationNote | Dato editable del catálogo. | `text` |  |  |
-| `guides.chalecos.tabLabel` | Campo guía de talles.guides.chalecos.tabLabel | Dato editable del catálogo. | `text` |  |  |
+| `$schema` | Esquema de datos | Referencia al esquema que valida estos datos. | `text` |  |  |
+| `schemaVersion` | Versión del formato | Versión del formato de datos utilizado. | `number` |  |  |
+| `guides.{categoryId}.category` | Identificador de la categoría | Debe coincidir con una categoría definida en el catálogo. | `text` |  |  |
+| `guides.{categoryId}.title` | Título de la guía de talles | Texto que encabeza la guía de talles. | `text` |  |  |
+| `guides.{categoryId}.tolerance` | Tolerancia de las medidas | Margen de variación de las medidas. | `text` |  |  |
+| `guides.{categoryId}.columns.size` | Talle | Talle al que corresponden las medidas. | `text` |  |  |
+| `guides.{categoryId}.columns.primaryMeasure` | Medida principal | Nombre de la medida principal de cada talle. | `text` |  |  |
+| `guides.{categoryId}.columns.secondaryMeasure` | Medida secundaria | Nombre de la segunda medida de cada talle. | `text` |  |  |
+| `guides.{categoryId}.columns.tertiaryMeasure` | Tercera medida | Nombre de la tercera medida de cada talle. | `text` |  |  |
+| `guides.{categoryId}.columns.recommendation` | Referencia de talle | Nombre de la referencia adicional de talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].size` | Talle | Talle al que corresponden las medidas. | `text` |  |  |
+| `guides.{categoryId}.rows[].sizeLabel` | Nombre visible del talle | Texto que se muestra para identificar el talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].chestOrWaist` | Medida de pecho o cintura | Medida de pecho o cintura para este talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].length` | Largo de la prenda | Largo de la prenda para este talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].sleeveOrInseam` | Largo de manga o entrepierna | Largo de manga o entrepierna para este talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].recommendedHeight` | Estatura recomendada | Estatura sugerida para este talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].recommendedWeight` | Peso recomendado | Peso sugerido para este talle. | `text` |  |  |
+| `guides.{categoryId}.recommendationNote` | Recomendación de calce | Consejo de calce para elegir el talle. | `text` |  |  |
+| `guides.{categoryId}.tabLabel` | Nombre visible de la pestaña | Texto que se muestra en la pestaña de esta guía. | `text` |  | Camperas de Trabajo |
 

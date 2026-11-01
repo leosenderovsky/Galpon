@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Txt } from './Txt';
-import { Product, formatARS, PRODUCTS, getProductImageDimensions } from '../catalog';
+import { Product, formatARS, PRODUCTS, AVAILABLE_SIZES, getProductImageDimensions } from '../catalog';
 import { getSizeGuideForProduct } from '../sizeGuide';
 import { useCart } from '../context/CartContext';
 import { BRAND, formatText } from '../brand.config';
@@ -19,7 +19,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
     product.colors[0]?.name || BRAND.ui.productModal.defaultColor
   );
   const [selectedSize, setSelectedSize] = useState<string>(
-    product.sizes.includes('L') ? 'L' : product.sizes[0]
+    product.sizes[0] ?? AVAILABLE_SIZES[0] ?? ''
   );
   const [quantity, setQuantity] = useState<number>(1);
   const [sizeGuideOpen, setSizeGuideOpen] = useState<boolean>(true);
@@ -29,7 +29,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
   useEffect(() => {
     setSelectedImage(product.images[0]);
     setSelectedColor(product.colors[0]?.name || '');
-    setSelectedSize(product.sizes.includes('L') ? 'L' : product.sizes[0]);
+    setSelectedSize(product.sizes[0] ?? AVAILABLE_SIZES[0] ?? '');
     setQuantity(1);
     setAddedSuccess(false);
   }, [product]);

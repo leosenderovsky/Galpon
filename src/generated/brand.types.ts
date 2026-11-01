@@ -1169,7 +1169,7 @@ export type FichaTecnicaVerTextoAlternativo = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {units}. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaMayoristaFromUnits = string;
+export type TextoDesdeLaCantidadMinimaMayorista = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {percent}. Dejalo vacío para ocultar el elemento.
  */
@@ -1899,7 +1899,7 @@ export interface FichaTecnica {
   lotLine: FichaTecnicaLoteLinea;
   originLine: FichaTecnicaOrigenLinea;
   viewAlt: FichaTecnicaVerTextoAlternativo;
-  wholesaleFromUnits: FichaTecnicaMayoristaFromUnits;
+  wholesaleFromUnits: TextoDesdeLaCantidadMinimaMayorista;
   offBadge: FichaTecnicaDescuentoSello;
   savingsLine: FichaTecnicaAhorroLinea;
   selectedColor: FichaTecnicaSeleccionadoColor;

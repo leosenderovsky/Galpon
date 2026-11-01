@@ -33,7 +33,7 @@ El JSON generado se commitea; no lo edites a mano. Al cambiar imágenes, los hoo
 - `src/brand.config.ts`: envoltorio que importa `brand.json` y exporta `BRAND` (no se edita).
 - `src/components/Txt.tsx`: muestra un texto editable y no dibuja nada si está vacío.
 - `src/data/catalog.json` y `src/data/catalog.schema.json`: categorías, talles y datos del catálogo.
-- `src/data/size-guide.json` y `src/data/size-guide.schema.json`: tablas de medidas por categoría.
+- `src/data/size-guide.json` y `src/data/size-guide.schema.json`: tablas de medidas por categoría; las claves admiten cualquier identificador en kebab-case.
 - `src/catalog.ts` y `src/sizeGuide.ts`: envoltorios de compatibilidad; no se editan.
 - `src/generated/`: tipos generados y dimensiones de imágenes.
 - `public/assets/hero/`: hero y miniatura de “Cómo comprar”.
@@ -72,7 +72,7 @@ Para cambiar el rubro, editá `categories`, `products[].category` y las entradas
 
 ### Todos los textos son editables (y quitables)
 
-Ningún texto visible está escrito en el código: todo sale de `src/data/brand.json`, incluidos botones, títulos, avisos, etiquetas de accesibilidad y los mensajes de WhatsApp.
+Ningún texto visible está escrito en los componentes: los textos de marca e interfaz salen de `src/data/brand.json`, los nombres y descripciones de productos y categorías de `src/data/catalog.json`, y las pestañas y contenidos de las guías de `src/data/size-guide.json`.
 
 - **Cambiar un texto:** editá su valor (por ejemplo `footer.b2bTitle` de "Canales Mayoristas" a "Empresas").
 - **Quitar un elemento:** dejá su texto **vacío** (`""`); el elemento no se dibuja.
@@ -86,11 +86,11 @@ Si agregás un componente, sus textos van a `brand.json` y a `brand.schema.json`
 | Comando | Para qué sirve |
 | --- | --- |
 | `npm run generate:types` | Genera los tipos de marca, catálogo y guía desde sus esquemas. |
-| `npm run check:config` | Valida `brand.json` contra el esquema, imágenes, URLs, colores, WhatsApp y variables de texto. |
-| `npm run check:config:strict` | Además exige reemplazar los datos de ejemplo y rechaza los textos de `prototype-markers.json`. **Falla en el prototipo, a propósito.** |
+| `npm run check:config` | Valida los tres JSON contra sus esquemas, IDs y referencias, imágenes, URLs, colores, WhatsApp, variables de texto y contraste (este último como advertencia). |
+| `npm run check:config:strict` | Además exige reemplazar los datos de ejemplo y rechaza los marcadores de prototipo en los datos. **Falla en el prototipo, a propósito.** |
 | `npm run check:texts` | Falla si algún texto visible está escrito en el código en vez de salir de `brand.json`. |
 | `npm run check:render` | Renderiza la aplicación sin navegador y falla ante cualquier excepción. |
-| `npm run check:coupling` | Falla si una categoría del catálogo queda escrita como literal en `src`. |
+| `npm run check:coupling` | Falla si un ID de categoría o una unidad configurada queda escrita como literal en `src`. |
 | `npm run docs:fields` | Regenera `docs/CAMPOS.md`. |
 
 ## Logo, video e imágenes
@@ -100,8 +100,8 @@ Si agregás un componente, sus textos van a `brand.json` y a `brand.schema.json`
 | `public/assets/logo/logo.png` | Logo principal. | Mínimo recomendado de 800 px de ancho; optimización hasta 800 px y 120 KB. |
 | `public/assets/logo/favicon-32.png` | Favicon. | 32 × 32 px, generado desde el logo. |
 | `public/assets/logo/apple-touch-icon.png` | Ícono para Apple. | 180 × 180 px, opaco y generado desde el logo. |
-| `public/assets/hero/hero-1.jpg` | Imagen principal. | Docs: 1920 × 1080 px recomendado; script: ancho mínimo 1600 px. El prototipo mide 512 × 286 px. |
-| `public/assets/hero/como-comprar-1.jpg` | Miniatura del video. | Docs: 1280 × 720 px, 16:9; script: ancho mínimo 1600 px. El prototipo mide 512 × 279 px. |
+| `public/assets/hero/hero-1.jpg` | Imagen principal. | Recomendado 1920 × 1080 px; el chequeo exige 1600 px de ancho. El archivo actual mide 2560 × 1440 px. |
+| `public/assets/hero/como-comprar-1.jpg` | Miniatura del video. | Recomendado 1280 × 720 px, 16:9; el chequeo exige 1600 px de ancho. El archivo actual mide 1600 × 900 px. |
 | `public/assets/products/` | Fotos de productos. | Docs: mínimo 900 px en ambos lados; script: ancho mínimo 900 px y proporción 1:1 con tolerancia del 1 %. |
 | `public/assets/video/como-comprar.mp4` | Video final de la guía. | H.264 + AAC, 1280 × 720 px, 16:9, 30–60 s y máximo 15 MB. **Pendiente: todavía no existe.** |
 
@@ -118,6 +118,8 @@ Mientras falte el video, funciona como placeholder y muestra el texto configurad
 `npm run check:images:strict` falla ante observaciones.
 `npm run check:assets` comprueba referencias, archivos faltantes, placeholders, marca del prototipo y el JSON de dimensiones.
 `npm run check:assets:strict` también falla si quedan placeholders o imágenes con marca ficticia.
+
+El optimizador apunta a un máximo de 250 KB para fotos de productos y 350 KB para imágenes JPG del hero; conserva las dimensiones y guarda los originales en `.image-originals/`. El esquema de `hero.backgroundImage` declara 250 KB, mientras que el optimizador usa 350 KB para el hero. La miniatura tiene además límites distintos entre la documentación (200 KB), el esquema sin límite de peso y el optimizador (350 KB); confirmar el límite final con el responsable de marca antes de reemplazar esos recursos.
 
 Otros comandos disponibles para trabajar con assets:
 

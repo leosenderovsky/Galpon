@@ -16,8 +16,12 @@ function scalarRow(rows, node, fieldPath) {
 function collect(schema, node, fieldPath, output) {
   if (!node) return;
   if (node.$ref) return collect(schema, schema.definitions?.[node.$ref.replace('#/definitions/', '')], fieldPath, output);
-  if (node.type === 'object' && node.properties) {
-    for (const [key, child] of Object.entries(node.properties)) collect(schema, child, fieldPath ? `${fieldPath}.${key}` : key, output);
+  if (node.type === 'object' && (node.properties || node.patternProperties)) {
+    for (const [key, child] of Object.entries(node.properties ?? {})) collect(schema, child, fieldPath ? `${fieldPath}.${key}` : key, output);
+    for (const [pattern, child] of Object.entries(node.patternProperties ?? {})) {
+      const placeholder = pattern.includes('a-z0-9') ? '{categoryId}' : '{clave}';
+      collect(schema, child, fieldPath ? `${fieldPath}.${placeholder}` : placeholder, output);
+    }
   } else if (node.type === 'array' && node.items?.type === 'object') {
     collect(schema, node.items, `${fieldPath}[]`, output);
   } else if (node.type === 'array') scalarRow(output, node, fieldPath);

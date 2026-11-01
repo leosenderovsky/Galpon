@@ -1,381 +1,127 @@
 /* Types generated from src/data/size-guide.schema.json. Do not edit by hand. */
 
 /**
- * Dato editable del catálogo.
+ * Referencia al esquema que valida estos datos.
  */
-export type CampoGuiaDeTalles$Schema = string;
+export type EsquemaDeDatos = string;
 /**
- * Dato editable del catálogo.
+ * Versión del formato de datos utilizado.
  */
-export type CampoGuiaDeTallesSchemaVersion = number;
+export type VersionDelFormato = number;
 /**
- * Dato editable del catálogo.
+ * Debe coincidir con una categoría definida en el catálogo.
  */
-export type CampoGuiaDeTallesGuidesCamperasCategory = string;
+export type IdentificadorDeLaCategoria = string;
 /**
- * Dato editable del catálogo.
+ * Texto que encabeza la guía de talles.
  */
-export type CampoGuiaDeTallesGuidesCamperasTitle = string;
+export type TituloDeLaGuiaDeTalles = string;
 /**
- * Dato editable del catálogo.
+ * Margen de variación de las medidas.
  */
-export type CampoGuiaDeTallesGuidesCamperasTolerance = string;
+export type ToleranciaDeLasMedidas = string;
 /**
- * Dato editable del catálogo.
+ * Talle al que corresponden las medidas.
  */
-export type CampoGuiaDeTallesGuidesCamperasColumnsSize = string;
+export type Talle = string;
 /**
- * Dato editable del catálogo.
+ * Nombre de la medida principal de cada talle.
  */
-export type CampoGuiaDeTallesGuidesCamperasColumnsPrimaryMeasure = string;
+export type MedidaPrincipal = string;
 /**
- * Dato editable del catálogo.
+ * Nombre de la segunda medida de cada talle.
  */
-export type CampoGuiaDeTallesGuidesCamperasColumnsSecondaryMeasure = string;
+export type MedidaSecundaria = string;
 /**
- * Dato editable del catálogo.
+ * Nombre de la tercera medida de cada talle.
  */
-export type CampoGuiaDeTallesGuidesCamperasColumnsTertiaryMeasure = string;
+export type TerceraMedida = string;
 /**
- * Dato editable del catálogo.
+ * Nombre de la referencia adicional de talle.
  */
-export type CampoGuiaDeTallesGuidesCamperasColumnsRecommendation = string;
+export type ReferenciaDeTalle = string;
 /**
- * Dato editable del catálogo.
+ * Talle al que corresponden las medidas.
  */
-export type CampoGuiaDeTallesGuidesChalecosRowsSize = string;
+export type Talle1 = string;
 /**
- * Dato editable del catálogo.
+ * Texto que se muestra para identificar el talle.
  */
-export type CampoGuiaDeTallesGuidesChalecosRowsSizeLabel = string;
+export type NombreVisibleDelTalle = string;
 /**
- * Dato editable del catálogo.
+ * Medida de pecho o cintura para este talle.
  */
-export type CampoGuiaDeTallesGuidesChalecosRowsChestOrWaist = string;
+export type MedidaDePechoOCintura = string;
 /**
- * Dato editable del catálogo.
+ * Largo de la prenda para este talle.
  */
-export type CampoGuiaDeTallesGuidesChalecosRowsLength = string;
+export type LargoDeLaPrenda = string;
 /**
- * Dato editable del catálogo.
+ * Largo de manga o entrepierna para este talle.
  */
-export type CampoGuiaDeTallesGuidesChalecosRowsSleeveOrInseam = string;
+export type LargoDeMangaOEntrepierna = string;
 /**
- * Dato editable del catálogo.
+ * Estatura sugerida para este talle.
  */
-export type CampoGuiaDeTallesGuidesChalecosRowsRecommendedHeight = string;
+export type EstaturaRecomendada = string;
 /**
- * Dato editable del catálogo.
+ * Peso sugerido para este talle.
  */
-export type CampoGuiaDeTallesGuidesChalecosRowsRecommendedWeight = string;
+export type PesoRecomendado = string;
 /**
- * Dato editable del catálogo.
+ * Medidas disponibles para cada talle.
  */
-export type CampoGuiaDeTallesGuidesCamperasRecommendationNote = string;
+export type MedidasPorTalle = {
+  size: Talle1;
+  sizeLabel: NombreVisibleDelTalle;
+  chestOrWaist: MedidaDePechoOCintura;
+  length: LargoDeLaPrenda;
+  sleeveOrInseam: LargoDeMangaOEntrepierna;
+  recommendedHeight: EstaturaRecomendada;
+  recommendedWeight?: PesoRecomendado;
+}[];
 /**
- * Dato editable del catálogo.
+ * Consejo de calce para elegir el talle.
  */
-export type CampoGuiaDeTallesGuidesCamperasTabLabel = string;
+export type RecomendacionDeCalce = string;
 /**
- * Dato editable del catálogo.
+ * Texto que se muestra en la pestaña de esta guía.
  */
-export type CampoGuiaDeTallesGuidesPantalonesCategory = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesPantalonesTitle = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesPantalonesTolerance = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesPantalonesColumnsSize = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesPantalonesColumnsPrimaryMeasure = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesPantalonesColumnsSecondaryMeasure = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesPantalonesColumnsTertiaryMeasure = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesPantalonesColumnsRecommendation = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsSize1 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsSizeLabel1 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsChestOrWaist1 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsLength1 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsSleeveOrInseam1 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsRecommendedHeight1 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsRecommendedWeight1 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesPantalonesRecommendationNote = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesPantalonesTabLabel = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesRemerasCategory = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesRemerasTitle = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesRemerasTolerance = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesRemerasColumnsSize = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesRemerasColumnsPrimaryMeasure = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesRemerasColumnsSecondaryMeasure = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesRemerasColumnsTertiaryMeasure = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesRemerasColumnsRecommendation = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsSize2 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsSizeLabel2 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsChestOrWaist2 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsLength2 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsSleeveOrInseam2 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsRecommendedHeight2 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsRecommendedWeight2 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesRemerasRecommendationNote = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesRemerasTabLabel = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosCategory = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosTitle = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosTolerance = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosColumnsSize = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosColumnsPrimaryMeasure = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosColumnsSecondaryMeasure = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosColumnsTertiaryMeasure = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosColumnsRecommendation = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsSize3 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsSizeLabel3 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsChestOrWaist3 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsLength3 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsSleeveOrInseam3 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsRecommendedHeight3 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRowsRecommendedWeight3 = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosRecommendationNote = string;
-/**
- * Dato editable del catálogo.
- */
-export type CampoGuiaDeTallesGuidesChalecosTabLabel = string;
+export type NombreVisibleDeLaPestana = string;
 
 export interface SizeGuideConfig {
-  $schema?: CampoGuiaDeTalles$Schema;
-  schemaVersion: CampoGuiaDeTallesSchemaVersion;
-  guides: {
-    camperas: {
-      category: CampoGuiaDeTallesGuidesCamperasCategory;
-      title: CampoGuiaDeTallesGuidesCamperasTitle;
-      tolerance: CampoGuiaDeTallesGuidesCamperasTolerance;
-      columns: {
-        size: CampoGuiaDeTallesGuidesCamperasColumnsSize;
-        primaryMeasure: CampoGuiaDeTallesGuidesCamperasColumnsPrimaryMeasure;
-        secondaryMeasure: CampoGuiaDeTallesGuidesCamperasColumnsSecondaryMeasure;
-        tertiaryMeasure: CampoGuiaDeTallesGuidesCamperasColumnsTertiaryMeasure;
-        recommendation: CampoGuiaDeTallesGuidesCamperasColumnsRecommendation;
-      };
-      rows: {
-        size: CampoGuiaDeTallesGuidesChalecosRowsSize;
-        sizeLabel: CampoGuiaDeTallesGuidesChalecosRowsSizeLabel;
-        chestOrWaist: CampoGuiaDeTallesGuidesChalecosRowsChestOrWaist;
-        length: CampoGuiaDeTallesGuidesChalecosRowsLength;
-        sleeveOrInseam: CampoGuiaDeTallesGuidesChalecosRowsSleeveOrInseam;
-        recommendedHeight: CampoGuiaDeTallesGuidesChalecosRowsRecommendedHeight;
-        recommendedWeight?: CampoGuiaDeTallesGuidesChalecosRowsRecommendedWeight;
-      }[];
-      recommendationNote: CampoGuiaDeTallesGuidesCamperasRecommendationNote;
-      tabLabel: CampoGuiaDeTallesGuidesCamperasTabLabel;
-    };
-    pantalones: {
-      category: CampoGuiaDeTallesGuidesPantalonesCategory;
-      title: CampoGuiaDeTallesGuidesPantalonesTitle;
-      tolerance: CampoGuiaDeTallesGuidesPantalonesTolerance;
-      columns: {
-        size: CampoGuiaDeTallesGuidesPantalonesColumnsSize;
-        primaryMeasure: CampoGuiaDeTallesGuidesPantalonesColumnsPrimaryMeasure;
-        secondaryMeasure: CampoGuiaDeTallesGuidesPantalonesColumnsSecondaryMeasure;
-        tertiaryMeasure: CampoGuiaDeTallesGuidesPantalonesColumnsTertiaryMeasure;
-        recommendation: CampoGuiaDeTallesGuidesPantalonesColumnsRecommendation;
-      };
-      rows: {
-        size: CampoGuiaDeTallesGuidesChalecosRowsSize1;
-        sizeLabel: CampoGuiaDeTallesGuidesChalecosRowsSizeLabel1;
-        chestOrWaist: CampoGuiaDeTallesGuidesChalecosRowsChestOrWaist1;
-        length: CampoGuiaDeTallesGuidesChalecosRowsLength1;
-        sleeveOrInseam: CampoGuiaDeTallesGuidesChalecosRowsSleeveOrInseam1;
-        recommendedHeight: CampoGuiaDeTallesGuidesChalecosRowsRecommendedHeight1;
-        recommendedWeight?: CampoGuiaDeTallesGuidesChalecosRowsRecommendedWeight1;
-      }[];
-      recommendationNote: CampoGuiaDeTallesGuidesPantalonesRecommendationNote;
-      tabLabel: CampoGuiaDeTallesGuidesPantalonesTabLabel;
-    };
-    remeras: {
-      category: CampoGuiaDeTallesGuidesRemerasCategory;
-      title: CampoGuiaDeTallesGuidesRemerasTitle;
-      tolerance: CampoGuiaDeTallesGuidesRemerasTolerance;
-      columns: {
-        size: CampoGuiaDeTallesGuidesRemerasColumnsSize;
-        primaryMeasure: CampoGuiaDeTallesGuidesRemerasColumnsPrimaryMeasure;
-        secondaryMeasure: CampoGuiaDeTallesGuidesRemerasColumnsSecondaryMeasure;
-        tertiaryMeasure: CampoGuiaDeTallesGuidesRemerasColumnsTertiaryMeasure;
-        recommendation: CampoGuiaDeTallesGuidesRemerasColumnsRecommendation;
-      };
-      rows: {
-        size: CampoGuiaDeTallesGuidesChalecosRowsSize2;
-        sizeLabel: CampoGuiaDeTallesGuidesChalecosRowsSizeLabel2;
-        chestOrWaist: CampoGuiaDeTallesGuidesChalecosRowsChestOrWaist2;
-        length: CampoGuiaDeTallesGuidesChalecosRowsLength2;
-        sleeveOrInseam: CampoGuiaDeTallesGuidesChalecosRowsSleeveOrInseam2;
-        recommendedHeight: CampoGuiaDeTallesGuidesChalecosRowsRecommendedHeight2;
-        recommendedWeight?: CampoGuiaDeTallesGuidesChalecosRowsRecommendedWeight2;
-      }[];
-      recommendationNote: CampoGuiaDeTallesGuidesRemerasRecommendationNote;
-      tabLabel: CampoGuiaDeTallesGuidesRemerasTabLabel;
-    };
-    chalecos: {
-      category: CampoGuiaDeTallesGuidesChalecosCategory;
-      title: CampoGuiaDeTallesGuidesChalecosTitle;
-      tolerance: CampoGuiaDeTallesGuidesChalecosTolerance;
-      columns: {
-        size: CampoGuiaDeTallesGuidesChalecosColumnsSize;
-        primaryMeasure: CampoGuiaDeTallesGuidesChalecosColumnsPrimaryMeasure;
-        secondaryMeasure: CampoGuiaDeTallesGuidesChalecosColumnsSecondaryMeasure;
-        tertiaryMeasure: CampoGuiaDeTallesGuidesChalecosColumnsTertiaryMeasure;
-        recommendation: CampoGuiaDeTallesGuidesChalecosColumnsRecommendation;
-      };
-      rows: {
-        size: CampoGuiaDeTallesGuidesChalecosRowsSize3;
-        sizeLabel: CampoGuiaDeTallesGuidesChalecosRowsSizeLabel3;
-        chestOrWaist: CampoGuiaDeTallesGuidesChalecosRowsChestOrWaist3;
-        length: CampoGuiaDeTallesGuidesChalecosRowsLength3;
-        sleeveOrInseam: CampoGuiaDeTallesGuidesChalecosRowsSleeveOrInseam3;
-        recommendedHeight: CampoGuiaDeTallesGuidesChalecosRowsRecommendedHeight3;
-        recommendedWeight?: CampoGuiaDeTallesGuidesChalecosRowsRecommendedWeight3;
-      }[];
-      recommendationNote: CampoGuiaDeTallesGuidesChalecosRecommendationNote;
-      tabLabel: CampoGuiaDeTallesGuidesChalecosTabLabel;
-    };
-  };
+  $schema?: EsquemaDeDatos;
+  schemaVersion: VersionDelFormato;
+  guides: GuiasDeTalles;
+}
+/**
+ * Guías de talles organizadas por categoría.
+ */
+export interface GuiasDeTalles {
+  [k: string]: DatosDeLaGuiaDeTalles;
+}
+/**
+ * Medidas y textos de una categoría del catálogo.
+ *
+ * This interface was referenced by `GuiasDeTalles`'s JSON-Schema definition
+ * via the `patternProperty` "^[a-z0-9]+(?:-[a-z0-9]+)*$".
+ */
+export interface DatosDeLaGuiaDeTalles {
+  category: IdentificadorDeLaCategoria;
+  title: TituloDeLaGuiaDeTalles;
+  tolerance: ToleranciaDeLasMedidas;
+  columns: EncabezadosDeLaTabla;
+  rows: MedidasPorTalle;
+  recommendationNote: RecomendacionDeCalce;
+  tabLabel: NombreVisibleDeLaPestana;
+}
+/**
+ * Textos que encabezan las columnas de la tabla.
+ */
+export interface EncabezadosDeLaTabla {
+  size: Talle;
+  primaryMeasure: MedidaPrincipal;
+  secondaryMeasure: MedidaSecundaria;
+  tertiaryMeasure: TerceraMedida;
+  recommendation: ReferenciaDeTalle;
 }

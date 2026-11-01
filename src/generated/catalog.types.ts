@@ -1,148 +1,181 @@
 /* Types generated from src/data/catalog.schema.json. Do not edit by hand. */
 
 /**
- * Dato editable del catálogo.
+ * Referencia al esquema que valida estos datos.
  */
-export type CampoCatalogo$Schema = string;
+export type EsquemaDeDatos = string;
 /**
- * Dato editable del catálogo.
+ * Versión del formato de datos utilizado.
  */
-export type CampoCatalogoSchemaVersion = number;
+export type VersionDelFormato = number;
 /**
- * Dato editable del catálogo.
+ * Identificador estable de la categoría, en kebab-case.
  */
-export type CampoCatalogoCategoriesId = string;
+export type IdentificadorDeLaCategoria = string;
 /**
- * Dato editable del catálogo.
+ * Texto que se muestra para identificar la categoría.
  */
-export type CampoCatalogoCategoriesLabel = string;
+export type NombreVisibleDeLaCategoria = string;
 /**
- * Dato editable del catálogo.
+ * Categorías disponibles en el catálogo.
  */
-export type CampoCatalogoAvailableSizes = string;
+export type CategoriasDelCatalogo = {
+  id: IdentificadorDeLaCategoria;
+  label: NombreVisibleDeLaCategoria;
+}[];
 /**
- * Dato editable del catálogo.
+ * Talle que se puede seleccionar para los productos.
  */
-export type CampoCatalogoProductsId = string;
+export type TalleDisponible = string;
 /**
- * Dato editable del catálogo.
+ * Lista completa y ordenada de talles que ofrece el negocio.
  */
-export type CampoCatalogoProductsSku = string;
+export type TallesDisponibles = TalleDisponible[];
 /**
- * Dato editable del catálogo.
+ * Identificador estable de la categoría, en kebab-case.
  */
-export type CampoCatalogoProductsName = string;
+export type IdentificadorDelProducto = string;
 /**
- * Dato editable del catálogo.
+ * Código interno utilizado para identificar el producto.
  */
-export type CampoCatalogoProductsCategory = string;
+export type CodigoInternoDelProducto = string;
 /**
- * Dato editable del catálogo.
+ * Nombre que se muestra en el catálogo.
  */
-export type CampoCatalogoProductsPrice = number;
+export type NombreDelProducto = string;
 /**
- * Dato editable del catálogo.
+ * Debe coincidir con una categoría definida en el catálogo.
  */
-export type CampoCatalogoProductsWholesalePrice = number;
+export type IdentificadorDeLaCategoria1 = string;
 /**
- * Dato editable del catálogo.
+ * Precio de venta del producto.
  */
-export type CampoCatalogoProductsWholesaleMinUnits = number;
+export type PrecioDeVenta = number;
 /**
- * Dato editable del catálogo.
+ * Precio por unidad para compras mayoristas.
  */
-export type CampoCatalogoProductsWholesaleBadge = string;
+export type PrecioMayorista = number;
 /**
- * Dato editable del catálogo.
+ * Cantidad mínima para acceder al precio mayorista.
  */
-export type CampoCatalogoProductsSizes = string;
+export type CantidadMinimaMayorista = number;
 /**
- * Dato editable del catálogo.
+ * Texto que acompaña el precio mayorista.
  */
-export type CampoCatalogoProductsColorsName = string;
+export type EtiquetaDelPrecioMayorista = string;
 /**
- * Dato editable del catálogo.
+ * Talle que se puede seleccionar para los productos.
  */
-export type CampoCatalogoProductsColorsHex = string;
+export type TalleDisponible1 = string;
 /**
- * Dato editable del catálogo.
+ * Talles disponibles para este producto.
  */
-export type CampoCatalogoProductsImages = string;
+export type TallesDelProducto = TalleDisponible1[];
 /**
- * Dato editable del catálogo.
+ * Nombre visible del color del producto.
  */
-export type CampoCatalogoProductsDescription = string;
+export type NombreDelColor = string;
 /**
- * Dato editable del catálogo.
+ * Color en formato #RRGGBB.
  */
-export type CampoCatalogoProductsLot = string;
+export type ColorDelProducto = string;
 /**
- * Dato editable del catálogo.
+ * Colores disponibles para este producto.
  */
-export type CampoCatalogoProductsOrigin = string;
+export type ColoresDisponibles = {
+  name: NombreDelColor;
+  hex: ColorDelProducto;
+}[];
 /**
- * Dato editable del catálogo.
+ * Ruta pública de una imagen asociada al producto.
  */
-export type CampoCatalogoProductsBadge = string;
+export type RutaDeLaImagenDelProducto = string;
 /**
- * Dato editable del catálogo.
+ * Rutas de las imágenes asociadas al producto.
  */
-export type CampoCatalogoProductsSpecsFabric = string;
+export type ImagenesDelProducto = RutaDeLaImagenDelProducto[];
 /**
- * Dato editable del catálogo.
+ * Descripción breve que aparece en el catálogo.
  */
-export type CampoCatalogoProductsSpecsSeams = string;
+export type DescripcionBreveDelProducto = string;
 /**
- * Dato editable del catálogo.
+ * Lote informado para el producto.
  */
-export type CampoCatalogoProductsSpecsHardware = string;
+export type LoteDelProducto = string;
 /**
- * Dato editable del catálogo.
+ * Origen informado para el producto.
  */
-export type CampoCatalogoProductsRelatedProductId = string;
+export type OrigenDelProducto = string;
 /**
- * Dato editable del catálogo.
+ * Texto breve que destaca una característica del producto.
  */
-export type CampoCatalogoProductsLongDescription = string;
+export type EtiquetaDestacadaDelProducto = string;
 /**
- * Dato editable del catálogo.
+ * Define el color visual de la etiqueta sin depender del texto que muestra.
  */
-export type CampoCatalogoProductsMaterial = string;
+export type ColorDeLaEtiquetaDestacada = "secondary" | "primary" | "accent";
+/**
+ * Descripción de la tela y sus características.
+ */
+export type TelaYMaterial = string;
+/**
+ * Descripción de las costuras y los refuerzos.
+ */
+export type Costuras = string;
+/**
+ * Descripción de botones, cierres u otros componentes.
+ */
+export type Herrajes = string;
+/**
+ * Identificador de otro producto relacionado.
+ */
+export type IdentificadorDelProductoRelacionado = string;
+/**
+ * Descripción ampliada que aparece en el detalle.
+ */
+export type DescripcionCompletaDelProducto = string;
+/**
+ * Material principal del producto.
+ */
+export type MaterialPrincipal = string;
+/**
+ * Productos que aparecen en el catálogo.
+ */
+export type ProductosDelCatalogo = {
+  id: IdentificadorDelProducto;
+  sku: CodigoInternoDelProducto;
+  name: NombreDelProducto;
+  category: IdentificadorDeLaCategoria1;
+  price: PrecioDeVenta;
+  wholesalePrice: PrecioMayorista;
+  wholesaleMinUnits: CantidadMinimaMayorista;
+  wholesaleBadge: EtiquetaDelPrecioMayorista;
+  sizes: TallesDelProducto;
+  colors: ColoresDisponibles;
+  images: ImagenesDelProducto;
+  description: DescripcionBreveDelProducto;
+  lot: LoteDelProducto;
+  origin: OrigenDelProducto;
+  badge?: EtiquetaDestacadaDelProducto;
+  badgeTone?: ColorDeLaEtiquetaDestacada;
+  specs: EspecificacionesDelProducto;
+  relatedProductId?: IdentificadorDelProductoRelacionado;
+  longDescription: DescripcionCompletaDelProducto;
+  material: MaterialPrincipal;
+}[];
 
 export interface CatalogConfig {
-  $schema?: CampoCatalogo$Schema;
-  schemaVersion: CampoCatalogoSchemaVersion;
-  categories: {
-    id: CampoCatalogoCategoriesId;
-    label: CampoCatalogoCategoriesLabel;
-  }[];
-  availableSizes: CampoCatalogoAvailableSizes[];
-  products: {
-    id: CampoCatalogoProductsId;
-    sku: CampoCatalogoProductsSku;
-    name: CampoCatalogoProductsName;
-    category: CampoCatalogoProductsCategory;
-    price: CampoCatalogoProductsPrice;
-    wholesalePrice: CampoCatalogoProductsWholesalePrice;
-    wholesaleMinUnits: CampoCatalogoProductsWholesaleMinUnits;
-    wholesaleBadge: CampoCatalogoProductsWholesaleBadge;
-    sizes: CampoCatalogoProductsSizes[];
-    colors: {
-      name: CampoCatalogoProductsColorsName;
-      hex: CampoCatalogoProductsColorsHex;
-    }[];
-    images: CampoCatalogoProductsImages[];
-    description: CampoCatalogoProductsDescription;
-    lot: CampoCatalogoProductsLot;
-    origin: CampoCatalogoProductsOrigin;
-    badge?: CampoCatalogoProductsBadge;
-    specs: {
-      fabric: CampoCatalogoProductsSpecsFabric;
-      seams: CampoCatalogoProductsSpecsSeams;
-      hardware: CampoCatalogoProductsSpecsHardware;
-    };
-    relatedProductId?: CampoCatalogoProductsRelatedProductId;
-    longDescription: CampoCatalogoProductsLongDescription;
-    material: CampoCatalogoProductsMaterial;
-  }[];
+  $schema?: EsquemaDeDatos;
+  schemaVersion: VersionDelFormato;
+  categories: CategoriasDelCatalogo;
+  availableSizes: TallesDisponibles;
+  products: ProductosDelCatalogo;
+}
+/**
+ * Detalles de materiales, confección y componentes.
+ */
+export interface EspecificacionesDelProducto {
+  fabric: TelaYMaterial;
+  seams: Costuras;
+  hardware: Herrajes;
 }

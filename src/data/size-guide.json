@@ -56,7 +56,7 @@
         }
       ],
       "recommendationNote": "Corte regular de trabajo: Posee holgura funcional pensada para calzar con un buzo o camisa de abrigo debajo. Si dudás entre dos talles para uso con ropa pesada, sugerimos elegir el superior.",
-      "tabLabel": ""
+      "tabLabel": "Camperas de Trabajo"
     },
     "pantalones": {
       "category": "pantalones",
@@ -112,7 +112,7 @@
         }
       ],
       "recommendationNote": "Tiro medio-alto reforzado: Permite flexión de rodilla y agacharse en obra sin que se baje en la cintura. Recomendamos medir el contorno sobre el cinturón.",
-      "tabLabel": ""
+      "tabLabel": "Pantalones Cargo"
     },
     "remeras": {
       "category": "remeras",
@@ -168,7 +168,7 @@
         }
       ],
       "recommendationNote": "Algodón 100% puro peinado: Las prendas fueron sometidas a pre-encogimiento térmico en tintorería, por lo que retienen el tamaño original post lavado con agua fría.",
-      "tabLabel": ""
+      "tabLabel": "Remeras Básicas 24/1"
     },
     "chalecos": {
       "category": "chalecos",
@@ -224,7 +224,7 @@
         }
       ],
       "recommendationNote": "Chaleco con espalda extendida: Protege la cintura del frío y corrientes de aire en taller y depósito al inclinarse o levantar cargas.",
-      "tabLabel": ""
+      "tabLabel": "Buzos y Chalecos"
     }
   }
 }
