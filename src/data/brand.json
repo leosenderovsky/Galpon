@@ -60,6 +60,7 @@
     "pickupHours": "Lunes a Viernes de 07:30 a 16:30 hs"
   },
   "shipping": {
+    "exchangeDays": 15,
     "homeDeliveryLabel": "Envío a Domicilio (Correo Argentino / Andreani)",
     "homeDeliveryDescription": "Despacho garantizado por Correo Argentino o Andreani con número de seguimiento en tiempo real."
   },
@@ -174,6 +175,7 @@
     }
   ],
   "demo": {
+    "showPrototypeBanner": true,
     "prefillCart": false,
     "customer": {
       "fullName": "Juan Carlos Pérez",
@@ -232,8 +234,9 @@
     },
     "catalog": {
       "standardColor": "Estándar",
+      "allCategoryLabel": "Todos",
       "eyebrow": "DESPACHO DIRECTO DE PRODUCCIÓN",
-      "title": "CATÁLOGO DE EXISTENCIAS 2025",
+      "title": "CATÁLOGO DE EXISTENCIAS {year}",
       "description": "Filtrá por categoría y talles. Precios unitarios minoristas y escalas de curva mayorista por caja o bulto.",
       "sizeFilterLabel": "Talle:",
       "sizeGuideButton": "Guía de Talles",
@@ -373,7 +376,7 @@
       "increaseLabel": "Aumentar cantidad",
       "addToOrder": "AGREGAR AL PEDIDO",
       "askStock": "Consultar stock de este talle por WhatsApp",
-      "trustExchange": "Cambio de talle sin costo (15 días)",
+      "trustExchange": "Cambio de talle sin costo ({days} días)",
       "trustShipping": "Despacho express a todo el país",
       "crossSellTitle": "Conjunto Cuadrilla",
       "crossSellText": "Combiná esta prenda con:",
@@ -392,10 +395,6 @@
       "skuLabel": "SKU:"
     },
     "sizeGuide": {
-      "tabJackets": "Camperas de Trabajo",
-      "tabPants": "Pantalones Cargo",
-      "tabTshirts": "Remeras Básicas 24/1",
-      "tabHoodies": "Buzos y Chalecos",
       "title": "Guía Oficial de Talles y Medidas IRAM",
       "closeLabel": "Cerrar guía de talles",
       "tipTitle": "Consejo de confección y calce:",
@@ -454,7 +453,7 @@
     "guarantee": "Garantía de confección industrial",
     "helpTitle": "Asistencia y Guías",
     "helpSizeGuide": "Guía de Talles y Medidas Exactas (IRAM)",
-    "helpReturns": "Políticas de Cambio y Devolución (15 días)",
+    "helpReturns": "Políticas de Cambio y Devolución ({days} días)",
     "helpShipping": "Envíos a todo el país por Expreso y Correo",
     "helpTracking": "Estado y Seguimiento de tu Pedido",
     "b2bTitle": "Canales Mayoristas",

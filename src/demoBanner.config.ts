@@ -1,7 +1,11 @@
 // DEMO ONLY. Al entregar el sitio a un cliente real: borrar este archivo, PrototypeBanner.tsx, su import en App.tsx (marcado DEMO ONLY) y los offsets del banner en el wrapper de App.tsx.
+export const DEFAULT_DEMO_BRAND_NAME = 'Tienda ON!';
+// DEMO ONLY: queda vacío mientras tiendaon.com.ar no exista.
+export const DEFAULT_DEMO_BRAND_URL = '';
+
 export const DEMO_BANNER = {
-  companyName: (import.meta.env?.VITE_DEMO_BRAND_NAME ?? '').trim(),
-  link: (import.meta.env?.VITE_DEMO_BRAND_URL ?? '').trim(),
+  companyName: (import.meta.env?.VITE_DEMO_BRAND_NAME || DEFAULT_DEMO_BRAND_NAME).trim(),
+  link: (import.meta.env?.VITE_DEMO_BRAND_URL || DEFAULT_DEMO_BRAND_URL).trim(),
 };
 
 export function getDemoLegend(): string {

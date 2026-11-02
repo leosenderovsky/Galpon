@@ -1,6 +1,8 @@
-# Diccionario de Campos Editables
+# Diccionario de campos editables
 
-Este documento lista todos los campos editables del archivo `src/data/brand.json` definidos en `src/data/brand.schema.json`.
+Este documento se genera desde `brand.schema.json`, `catalog.schema.json` y `size-guide.schema.json`.
+
+## BrandConfig
 
 | Ruta | Título | Descripción | Widget | Asset | Ejemplo |
 |---|---|---|---|---|---|
@@ -46,7 +48,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `typography.bodyFamily` | Tipografías: body fuente | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `seo.titleSuffix` | SEO y redes: sufijo del título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Indumentaria Masculina y de Trabajo |
 | `seo.description` | SEO y redes: descripción | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | Catálogo digital y landing con pedido directo por WhatsApp para indumentaria masculina y ropa de trabajo pesada. |
-| `seo.socialImage` | SEO y redes: imagen para redes | Ruta pública de la imagen (carpeta public/assets). | `image` |  |  |
+| `seo.socialImage` | SEO y redes: imagen para redes | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/misc/og-image.jpg, minWidth: 1200, ratio: 1200:630, maxKB: 200 |  |
 | `address.short` | Depósito y retiro: corto | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Parque Patricios, CABA |
 | `address.full` | Depósito y retiro: completo | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Av. Amancio Alcorta 2490, Parque Patricios, CABA |
 | `address.city` | Depósito y retiro: ciudad | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Buenos Aires, Argentina |
@@ -54,17 +56,18 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `address.packingLabel` | Depósito y retiro: empaque etiqueta | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Control de Empaque Galpón |
 | `address.pickupLabel` | Depósito y retiro: retiro etiqueta | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Retiro en Depósito Central (Lanús / Parque Patricios) |
 | `address.pickupHours` | Depósito y retiro: retiro horario | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Lunes a Viernes de 07:30 a 16:30 hs |
+| `shipping.exchangeDays` | Días para cambios | Cantidad de días disponibles para solicitar un cambio. | `number` |  |  |
 | `shipping.homeDeliveryLabel` | Envíos: domicilio entrega etiqueta | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Envío a Domicilio (Correo Argentino / Andreani) |
 | `shipping.homeDeliveryDescription` | Envíos: domicilio entrega descripción | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | Despacho garantizado por Correo Argentino o Andreani con número de seguimiento en tiempo real. |
-| `logo.src` | Logo: archivo | Ruta pública de la imagen (carpeta public/assets). | `image` |  |  |
+| `logo.src` | Logo: archivo | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/logo/logo.png, maxKB: 120 |  |
 | `logo.alt` | Logo: texto alternativo | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `logo.favicon32` | Logo: favicon32 | Ruta pública de la imagen (carpeta public/assets). | `image` |  |  |
-| `logo.appleTouchIcon` | Logo: apple touch icon | Ruta pública de la imagen (carpeta public/assets). | `image` |  |  |
-| `logo.srcLight` | Logo para fondos oscuros | Ruta opcional de una versión clara del logo (public/assets/logo-light.png). | `image` |  |  |
+| `logo.favicon32` | Logo: favicon32 | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/logo/favicon-32.png |  |
+| `logo.appleTouchIcon` | Logo: apple touch icon | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/logo/apple-touch-icon.png |  |
+| `logo.srcLight` | Logo para fondos oscuros | Ruta opcional de una versión clara del logo (public/assets/logo-light.png). | `image` | path: /assets/logo/logo-light.png |  |
 | `hero.badge` | Portada: sello | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | CONFECCIÓN INDUSTRIAL PESADA • DESDE 1978 |
 | `hero.title` | Portada: título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | ROPA HECHA PARA BANCARSE TODO. |
 | `hero.description` | Portada: descripción | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | Básicos pesados y ropa de trabajo resistente. Sin vueltas, sin descartables: directo del galpón textil a tu taller, obra o el asfalto diario. |
-| `hero.backgroundImage` | Portada: fondo imagen | Ruta pública de la imagen (carpeta public/assets). | `image` |  |  |
+| `hero.backgroundImage` | Portada: fondo imagen | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/hero/hero-1.jpg, minWidth: 1600, maxKB: 250 |  |
 | `hero.ctaCatalogText` | Portada: cta catálogo texto | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Ver Catálogo Completo |
 | `hero.ctaHowToBuyText` | Portada: cta how to buy texto | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | ¿Cómo Comprar por WhatsApp? |
 | `hero.valueProps[].icon` | Ventajas de la portada: ícono | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -75,8 +78,8 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `howToBuy.tagline` | Cómo comprar: frase de la marca | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | SISTEMA ÁGIL SIN VUELTAS |
 | `howToBuy.title` | Cómo comprar: título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | CÓMO COMPRAR EN 3 PASOS |
 | `howToBuy.description` | Cómo comprar: descripción | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | Despachamos pedidos en menos de 24 horas hábiles una vez acreditado el pago o coordinado el expreso. |
-| `howToBuy.videoUrl` | Cómo comprar: video url | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `howToBuy.posterUrl` | Cómo comprar: imagen de portada url | Ruta pública de la imagen (carpeta public/assets). | `image` |  |  |
+| `howToBuy.videoUrl` | Cómo comprar: video url | Video de compra en formato H.264 + AAC, proporción 16:9, entre 30 y 60 segundos y hasta 15 MB. | `text` |  |  |
+| `howToBuy.posterUrl` | Cómo comprar: imagen de portada url | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/hero/como-comprar-1.jpg, minWidth: 1600 |  |
 | `howToBuy.placeholderMessage` | Cómo comprar: ayuda mensaje | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Acá va el video de muestra del cliente real. Se prepara con IA a partir de su catálogo. |
 | `howToBuy.badge` | Cómo comprar: sello | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | GUÍA INTERACTIVA |
 | `howToBuy.duration` | Cómo comprar: duración | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | 0:45 MIN |
@@ -99,7 +102,8 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `testimonials[].name` | Testimonios: nombre | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Martín Rodríguez |
 | `testimonials[].role` | Testimonios: cargo | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Logística & Cargas Rosario |
 | `testimonials[].text` | Testimonios: texto | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | “Compramos 25 camperas canvas para los mecánicos de la flota. Aguantan el roce con grasa y fierros pesados sin deshilacharse. Excelente atención y entrega en 48hs a Rosario.” |
-| `testimonials[].color` | Testimonios: color | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `testimonials[].color` | Testimonios: color | Clase técnica de Tailwind con color hexadecimal, no un selector de color. Como alternativa, usar tokens del tema. | `text` |  |  |
+| `demo.showPrototypeBanner` | Mostrar aviso de prototipo | Muestra el aviso de demostración de Tienda ON!. | `boolean` |  |  |
 | `demo.prefillCart` | Demostración: precarga carrito | Activa o desactiva este elemento. | `boolean` |  |  |
 | `demo.customer.fullName` | Cliente de ejemplo: completo nombre | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `demo.customer.phone` | Cliente de ejemplo: teléfono | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -117,14 +121,14 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.cart.targetReached` | Carrito: objetivo alcanzado | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.b2bReachedMessage` | Carrito: mayorista alcanzado mensaje | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.emptyTitle` | Carrito: título vacío | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.cart.emptyDescription` | Carrito: descripción vacía | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.cart.emptyDescription` | Carrito: descripción vacía | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Explorá el catálogo de existencias para sumar camperas, pantalones o remeras de trabajo. |
 | `ui.cart.emptyButton` | Carrito: botón vacío | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.sizeLabel` | Carrito: talle etiqueta | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.reinforcedBadge` | Carrito: reinforced sello | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.decreaseLabel` | Carrito: etiqueta accesible de restar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.increaseLabel` | Carrito: etiqueta accesible de sumar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.remove` | Carrito: quitar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.cart.packingNote` | Carrito: empaque nota | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `textarea` |  |  |
+| `ui.cart.packingNote` | Carrito: empaque nota | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `textarea` |  | Cada prenda es revisada individualmente y embalada en bolsa sellada de alta densidad para flete o correo pesado. |
 | `ui.cart.shipping` | Carrito: envío | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.shippingNote` | Carrito: nota de envío | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.total` | Carrito: total | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -134,7 +138,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.cart.continue` | Carrito: botón continuar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.keepShopping` | Carrito: botón seguir comprando | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.trustHuman` | Carrito: confianza humana | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.cart.trustDispatch` | Carrito: confianza despacho | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.cart.trustDispatch` | Carrito: confianza despacho | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Despachos en 24hs hábiles |
 | `ui.cart.title` | Carrito: título | Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.missing` | Carrito: missing | Texto con variables que el sitio reemplaza solo: {amount}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.b2bProgress` | Carrito: mayorista avance | Texto con variables que el sitio reemplaza solo: {amount}, {target}. Dejalo vacío para ocultar el elemento. | `textarea` |  |  |
@@ -142,8 +146,9 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.cart.subtotal` | Carrito: subtotal | Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.cart.combo` | Carrito: combo | Texto con variables que el sitio reemplaza solo: {min}, {percent}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.catalog.standardColor` | Catálogo: estándar color | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.catalog.allCategoryLabel` | Catálogo: etiqueta de todas las categorías | Texto que aparece para mostrar todos los productos. Dejalo vacío para ocultar la opción. | `text` |  |  |
 | `ui.catalog.eyebrow` | Catálogo: sobretítulo | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.catalog.title` | Catálogo: título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.catalog.title` | Catálogo: título | Texto con la variable {year}, que indica el año actual del catálogo. | `text` |  |  |
 | `ui.catalog.description` | Catálogo: descripción | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `textarea` |  |  |
 | `ui.catalog.sizeFilterLabel` | Catálogo: talle filtro etiqueta | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.catalog.sizeGuideButton` | Catálogo: talle guía botón | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -161,8 +166,8 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.catalog.emptyDescription` | Catálogo: descripción vacía | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.catalog.viewAll` | Catálogo: botón ver todos | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.catalog.sizeCtaTitle` | Catálogo: talle cta título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.catalog.sizeCtaText` | Catálogo: talle cta texto | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.catalog.sizeCtaButton` | Catálogo: talle cta botón | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.catalog.sizeCtaText` | Catálogo: talle cta texto | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Todas las prendas son confeccionadas bajo norma IRAM de holgura de trabajo y faena pesada. |
+| `ui.catalog.sizeCtaButton` | Catálogo: talle cta botón | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Ver Tabla de Medidas Oficial (IRAM) |
 | `ui.catalog.addedToast` | Catálogo: agregado aviso | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.catalog.viewCart` | Catálogo: ver carrito | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.catalog.activeCount` | Catálogo: activos count | Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -188,7 +193,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.checkout.free` | Checkout: gratis | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.expressTitle` | Checkout: exprés título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.expressBadge` | Checkout: exprés sello | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.checkout.expressDescription` | Checkout: exprés descripción | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `textarea` |  |  |
+| `ui.checkout.expressDescription` | Checkout: exprés descripción | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `textarea` |  | Llevamos el bulto precintado sin cargo al expreso de tu elección en Villa Soldati o Pompeya. |
 | `ui.checkout.destinationHint` | Checkout: destino pista | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.streetLabel` | Checkout: calle etiqueta | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.streetPlaceholder` | Checkout: calle ayuda | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -200,7 +205,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.checkout.notesTitle` | Checkout: notas título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.optional` | Checkout: opcional | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.notesLabel` | Checkout: notas etiqueta | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.checkout.notesPlaceholder` | Checkout: ayuda del campo aclaraciones | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `textarea` |  |  |
+| `ui.checkout.notesPlaceholder` | Checkout: ayuda del campo aclaraciones | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `textarea` |  | Ej: Entregar por la mañana; solicitar Factura A con CUIT; si no hay en tono carbón cambiar por verde... |
 | `ui.checkout.notesHelp` | Checkout: notas ayuda | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `textarea` |  |  |
 | `ui.checkout.edit` | Checkout: editar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.subtotal` | Checkout: subtotal | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -224,14 +229,14 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.checkout.summaryTitle` | Checkout: resumen título | Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.sizeColor` | Checkout: talle color | Texto con variables que el sitio reemplaza solo: {size}, {color}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.combo` | Checkout: combo | Texto con variables que el sitio reemplaza solo: {min}, {percent}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.checkout.pickupDetails` | Checkout: retiro details | Texto con variables que el sitio reemplaza solo: {address}, {hours}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.checkout.pickupDetails` | Checkout: retiro details | Texto con variables que el sitio reemplaza solo: {address}, {hours}. Dejalo vacío para ocultar el elemento. | `text` |  | {address}. {hours}. Listo en 4 hs hábiles sin costo. |
 | `ui.checkout.responseStart` | Checkout: response start | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.responseStrong` | Checkout: response fuerte | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.responseEnd` | Checkout: response end | Texto con variables que el sitio reemplaza solo: {hours}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.checkout.emailPlaceholder` | Checkout: correo ayuda | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.navbar.topShipping` | Barra de navegación: superior envío | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.navbar.topWholesale` | Barra de navegación: superior mayorista | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.navbar.topSizeTable` | Barra de navegación: superior talle table | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.navbar.topSizeTable` | Barra de navegación: superior talle table | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | TABLA DE MEDIDAS IRAM |
 | `ui.navbar.catalog` | Barra de navegación: catálogo | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.navbar.howToBuy` | Barra de navegación: how to buy | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.navbar.b2b` | Barra de navegación: mayorista | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -242,7 +247,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.navbar.menuLabel` | Barra de navegación: menú etiqueta | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.navbar.mobileCatalog` | Barra de navegación: móvil catálogo | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.navbar.mobileHowToBuy` | Barra de navegación: móvil how to buy | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.navbar.mobileB2b` | Barra de navegación: móvil mayorista | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.navbar.mobileB2b` | Barra de navegación: móvil mayorista | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Canal Mayorista & Cuadrillas |
 | `ui.navbar.mobileSizeGuide` | Barra de navegación: móvil talle guía | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.navbar.mobileContact` | Barra de navegación: móvil contacto | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.navbar.topWarehouseLine` | Barra de navegación: superior depósito línea | Texto con variables que el sitio reemplaza solo: {place}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -260,7 +265,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.productModal.view4` | Ficha técnica: vista 4 | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.specsTitle` | Ficha técnica: especificaciones título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.specFabric` | Ficha técnica: especificación tela | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.productModal.defaultFabric` | Ficha técnica: predeterminado tela | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.productModal.defaultFabric` | Ficha técnica: predeterminado tela | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Lona 100% Algodón de alto gramaje con torsión industrial. |
 | `ui.productModal.specStitching` | Ficha técnica: especificación confección | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.defaultStitching` | Ficha técnica: predeterminado confección | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.specHardware` | Ficha técnica: especificación herrajes | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -277,31 +282,27 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.productModal.increaseLabel` | Ficha técnica: etiqueta accesible de sumar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.addToOrder` | Ficha técnica: botón agregar al pedido | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.askStock` | Ficha técnica: consultar stock | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.productModal.trustExchange` | Ficha técnica: confianza cambio | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.productModal.trustExchange` | Ficha técnica: confianza cambio | Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio. | `text` |  |  |
 | `ui.productModal.trustShipping` | Ficha técnica: confianza envío | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.productModal.crossSellTitle` | Ficha técnica: venta cruzada venta título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.productModal.crossSellTitle` | Ficha técnica: venta cruzada venta título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Conjunto Cuadrilla |
 | `ui.productModal.crossSellText` | Ficha técnica: venta cruzada venta texto | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.crossSellButton` | Ficha técnica: venta cruzada venta botón | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.productModal.defaultLot` | Ficha técnica: predeterminado lote | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.productModal.defaultLot` | Ficha técnica: predeterminado lote | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | 2025-Q1 |
 | `ui.productModal.lotLine` | Ficha técnica: lote línea | Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.originLine` | Ficha técnica: origen línea | Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.viewAlt` | Ficha técnica: ver texto alternativo | Texto con variables que el sitio reemplaza solo: {number}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.productModal.wholesaleFromUnits` | Ficha técnica: mayorista from units | Texto con variables que el sitio reemplaza solo: {units}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.productModal.wholesaleFromUnits` | Texto desde la cantidad mínima mayorista | Texto con variables que el sitio reemplaza solo: {units}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.offBadge` | Ficha técnica: descuento sello | Texto con variables que el sitio reemplaza solo: {percent}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.savingsLine` | Ficha técnica: ahorro línea | Texto con variables que el sitio reemplaza solo: {amount}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.selectedColor` | Ficha técnica: seleccionado color | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.productModal.colorsCount` | Ficha técnica: colores count | Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.productModal.colorsCount` | Ficha técnica: colores count | Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento. | `text` |  | {count} Tonos Industriales |
 | `ui.productModal.addedToOrder` | Ficha técnica: agregado to pedido | Texto con variables que el sitio reemplaza solo: {quantity}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.productModal.whatsappInquiry` | Ficha técnica: whatsApp consulta | Texto con variables que el sitio reemplaza solo: {name}, {product}, {sku}, {units}. Dejalo vacío para ocultar el elemento. | `textarea` |  |  |
 | `ui.productModal.skuLabel` | Ficha técnica: sKU etiqueta | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.sizeGuide.tabJackets` | Guía de talles: pestaña jackets | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.sizeGuide.tabPants` | Guía de talles: pestaña pants | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.sizeGuide.tabTshirts` | Guía de talles: pestaña tshirts | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.sizeGuide.tabHoodies` | Guía de talles: pestaña hoodies | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.sizeGuide.title` | Guía de talles: título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.sizeGuide.title` | Guía de talles: título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Guía Oficial de Talles y Medidas IRAM |
 | `ui.sizeGuide.closeLabel` | Guía de talles: etiqueta accesible de cerrar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.sizeGuide.tipTitle` | Guía de talles: consejo título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.sizeGuide.help` | Guía de talles: ayuda | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.sizeGuide.help` | Guía de talles: ayuda | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | ¿Tenés dudas con las medidas de tu cuadrilla? Consultanos en tiempo real por WhatsApp. |
 | `ui.sizeGuide.close` | Guía de talles: cerrar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.sizeGuide.toleranceLine` | Guía de talles: tolerancia línea | Texto con variables que el sitio reemplaza solo: {tolerance}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.video.playError` | Video: reproducir error | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -313,15 +314,15 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `ui.video.stepBadge` | Video: step sello | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.video.fullscreenLabel` | Video: pantalla completa etiqueta | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.b2bForm.pending` | Formulario mayorista: pendiente | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.b2bForm.defaultQuantity` | Formulario mayorista: predeterminado cantidad | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.b2bForm.defaultQuantity` | Formulario mayorista: predeterminado cantidad | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Curva estándar para cuadrilla |
 | `ui.b2bForm.closing` | Formulario mayorista: cierre | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.b2bForm.title` | Formulario mayorista: título | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.b2bForm.subtitle` | Formulario mayorista: subtítulo | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.b2bForm.subtitle` | Formulario mayorista: subtítulo | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Respuesta en menos de 2 horas hábiles por WhatsApp. |
 | `ui.b2bForm.nameLabel` | Formulario mayorista: campo nombre | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.b2bForm.namePlaceholder` | Formulario mayorista: nombre ayuda | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.b2bForm.phoneLabel` | Formulario mayorista: campo teléfono | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.b2bForm.quantityLabel` | Formulario mayorista: cantidad etiqueta | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `ui.b2bForm.quantityPlaceholder` | Formulario mayorista: cantidad ayuda | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `ui.b2bForm.quantityPlaceholder` | Formulario mayorista: cantidad ayuda | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  | Ej: 30 Pantalones cargo + 50 remeras |
 | `ui.b2bForm.submit` | Formulario mayorista: enviar | Texto de la interfaz. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.b2bForm.intro` | Formulario mayorista: introducción | Texto con variables que el sitio reemplaza solo: {name}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `ui.b2bForm.companyLine` | Formulario mayorista: empresa línea | Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -347,7 +348,7 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `footer.guarantee` | Pie de página: garantía | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Garantía de confección industrial |
 | `footer.helpTitle` | Pie de página: ayuda título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Asistencia y Guías |
 | `footer.helpSizeGuide` | Pie de página: ayuda talle guía | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Guía de Talles y Medidas Exactas (IRAM) |
-| `footer.helpReturns` | Pie de página: ayuda devoluciones | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Políticas de Cambio y Devolución (15 días) |
+| `footer.helpReturns` | Pie de página: ayuda devoluciones | Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio. | `text` |  | Políticas de Cambio y Devolución (15 días) |
 | `footer.helpShipping` | Pie de página: ayuda envío | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Envíos a todo el país por Expreso y Correo |
 | `footer.helpTracking` | Pie de página: ayuda seguimiento | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Estado y Seguimiento de tu Pedido |
 | `footer.b2bTitle` | Pie de página: mayorista título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Canales Mayoristas |
@@ -368,3 +369,61 @@ Este documento lista todos los campos editables del archivo `src/data/brand.json
 | `testimonialsSection.title` | Sección de testimonios: título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | EN EL CUERO DE QUIENES LABURAN |
 | `testimonialsSection.badge` | Sección de testimonios: sello | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | CLIENTES VERIFICADOS EN TODO EL PAÍS |
 | `demoLegend` | Leyenda de demostración | Texto base de prototipo. El sitio lo completa con el nombre del servicio (no se edita en brand.json). | `textarea` |  | Marca, productos y precios de ejemplo — prototipo de demostración |
+
+## CatalogConfig
+
+| Ruta | Título | Descripción | Widget | Asset | Ejemplo |
+|---|---|---|---|---|---|
+| `$schema` | Esquema de datos | Referencia al esquema que valida estos datos. | `text` |  |  |
+| `schemaVersion` | Versión del formato | Versión del formato de datos utilizado. | `number` |  |  |
+| `categories[].id` | Identificador de la categoría | Identificador estable de la categoría, en kebab-case. | `text` |  |  |
+| `categories[].label` | Nombre visible de la categoría | Texto que se muestra para identificar la categoría. | `text` |  |  |
+| `availableSizes` | Talles disponibles | Lista completa y ordenada de talles que ofrece el negocio. | `text` |  |  |
+| `products[].id` | Identificador del producto | Identificador estable de la categoría, en kebab-case. | `text` |  |  |
+| `products[].sku` | Código interno del producto | Código interno utilizado para identificar el producto. | `text` |  |  |
+| `products[].name` | Nombre del producto | Nombre que se muestra en el catálogo. | `text` |  |  |
+| `products[].category` | Identificador de la categoría | Debe coincidir con una categoría definida en el catálogo. | `text` |  |  |
+| `products[].price` | Precio de venta | Precio de venta del producto. | `number` |  |  |
+| `products[].wholesalePrice` | Precio mayorista | Precio por unidad para compras mayoristas. | `number` |  |  |
+| `products[].wholesaleMinUnits` | Cantidad mínima mayorista | Cantidad mínima para acceder al precio mayorista. | `number` |  |  |
+| `products[].wholesaleBadge` | Etiqueta del precio mayorista | Texto que acompaña el precio mayorista. | `text` |  |  |
+| `products[].sizes` | Talles del producto | Talles disponibles para este producto. | `text` |  |  |
+| `products[].colors[].name` | Nombre del color | Nombre visible del color del producto. | `text` |  |  |
+| `products[].colors[].hex` | Color del producto | Color en formato #RRGGBB. | `text` |  |  |
+| `products[].images` | Imágenes del producto | Rutas de las imágenes asociadas al producto. | `text` |  |  |
+| `products[].description` | Descripción breve del producto | Descripción breve que aparece en el catálogo. | `text` |  |  |
+| `products[].lot` | Lote del producto | Lote informado para el producto. | `text` |  |  |
+| `products[].origin` | Origen del producto | Origen informado para el producto. | `text` |  |  |
+| `products[].badge` | Etiqueta destacada del producto | Texto breve que destaca una característica del producto. | `text` |  |  |
+| `products[].badgeTone` | Color de la etiqueta destacada | Define el color visual de la etiqueta sin depender del texto que muestra. | `select` |  |  |
+| `products[].specs.fabric` | Tela y material | Descripción de la tela y sus características. | `text` |  |  |
+| `products[].specs.seams` | Costuras | Descripción de las costuras y los refuerzos. | `text` |  |  |
+| `products[].specs.hardware` | Herrajes | Descripción de botones, cierres u otros componentes. | `text` |  |  |
+| `products[].relatedProductId` | Identificador del producto relacionado | Identificador de otro producto relacionado. | `text` |  |  |
+| `products[].longDescription` | Descripción completa del producto | Descripción ampliada que aparece en el detalle. | `text` |  |  |
+| `products[].material` | Material principal | Material principal del producto. | `text` |  |  |
+
+## SizeGuideConfig
+
+| Ruta | Título | Descripción | Widget | Asset | Ejemplo |
+|---|---|---|---|---|---|
+| `$schema` | Esquema de datos | Referencia al esquema que valida estos datos. | `text` |  |  |
+| `schemaVersion` | Versión del formato | Versión del formato de datos utilizado. | `number` |  |  |
+| `guides.{categoryId}.category` | Identificador de la categoría | Debe coincidir con una categoría definida en el catálogo. | `text` |  |  |
+| `guides.{categoryId}.title` | Título de la guía de talles | Texto que encabeza la guía de talles. | `text` |  |  |
+| `guides.{categoryId}.tolerance` | Tolerancia de las medidas | Margen de variación de las medidas. | `text` |  |  |
+| `guides.{categoryId}.columns.size` | Talle | Talle al que corresponden las medidas. | `text` |  |  |
+| `guides.{categoryId}.columns.primaryMeasure` | Medida principal | Nombre de la medida principal de cada talle. | `text` |  |  |
+| `guides.{categoryId}.columns.secondaryMeasure` | Medida secundaria | Nombre de la segunda medida de cada talle. | `text` |  |  |
+| `guides.{categoryId}.columns.tertiaryMeasure` | Tercera medida | Nombre de la tercera medida de cada talle. | `text` |  |  |
+| `guides.{categoryId}.columns.recommendation` | Referencia de talle | Nombre de la referencia adicional de talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].size` | Talle | Talle al que corresponden las medidas. | `text` |  |  |
+| `guides.{categoryId}.rows[].sizeLabel` | Nombre visible del talle | Texto que se muestra para identificar el talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].chestOrWaist` | Medida de pecho o cintura | Medida de pecho o cintura para este talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].length` | Largo de la prenda | Largo de la prenda para este talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].sleeveOrInseam` | Largo de manga o entrepierna | Largo de manga o entrepierna para este talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].recommendedHeight` | Estatura recomendada | Estatura sugerida para este talle. | `text` |  |  |
+| `guides.{categoryId}.rows[].recommendedWeight` | Peso recomendado | Peso sugerido para este talle. | `text` |  |  |
+| `guides.{categoryId}.recommendationNote` | Recomendación de calce | Consejo de calce para elegir el talle. | `text` |  |  |
+| `guides.{categoryId}.tabLabel` | Nombre visible de la pestaña | Texto que se muestra en la pestaña de esta guía. | `text` |  | Camperas de Trabajo |
+

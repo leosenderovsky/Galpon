@@ -1,0 +1,212 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "./size-guide.schema.json",
+  "title": "SizeGuideConfig",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "x-group": "Textos",
+      "x-widget": "text",
+      "title": "Esquema de datos",
+      "description": "Referencia al esquema que valida estos datos."
+    },
+    "schemaVersion": {
+      "type": "integer",
+      "x-group": "Textos",
+      "x-widget": "number",
+      "title": "Versión del formato",
+      "description": "Versión del formato de datos utilizado."
+    },
+    "guides": {
+      "type": "object",
+      "additionalProperties": false,
+      "title": "Guías de talles",
+      "description": "Guías de talles organizadas por categoría.",
+      "patternProperties": {
+        "^[a-z0-9]+(?:-[a-z0-9]+)*$": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Identificador de la categoría",
+              "description": "Debe coincidir con una categoría definida en el catálogo."
+            },
+            "title": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Título de la guía de talles",
+              "description": "Texto que encabeza la guía de talles."
+            },
+            "tolerance": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Tolerancia de las medidas",
+              "description": "Margen de variación de las medidas."
+            },
+            "columns": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "size": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Talle",
+                  "description": "Talle al que corresponden las medidas."
+                },
+                "primaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Medida principal",
+                  "description": "Nombre de la medida principal de cada talle."
+                },
+                "secondaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Medida secundaria",
+                  "description": "Nombre de la segunda medida de cada talle."
+                },
+                "tertiaryMeasure": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Tercera medida",
+                  "description": "Nombre de la tercera medida de cada talle."
+                },
+                "recommendation": {
+                  "type": "string",
+                  "x-group": "Textos",
+                  "x-widget": "text",
+                  "title": "Referencia de talle",
+                  "description": "Nombre de la referencia adicional de talle."
+                }
+              },
+              "required": [
+                "size",
+                "primaryMeasure",
+                "secondaryMeasure",
+                "tertiaryMeasure",
+                "recommendation"
+              ],
+              "title": "Encabezados de la tabla",
+              "description": "Textos que encabezan las columnas de la tabla."
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "size": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Talle",
+                    "description": "Talle al que corresponden las medidas."
+                  },
+                  "sizeLabel": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Nombre visible del talle",
+                    "description": "Texto que se muestra para identificar el talle."
+                  },
+                  "chestOrWaist": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Medida de pecho o cintura",
+                    "description": "Medida de pecho o cintura para este talle."
+                  },
+                  "length": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Largo de la prenda",
+                    "description": "Largo de la prenda para este talle."
+                  },
+                  "sleeveOrInseam": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Largo de manga o entrepierna",
+                    "description": "Largo de manga o entrepierna para este talle."
+                  },
+                  "recommendedHeight": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Estatura recomendada",
+                    "description": "Estatura sugerida para este talle."
+                  },
+                  "recommendedWeight": {
+                    "type": "string",
+                    "x-group": "Textos",
+                    "x-widget": "text",
+                    "title": "Peso recomendado",
+                    "description": "Peso sugerido para este talle."
+                  }
+                },
+                "required": [
+                  "size",
+                  "sizeLabel",
+                  "chestOrWaist",
+                  "length",
+                  "sleeveOrInseam",
+                  "recommendedHeight"
+                ]
+              },
+              "title": "Medidas por talle",
+              "description": "Medidas disponibles para cada talle."
+            },
+            "recommendationNote": {
+              "type": "string",
+              "x-group": "Textos",
+              "x-widget": "text",
+              "title": "Recomendación de calce",
+              "description": "Consejo de calce para elegir el talle."
+            },
+            "tabLabel": {
+              "type": "string",
+              "x-group": "Textos de interfaz",
+              "x-widget": "text",
+              "title": "Nombre visible de la pestaña",
+              "description": "Texto que se muestra en la pestaña de esta guía.",
+              "x-exampleData": true,
+              "examples": [
+                "Camperas de Trabajo",
+                "Pantalones Cargo",
+                "Remeras Básicas 24/1",
+                "Buzos y Chalecos"
+              ]
+            }
+          },
+          "required": [
+            "category",
+            "title",
+            "tolerance",
+            "columns",
+            "rows",
+            "recommendationNote",
+            "tabLabel"
+          ],
+          "title": "Datos de la guía de talles",
+          "description": "Medidas y textos de una categoría del catálogo."
+        }
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "guides"
+  ]
+}

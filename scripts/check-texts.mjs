@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
- * Garantiza que NINGÚN texto visible esté escrito en el código: todo debe salir de src/data/brand.json
- * (o de los archivos de catálogo declarados en scripts/check-texts.config.json, que también son datos editables).
+ * Garantiza que ningún texto visible esté escrito en los componentes: los datos editables viven en src/data/.
  * Recorre los componentes con un analizador sintáctico (@babel/parser) y marca:
  *   - texto dentro de JSX (<p>Hola</p>),
  *   - atributos visibles o accesibles (aria-label, alt, title, placeholder, label, value…),
@@ -70,8 +69,8 @@ for (const file of files) {
 console.log(`check:texts - ${files.length - exclude.size} archivos revisados`);
 if (findings.length) {
   findings.forEach((f) => console.error(`  ERROR ${f.rel}:${f.line} [${f.kind}] "${f.text.slice(0, 100)}"`));
-  console.error(`\n${findings.length} texto(s) escrito(s) en el código. Movelos a src/data/brand.json (y a brand.schema.json) para que sean editables,`);
+  console.error(`\n${findings.length} texto(s) escrito(s) en el código. Movelos al JSON correspondiente de src/data/ y a su esquema para que sean editables,`);
   console.error('o, si es un dato técnico, agregalo a "allowStrings" en scripts/check-texts.config.json.');
   process.exit(1);
 }
-console.log('Todos los textos visibles salen de brand.json.');
+console.log('No hay textos visibles escritos en los componentes.');

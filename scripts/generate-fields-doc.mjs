@@ -2,110 +2,48 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const projectRoot = fileURLToPath(new URL('../', import.meta.url));
-const schemaPath = path.join(projectRoot, 'src/data/brand.schema.json');
-const outputPath = path.join(projectRoot, 'docs/CAMPOS.md');
-
-const schema = JSON.parse(await readFile(schemaPath, 'utf8'));
+const root = fileURLToPath(new URL('../', import.meta.url));
+const schemaFiles = ['brand.schema.json', 'catalog.schema.json', 'size-guide.schema.json'];
+const rows = [];
 
 function formatAsset(asset) {
   if (!asset) return '';
-  const parts = [];
-  if (asset.path) parts.push(`path: ${asset.path}`);
-  if (asset.minWidth) parts.push(`minWidth: ${asset.minWidth}px`);
-  if (asset.ratio) parts.push(`ratio: ${asset.ratio}`);
-  if (asset.maxKB) parts.push(`maxKB: ${asset.maxKB}KB`);
-  return parts.join(', ');
+  return Object.entries(asset).map(([key, value]) => `${key}: ${value}`).join(', ');
 }
-
-function formatExample(val) {
-  if (val === undefined || val === null) return '';
-  if (typeof val === 'object') return JSON.stringify(val);
-  return String(val).replaceAll('|', '\\|').replaceAll('\n', ' ');
+function scalarRow(rows, node, fieldPath) {
+  rows.push({ path: fieldPath, title: node.title || '', description: node.description || '', widget: node['x-widget'] || (node.type === 'boolean' ? 'boolean' : node.type === 'number' || node.type === 'integer' ? 'number' : 'text'), asset: formatAsset(node['x-asset']), example: node.examples?.[0] ?? '' });
 }
-
-const rows = [];
-
-function resolveRef(ref) {
-  if (!ref.startsWith('#/definitions/')) return null;
-  const name = ref.replace('#/definitions/', '');
-  return schema.definitions?.[name] || null;
-}
-
-function traverse(node, currentPath = '') {
+function collect(schema, node, fieldPath, output) {
   if (!node) return;
-  if (node.$ref) {
-    const resolved = resolveRef(node.$ref);
-    if (resolved) {
-      traverse(resolved, currentPath);
+  if (node.$ref) return collect(schema, schema.definitions?.[node.$ref.replace('#/definitions/', '')], fieldPath, output);
+  if (node.type === 'object' && (node.properties || node.patternProperties)) {
+    for (const [key, child] of Object.entries(node.properties ?? {})) collect(schema, child, fieldPath ? `${fieldPath}.${key}` : key, output);
+    for (const [pattern, child] of Object.entries(node.patternProperties ?? {})) {
+      const placeholder = pattern.includes('a-z0-9') ? '{categoryId}' : '{clave}';
+      collect(schema, child, fieldPath ? `${fieldPath}.${placeholder}` : placeholder, output);
     }
-    return;
-  }
-
-  if (node.type === 'object' && node.properties) {
-    for (const [key, prop] of Object.entries(node.properties)) {
-      const fieldPath = currentPath ? `${currentPath}.${key}` : key;
-      if (prop.type === 'object' && prop.properties) {
-        traverse(prop, fieldPath);
-      } else if (prop.type === 'array' && prop.items) {
-        if (prop.items.type === 'object' && prop.items.properties) {
-          traverse(prop.items, `${fieldPath}[]`);
-        } else if (prop.items.$ref) {
-          const resolved = resolveRef(prop.items.$ref);
-          if (resolved) {
-            traverse(resolved, `${fieldPath}[]`);
-          } else {
-            rows.push({
-              path: fieldPath,
-              title: prop.title || '',
-              description: prop.description || '',
-              widget: prop['x-widget'] || 'list',
-              asset: formatAsset(prop['x-asset']),
-              example: formatExample(prop.examples?.[0]),
-            });
-          }
-        } else {
-          rows.push({
-            path: fieldPath,
-            title: prop.title || '',
-            description: prop.description || '',
-            widget: prop['x-widget'] || 'list',
-            asset: formatAsset(prop['x-asset']),
-            example: formatExample(prop.examples?.[0]),
-          });
-        }
-      } else if (prop.$ref) {
-        const resolved = resolveRef(prop.$ref);
-        if (resolved) {
-          traverse(resolved, fieldPath);
-        }
-      } else {
-        rows.push({
-          path: fieldPath,
-          title: prop.title || '',
-          description: prop.description || '',
-          widget: prop['x-widget'] || (prop.type === 'boolean' ? 'boolean' : prop.type === 'number' || prop.type === 'integer' ? 'number' : 'text'),
-          asset: formatAsset(prop['x-asset']),
-          example: formatExample(prop.examples?.[0]),
-        });
-      }
-    }
-  }
+  } else if (node.type === 'array' && node.items?.type === 'object') {
+    collect(schema, node.items, `${fieldPath}[]`, output);
+  } else if (node.type === 'array') scalarRow(output, node, fieldPath);
+  else scalarRow(output, node, fieldPath);
 }
 
-traverse(schema);
-
-let md = '# Diccionario de Campos Editables\n\n';
-md += 'Este documento lista todos los campos editables del archivo `src/data/brand.json` definidos en `src/data/brand.schema.json`.\n\n';
-md += '| Ruta | Título | Descripción | Widget | Asset | Ejemplo |\n';
-md += '|---|---|---|---|---|---|\n';
-
-for (const row of rows) {
-  const safeDesc = row.description.replaceAll('|', '\\|').replaceAll('\n', ' ');
-  const safeTitle = row.title.replaceAll('|', '\\|').replaceAll('\n', ' ');
-  const safeAsset = row.asset.replaceAll('|', '\\|');
-  md += `| \`${row.path}\` | ${safeTitle} | ${safeDesc} | \`${row.widget}\` | ${safeAsset} | ${row.example} |\n`;
+for (const file of schemaFiles) {
+  const schema = JSON.parse(await readFile(path.join(root, 'src/data', file), 'utf8'));
+  const fields = [];
+  collect(schema, schema, '', fields);
+  rows.push({ section: schema.title || file, fields });
 }
 
-await writeFile(outputPath, md, 'utf8');
-console.log(`wrote ${path.relative(projectRoot, outputPath).replaceAll('\\', '/')} (${rows.length} campos)`);
+let md = '# Diccionario de campos editables\n\n';
+md += 'Este documento se genera desde `brand.schema.json`, `catalog.schema.json` y `size-guide.schema.json`.\n\n';
+for (const section of rows) {
+  md += `## ${section.section}\n\n| Ruta | Título | Descripción | Widget | Asset | Ejemplo |\n|---|---|---|---|---|---|\n`;
+  for (const row of section.fields) {
+    const clean = (value) => String(value).replaceAll('|', '\\|').replaceAll('\n', ' ');
+    md += `| \`${row.path}\` | ${clean(row.title)} | ${clean(row.description)} | \`${row.widget}\` | ${clean(row.asset)} | ${clean(row.example)} |\n`;
+  }
+  md += '\n';
+}
+await writeFile(path.join(root, 'docs/CAMPOS.md'), md, 'utf8');
+console.log(`wrote docs/CAMPOS.md (${rows.reduce((sum, section) => sum + section.fields.length, 0)} campos)`);

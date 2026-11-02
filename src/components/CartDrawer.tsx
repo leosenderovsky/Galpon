@@ -1,7 +1,7 @@
 import React from 'react';
 import { Txt } from './Txt';
 import { useCart } from '../context/CartContext';
-import { formatARS, getProductImageDimensions } from '../products';
+import { formatARS, getProductImageDimensions } from '../catalog';
 import { BRAND, formatText } from '../brand.config';
 
 export const CartDrawer: React.FC = () => {
@@ -158,7 +158,7 @@ export const CartDrawer: React.FC = () => {
 
                       <div className="mt-1 flex items-center gap-1.5 font-body text-[10px] text-brand-secondary font-bold uppercase">
                         <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary"></span>
-                        <span>{item.product.materialTag || BRAND.ui.cart.reinforcedBadge}</span>
+                        <span>{item.product.material || BRAND.ui.cart.reinforcedBadge}</span>
                       </div>
                     </div>
 

@@ -8,6 +8,8 @@ Las medidas de las imágenes se generan automáticamente en `src/generated/image
 
 `npm run make:og` genera `public/assets/misc/og-image.jpg` recortando al centro la imagen principal a 1200 × 630 px y hasta 200 KB. Esa imagen se usa como vista previa de enlaces.
 
+`npm run images:optimize` comprime las fotos JPG de productos hasta 250 KB y los JPG del hero hasta 350 KB, sin cambiar sus dimensiones. Los originales se conservan en `.image-originals/`. Si una imagen no se puede reducir al máximo configurado, el comando informa el error y no la reemplaza.
+
 Ejecutar `npm run check:images` para informar las dimensiones y el peso de cada imagen bajo `public/assets`, buscar duplicados byte a byte mediante MD5 y revisar resolución y proporción. El comando es informativo y termina con código 0 aunque reporte observaciones.
 
 Las comprobaciones por uso son:

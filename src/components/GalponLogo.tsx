@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BRAND } from '../brand.config';
-import { getImageDimensions } from '../products';
+import { getImageDimensions } from '../catalog';
 
 interface LogoProps {
   className?: string;

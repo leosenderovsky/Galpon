@@ -3,6 +3,7 @@ import { Txt } from './Txt';
 import { BRAND, formatText } from '../brand.config';
 import { useCart } from '../context/CartContext';
 import { GalponLogo } from './GalponLogo';
+import { SIZE_GUIDES } from '../sizeGuide';
 
 export const Footer: React.FC = () => {
   const { setIsSizeGuideModalOpen, setSelectedCategoryForGuide, setIsCartOpen } = useCart();
@@ -37,7 +38,7 @@ export const Footer: React.FC = () => {
                 <Txt as="button"
                   type="button"
                   onClick={() => {
-                    setSelectedCategoryForGuide('camperas');
+                    setSelectedCategoryForGuide(Object.keys(SIZE_GUIDES)[0] || '');
                     setIsSizeGuideModalOpen(true);
                   }}
                   className="hover:text-white transition-colors cursor-pointer text-left" value={BRAND.footer.helpSizeGuide} />
@@ -46,7 +47,7 @@ export const Footer: React.FC = () => {
                 <Txt as="button"
                   type="button"
                   onClick={() => scrollTo('como-comprar')}
-                  className="hover:text-white transition-colors cursor-pointer text-left" value={BRAND.footer.helpReturns} />
+                  className="hover:text-white transition-colors cursor-pointer text-left" value={formatText(BRAND.footer.helpReturns, { days: String(BRAND.shipping.exchangeDays) })} />
               </li>
               <li>
                 <Txt as="button"
