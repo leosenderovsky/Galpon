@@ -162,11 +162,9 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Leyenda de demostración (ver demoBanner.config.ts) */}
+        {/* Leyenda de demostración */}
         <div className="mt-8 pt-4 border-t border-white/10 text-center">
-          <p className="font-body text-[10px] text-brand-text-muted uppercase tracking-widest opacity-80 hover:opacity-100 transition-opacity">
-            {BRAND.demoLegend}
-          </p>
+          <Txt as="p" className="font-body text-[10px] text-brand-text-muted uppercase tracking-widest opacity-80 hover:opacity-100 transition-opacity" value={BRAND.demoLegend} />
         </div>
       </div>
     </footer>

@@ -12,7 +12,7 @@ export type { BrandConfig };
 
 export const BRAND: BrandConfig = {
   ...(brandJson as BrandConfig),
-  demoLegend: getDemoLegend(),
+  demoLegend: getDemoLegend(brandJson.demoLegend),
 };
 
 /** Reemplaza marcadores {clave} de un texto editable por sus valores. */

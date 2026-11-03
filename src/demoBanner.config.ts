@@ -8,10 +8,9 @@ export const DEMO_BANNER = {
   link: (import.meta.env?.VITE_DEMO_BRAND_URL || DEFAULT_DEMO_BRAND_URL).trim(),
 };
 
-export function getDemoLegend(): string {
-  const base = 'Marca, productos y precios de ejemplo — prototipo de demostración';
+export function getDemoLegend(base: string): string {
   const companyName = DEMO_BANNER.companyName;
-  return companyName && companyName !== '[EMPRESA]' ? `${base} de ${companyName}` : base;
+  return base.trim() && companyName && companyName !== '[EMPRESA]' ? `${base} de ${companyName}` : base;
 }
 
 if (import.meta.env?.DEV && (!DEMO_BANNER.companyName || DEMO_BANNER.companyName === '[EMPRESA]')) {
