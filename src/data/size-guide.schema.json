@@ -122,35 +122,35 @@
                   },
                   "chestOrWaist": {
                     "type": "string",
-                    "x-group": "Textos",
+                    "x-group": "Comercial",
                     "x-widget": "text",
                     "title": "Medida de pecho o cintura",
                     "description": "Medida de pecho o cintura para este talle."
                   },
                   "length": {
                     "type": "string",
-                    "x-group": "Textos",
+                    "x-group": "Comercial",
                     "x-widget": "text",
                     "title": "Largo de la prenda",
                     "description": "Largo de la prenda para este talle."
                   },
                   "sleeveOrInseam": {
                     "type": "string",
-                    "x-group": "Textos",
+                    "x-group": "Comercial",
                     "x-widget": "text",
                     "title": "Largo de manga o entrepierna",
                     "description": "Largo de manga o entrepierna para este talle."
                   },
                   "recommendedHeight": {
                     "type": "string",
-                    "x-group": "Textos",
+                    "x-group": "Comercial",
                     "x-widget": "text",
                     "title": "Estatura recomendada",
                     "description": "Estatura sugerida para este talle."
                   },
                   "recommendedWeight": {
                     "type": "string",
-                    "x-group": "Textos",
+                    "x-group": "Comercial",
                     "x-widget": "text",
                     "title": "Peso recomendado",
                     "description": "Peso sugerido para este talle."
