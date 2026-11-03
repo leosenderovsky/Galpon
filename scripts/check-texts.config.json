@@ -5,5 +5,19 @@
     "src/demoBanner.config.ts",
     "src/generated/brand.types.ts"
   ],
-  "allowStrings": ["NotSupportedError"]
+  "allowStrings": ["NotSupportedError"],
+  "usedByTooling": [
+    {
+      "path": "seo.titleSuffix",
+      "reason": "vite.config.ts agrega este sufijo al título del documento durante la compilación."
+    },
+    {
+      "path": "seo.description",
+      "reason": "vite.config.ts inserta esta descripción en los metadatos HTML durante la compilación."
+    },
+    {
+      "path": "assetsWithPrototypeBranding",
+      "reason": "scripts/check-assets.mjs usa esta lista para clasificar los recursos con marca de prototipo."
+    }
+  ]
 }
