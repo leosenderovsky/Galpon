@@ -60,6 +60,22 @@
       "title": "Talles disponibles",
       "description": "Lista completa y ordenada de talles que ofrece el negocio."
     },
+    "settings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "defaultSize": {
+          "type": "string",
+          "enum": ["S", "M", "L", "XL", "XXL", "3XL", "40", "42", "44", "46", "48"],
+          "x-group": "Comercial",
+          "x-widget": "select",
+          "title": "Talle preseleccionado",
+          "description": "Talle que se elige al abrir la ficha o al sumar un producto desde la tarjeta, si el producto lo tiene. Si no lo tiene, se elige el primero."
+        }
+      },
+      "title": "Preferencias del catálogo",
+      "description": "Ajustes comerciales del catálogo."
+    },
     "products": {
       "type": "array",
       "items": {
@@ -86,6 +102,15 @@
             "x-widget": "text",
             "title": "Nombre del producto",
             "description": "Nombre que se muestra en el catálogo."
+          },
+          "cardLabel": {
+            "type": "string",
+            "x-group": "Textos",
+            "x-widget": "text",
+            "title": "Etiqueta de la tarjeta del producto",
+            "description": "Línea corta sobre el nombre en la tarjeta del catálogo (por ejemplo, un código de artículo y la línea de producto). Si la dejás vacía, se muestra el nombre de la categoría.",
+            "x-exampleData": true,
+            "examples": ["ART. 4100 • INDUMENTARIA PESADA"]
           },
           "category": {
             "type": "string",
@@ -211,7 +236,7 @@
           },
           "badgeTone": {
             "type": "string",
-            "x-group": "Secciones",
+            "x-group": "Textos",
             "x-widget": "select",
             "title": "Color de la etiqueta destacada",
             "description": "Define el color visual de la etiqueta sin depender del texto que muestra.",

@@ -32,6 +32,9 @@
     "46",
     "48"
   ],
+  "settings": {
+    "defaultSize": "L"
+  },
   "products": [
     {
       "id": "campera-chore-canvas",
@@ -81,7 +84,8 @@
       "relatedProductId": "pantalon-cargo-ripstop",
       "longDescription": "Confeccionada para cuadrillas de taller, obras y uso diario en intemperie. Resistencia abrasiva de grado industrial con holgura funcional pensada para calzar con un buzo o camisa de abrigo debajo.",
       "material": "LONA 12 OZ",
-      "badgeTone": "secondary"
+      "badgeTone": "secondary",
+      "cardLabel": "ART. 4100 • INDUMENTARIA PESADA"
     },
     {
       "id": "pantalon-cargo-ripstop",
@@ -127,7 +131,8 @@
       },
       "longDescription": "Diseñado para instaladores, mecánicos y cuadrillas en movimiento continuo. Cuenta con 6 bolsillos estratégicos con atraques en zigzag y pasacintos reforzados para portaherramientas.",
       "material": "RIPSTOP ANTIDESGARRO",
-      "badgeTone": "primary"
+      "badgeTone": "primary",
+      "cardLabel": "ART. 2280 • PANTALONERÍA"
     },
     {
       "id": "pack-remeras-heavy-duty",
@@ -173,7 +178,8 @@
       },
       "longDescription": "Remeras de verdadero algodón peinado 24/1 pesado. No se desbocan ni deforman tras los lavados de taller ni exigen cuidados especiales. Vienen en pack sellado de a dos unidades.",
       "material": "ALGODÓN 100% PEINADO",
-      "badgeTone": "accent"
+      "badgeTone": "accent",
+      "cardLabel": "ART. 1040 • BÁSICOS PESADOS"
     },
     {
       "id": "camisa-trabajo-denim",
@@ -212,7 +218,8 @@
         "hardware": "Botones de pasta industrial prensada de 4 agujeros."
       },
       "longDescription": "Construida para jornadas completas en obra, fábrica o campo. Suave al tacto pero con grosor de 9.5 oz que resiste roces sin desgarrar.",
-      "material": "DENIM 9.5 OZ"
+      "material": "DENIM 9.5 OZ",
+      "cardLabel": "ART. 3310 • CAMISERÍA TÉCNICA"
     },
     {
       "id": "buzo-frisa-gruesa",
@@ -256,7 +263,8 @@
         "hardware": "Puños y faja en ribb pesado con elastómero memoria."
       },
       "longDescription": "Frisa invisible 320g pesada con afelpado interno que conserva el calor corporal sin limitar el movimiento.",
-      "material": "FRISA INVISIBLE 320G"
+      "material": "FRISA INVISIBLE 320G",
+      "cardLabel": "ART. 5050 • ABRIGO CLÁSICO"
     },
     {
       "id": "chaleco-utilitario-termico",
@@ -301,7 +309,8 @@
       },
       "longDescription": "Ideal para tareas en intemperie que exigen brazos libres y torso abrigado. Forro interior de tafeta deslizante para poner y sacar sobre buzos o camisas sin trabarse.",
       "material": "GUATTA 150G + TAFETA",
-      "badgeTone": "secondary"
+      "badgeTone": "secondary",
+      "cardLabel": "ART. 6200 • CHALECOS TALLER"
     },
     {
       "id": "campera-parka-corderito",
@@ -348,7 +357,8 @@
       "relatedProductId": "pantalon-carpintero-canvas",
       "longDescription": "Pensada para depósitos, obras y trabajo a la intemperie en pleno invierno. Mantiene el calor sin perder libertad de movimiento y la lona encerada repele lluvia y salpicaduras.",
       "material": "LONA 12 OZ + CORDERITO",
-      "badgeTone": "secondary"
+      "badgeTone": "secondary",
+      "cardLabel": "ART. 4400 • ABRIGO DE INTEMPERIE"
     },
     {
       "id": "jean-industrial-rigido",
@@ -393,7 +403,8 @@
       },
       "relatedProductId": "camisa-trabajo-denim",
       "longDescription": "Un jean de verdad para trabajo pesado: aguanta roce, grasa y lavados de taller sin deformarse. Se va marcando con el uso y mejora con los meses.",
-      "material": "DENIM 14 OZ"
+      "material": "DENIM 14 OZ",
+      "cardLabel": "ART. 2410 • JEANERÍA PESADA"
     },
     {
       "id": "pantalon-carpintero-canvas",
@@ -440,7 +451,8 @@
       "relatedProductId": "campera-chore-canvas",
       "longDescription": "Hecho para carpinteros, instaladores y oficios de piso y rodilla. Los refuerzos dobles duplican la vida útil de la zona que más se gasta.",
       "material": "LONA 10 OZ",
-      "badgeTone": "secondary"
+      "badgeTone": "secondary",
+      "cardLabel": "ART. 2620 • PANTALONERÍA"
     },
     {
       "id": "chomba-pique-pesada",
@@ -484,7 +496,8 @@
         "hardware": "Botones de pasta de 4 agujeros y cuello en ribb indeformable."
       },
       "longDescription": "La chomba para uniformes de cuadrilla y atención al público: se ve prolija toda la jornada y aguanta los lavados industriales sin deformarse ni perder color.",
-      "material": "PIQUÉ 220G"
+      "material": "PIQUÉ 220G",
+      "cardLabel": "ART. 1220 • CHOMBAS"
     },
     {
       "id": "remera-manga-larga-heavy-duty",
@@ -531,7 +544,8 @@
       "relatedProductId": "buzo-canguro-frisa",
       "longDescription": "La base térmica de las jornadas frías: gramaje real, no se desboca ni se achica y entra cómoda debajo de un buzo o una campera.",
       "material": "ALGODÓN 100% PEINADO",
-      "badgeTone": "secondary"
+      "badgeTone": "secondary",
+      "cardLabel": "ART. 1140 • BÁSICOS PESADOS"
     },
     {
       "id": "buzo-canguro-frisa",
@@ -576,7 +590,8 @@
         "hardware": "Cordones de algodón con puntera metálica y ribb con elastómero."
       },
       "longDescription": "Abrigo diario para taller, depósito y calle. El interior esmerilado retiene el calor y la capucha doble protege cuello y nuca sin limitar el movimiento.",
-      "material": "FRISA 340G"
+      "material": "FRISA 340G",
+      "cardLabel": "ART. 5250 • ABRIGO CLÁSICO"
     }
   ]
 }

@@ -195,9 +195,11 @@ export const Catalog: React.FC = () => {
 
                 {/* Content Area */}
                 <div className="p-4 sm:p-5 flex flex-col gap-2">
-                  <span className="font-body text-[11px] uppercase tracking-wider text-brand-secondary font-bold">
-                    {CATEGORIES.find((category) => category.id === product.category)?.label}
-                  </span>
+                  <Txt
+                    as="span"
+                    className="font-body text-[11px] uppercase tracking-wider text-brand-secondary font-bold"
+                    value={product.cardLabel || CATEGORIES.find((category) => category.id === product.category)?.label}
+                  />
                   <h3 className="font-headline text-2xl uppercase text-brand-primary-deep leading-tight group-hover:text-brand-secondary transition-colors">
                     {product.name}
                   </h3>
