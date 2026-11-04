@@ -46,6 +46,7 @@ const looksLikeText = (s) => {
 
 const findings = [];
 const brandReferences = new Set();
+const completeObjectReferences = new Map();
 const resolvePath = (object, fieldPath) => fieldPath.split('.').reduce((value, key) => value?.[key], object);
 for (const entry of usedByTooling) {
   if (resolvePath(brandData, entry.path) === undefined) {
@@ -53,11 +54,31 @@ for (const entry of usedByTooling) {
   }
 }
 
-function getBrandReference(node) {
+const ARRAY_STRING_MEMBERS = new Set([
+  'at', 'charAt', 'charCodeAt', 'codePointAt', 'concat', 'copyWithin', 'entries', 'every', 'fill',
+  'filter', 'find', 'findIndex', 'findLast', 'findLastIndex', 'flat', 'flatMap', 'forEach',
+  'includes', 'indexOf', 'join', 'keys', 'lastIndexOf', 'length', 'localeCompare', 'map',
+  'match', 'matchAll', 'normalize', 'padEnd', 'padStart', 'pop', 'push', 'reduce', 'reduceRight',
+  'repeat', 'replace', 'replaceAll', 'reverse', 'search', 'shift', 'slice', 'some', 'sort',
+  'splice', 'split', 'startsWith', 'substring', 'toLocaleLowerCase', 'toLocaleUpperCase',
+  'toLowerCase', 'toString', 'toUpperCase', 'trim', 'trimEnd', 'trimStart', 'unshift', 'values',
+]);
+
+function normalizeBrandReference(reference) {
+  const finalProperty = reference.at(-1);
+  return finalProperty && ARRAY_STRING_MEMBERS.has(finalProperty)
+    ? reference.slice(0, -1)
+    : reference;
+}
+
+function getBrandReference(node, aliases) {
   if (!node || typeof node !== 'object') return undefined;
-  if (node.type === 'Identifier' && ['BRAND', 'brandJson'].includes(node.name)) return [];
+  if (node.type === 'Identifier') {
+    if (['BRAND', 'brandJson'].includes(node.name)) return [];
+    return aliases.get(node.name);
+  }
   if (node.type !== 'MemberExpression' && node.type !== 'OptionalMemberExpression') return undefined;
-  const parent = getBrandReference(node.object);
+  const parent = getBrandReference(node.object, aliases);
   if (!parent) return undefined;
   const property = node.computed
     ? node.property?.type === 'StringLiteral' ? node.property.value : undefined
@@ -65,15 +86,158 @@ function getBrandReference(node) {
   return property ? [...parent, property] : parent;
 }
 
-function collectBrandReferences(node) {
-  if (!node || typeof node !== 'object') return;
-  const reference = getBrandReference(node);
-  if (reference?.length) brandReferences.add(reference.join('.'));
-  for (const [key, value] of Object.entries(node)) {
-    if (['loc', 'leadingComments', 'trailingComments'].includes(key)) continue;
-    if (Array.isArray(value)) value.forEach(collectBrandReferences);
-    else if (value && typeof value === 'object') collectBrandReferences(value);
+function addBrandReference(reference, node, rel, asCompleteObject = false) {
+  const fieldPath = reference.join('.');
+  brandReferences.add(fieldPath);
+  if (asCompleteObject) {
+    const key = `${rel}:${node.loc.start.line}:${fieldPath}`;
+    completeObjectReferences.set(key, { rel, line: node.loc.start.line, fieldPath: fieldPath || '(raíz BRAND)' });
   }
+}
+
+function isObjectReference(reference) {
+  const value = reference.reduce((current, key) => current?.[key], brandData);
+  return value !== null && typeof value === 'object';
+}
+
+function isWholeObjectContext(node, parent, grandParent) {
+  if (parent?.type === 'SpreadElement' && parent.argument === node) return true;
+  if (parent?.type === 'JSXSpreadAttribute' && parent.argument === node) return true;
+  if (parent?.type === 'CallExpression' && parent.arguments.includes(node)) return true;
+  return parent?.type === 'JSXExpressionContainer'
+    && grandParent?.type === 'JSXAttribute'
+    && grandParent.value === parent;
+}
+
+function isIdentifierReference(node, parent) {
+  if (!parent) return true;
+  if ((parent.type === 'MemberExpression' || parent.type === 'OptionalMemberExpression')
+    && parent.property === node && !parent.computed) return false;
+  if ((parent.type === 'ObjectProperty' || parent.type === 'ObjectMethod')
+    && parent.key === node && !parent.computed && !parent.shorthand) return false;
+  if (parent.type === 'VariableDeclarator' && parent.id === node) return false;
+  if ((parent.type === 'FunctionDeclaration' || parent.type === 'FunctionExpression'
+    || parent.type === 'ClassDeclaration' || parent.type === 'ClassExpression')
+    && parent.id === node) return false;
+  if ((parent.type === 'FunctionDeclaration' || parent.type === 'FunctionExpression'
+    || parent.type === 'ArrowFunctionExpression') && parent.params.includes(node)) return false;
+  if (parent.type === 'ImportSpecifier' || parent.type === 'ImportDefaultSpecifier'
+    || parent.type === 'ImportNamespaceSpecifier' || parent.type === 'ExportSpecifier') return false;
+  return true;
+}
+
+function bindPattern(pattern, reference, aliases) {
+  if (!pattern || !reference) return;
+  if (pattern.type === 'Identifier') {
+    aliases.set(pattern.name, reference);
+    return;
+  }
+  if (pattern.type === 'AssignmentPattern') {
+    bindPattern(pattern.left, reference, aliases);
+    return;
+  }
+  if (pattern.type === 'RestElement') {
+    bindPattern(pattern.argument, reference, aliases);
+    return;
+  }
+  if (pattern.type === 'ObjectPattern') {
+    for (const property of pattern.properties) {
+      if (property.type === 'RestElement') {
+        bindPattern(property.argument, reference, aliases);
+        continue;
+      }
+      const key = property.computed
+        ? property.key?.type === 'StringLiteral' ? property.key.value : undefined
+        : property.key?.name ?? property.key?.value;
+      if (key !== undefined) bindPattern(property.value, [...reference, String(key)], aliases);
+    }
+    return;
+  }
+  if (pattern.type === 'ArrayPattern') {
+    pattern.elements.forEach((element, index) => {
+      if (element) bindPattern(element, [...reference, String(index)], aliases);
+    });
+  }
+}
+
+function clearPattern(pattern, aliases) {
+  if (!pattern) return;
+  if (pattern.type === 'Identifier') {
+    aliases.delete(pattern.name);
+    return;
+  }
+  if (pattern.type === 'AssignmentPattern' || pattern.type === 'RestElement') {
+    clearPattern(pattern.left ?? pattern.argument, aliases);
+    return;
+  }
+  if (pattern.type === 'ObjectPattern') {
+    for (const property of pattern.properties) {
+      clearPattern(property.type === 'RestElement' ? property.argument : property.value, aliases);
+    }
+    return;
+  }
+  if (pattern.type === 'ArrayPattern') pattern.elements.forEach((element) => clearPattern(element, aliases));
+}
+
+function collectBrandReferences(root, rel) {
+  function visit(node, parent, grandParent, aliases) {
+    if (!node || typeof node !== 'object') return;
+
+    if (node.type === 'VariableDeclarator') {
+      clearPattern(node.id, aliases);
+      const reference = getBrandReference(node.init, aliases);
+      if (reference !== undefined) {
+        bindPattern(node.id, normalizeBrandReference(reference), aliases);
+      } else {
+        visit(node.init, node, parent, aliases);
+      }
+      return;
+    }
+
+    if (node.type === 'ImportDeclaration') {
+      node.specifiers.forEach((specifier) => aliases.delete(specifier.local.name));
+      return;
+    }
+
+    if (node.type === 'MemberExpression' || node.type === 'OptionalMemberExpression') {
+      if ((parent?.type === 'MemberExpression' || parent?.type === 'OptionalMemberExpression') && parent.object === node) return;
+      const reference = getBrandReference(node, aliases);
+      if (reference !== undefined) {
+        const normalized = normalizeBrandReference(reference);
+        const complete = isWholeObjectContext(node, parent, grandParent) && isObjectReference(normalized);
+        addBrandReference(normalized, node, rel, complete);
+        return;
+      }
+    } else if (node.type === 'Identifier') {
+      const reference = getBrandReference(node, aliases);
+      if (reference !== undefined && isIdentifierReference(node, parent)) {
+        const complete = isWholeObjectContext(node, parent, grandParent) && isObjectReference(reference);
+        if (!['BRAND', 'brandJson'].includes(node.name) || complete) {
+          addBrandReference(reference, node, rel, complete);
+          return;
+        }
+      }
+    }
+
+    if (node.type === 'Program' || node.type === 'BlockStatement'
+      || node.type === 'FunctionDeclaration' || node.type === 'FunctionExpression'
+      || node.type === 'ArrowFunctionExpression' || node.type === 'CatchClause') {
+      aliases = new Map(aliases);
+    }
+    if (node.type === 'FunctionDeclaration' || node.type === 'FunctionExpression'
+      || node.type === 'ArrowFunctionExpression') {
+      clearPattern(node.id, aliases);
+      node.params.forEach((parameter) => clearPattern(parameter, aliases));
+    }
+    if (node.type === 'CatchClause') clearPattern(node.param, aliases);
+
+    for (const [key, value] of Object.entries(node)) {
+      if (['loc', 'leadingComments', 'trailingComments'].includes(key)) continue;
+      if (Array.isArray(value)) value.forEach((child) => visit(child, node, parent, aliases));
+      else if (value && typeof value === 'object') visit(value, node, parent, aliases);
+    }
+  }
+  visit(root, null, null, new Map());
 }
 
 function collectTextFields(schemaNode, dataNode, fieldPath = '', inheritedWidget = '') {
@@ -93,8 +257,11 @@ function collectTextFields(schemaNode, dataNode, fieldPath = '', inheritedWidget
     return;
   }
   if (typeof dataNode !== 'string' || !['text', 'textarea', 'whatsapp', 'list'].includes(widget)) return;
-  const usedInSource = [...brandReferences].some((reference) => fieldPath === reference || fieldPath.startsWith(`${reference}.`) || fieldPath.startsWith(`${reference}[`));
-  const usedByTooling = [...toolingPaths].some((toolingPath) => fieldPath === toolingPath || fieldPath.startsWith(`${toolingPath}.`) || fieldPath.startsWith(`${toolingPath}[`));
+  const coversPath = (references) => [...references].some((reference) => (
+    !reference || fieldPath === reference || fieldPath.startsWith(`${reference}.`) || fieldPath.startsWith(`${reference}[`)
+  ));
+  const usedInSource = coversPath(brandReferences);
+  const usedByTooling = coversPath(toolingPaths);
   if (!usedInSource && !usedByTooling) {
     findings.push({ rel: 'src/data/brand.json', line: 1, kind: 'clave sin uso', text: fieldPath });
   }
@@ -106,7 +273,7 @@ for (const file of files) {
   const code = fs.readFileSync(file, 'utf8');
   let ast;
   try { ast = parse(code, { sourceType: 'module', plugins: ['typescript', 'jsx'] }); } catch (e) { console.error(`check:texts ERROR - no se pudo analizar ${rel}: ${e.message}`); process.exit(1); }
-  collectBrandReferences(ast.program);
+  collectBrandReferences(ast.program, rel);
   const add = (kind, node, text) => { if (looksLikeText(text)) findings.push({ rel, line: node.loc.start.line, kind, text: text.replace(/\s+/g, ' ').trim() }); };
   (function visit(node, parent, ctx) {
     if (!node || typeof node.type !== 'string') return;
@@ -154,8 +321,26 @@ function reportUnschematizedText(schemaNode, dataNode, fieldPath = '') {
 reportUnschematizedText(brandSchema, brandData);
 
 console.log(`check:texts - ${files.length - exclude.size} archivos revisados`);
+if (completeObjectReferences.size) {
+  console.log('Referencias a objeto completo (revisar):');
+  for (const reference of completeObjectReferences.values()) {
+    console.log(`  ${reference.rel}:${reference.line} [referencia a objeto completo] "${reference.fieldPath}"`);
+  }
+}
 if (findings.length) {
-  findings.forEach((f) => console.error(`  ERROR ${f.rel}:${f.line} [${f.kind}] "${f.text.slice(0, 100)}"`));
+  const unusedKeys = findings.filter((finding) => finding.kind === 'clave sin uso');
+  const textFindings = findings.filter((finding) => finding.kind !== 'clave sin uso');
+  textFindings.forEach((f) => console.error(`  ERROR ${f.rel}:${f.line} [${f.kind}] "${f.text.slice(0, 100)}"`));
+  if (unusedKeys.length) {
+    const grouped = new Map();
+    for (const finding of unusedKeys) {
+      const [route, ...rest] = finding.text.split('.');
+      if (!grouped.has(route)) grouped.set(route, []);
+      grouped.get(route).push(rest.join('.') || '(raíz)');
+    }
+    console.error('Claves sin uso agrupadas por ruta:');
+    for (const [route, keys] of grouped) console.error(`  ${route}: ${keys.join(', ')}`);
+  }
   console.error(`\n${findings.length} texto(s) escrito(s) en el código. Movelos al JSON correspondiente de src/data/ y a su esquema para que sean editables,`);
   console.error('o, si es un dato técnico, agregalo a "allowStrings" en scripts/check-texts.config.json.');
   process.exit(1);
