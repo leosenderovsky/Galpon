@@ -41,6 +41,39 @@ for (const [name, value, schemaValue] of [['catalog.json', catalog, catalogSchem
   if (!check(value)) for (const err of check.errors ?? []) errors.push(`${name} ${err.instancePath || '/'}: ${err.message}`);
 }
 
+function checkSchemaTitles(node, schemaName, fieldPath = '') {
+  if (!node || typeof node !== 'object') return;
+  if (typeof node.title === 'string') {
+    const location = `${schemaName} ${fieldPath || '/'}`;
+    if (/^[a-záéíóúüñ]/.test(node.title)) {
+      errors.push(`${location}: el título debe comenzar con mayúscula ("${node.title}")`);
+    }
+    if (/^[^:]+:\s+\S+/.test(node.title)) {
+      errors.push(`${location}: el título no debe repetir la sección ("${node.title}")`);
+    }
+  }
+  for (const [key, child] of Object.entries(node.properties ?? {})) {
+    checkSchemaTitles(child, schemaName, fieldPath ? `${fieldPath}.${key}` : key);
+  }
+  for (const [key, child] of Object.entries(node.patternProperties ?? {})) {
+    checkSchemaTitles(child, schemaName, fieldPath ? `${fieldPath}.${key}` : key);
+  }
+  if (node.items) checkSchemaTitles(node.items, schemaName, `${fieldPath}[]`);
+}
+
+for (const [name, schemaValue] of [
+  ['brand.schema.json', schema],
+  ['catalog.schema.json', catalogSchema],
+  ['size-guide.schema.json', sizeGuideSchema],
+]) {
+  checkSchemaTitles(schemaValue, name);
+}
+
+const defaultSizeEnum = catalogSchema.properties?.settings?.properties?.defaultSize?.enum;
+if (JSON.stringify(defaultSizeEnum) !== JSON.stringify(catalog.availableSizes)) {
+  errors.push('catalog.schema.json settings.defaultSize.enum: debe coincidir y mantener el orden de catalog.json availableSizes');
+}
+
 const categoryIds = new Set(catalog.categories.map((category) => category.id));
 for (const [guideId, guide] of Object.entries(sizeGuide.guides ?? {})) {
   if (!categoryIds.has(guideId)) errors.push(`size-guide.json guides.${guideId}: no existe en catalog.json categories[].id`);

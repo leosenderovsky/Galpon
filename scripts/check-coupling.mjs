@@ -9,6 +9,7 @@ const config = JSON.parse(await readFile(new URL('./check-coupling.config.json',
 const exceptions = config.exceptions ?? {};
 const configuredValues = new Set([
   ...data.categories.map((category) => category.id),
+  ...data.availableSizes,
   ...Object.keys(sizeGuide.guides ?? {}),
   ...Object.values(sizeGuide.guides ?? {}).map((guide) => guide.category),
 ]);
@@ -35,7 +36,7 @@ function collectUnits(value, key = '') {
 
 collectUnits(data);
 collectUnits(sizeGuide);
-const forbidden = [...configuredValues].filter((value) => value.length > 1);
+const forbidden = [...configuredValues].filter((value) => value.length > 1 || data.availableSizes.includes(value));
 const findings = [];
 const sourceExtensions = /\.(?:[cm]?[jt]sx?)$/i;
 
@@ -63,7 +64,10 @@ for (const file of await filesIn(path.join(root, 'src'))) {
       continue;
     }
     const escaped = id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const pattern = new RegExp(`(?<![A-Za-z0-9_-])${escaped}(?![A-Za-z0-9_-])`, 'giu');
+    const isSize = data.availableSizes.includes(id);
+    const pattern = isSize
+      ? new RegExp(`(['"\`])${escaped}\\1`, 'gu')
+      : new RegExp(`(?<![\\p{L}\\p{N}_-])${escaped}(?![\\p{L}\\p{N}_-])`, 'giu');
     for (const match of content.matchAll(pattern)) {
       const line = content.slice(0, match.index).split('\n').length;
       findings.push(`${relative}:${line}: aparece el valor configurable "${id}"; motivo para excepción: ninguno`);
@@ -72,8 +76,8 @@ for (const file of await filesIn(path.join(root, 'src'))) {
 }
 
 if (findings.length) {
-  console.error(`check:coupling encontró ${findings.length} acoplamientos de categorías o unidades:`);
+  console.error(`check:coupling encontró ${findings.length} acoplamientos de categorías, talles o unidades:`);
   for (const finding of findings) console.error(`  ✖ ${finding}`);
   process.exit(1);
 }
-console.log('check:coupling OK: no hay categorías ni unidades configurables escritas en el código.');
+console.log('check:coupling OK: no hay categorías, talles ni unidades configurables escritas en el código.');

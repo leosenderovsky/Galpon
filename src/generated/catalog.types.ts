@@ -32,6 +32,10 @@ export type TalleDisponible = string;
  */
 export type TallesDisponibles = TalleDisponible[];
 /**
+ * Talle que se elige al abrir la ficha o al sumar un producto desde la tarjeta, si el producto lo tiene. Si no lo tiene, se elige el primero.
+ */
+export type TallePreseleccionado = "S" | "M" | "L" | "XL" | "XXL" | "3XL" | "40" | "42" | "44" | "46" | "48";
+/**
  * Identificador estable de la categoría, en kebab-case.
  */
 export type IdentificadorDelProducto = string;
@@ -43,6 +47,10 @@ export type CodigoInternoDelProducto = string;
  * Nombre que se muestra en el catálogo.
  */
 export type NombreDelProducto = string;
+/**
+ * Línea corta sobre el nombre en la tarjeta del catálogo (por ejemplo, un código de artículo y la línea de producto). Si la dejás vacía, se muestra el nombre de la categoría.
+ */
+export type EtiquetaDeLaTarjetaDelProducto = string;
 /**
  * Debe coincidir con una categoría definida en el catálogo.
  */
@@ -145,6 +153,7 @@ export type ProductosDelCatalogo = {
   id: IdentificadorDelProducto;
   sku: CodigoInternoDelProducto;
   name: NombreDelProducto;
+  cardLabel?: EtiquetaDeLaTarjetaDelProducto;
   category: IdentificadorDeLaCategoria1;
   price: PrecioDeVenta;
   wholesalePrice: PrecioMayorista;
@@ -169,7 +178,14 @@ export interface CatalogConfig {
   schemaVersion: VersionDelFormato;
   categories: CategoriasDelCatalogo;
   availableSizes: TallesDisponibles;
+  settings?: PreferenciasDelCatalogo;
   products: ProductosDelCatalogo;
+}
+/**
+ * Ajustes comerciales del catálogo.
+ */
+export interface PreferenciasDelCatalogo {
+  defaultSize?: TallePreseleccionado;
 }
 /**
  * Detalles de materiales, confección y componentes.

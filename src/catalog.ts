@@ -14,7 +14,15 @@ export const CATEGORIES = [
   ...catalog.categories,
 ] as const;
 export const AVAILABLE_SIZES = catalog.availableSizes;
+export const CATALOG_SETTINGS = catalog.settings;
 export const PRODUCTS: Product[] = catalog.products;
+
+export function getProductDefaultSize(product: Product): string {
+  const preferredSize = CATALOG_SETTINGS?.defaultSize;
+  return preferredSize && product.sizes.includes(preferredSize)
+    ? preferredSize
+    : product.sizes[0] ?? AVAILABLE_SIZES[0] ?? '';
+}
 
 export function getImageDimensions(src: string) {
   return Object.hasOwn(imageDimensions, src)

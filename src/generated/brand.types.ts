@@ -11,15 +11,15 @@ export type IdentificadorDelSitio = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type Nombre = string;
+export type NombreDeLaMarca = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type LegalNombre = string;
+export type RazonSocial = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type CortoNombre = string;
+export type NombreAbreviado = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
@@ -27,7 +27,7 @@ export type FraseDeLaMarca = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type FundacionAno = string;
+export type AnoDeFundacion = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
@@ -35,19 +35,19 @@ export type CUIT = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type WhatsAppVisible = string;
+export type NumeroVisibleDeWhatsApp = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type WhatsAppSinFormatoNumero = string;
+export type NumeroDeWhatsAppParaLosEnlaces = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type WhatsAppPredeterminadoConsultaTexto = string;
+export type MensajePredeterminadoParaConsultasPorWhatsApp = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type WhatsAppMayoristaConsultaTexto = string;
+export type MensajeParaConsultasMayoristasPorWhatsApp = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
@@ -55,151 +55,151 @@ export type CorreoElectronico = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresColorPrincipal = string;
+export type ColorPrincipal = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresPrimaryProfundo = string;
+export type ColorPrincipalOscuro = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresColorSecundario = string;
+export type ColorSecundario = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresSecundarioOscuro = string;
+export type SecundarioOscuro = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresAcento = string;
+export type Acento = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresAcentoClaro = string;
+export type AcentoClaro = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresAcentoSobre = string;
+export type AcentoSobre = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresFondo = string;
+export type Fondo = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresFondoDePagina = string;
+export type FondoDePagina = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresFondoApagado = string;
+export type FondoApagado = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresFondoSutil = string;
+export type FondoSutil = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresFondoCursorEncima = string;
+export type FondoCursorEncima = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresBorde = string;
+export type Borde = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresBordeSuave = string;
+export type BordeSuave = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresBordeFuerte = string;
+export type BordeFuerte = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresTexto = string;
+export type Texto = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresTextoSecondary = string;
+export type TextoSecundario = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresTextoApagado = string;
+export type TextoApagado = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresTextoSobreOscuro = string;
+export type TextoSobreOscuro = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresPeligro = string;
+export type Peligro = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresWhatsApp = string;
+export type WhatsApp1 = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresWhatsAppCursorEncima = string;
+export type ColorDeWhatsAppAlPasarElCursor = string;
 /**
  * Color en formato #RRGGBB.
  */
-export type ColoresSeleccion = string;
+export type Seleccion = string;
 /**
  * Dirección web completa (https://…).
  */
-export type TipografiasHojaDeFuentes = string;
+export type HojaDeFuentes = string;
 /**
  * Dirección web completa (https://…).
  */
-export type TipografiasIconHojaDeEstilosUrl = string;
+export type DireccionDeLaHojaDeEstilosDeIconos = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type TipografiasTitulosFuente = string;
+export type FamiliaTipograficaDeLosTitulos = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type TipografiasBodyFuente = string;
+export type FamiliaTipograficaDelTexto = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type SEOYRedesSufijoDelTitulo = string;
+export type TituloDeSufijoDel = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type SEOYRedesDescripcion = string;
+export type Descripcion = string;
 /**
  * Ruta pública de la imagen (carpeta public/assets).
  */
-export type SEOYRedesImagenParaRedes = string;
+export type ImagenParaRedes = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type DepositoYRetiroCorto = string;
+export type DireccionBreve = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type DepositoYRetiroCompleto = string;
+export type DireccionCompleta = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type DepositoYRetiroCiudad = string;
+export type Ciudad = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type DepositoYRetiroDepositoNombre = string;
+export type NombreDelDeposito = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type DepositoYRetiroEmpaqueEtiqueta = string;
+export type EtiquetaDeEmpaque = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type DepositoYRetiroRetiroEtiqueta = string;
+export type EtiquetaDeRetiro = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type DepositoYRetiroRetiroHorario = string;
+export type HorarioDeRetiro = string;
 /**
  * Cantidad de días disponibles para solicitar un cambio.
  */
@@ -207,27 +207,27 @@ export type DiasParaCambios = number;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type EnviosDomicilioEntregaEtiqueta = string;
+export type EtiquetaDeEntregaADomicilio = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type EnviosDomicilioEntregaDescripcion = string;
+export type DescripcionDeLaEntregaADomicilio = string;
 /**
  * Ruta pública de la imagen (carpeta public/assets).
  */
-export type LogoArchivo = string;
+export type Archivo = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type LogoTextoAlternativo = string;
+export type TextoAlternativo = string;
 /**
  * Ruta pública de la imagen (carpeta public/assets).
  */
-export type LogoFavicon32 = string;
+export type IconoDelSitioDe32Pixeles = string;
 /**
  * Ruta pública de la imagen (carpeta public/assets).
  */
-export type LogoAppleTouchIcon = string;
+export type IconoParaDispositivosApple = string;
 /**
  * Ruta opcional de una versión clara del logo (public/assets/logo-light.png).
  */
@@ -235,184 +235,184 @@ export type LogoParaFondosOscuros = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PortadaSello = string;
+export type Sello = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PortadaTitulo = string;
+export type Titulo = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PortadaDescripcion = string;
+export type Descripcion1 = string;
 /**
  * Ruta pública de la imagen (carpeta public/assets).
  */
-export type PortadaFondoImagen = string;
+export type FondoImagen = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PortadaCtaCatalogoTexto = string;
+export type TextoDelBotonParaVerElCatalogo = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PortadaCtaHowToBuyTexto = string;
+export type TextoDelBotonParaConocerComoComprar = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type VentajasDeLaPortadaIcono = string;
+export type Icono = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type VentajasDeLaPortadaTitulo = string;
+export type Titulo1 = string;
 /**
  * Íconos con frases cortas bajo los botones.
  */
 export type VentajasDeLaPortada = {
-  icon: VentajasDeLaPortadaIcono;
-  title: VentajasDeLaPortadaTitulo;
+  icon: Icono;
+  title: Titulo1;
 }[];
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type BarraDeAnuncioIzquierdaTexto = string;
+export type IzquierdaTexto = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type BarraDeAnuncioDerechaTexto = string;
+export type DerechaTexto = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type BarraDeAnuncioSubHighlight = string;
+export type TextoDestacado = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ComoComprarFraseDeLaMarca = string;
+export type FraseDeLaMarca1 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ComoComprarTitulo = string;
+export type Titulo2 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ComoComprarDescripcion = string;
+export type Descripcion2 = string;
 /**
  * Video de compra en formato H.264 + AAC, proporción 16:9, entre 30 y 60 segundos y hasta 15 MB.
  */
-export type ComoComprarVideoUrl = string;
+export type VideoDireccionWeb = string;
 /**
  * Ruta pública de la imagen (carpeta public/assets).
  */
-export type ComoComprarImagenDePortadaUrl = string;
+export type ImagenDePortadaDireccionWeb = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ComoComprarAyudaMensaje = string;
+export type AyudaMensaje = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ComoComprarSello = string;
+export type Sello1 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ComoComprarDuracion = string;
+export type Duracion = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ComoComprarLeyenda = string;
+export type Leyenda = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PasosNumero = string;
+export type Numero = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PasosSello = string;
+export type Sello2 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PasosTitulo = string;
+export type Titulo3 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PasosDescripcion = string;
+export type Descripcion3 = string;
 /**
  * Los tres pasos del proceso de compra.
  */
 export type Pasos = {
-  number: PasosNumero;
-  badge: PasosSello;
-  title: PasosTitulo;
-  description: PasosDescripcion;
+  number: Numero;
+  badge: Sello2;
+  title: Titulo3;
+  description: Descripcion3;
 }[];
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type MayoristasSello = string;
+export type Sello3 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type MayoristasTitulo = string;
+export type Titulo4 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type MayoristasDescripcion = string;
+export type Descripcion4 = string;
 /**
  * Lista editable.
  */
-export type MayoristasVinetas = string[];
+export type Vinetas = string[];
 /**
  * Valor numérico.
  */
-export type MayoristasCarritoMayoristaObjetivo = number;
+export type MontoObjetivoParaElPedidoMayorista = number;
 /**
  * Valor numérico.
  */
-export type MayoristasComboMinimoPrendas = number;
+export type CantidadMinimaDePrendasPorConjunto = number;
 /**
  * Valor numérico.
  */
-export type MayoristasComboDescuentoPorcentaje = number;
+export type PorcentajeDeDescuentoPorConjunto = number;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type RedesSocialesInstagram = string;
+export type Instagram = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type RedesSocialesFacebook = string;
+export type Facebook = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type RedesSocialesLinkedIn = string;
+export type LinkedIn = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type TestimoniosIniciales = string;
+export type Iniciales = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type TestimoniosNombre = string;
+export type Nombre = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type TestimoniosCargo = string;
+export type Cargo = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type TestimoniosTexto = string;
+export type Texto1 = string;
 /**
  * Clase técnica de Tailwind con color hexadecimal, no un selector de color. Como alternativa, usar tokens del tema.
  */
-export type TestimoniosColor = string;
+export type Color = string;
 /**
  * Opiniones de clientes (deben ser reales y autorizadas).
  */
 export type Testimonios = {
-  initials: TestimoniosIniciales;
-  name: TestimoniosNombre;
-  role: TestimoniosCargo;
-  text: TestimoniosTexto;
-  color: TestimoniosColor;
+  initials: Iniciales;
+  name: Nombre;
+  role: Cargo;
+  text: Texto1;
+  color: Color;
 }[];
 /**
  * Muestra el aviso de demostración de Tienda ON!.
@@ -421,31 +421,31 @@ export type MostrarAvisoDePrototipo = boolean;
 /**
  * Activa o desactiva este elemento.
  */
-export type DemostracionPrecargaCarrito = boolean;
+export type PrecargaCarrito = boolean;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ClienteDeEjemploCompletoNombre = string;
+export type CompletoNombre = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ClienteDeEjemploTelefono = string;
+export type Telefono = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ClienteDeEjemploCorreoElectronico = string;
+export type CorreoElectronico1 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ClienteDeEjemploCalle = string;
+export type Calle = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ClienteDeEjemploPostalCodigo = string;
+export type PostalCodigo = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type ClienteDeEjemploNotas = string;
+export type Notas = string;
 /**
  * Archivos que muestran la marca ficticia y deben regenerarse para un cliente real.
  */
@@ -453,79 +453,527 @@ export type ImagenesConMarcaDePrototipo = string[];
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type BarraDePedidoCelularBotonConfirmar = string;
+export type BotonConfirmar = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.
  */
-export type BarraDePedidoCelularEtiqueta = string;
+export type Etiqueta = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type BotonFlotanteDeWhatsAppEtiqueta = string;
+export type Etiqueta1 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type BotonFlotanteDeWhatsAppTitulo = string;
+export type Titulo5 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoEtiquetaAccesibleDeCerrar = string;
+export type EtiquetaAccesibleDeCerrar = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoMayoristaTitulo = string;
+export type TituloDeMayorista = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoObjetivoAlcanzado = string;
+export type ObjetivoAlcanzado = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoMayoristaAlcanzadoMensaje = string;
+export type MayoristaAlcanzadoMensaje = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoTituloVacio = string;
+export type TituloVacio = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoDescripcionVacia = string;
+export type DescripcionVacia = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoBotonVacio = string;
+export type BotonVacio = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoTalleEtiqueta = string;
+export type EtiquetaDeTalle = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoReinforcedSello = string;
+export type SelloDePrendaReforzada = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoEtiquetaAccesibleDeRestar = string;
+export type EtiquetaAccesibleDeRestar = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoEtiquetaAccesibleDeSumar = string;
+export type EtiquetaAccesibleDeSumar = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoQuitar = string;
+export type Quitar = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoEmpaqueNota = string;
+export type EmpaqueNota = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoEnvio = string;
+export type Envio = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoNotaDeEnvio = string;
+export type NotaDeEnvio = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Total = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type NotaDelTotal = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type SinPasarelaEmphasis = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AvisoCuandoNoHayPasarelaDePago = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type BotonContinuar = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type BotonSeguirComprando = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type ConfianzaHumana = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type ConfianzaDespacho = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.
+ */
+export type Titulo6 = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {amount}. Dejalo vacío para ocultar el elemento.
+ */
+export type Faltante = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {amount}, {target}. Dejalo vacío para ocultar el elemento.
+ */
+export type MayoristaAvance = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaDeColor = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.
+ */
+export type Subtotal = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {min}, {percent}. Dejalo vacío para ocultar el elemento.
+ */
+export type Combo = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type ColorEstandar = string;
+/**
+ * Texto que aparece para mostrar todos los productos. Dejalo vacío para ocultar la opción.
+ */
+export type EtiquetaDeTodasLasCategorias = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Sobretitulo = string;
+/**
+ * Texto con la variable {year}, que indica el año actual del catálogo.
+ */
+export type Titulo7 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Descripcion5 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaDeTalleFiltro = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type BotonParaTalleGuia = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaDeOrden = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type OrdenPopulares = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type OrdenPrecioAscendente = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type OrdenPrecioDescendente = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type VerFicha = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TarjetaTalles = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TarjetaColores = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type MinoristaPrecio = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Medidas = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type BotonAgregar = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloVacio1 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type DescripcionVacia1 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type BotonVerTodos = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeLaInvitacionAConsultarTalles = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type MensajeDeLaInvitacionAConsultarTalles = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type BotonParaConsultarTalles = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AgregadoAviso = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type VerCarrito = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.
+ */
+export type CantidadDeProductosVisibles = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Titulo8 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Paso1 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Paso2 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Paso3 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Paso4 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaAccesibleDeCerrar1 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeSinPasarela = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type HumanaSello = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeContacto = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Obligatorio = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type CampoNombre = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AyudaParaNombre = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type CampoTelefono = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AyudaDelTelefono = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaDeCorreo = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AyudaParaCorreo = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeEntrega = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EntregaPista = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type CotizacionSegunElCodigoPostal = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Gratis = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeExpres = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type ExpresSello = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type DescripcionDeExpres = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type DestinoPista = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaDeCalle = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AyudaParaCalle = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaDePisoDepto = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AyudaParaPisoDepto = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaDeCodigoPostal = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AyudaParaCodigoPostal = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaDeCiudad = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeNotas = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Opcional = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaDeNotas = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AyudaDelCampoAclaraciones = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AyudaParaNotas = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Editar = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Subtotal1 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EnvioCosto = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type RetiroGratis = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EnvioPorWhatsApp = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Total1 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeLaVistaPrevia = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type SelloDeLaVistaPrevia = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type VistaPreviaNota = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type BotonConfirmar1 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeConfianzaFactura = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type ConfianzaFacturaTexto = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeConfianzaExistencias = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type ConfianzaExistenciasTexto = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {number}. Dejalo vacío para ocultar el elemento.
+ */
+export type PedidoNumero = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AvisoCuandoNoHayPasarelaDePago1 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaDeExpres = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeDestino = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {city}. Dejalo vacío para ocultar el elemento.
+ */
+export type AyudaParaCiudad = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.
+ */
+export type TituloDeResumen = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {size}, {color}. Dejalo vacío para ocultar el elemento.
+ */
+export type TalleYColor = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {min}, {percent}. Dejalo vacío para ocultar el elemento.
+ */
+export type Combo1 = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {address}, {hours}. Dejalo vacío para ocultar el elemento.
+ */
+export type RetiroDetalles = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type ResponseStart = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type ResponseFuerte = string;
+/**
+ * Texto con variables que el sitio reemplaza solo: {hours}. Dejalo vacío para ocultar el elemento.
+ */
+export type ResponseEnd = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type AyudaParaCorreo1 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type SuperiorEnvio = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type SuperiorMayorista = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type SuperiorTalleTable = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Catalogo1 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Compra = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Mayorista = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type Contacto = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type WhatsApp2 = string;
+/**
+ * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
+ */
+export type EtiquetaAccesibleDelCarrito = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
@@ -533,639 +981,191 @@ export type CarritoTotal = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoNotaDelTotal = string;
+export type EtiquetaDeMenu = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoSinPasarelaEmphasis = string;
+export type MovilCatalogo = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoSinPasarelaTexto = string;
+export type MovilCompra = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoBotonContinuar = string;
+export type MovilMayorista = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoBotonSeguirComprando = string;
+export type MovilTalleGuia = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type CarritoConfianzaHumana = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CarritoConfianzaDespacho = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.
- */
-export type CarritoTitulo = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {amount}. Dejalo vacío para ocultar el elemento.
- */
-export type CarritoMissing = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {amount}, {target}. Dejalo vacío para ocultar el elemento.
- */
-export type CarritoMayoristaAvance = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CarritoColorEtiqueta = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.
- */
-export type CarritoSubtotal = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {min}, {percent}. Dejalo vacío para ocultar el elemento.
- */
-export type CarritoCombo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoEstandarColor = string;
-/**
- * Texto que aparece para mostrar todos los productos. Dejalo vacío para ocultar la opción.
- */
-export type CatalogoEtiquetaDeTodasLasCategorias = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoSobretitulo = string;
-/**
- * Texto con la variable {year}, que indica el año actual del catálogo.
- */
-export type CatalogoTitulo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoDescripcion = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoTalleFiltroEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoTalleGuiaBoton = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoOrdenEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoOrdenPopulares = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoOrdenPrecioAscendente = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoOrdenPrecioDescendente = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoVerFicha = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoTarjetaTalles = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoTarjetaColores = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoMinoristaPrecio = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoMedidas = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoBotonAgregar = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoTituloVacio = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoDescripcionVacia = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoBotonVerTodos = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoTalleCtaTitulo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoTalleCtaTexto = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoTalleCtaBoton = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoAgregadoAviso = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoVerCarrito = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.
- */
-export type CatalogoActivosCount = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutTitulo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutPaso1 = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutPaso2 = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutPaso3 = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutPaso4 = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutEtiquetaAccesibleDeCerrar = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutSinPasarelaTitulo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutHumanaSello = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutContactoTitulo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutObligatorio = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCampoNombre = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutNombreAyuda = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCampoTelefono = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutAyudaDelTelefono = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCorreoEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCorreoAyuda = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutEntregaTitulo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutEntregaPista = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutQuotePorCodigoPostal = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutGratis = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutExpresTitulo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutExpresSello = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutExpresDescripcion = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutDestinoPista = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCalleEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCalleAyuda = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutPisoDeptoEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutPisoDeptoAyuda = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCodigoPostalEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCodigoPostalAyuda = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCiudadEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutNotasTitulo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutOpcional = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutNotasEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutAyudaDelCampoAclaraciones = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutNotasAyuda = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutEditar = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutSubtotal = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutEnvioCosto = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutRetiroGratis = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutEnvioPorWhatsApp = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutTotal = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutTituloDeLaVistaPrevia = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutSelloDeLaVistaPrevia = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutVistaPreviaNota = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutBotonConfirmar = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutConfianzaFacturaTitulo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutConfianzaFacturaTexto = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutConfianzaStockTitulo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutConfianzaStockTexto = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {number}. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutPedidoNumero = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutSinPasarelaTexto = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutExpresEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutDestinoTitulo = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {city}. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCiudadAyuda = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutResumenTitulo = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {size}, {color}. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutTalleColor = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {min}, {percent}. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCombo = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {address}, {hours}. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutRetiroDetails = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutResponseStart = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutResponseFuerte = string;
-/**
- * Texto con variables que el sitio reemplaza solo: {hours}. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutResponseEnd = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type CheckoutCorreoAyuda1 = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionSuperiorEnvio = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionSuperiorMayorista = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionSuperiorTalleTable = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionCatalogo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionHowToBuy = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionMayorista = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionContacto = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionWhatsApp = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionEtiquetaAccesibleDelCarrito = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionCarritoTotal = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionMenuEtiqueta = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionMovilCatalogo = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionMovilHowToBuy = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionMovilMayorista = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionMovilTalleGuia = string;
-/**
- * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
- */
-export type BarraDeNavegacionMovilContacto = string;
+export type MovilContacto = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {place}. Dejalo vacío para ocultar el elemento.
  */
-export type BarraDeNavegacionSuperiorDepositoLinea = string;
+export type LineaDeSuperiorDeposito = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {name}. Dejalo vacío para ocultar el elemento.
  */
-export type BarraDeNavegacionDomicilioEtiqueta = string;
+export type EtiquetaDeDomicilio = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {phone}. Dejalo vacío para ocultar el elemento.
  */
-export type BarraDeNavegacionMovilWhatsAppLinea = string;
+export type TextoDeWhatsAppParaMoviles = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaPredeterminadoColor = string;
+export type ColorPredeterminado = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaTitulo = string;
+export type Titulo9 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaSubtitulo = string;
+export type Subtitulo = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaEtiquetaAccesibleDeCerrar = string;
+export type EtiquetaAccesibleDeCerrar2 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaSerie = string;
+export type Serie = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaDetalleTitulo = string;
+export type TituloDeDetalle = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaVista1 = string;
+export type Vista1 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaVista2 = string;
+export type Vista2 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaVista3 = string;
+export type Vista3 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaVista4 = string;
+export type Vista4 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaEspecificacionesTitulo = string;
+export type TituloDeEspecificaciones = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaEspecificacionTela = string;
+export type EspecificacionTela = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaPredeterminadoTela = string;
+export type PredeterminadoTela = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaEspecificacionConfeccion = string;
+export type EspecificacionConfeccion = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaPredeterminadoConfeccion = string;
+export type PredeterminadoConfeccion = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaEspecificacionHerrajes = string;
+export type EspecificacionHerrajes = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaPredeterminadoHerrajes = string;
+export type PredeterminadoHerrajes = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaLinea = string;
+export type Linea = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaStock = string;
+export type Existencias = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaMinoristaPrecio = string;
+export type MinoristaPrecio1 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaIVAIncluido = string;
+export type IVAIncluido = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaFacturaNota = string;
+export type FacturaNota = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaMayoristaCU = string;
+export type MayoristaCU = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaSeleccionadoTalle = string;
+export type SeleccionadoTalle = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaTalleGuia = string;
+export type TalleGuia = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaEtiquetaAccesibleDeRestar = string;
+export type EtiquetaAccesibleDeRestar1 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaEtiquetaAccesibleDeSumar = string;
+export type EtiquetaAccesibleDeSumar1 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaBotonAgregarAlPedido = string;
+export type BotonAgregarAlPedido = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaConsultarStock = string;
+export type ConsultarExistencias = string;
 /**
  * Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio.
  */
-export type FichaTecnicaConfianzaCambio = string;
+export type ConfianzaCambio = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaConfianzaEnvio = string;
+export type ConfianzaEnvio = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaVentaCruzadaVentaTitulo = string;
+export type TituloDeVentaCruzadaVenta = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaVentaCruzadaVentaTexto = string;
+export type VentaCruzadaVentaTexto = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaVentaCruzadaVentaBoton = string;
+export type BotonParaVentaCruzadaVenta = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaPredeterminadoLote = string;
+export type PredeterminadoLote = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaLoteLinea = string;
+export type LineaDeLote = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaOrigenLinea = string;
+export type LineaDeOrigen = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {number}. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaVerTextoAlternativo = string;
+export type VerTextoAlternativo = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {units}. Dejalo vacío para ocultar el elemento.
  */
@@ -1173,309 +1173,309 @@ export type TextoDesdeLaCantidadMinimaMayorista = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {percent}. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaDescuentoSello = string;
+export type DescuentoSello = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {amount}. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaAhorroLinea = string;
+export type LineaDeAhorro = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaSeleccionadoColor = string;
+export type ColorSeleccionado = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {count}. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaColoresCount = string;
+export type ColoresCantidad = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {quantity}. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaAgregadoToPedido = string;
+export type AvisoDeProductoAgregadoAlPedido = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {name}, {product}, {sku}, {units}. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaWhatsAppConsulta = string;
+export type ConsultaPorWhatsApp = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FichaTecnicaSKUEtiqueta = string;
+export type EtiquetaDeCodigo = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type GuiaDeTallesTitulo = string;
+export type Titulo10 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type GuiaDeTallesEtiquetaAccesibleDeCerrar = string;
+export type EtiquetaAccesibleDeCerrar3 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type GuiaDeTallesConsejoTitulo = string;
+export type TituloDeConsejo = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type GuiaDeTallesAyuda = string;
+export type Ayuda = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type GuiaDeTallesCerrar = string;
+export type Cerrar = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {tolerance}. Dejalo vacío para ocultar el elemento.
  */
-export type GuiaDeTallesToleranciaLinea = string;
+export type LineaDeTolerancia = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type VideoReproducirError = string;
+export type ReproducirError = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type VideoReproducirGuiaEtiqueta = string;
+export type EtiquetaDeReproducirGuia = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type VideoDescartar = string;
+export type Descartar = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type VideoPausarEtiqueta = string;
+export type EtiquetaDePausar = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type VideoReproducirEtiqueta = string;
+export type EtiquetaDeReproducir = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type VideoSilenciarEtiqueta = string;
+export type EtiquetaDeSilenciar = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type VideoStepSello = string;
+export type SelloDelPaso = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type VideoPantallaCompletaEtiqueta = string;
+export type EtiquetaDePantallaCompleta = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaPendiente = string;
+export type Pendiente = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaPredeterminadoCantidad = string;
+export type PredeterminadoCantidad = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaCierre = string;
+export type Cierre = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaTitulo = string;
+export type Titulo11 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaSubtitulo = string;
+export type Subtitulo1 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaCampoNombre = string;
+export type CampoNombre1 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaNombreAyuda = string;
+export type AyudaParaNombre1 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaCampoTelefono = string;
+export type CampoTelefono1 = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaCantidadEtiqueta = string;
+export type EtiquetaDeCantidad = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaCantidadAyuda = string;
+export type AyudaParaCantidad = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaEnviar = string;
+export type Enviar = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {name}. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaIntroduccion = string;
+export type Introduccion = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaEmpresaLinea = string;
+export type LineaDeEmpresa = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaLineaDelTelefono = string;
+export type LineaDelTelefono = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type FormularioMayoristaCantidadLinea = string;
+export type LineaDeCantidad = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoEnvioPendiente = string;
+export type EnvioPendiente = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoNoEspecificado = string;
+export type NoEspecificado = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoSinNotas = string;
+export type SinNotas = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoCierre = string;
+export type Cierre1 = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {name}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoTituloDelPedido = string;
+export type TituloDelPedido = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {quantity}, {name}, {size}, {color}, {price}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoLineaDeProducto = string;
+export type LineaDeProducto = string;
 /**
  * Texto de la interfaz. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoSinPrendas = string;
+export type SinPrendas = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {min}, {percent}, {amount}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoDescuentoLinea = string;
+export type LineaDeDescuento = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {subtotal}, {discount}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoSubtotalLinea = string;
+export type LineaDeSubtotal = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {total}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoLineaDelTotal = string;
+export type LineaDelTotal = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoLineaDelCliente = string;
+export type LineaDelCliente = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoLineaDelTelefono = string;
+export type LineaDelTelefono1 = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoCorreoLinea = string;
+export type LineaDeCorreo = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoLineaDeModalidad = string;
+export type LineaDeModalidad = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoDestinoLinea = string;
+export type LineaDeDestino = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {value}. Dejalo vacío para ocultar el elemento.
  */
-export type MensajeDelPedidoNotasLinea = string;
+export type LineaDeNotas = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaAcercaDe = string;
+export type AcercaDe = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaGarantia = string;
+export type Garantia = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaAyudaTitulo = string;
+export type AyudaParaTituloDe = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaAyudaTalleGuia = string;
+export type AyudaTalleGuia = string;
 /**
  * Texto con la variable {days}, que indica cuántos días hay para solicitar un cambio.
  */
-export type PieDePaginaAyudaDevoluciones = string;
+export type AyudaDevoluciones = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaAyudaEnvio = string;
+export type AyudaEnvio = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaAyudaSeguimiento = string;
+export type AyudaSeguimiento = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaMayoristaTitulo = string;
+export type TituloDeMayorista1 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaMayoristaPresupuestos = string;
+export type MayoristaPresupuestos = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaMayoristaFactura = string;
+export type MayoristaFactura = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaMayoristaMesa = string;
+export type MayoristaMesa = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaContactoTitulo = string;
+export type TituloDeContacto1 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaWhatsAppAccesibilidad = string;
+export type TextoAccesibleParaWhatsApp = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaCorreoAccesibilidad = string;
+export type CorreoAccesibilidad = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaTelefonoAccesibilidad = string;
+export type TelefonoAccesibilidad = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaInstagramEtiqueta = string;
+export type EtiquetaDeInstagram = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaFacebookEtiqueta = string;
+export type EtiquetaDeFacebook = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaLinkedInEtiqueta = string;
+export type EtiquetaDeLinkedIn = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaConsumidorDefensa = string;
+export type ConsumidorDefensa = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {phone}. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaWhatsAppLinea = string;
+export type TextoDeWhatsApp = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {year}, {name}. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaDerechosDeAutor = string;
+export type DerechosDeAutor = string;
 /**
  * Texto con variables que el sitio reemplaza solo: {cuit}. Dejalo vacío para ocultar el elemento.
  */
-export type PieDePaginaCUITLinea = string;
+export type LineaDeCUIT = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type SeccionDeTestimoniosTitulo = string;
+export type Titulo12 = string;
 /**
  * Texto editable. Dejalo vacío para ocultar el elemento.
  */
-export type SeccionDeTestimoniosSello = string;
+export type Sello4 = string;
 /**
- * Texto base de prototipo. El sitio lo completa con el nombre del servicio (no se edita en brand.json).
+ * Leyenda editable del pie de página. Se agrega el nombre de la marca de demostración cuando está configurado.
  */
 export type LeyendaDeDemostracion = string;
 
@@ -1485,11 +1485,11 @@ export type LeyendaDeDemostracion = string;
 export interface BrandConfig {
   schemaVersion: VersionDelEsquema;
   site: IdentificadorDelSitio;
-  name: Nombre;
-  legalName: LegalNombre;
-  shortName: CortoNombre;
+  name: NombreDeLaMarca;
+  legalName: RazonSocial;
+  shortName: NombreAbreviado;
   tagline: FraseDeLaMarca;
-  foundedYear: FundacionAno;
+  foundedYear: AnoDeFundacion;
   cuit: CUIT;
   whatsapp: WhatsApp;
   email: CorreoElectronico;
@@ -1515,96 +1515,96 @@ export interface BrandConfig {
  * Número y mensajes predeterminados.
  */
 export interface WhatsApp {
-  display: WhatsAppVisible;
-  rawNumber: WhatsAppSinFormatoNumero;
-  defaultInquiryText: WhatsAppPredeterminadoConsultaTexto;
-  wholesaleInquiryText: WhatsAppMayoristaConsultaTexto;
+  display: NumeroVisibleDeWhatsApp;
+  rawNumber: NumeroDeWhatsAppParaLosEnlaces;
+  defaultInquiryText: MensajePredeterminadoParaConsultasPorWhatsApp;
+  wholesaleInquiryText: MensajeParaConsultasMayoristasPorWhatsApp;
 }
 /**
  * Paleta del sitio. Todos en formato #RRGGBB.
  */
 export interface Colores {
-  primary: ColoresColorPrincipal;
-  primaryDeep: ColoresPrimaryProfundo;
-  secondary: ColoresColorSecundario;
-  secondaryDark: ColoresSecundarioOscuro;
-  accent: ColoresAcento;
-  accentLight: ColoresAcentoClaro;
-  accentOn: ColoresAcentoSobre;
-  background: ColoresFondo;
-  surface: ColoresFondoDePagina;
-  surfaceMuted: ColoresFondoApagado;
-  surfaceSubtle: ColoresFondoSutil;
-  surfaceHover: ColoresFondoCursorEncima;
-  border: ColoresBorde;
-  borderSoft: ColoresBordeSuave;
-  borderStrong: ColoresBordeFuerte;
-  text: ColoresTexto;
-  textSecondary: ColoresTextoSecondary;
-  textMuted: ColoresTextoApagado;
-  textOnDark: ColoresTextoSobreOscuro;
-  danger: ColoresPeligro;
-  whatsapp: ColoresWhatsApp;
-  whatsappHover: ColoresWhatsAppCursorEncima;
-  selection: ColoresSeleccion;
+  primary: ColorPrincipal;
+  primaryDeep: ColorPrincipalOscuro;
+  secondary: ColorSecundario;
+  secondaryDark: SecundarioOscuro;
+  accent: Acento;
+  accentLight: AcentoClaro;
+  accentOn: AcentoSobre;
+  background: Fondo;
+  surface: FondoDePagina;
+  surfaceMuted: FondoApagado;
+  surfaceSubtle: FondoSutil;
+  surfaceHover: FondoCursorEncima;
+  border: Borde;
+  borderSoft: BordeSuave;
+  borderStrong: BordeFuerte;
+  text: Texto;
+  textSecondary: TextoSecundario;
+  textMuted: TextoApagado;
+  textOnDark: TextoSobreOscuro;
+  danger: Peligro;
+  whatsapp: WhatsApp1;
+  whatsappHover: ColorDeWhatsAppAlPasarElCursor;
+  selection: Seleccion;
 }
 /**
  * Familias tipográficas y hojas de fuentes.
  */
 export interface Tipografias {
-  stylesheetUrl: TipografiasHojaDeFuentes;
-  iconStylesheetUrl: TipografiasIconHojaDeEstilosUrl;
-  headlineFamily: TipografiasTitulosFuente;
-  bodyFamily: TipografiasBodyFuente;
+  stylesheetUrl: HojaDeFuentes;
+  iconStylesheetUrl: DireccionDeLaHojaDeEstilosDeIconos;
+  headlineFamily: FamiliaTipograficaDeLosTitulos;
+  bodyFamily: FamiliaTipograficaDelTexto;
 }
 /**
  * Título, descripción e imagen al compartir.
  */
 export interface SEOYRedes {
-  titleSuffix: SEOYRedesSufijoDelTitulo;
-  description: SEOYRedesDescripcion;
-  socialImage: SEOYRedesImagenParaRedes;
+  titleSuffix: TituloDeSufijoDel;
+  description: Descripcion;
+  socialImage: ImagenParaRedes;
 }
 /**
  * Dirección, depósito y datos de retiro.
  */
 export interface DepositoYRetiro {
-  short: DepositoYRetiroCorto;
-  full: DepositoYRetiroCompleto;
-  city: DepositoYRetiroCiudad;
-  warehouseName: DepositoYRetiroDepositoNombre;
-  packingLabel: DepositoYRetiroEmpaqueEtiqueta;
-  pickupLabel: DepositoYRetiroRetiroEtiqueta;
-  pickupHours: DepositoYRetiroRetiroHorario;
+  short: DireccionBreve;
+  full: DireccionCompleta;
+  city: Ciudad;
+  warehouseName: NombreDelDeposito;
+  packingLabel: EtiquetaDeEmpaque;
+  pickupLabel: EtiquetaDeRetiro;
+  pickupHours: HorarioDeRetiro;
 }
 /**
  * Textos de la opción de envío a domicilio.
  */
 export interface Envios {
   exchangeDays: DiasParaCambios;
-  homeDeliveryLabel: EnviosDomicilioEntregaEtiqueta;
-  homeDeliveryDescription: EnviosDomicilioEntregaDescripcion;
+  homeDeliveryLabel: EtiquetaDeEntregaADomicilio;
+  homeDeliveryDescription: DescripcionDeLaEntregaADomicilio;
 }
 /**
  * Archivos y texto alternativo del logo e íconos.
  */
 export interface Logo {
-  src: LogoArchivo;
-  alt: LogoTextoAlternativo;
-  favicon32: LogoFavicon32;
-  appleTouchIcon: LogoAppleTouchIcon;
+  src: Archivo;
+  alt: TextoAlternativo;
+  favicon32: IconoDelSitioDe32Pixeles;
+  appleTouchIcon: IconoParaDispositivosApple;
   srcLight?: LogoParaFondosOscuros;
 }
 /**
  * Bloque principal de la portada.
  */
 export interface Portada {
-  badge: PortadaSello;
-  title: PortadaTitulo;
-  description: PortadaDescripcion;
-  backgroundImage: PortadaFondoImagen;
-  ctaCatalogText: PortadaCtaCatalogoTexto;
-  ctaHowToBuyText: PortadaCtaHowToBuyTexto;
+  badge: Sello;
+  title: Titulo;
+  description: Descripcion1;
+  backgroundImage: FondoImagen;
+  ctaCatalogText: TextoDelBotonParaVerElCatalogo;
+  ctaHowToBuyText: TextoDelBotonParaConocerComoComprar;
   valueProps: VentajasDeLaPortada;
   announcementBar: BarraDeAnuncio;
 }
@@ -1612,63 +1612,63 @@ export interface Portada {
  * Textos de la barra bajo la portada.
  */
 export interface BarraDeAnuncio {
-  leftText: BarraDeAnuncioIzquierdaTexto;
-  rightText: BarraDeAnuncioDerechaTexto;
-  subHighlight: BarraDeAnuncioSubHighlight;
+  leftText: IzquierdaTexto;
+  rightText: DerechaTexto;
+  subHighlight: TextoDestacado;
 }
 /**
  * Sección de video y pasos.
  */
 export interface ComoComprar {
-  tagline: ComoComprarFraseDeLaMarca;
-  title: ComoComprarTitulo;
-  description: ComoComprarDescripcion;
-  videoUrl: ComoComprarVideoUrl;
-  posterUrl: ComoComprarImagenDePortadaUrl;
-  placeholderMessage: ComoComprarAyudaMensaje;
-  badge: ComoComprarSello;
-  duration: ComoComprarDuracion;
-  caption: ComoComprarLeyenda;
+  tagline: FraseDeLaMarca1;
+  title: Titulo2;
+  description: Descripcion2;
+  videoUrl: VideoDireccionWeb;
+  posterUrl: ImagenDePortadaDireccionWeb;
+  placeholderMessage: AyudaMensaje;
+  badge: Sello1;
+  duration: Duracion;
+  caption: Leyenda;
   steps: Pasos;
 }
 /**
  * Textos y reglas del canal mayorista.
  */
 export interface Mayoristas {
-  badge: MayoristasSello;
-  title: MayoristasTitulo;
-  description: MayoristasDescripcion;
-  bullets: MayoristasVinetas;
-  cartWholesaleTarget: MayoristasCarritoMayoristaObjetivo;
-  comboMinItems: MayoristasComboMinimoPrendas;
-  comboDiscountPercent: MayoristasComboDescuentoPorcentaje;
+  badge: Sello3;
+  title: Titulo4;
+  description: Descripcion4;
+  bullets: Vinetas;
+  cartWholesaleTarget: MontoObjetivoParaElPedidoMayorista;
+  comboMinItems: CantidadMinimaDePrendasPorConjunto;
+  comboDiscountPercent: PorcentajeDeDescuentoPorConjunto;
 }
 /**
  * Enlaces a redes (vacío oculta el ícono).
  */
 export interface RedesSociales {
-  instagram: RedesSocialesInstagram;
-  facebook: RedesSocialesFacebook;
-  linkedin: RedesSocialesLinkedIn;
+  instagram: Instagram;
+  facebook: Facebook;
+  linkedin: LinkedIn;
 }
 /**
  * Datos de ejemplo del prototipo.
  */
 export interface Demostracion {
   showPrototypeBanner: MostrarAvisoDePrototipo;
-  prefillCart: DemostracionPrecargaCarrito;
+  prefillCart: PrecargaCarrito;
   customer: ClienteDeEjemplo;
 }
 /**
  * Datos que se precargan solo si prefillCart está activo.
  */
 export interface ClienteDeEjemplo {
-  fullName: ClienteDeEjemploCompletoNombre;
-  phone: ClienteDeEjemploTelefono;
-  email: ClienteDeEjemploCorreoElectronico;
-  street: ClienteDeEjemploCalle;
-  postalCode: ClienteDeEjemploPostalCodigo;
-  notes: ClienteDeEjemploNotas;
+  fullName: CompletoNombre;
+  phone: Telefono;
+  email: CorreoElectronico1;
+  street: Calle;
+  postalCode: PostalCodigo;
+  notes: Notas;
 }
 /**
  * Botones, títulos y avisos. Se pueden editar o dejar vacíos para ocultarlos.
@@ -1678,7 +1678,7 @@ export interface TextosDeLaInterfaz {
   whatsappFloating: BotonFlotanteDeWhatsApp;
   cart: Carrito;
   catalog: Catalogo;
-  checkout: Checkout;
+  checkout: FinalizacionDeCompra;
   navbar: BarraDeNavegacion;
   productModal: FichaTecnica;
   sizeGuide: GuiaDeTalles;
@@ -1690,320 +1690,320 @@ export interface TextosDeLaInterfaz {
  * Barra flotante inferior en celulares.
  */
 export interface BarraDePedidoCelular {
-  confirm: BarraDePedidoCelularBotonConfirmar;
-  label: BarraDePedidoCelularEtiqueta;
+  confirm: BotonConfirmar;
+  label: Etiqueta;
 }
 /**
  * Botón de WhatsApp en escritorio.
  */
 export interface BotonFlotanteDeWhatsApp {
-  label: BotonFlotanteDeWhatsAppEtiqueta;
-  title: BotonFlotanteDeWhatsAppTitulo;
+  label: Etiqueta1;
+  title: Titulo5;
 }
 /**
  * Panel lateral del pedido.
  */
 export interface Carrito {
-  closeLabel: CarritoEtiquetaAccesibleDeCerrar;
-  b2bTitle: CarritoMayoristaTitulo;
-  targetReached: CarritoObjetivoAlcanzado;
-  b2bReachedMessage: CarritoMayoristaAlcanzadoMensaje;
-  emptyTitle: CarritoTituloVacio;
-  emptyDescription: CarritoDescripcionVacia;
-  emptyButton: CarritoBotonVacio;
-  sizeLabel: CarritoTalleEtiqueta;
-  reinforcedBadge: CarritoReinforcedSello;
-  decreaseLabel: CarritoEtiquetaAccesibleDeRestar;
-  increaseLabel: CarritoEtiquetaAccesibleDeSumar;
-  remove: CarritoQuitar;
-  packingNote: CarritoEmpaqueNota;
-  shipping: CarritoEnvio;
-  shippingNote: CarritoNotaDeEnvio;
-  total: CarritoTotal;
-  totalNote: CarritoNotaDelTotal;
-  noGatewayEmphasis: CarritoSinPasarelaEmphasis;
-  noGatewayText: CarritoSinPasarelaTexto;
-  continue: CarritoBotonContinuar;
-  keepShopping: CarritoBotonSeguirComprando;
-  trustHuman: CarritoConfianzaHumana;
-  trustDispatch: CarritoConfianzaDespacho;
-  title: CarritoTitulo;
-  missing: CarritoMissing;
-  b2bProgress: CarritoMayoristaAvance;
-  colorLabel: CarritoColorEtiqueta;
-  subtotal: CarritoSubtotal;
-  combo: CarritoCombo;
+  closeLabel: EtiquetaAccesibleDeCerrar;
+  b2bTitle: TituloDeMayorista;
+  targetReached: ObjetivoAlcanzado;
+  b2bReachedMessage: MayoristaAlcanzadoMensaje;
+  emptyTitle: TituloVacio;
+  emptyDescription: DescripcionVacia;
+  emptyButton: BotonVacio;
+  sizeLabel: EtiquetaDeTalle;
+  reinforcedBadge: SelloDePrendaReforzada;
+  decreaseLabel: EtiquetaAccesibleDeRestar;
+  increaseLabel: EtiquetaAccesibleDeSumar;
+  remove: Quitar;
+  packingNote: EmpaqueNota;
+  shipping: Envio;
+  shippingNote: NotaDeEnvio;
+  total: Total;
+  totalNote: NotaDelTotal;
+  noGatewayEmphasis: SinPasarelaEmphasis;
+  noGatewayText: AvisoCuandoNoHayPasarelaDePago;
+  continue: BotonContinuar;
+  keepShopping: BotonSeguirComprando;
+  trustHuman: ConfianzaHumana;
+  trustDispatch: ConfianzaDespacho;
+  title: Titulo6;
+  missing: Faltante;
+  b2bProgress: MayoristaAvance;
+  colorLabel: EtiquetaDeColor;
+  subtotal: Subtotal;
+  combo: Combo;
 }
 /**
  * Encabezado, filtros y tarjetas.
  */
 export interface Catalogo {
-  standardColor: CatalogoEstandarColor;
-  allCategoryLabel: CatalogoEtiquetaDeTodasLasCategorias;
-  eyebrow: CatalogoSobretitulo;
-  title: CatalogoTitulo;
-  description: CatalogoDescripcion;
-  sizeFilterLabel: CatalogoTalleFiltroEtiqueta;
-  sizeGuideButton: CatalogoTalleGuiaBoton;
-  sortLabel: CatalogoOrdenEtiqueta;
-  sortPopular: CatalogoOrdenPopulares;
-  sortPriceAsc: CatalogoOrdenPrecioAscendente;
-  sortPriceDesc: CatalogoOrdenPrecioDescendente;
-  viewSheet: CatalogoVerFicha;
-  cardSizes: CatalogoTarjetaTalles;
-  cardColors: CatalogoTarjetaColores;
-  retailPrice: CatalogoMinoristaPrecio;
-  measures: CatalogoMedidas;
-  add: CatalogoBotonAgregar;
-  emptyTitle: CatalogoTituloVacio;
-  emptyDescription: CatalogoDescripcionVacia;
-  viewAll: CatalogoBotonVerTodos;
-  sizeCtaTitle: CatalogoTalleCtaTitulo;
-  sizeCtaText: CatalogoTalleCtaTexto;
-  sizeCtaButton: CatalogoTalleCtaBoton;
-  addedToast: CatalogoAgregadoAviso;
-  viewCart: CatalogoVerCarrito;
-  activeCount: CatalogoActivosCount;
+  standardColor: ColorEstandar;
+  allCategoryLabel: EtiquetaDeTodasLasCategorias;
+  eyebrow: Sobretitulo;
+  title: Titulo7;
+  description: Descripcion5;
+  sizeFilterLabel: EtiquetaDeTalleFiltro;
+  sizeGuideButton: BotonParaTalleGuia;
+  sortLabel: EtiquetaDeOrden;
+  sortPopular: OrdenPopulares;
+  sortPriceAsc: OrdenPrecioAscendente;
+  sortPriceDesc: OrdenPrecioDescendente;
+  viewSheet: VerFicha;
+  cardSizes: TarjetaTalles;
+  cardColors: TarjetaColores;
+  retailPrice: MinoristaPrecio;
+  measures: Medidas;
+  add: BotonAgregar;
+  emptyTitle: TituloVacio1;
+  emptyDescription: DescripcionVacia1;
+  viewAll: BotonVerTodos;
+  sizeCtaTitle: TituloDeLaInvitacionAConsultarTalles;
+  sizeCtaText: MensajeDeLaInvitacionAConsultarTalles;
+  sizeCtaButton: BotonParaConsultarTalles;
+  addedToast: AgregadoAviso;
+  viewCart: VerCarrito;
+  activeCount: CantidadDeProductosVisibles;
 }
 /**
  * Pantalla de datos de entrega y confirmación.
  */
-export interface Checkout {
-  title: CheckoutTitulo;
-  step1: CheckoutPaso1;
-  step2: CheckoutPaso2;
-  step3: CheckoutPaso3;
-  step4: CheckoutPaso4;
-  closeLabel: CheckoutEtiquetaAccesibleDeCerrar;
-  noGatewayTitle: CheckoutSinPasarelaTitulo;
-  humanBadge: CheckoutHumanaSello;
-  contactTitle: CheckoutContactoTitulo;
-  required: CheckoutObligatorio;
-  nameLabel: CheckoutCampoNombre;
-  namePlaceholder: CheckoutNombreAyuda;
-  phoneLabel: CheckoutCampoTelefono;
-  phoneHelp: CheckoutAyudaDelTelefono;
-  emailLabel: CheckoutCorreoEtiqueta;
-  emailHelp: CheckoutCorreoAyuda;
-  deliveryTitle: CheckoutEntregaTitulo;
-  deliveryHint: CheckoutEntregaPista;
-  quoteByZip: CheckoutQuotePorCodigoPostal;
-  free: CheckoutGratis;
-  expressTitle: CheckoutExpresTitulo;
-  expressBadge: CheckoutExpresSello;
-  expressDescription: CheckoutExpresDescripcion;
-  destinationHint: CheckoutDestinoPista;
-  streetLabel: CheckoutCalleEtiqueta;
-  streetPlaceholder: CheckoutCalleAyuda;
-  apartmentLabel: CheckoutPisoDeptoEtiqueta;
-  apartmentPlaceholder: CheckoutPisoDeptoAyuda;
-  zipLabel: CheckoutCodigoPostalEtiqueta;
-  zipPlaceholder: CheckoutCodigoPostalAyuda;
-  cityLabel: CheckoutCiudadEtiqueta;
-  notesTitle: CheckoutNotasTitulo;
-  optional: CheckoutOpcional;
-  notesLabel: CheckoutNotasEtiqueta;
-  notesPlaceholder: CheckoutAyudaDelCampoAclaraciones;
-  notesHelp: CheckoutNotasAyuda;
-  edit: CheckoutEditar;
-  subtotal: CheckoutSubtotal;
-  shippingCost: CheckoutEnvioCosto;
-  pickupFree: CheckoutRetiroGratis;
-  shippingByWhatsapp: CheckoutEnvioPorWhatsApp;
-  total: CheckoutTotal;
-  previewTitle: CheckoutTituloDeLaVistaPrevia;
-  previewBadge: CheckoutSelloDeLaVistaPrevia;
-  previewNote: CheckoutVistaPreviaNota;
-  confirm: CheckoutBotonConfirmar;
-  trustInvoiceTitle: CheckoutConfianzaFacturaTitulo;
-  trustInvoiceText: CheckoutConfianzaFacturaTexto;
-  trustStockTitle: CheckoutConfianzaStockTitulo;
-  trustStockText: CheckoutConfianzaStockTexto;
-  orderNumber: CheckoutPedidoNumero;
-  noGatewayText: CheckoutSinPasarelaTexto;
-  expressLabel: CheckoutExpresEtiqueta;
-  destinationTitle: CheckoutDestinoTitulo;
-  cityPlaceholder: CheckoutCiudadAyuda;
-  summaryTitle: CheckoutResumenTitulo;
-  sizeColor: CheckoutTalleColor;
-  combo: CheckoutCombo;
-  pickupDetails: CheckoutRetiroDetails;
-  responseStart: CheckoutResponseStart;
-  responseStrong: CheckoutResponseFuerte;
-  responseEnd: CheckoutResponseEnd;
-  emailPlaceholder: CheckoutCorreoAyuda1;
+export interface FinalizacionDeCompra {
+  title: Titulo8;
+  step1: Paso1;
+  step2: Paso2;
+  step3: Paso3;
+  step4: Paso4;
+  closeLabel: EtiquetaAccesibleDeCerrar1;
+  noGatewayTitle: TituloDeSinPasarela;
+  humanBadge: HumanaSello;
+  contactTitle: TituloDeContacto;
+  required: Obligatorio;
+  nameLabel: CampoNombre;
+  namePlaceholder: AyudaParaNombre;
+  phoneLabel: CampoTelefono;
+  phoneHelp: AyudaDelTelefono;
+  emailLabel: EtiquetaDeCorreo;
+  emailHelp: AyudaParaCorreo;
+  deliveryTitle: TituloDeEntrega;
+  deliveryHint: EntregaPista;
+  quoteByZip: CotizacionSegunElCodigoPostal;
+  free: Gratis;
+  expressTitle: TituloDeExpres;
+  expressBadge: ExpresSello;
+  expressDescription: DescripcionDeExpres;
+  destinationHint: DestinoPista;
+  streetLabel: EtiquetaDeCalle;
+  streetPlaceholder: AyudaParaCalle;
+  apartmentLabel: EtiquetaDePisoDepto;
+  apartmentPlaceholder: AyudaParaPisoDepto;
+  zipLabel: EtiquetaDeCodigoPostal;
+  zipPlaceholder: AyudaParaCodigoPostal;
+  cityLabel: EtiquetaDeCiudad;
+  notesTitle: TituloDeNotas;
+  optional: Opcional;
+  notesLabel: EtiquetaDeNotas;
+  notesPlaceholder: AyudaDelCampoAclaraciones;
+  notesHelp: AyudaParaNotas;
+  edit: Editar;
+  subtotal: Subtotal1;
+  shippingCost: EnvioCosto;
+  pickupFree: RetiroGratis;
+  shippingByWhatsapp: EnvioPorWhatsApp;
+  total: Total1;
+  previewTitle: TituloDeLaVistaPrevia;
+  previewBadge: SelloDeLaVistaPrevia;
+  previewNote: VistaPreviaNota;
+  confirm: BotonConfirmar1;
+  trustInvoiceTitle: TituloDeConfianzaFactura;
+  trustInvoiceText: ConfianzaFacturaTexto;
+  trustStockTitle: TituloDeConfianzaExistencias;
+  trustStockText: ConfianzaExistenciasTexto;
+  orderNumber: PedidoNumero;
+  noGatewayText: AvisoCuandoNoHayPasarelaDePago1;
+  expressLabel: EtiquetaDeExpres;
+  destinationTitle: TituloDeDestino;
+  cityPlaceholder: AyudaParaCiudad;
+  summaryTitle: TituloDeResumen;
+  sizeColor: TalleYColor;
+  combo: Combo1;
+  pickupDetails: RetiroDetalles;
+  responseStart: ResponseStart;
+  responseStrong: ResponseFuerte;
+  responseEnd: ResponseEnd;
+  emailPlaceholder: AyudaParaCorreo1;
 }
 /**
  * Menú superior y móvil.
  */
 export interface BarraDeNavegacion {
-  topShipping: BarraDeNavegacionSuperiorEnvio;
-  topWholesale: BarraDeNavegacionSuperiorMayorista;
-  topSizeTable: BarraDeNavegacionSuperiorTalleTable;
-  catalog: BarraDeNavegacionCatalogo;
-  howToBuy: BarraDeNavegacionHowToBuy;
-  b2b: BarraDeNavegacionMayorista;
-  contact: BarraDeNavegacionContacto;
-  whatsapp: BarraDeNavegacionWhatsApp;
-  cartLabel: BarraDeNavegacionEtiquetaAccesibleDelCarrito;
-  cartTotal: BarraDeNavegacionCarritoTotal;
-  menuLabel: BarraDeNavegacionMenuEtiqueta;
-  mobileCatalog: BarraDeNavegacionMovilCatalogo;
-  mobileHowToBuy: BarraDeNavegacionMovilHowToBuy;
-  mobileB2b: BarraDeNavegacionMovilMayorista;
-  mobileSizeGuide: BarraDeNavegacionMovilTalleGuia;
-  mobileContact: BarraDeNavegacionMovilContacto;
-  topWarehouseLine: BarraDeNavegacionSuperiorDepositoLinea;
-  homeLabel: BarraDeNavegacionDomicilioEtiqueta;
-  mobileWhatsappLine: BarraDeNavegacionMovilWhatsAppLinea;
+  topShipping: SuperiorEnvio;
+  topWholesale: SuperiorMayorista;
+  topSizeTable: SuperiorTalleTable;
+  catalog: Catalogo1;
+  howToBuy: Compra;
+  b2b: Mayorista;
+  contact: Contacto;
+  whatsapp: WhatsApp2;
+  cartLabel: EtiquetaAccesibleDelCarrito;
+  cartTotal: CarritoTotal;
+  menuLabel: EtiquetaDeMenu;
+  mobileCatalog: MovilCatalogo;
+  mobileHowToBuy: MovilCompra;
+  mobileB2b: MovilMayorista;
+  mobileSizeGuide: MovilTalleGuia;
+  mobileContact: MovilContacto;
+  topWarehouseLine: LineaDeSuperiorDeposito;
+  homeLabel: EtiquetaDeDomicilio;
+  mobileWhatsappLine: TextoDeWhatsAppParaMoviles;
 }
 /**
  * Ventana de detalle de producto.
  */
 export interface FichaTecnica {
-  defaultColor: FichaTecnicaPredeterminadoColor;
-  title: FichaTecnicaTitulo;
-  subtitle: FichaTecnicaSubtitulo;
-  closeLabel: FichaTecnicaEtiquetaAccesibleDeCerrar;
-  series: FichaTecnicaSerie;
-  detailTitle: FichaTecnicaDetalleTitulo;
-  view1: FichaTecnicaVista1;
-  view2: FichaTecnicaVista2;
-  view3: FichaTecnicaVista3;
-  view4: FichaTecnicaVista4;
-  specsTitle: FichaTecnicaEspecificacionesTitulo;
-  specFabric: FichaTecnicaEspecificacionTela;
-  defaultFabric: FichaTecnicaPredeterminadoTela;
-  specStitching: FichaTecnicaEspecificacionConfeccion;
-  defaultStitching: FichaTecnicaPredeterminadoConfeccion;
-  specHardware: FichaTecnicaEspecificacionHerrajes;
-  defaultHardware: FichaTecnicaPredeterminadoHerrajes;
-  line: FichaTecnicaLinea;
-  stock: FichaTecnicaStock;
-  retailPrice: FichaTecnicaMinoristaPrecio;
-  vatIncluded: FichaTecnicaIVAIncluido;
-  invoiceNote: FichaTecnicaFacturaNota;
-  wholesaleEach: FichaTecnicaMayoristaCU;
-  selectedSize: FichaTecnicaSeleccionadoTalle;
-  sizeGuide: FichaTecnicaTalleGuia;
-  decreaseLabel: FichaTecnicaEtiquetaAccesibleDeRestar;
-  increaseLabel: FichaTecnicaEtiquetaAccesibleDeSumar;
-  addToOrder: FichaTecnicaBotonAgregarAlPedido;
-  askStock: FichaTecnicaConsultarStock;
-  trustExchange: FichaTecnicaConfianzaCambio;
-  trustShipping: FichaTecnicaConfianzaEnvio;
-  crossSellTitle: FichaTecnicaVentaCruzadaVentaTitulo;
-  crossSellText: FichaTecnicaVentaCruzadaVentaTexto;
-  crossSellButton: FichaTecnicaVentaCruzadaVentaBoton;
-  defaultLot: FichaTecnicaPredeterminadoLote;
-  lotLine: FichaTecnicaLoteLinea;
-  originLine: FichaTecnicaOrigenLinea;
-  viewAlt: FichaTecnicaVerTextoAlternativo;
+  defaultColor: ColorPredeterminado;
+  title: Titulo9;
+  subtitle: Subtitulo;
+  closeLabel: EtiquetaAccesibleDeCerrar2;
+  series: Serie;
+  detailTitle: TituloDeDetalle;
+  view1: Vista1;
+  view2: Vista2;
+  view3: Vista3;
+  view4: Vista4;
+  specsTitle: TituloDeEspecificaciones;
+  specFabric: EspecificacionTela;
+  defaultFabric: PredeterminadoTela;
+  specStitching: EspecificacionConfeccion;
+  defaultStitching: PredeterminadoConfeccion;
+  specHardware: EspecificacionHerrajes;
+  defaultHardware: PredeterminadoHerrajes;
+  line: Linea;
+  stock: Existencias;
+  retailPrice: MinoristaPrecio1;
+  vatIncluded: IVAIncluido;
+  invoiceNote: FacturaNota;
+  wholesaleEach: MayoristaCU;
+  selectedSize: SeleccionadoTalle;
+  sizeGuide: TalleGuia;
+  decreaseLabel: EtiquetaAccesibleDeRestar1;
+  increaseLabel: EtiquetaAccesibleDeSumar1;
+  addToOrder: BotonAgregarAlPedido;
+  askStock: ConsultarExistencias;
+  trustExchange: ConfianzaCambio;
+  trustShipping: ConfianzaEnvio;
+  crossSellTitle: TituloDeVentaCruzadaVenta;
+  crossSellText: VentaCruzadaVentaTexto;
+  crossSellButton: BotonParaVentaCruzadaVenta;
+  defaultLot: PredeterminadoLote;
+  lotLine: LineaDeLote;
+  originLine: LineaDeOrigen;
+  viewAlt: VerTextoAlternativo;
   wholesaleFromUnits: TextoDesdeLaCantidadMinimaMayorista;
-  offBadge: FichaTecnicaDescuentoSello;
-  savingsLine: FichaTecnicaAhorroLinea;
-  selectedColor: FichaTecnicaSeleccionadoColor;
-  colorsCount: FichaTecnicaColoresCount;
-  addedToOrder: FichaTecnicaAgregadoToPedido;
-  whatsappInquiry: FichaTecnicaWhatsAppConsulta;
-  skuLabel: FichaTecnicaSKUEtiqueta;
+  offBadge: DescuentoSello;
+  savingsLine: LineaDeAhorro;
+  selectedColor: ColorSeleccionado;
+  colorsCount: ColoresCantidad;
+  addedToOrder: AvisoDeProductoAgregadoAlPedido;
+  whatsappInquiry: ConsultaPorWhatsApp;
+  skuLabel: EtiquetaDeCodigo;
 }
 /**
  * Ventana de la guía de medidas.
  */
 export interface GuiaDeTalles {
-  title: GuiaDeTallesTitulo;
-  closeLabel: GuiaDeTallesEtiquetaAccesibleDeCerrar;
-  tipTitle: GuiaDeTallesConsejoTitulo;
-  help: GuiaDeTallesAyuda;
-  close: GuiaDeTallesCerrar;
-  toleranceLine: GuiaDeTallesToleranciaLinea;
+  title: Titulo10;
+  closeLabel: EtiquetaAccesibleDeCerrar3;
+  tipTitle: TituloDeConsejo;
+  help: Ayuda;
+  close: Cerrar;
+  toleranceLine: LineaDeTolerancia;
 }
 /**
  * Controles y avisos del video.
  */
 export interface Video {
-  playError: VideoReproducirError;
-  playGuideLabel: VideoReproducirGuiaEtiqueta;
-  dismiss: VideoDescartar;
-  pauseLabel: VideoPausarEtiqueta;
-  playLabel: VideoReproducirEtiqueta;
-  muteLabel: VideoSilenciarEtiqueta;
-  stepBadge: VideoStepSello;
-  fullscreenLabel: VideoPantallaCompletaEtiqueta;
+  playError: ReproducirError;
+  playGuideLabel: EtiquetaDeReproducirGuia;
+  dismiss: Descartar;
+  pauseLabel: EtiquetaDePausar;
+  playLabel: EtiquetaDeReproducir;
+  muteLabel: EtiquetaDeSilenciar;
+  stepBadge: SelloDelPaso;
+  fullscreenLabel: EtiquetaDePantallaCompleta;
 }
 /**
  * Formulario de cotización y su mensaje de WhatsApp.
  */
 export interface FormularioMayorista {
-  pending: FormularioMayoristaPendiente;
-  defaultQuantity: FormularioMayoristaPredeterminadoCantidad;
-  closing: FormularioMayoristaCierre;
-  title: FormularioMayoristaTitulo;
-  subtitle: FormularioMayoristaSubtitulo;
-  nameLabel: FormularioMayoristaCampoNombre;
-  namePlaceholder: FormularioMayoristaNombreAyuda;
-  phoneLabel: FormularioMayoristaCampoTelefono;
-  quantityLabel: FormularioMayoristaCantidadEtiqueta;
-  quantityPlaceholder: FormularioMayoristaCantidadAyuda;
-  submit: FormularioMayoristaEnviar;
-  intro: FormularioMayoristaIntroduccion;
-  companyLine: FormularioMayoristaEmpresaLinea;
-  phoneLine: FormularioMayoristaLineaDelTelefono;
-  quantityLine: FormularioMayoristaCantidadLinea;
+  pending: Pendiente;
+  defaultQuantity: PredeterminadoCantidad;
+  closing: Cierre;
+  title: Titulo11;
+  subtitle: Subtitulo1;
+  nameLabel: CampoNombre1;
+  namePlaceholder: AyudaParaNombre1;
+  phoneLabel: CampoTelefono1;
+  quantityLabel: EtiquetaDeCantidad;
+  quantityPlaceholder: AyudaParaCantidad;
+  submit: Enviar;
+  intro: Introduccion;
+  companyLine: LineaDeEmpresa;
+  phoneLine: LineaDelTelefono;
+  quantityLine: LineaDeCantidad;
 }
 /**
  * Textos del pedido que se envía por WhatsApp.
  */
 export interface MensajeDelPedido {
-  shippingPending: MensajeDelPedidoEnvioPendiente;
-  notSpecified: MensajeDelPedidoNoEspecificado;
-  noNotes: MensajeDelPedidoSinNotas;
-  closing: MensajeDelPedidoCierre;
-  orderTitle: MensajeDelPedidoTituloDelPedido;
-  itemLine: MensajeDelPedidoLineaDeProducto;
-  noItems: MensajeDelPedidoSinPrendas;
-  discountLine: MensajeDelPedidoDescuentoLinea;
-  subtotalLine: MensajeDelPedidoSubtotalLinea;
-  totalLine: MensajeDelPedidoLineaDelTotal;
-  customerLine: MensajeDelPedidoLineaDelCliente;
-  phoneLine: MensajeDelPedidoLineaDelTelefono;
-  emailLine: MensajeDelPedidoCorreoLinea;
-  modeLine: MensajeDelPedidoLineaDeModalidad;
-  destinationLine: MensajeDelPedidoDestinoLinea;
-  notesLine: MensajeDelPedidoNotasLinea;
+  shippingPending: EnvioPendiente;
+  notSpecified: NoEspecificado;
+  noNotes: SinNotas;
+  closing: Cierre1;
+  orderTitle: TituloDelPedido;
+  itemLine: LineaDeProducto;
+  noItems: SinPrendas;
+  discountLine: LineaDeDescuento;
+  subtotalLine: LineaDeSubtotal;
+  totalLine: LineaDelTotal;
+  customerLine: LineaDelCliente;
+  phoneLine: LineaDelTelefono1;
+  emailLine: LineaDeCorreo;
+  modeLine: LineaDeModalidad;
+  destinationLine: LineaDeDestino;
+  notesLine: LineaDeNotas;
 }
 /**
  * Textos del pie.
  */
 export interface PieDePagina {
-  about: PieDePaginaAcercaDe;
-  guarantee: PieDePaginaGarantia;
-  helpTitle: PieDePaginaAyudaTitulo;
-  helpSizeGuide: PieDePaginaAyudaTalleGuia;
-  helpReturns: PieDePaginaAyudaDevoluciones;
-  helpShipping: PieDePaginaAyudaEnvio;
-  helpTracking: PieDePaginaAyudaSeguimiento;
-  b2bTitle: PieDePaginaMayoristaTitulo;
-  b2bQuotes: PieDePaginaMayoristaPresupuestos;
-  b2bInvoice: PieDePaginaMayoristaFactura;
-  b2bDesk: PieDePaginaMayoristaMesa;
-  contactTitle: PieDePaginaContactoTitulo;
-  whatsappAria: PieDePaginaWhatsAppAccesibilidad;
-  emailAria: PieDePaginaCorreoAccesibilidad;
-  phoneAria: PieDePaginaTelefonoAccesibilidad;
-  instagramLabel: PieDePaginaInstagramEtiqueta;
-  facebookLabel: PieDePaginaFacebookEtiqueta;
-  linkedinLabel: PieDePaginaLinkedInEtiqueta;
-  consumerDefense: PieDePaginaConsumidorDefensa;
-  whatsappLine: PieDePaginaWhatsAppLinea;
-  copyright: PieDePaginaDerechosDeAutor;
-  cuitLine: PieDePaginaCUITLinea;
+  about: AcercaDe;
+  guarantee: Garantia;
+  helpTitle: AyudaParaTituloDe;
+  helpSizeGuide: AyudaTalleGuia;
+  helpReturns: AyudaDevoluciones;
+  helpShipping: AyudaEnvio;
+  helpTracking: AyudaSeguimiento;
+  b2bTitle: TituloDeMayorista1;
+  b2bQuotes: MayoristaPresupuestos;
+  b2bInvoice: MayoristaFactura;
+  b2bDesk: MayoristaMesa;
+  contactTitle: TituloDeContacto1;
+  whatsappAria: TextoAccesibleParaWhatsApp;
+  emailAria: CorreoAccesibilidad;
+  phoneAria: TelefonoAccesibilidad;
+  instagramLabel: EtiquetaDeInstagram;
+  facebookLabel: EtiquetaDeFacebook;
+  linkedinLabel: EtiquetaDeLinkedIn;
+  consumerDefense: ConsumidorDefensa;
+  whatsappLine: TextoDeWhatsApp;
+  copyright: DerechosDeAutor;
+  cuitLine: LineaDeCUIT;
 }
 /**
  * Título e insignia de la sección.
  */
 export interface SeccionDeTestimonios {
-  title: SeccionDeTestimoniosTitulo;
-  badge: SeccionDeTestimoniosSello;
+  title: Titulo12;
+  badge: Sello4;
 }
