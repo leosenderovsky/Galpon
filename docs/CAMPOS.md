@@ -8,9 +8,9 @@ Este documento se genera desde `brand.schema.json`, `catalog.schema.json` y `siz
 |---|---|---|---|---|---|
 | `schemaVersion` | Versión del esquema | Valor numérico. | `number` |  |  |
 | `site` | Identificador del sitio | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `name` | Nombre de la marca | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | GALPÓN |
-| `legalName` | Razón social | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | GALPÓN INDUMENTARIA |
-| `shortName` | Nombre abreviado | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `name` | Nombre de la marca [x-role: brandName] | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | GALPÓN |
+| `legalName` | Razón social [x-role: legalName] | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | GALPÓN INDUMENTARIA |
+| `shortName` | Nombre abreviado [x-role: brandShortName] | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | G |
 | `tagline` | Frase de la marca | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | INDUMENTARIA Y TRABAJO |
 | `foundedYear` | Año de fundación | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `cuit` | CUIT | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |

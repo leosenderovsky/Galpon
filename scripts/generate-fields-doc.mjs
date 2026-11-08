@@ -12,7 +12,7 @@ function formatAsset(asset) {
   return keys.map((key) => `${key}: ${asset[key] === undefined ? '—' : Array.isArray(asset[key]) ? JSON.stringify(asset[key]) : asset[key]}`).join(', ');
 }
 function scalarRow(rows, node, fieldPath) {
-  rows.push({ path: fieldPath, title: node.title || '', description: node.description || '', widget: node['x-widget'] || (node.type === 'boolean' ? 'boolean' : node.type === 'number' || node.type === 'integer' ? 'number' : 'text'), asset: formatAsset(node['x-asset']), example: node.examples?.[0] ?? '' });
+  rows.push({ path: fieldPath, title: node.title || '', description: node.description || '', widget: node['x-widget'] || (node.type === 'boolean' ? 'boolean' : node.type === 'number' || node.type === 'integer' ? 'number' : 'text'), role: node['x-role'] || '', asset: formatAsset(node['x-asset']), example: node.examples?.[0] ?? '' });
 }
 function collect(schema, node, fieldPath, output) {
   if (!node) return;
@@ -42,7 +42,7 @@ for (const section of rows) {
   md += `## ${section.section}\n\n| Ruta | Título | Descripción | Widget | Asset | Ejemplo |\n|---|---|---|---|---|---|\n`;
   for (const row of section.fields) {
     const clean = (value) => String(value).replaceAll('|', '\\|').replaceAll('\n', ' ');
-    md += `| \`${row.path}\` | ${clean(row.title)} | ${clean(row.description)} | \`${row.widget}\` | ${clean(row.asset)} | ${clean(row.example)} |\n`;
+    md += `| \`${row.path}\` | ${clean(row.title)}${row.role ? ` [x-role: ${row.role}]` : ''} | ${clean(row.description)} | \`${row.widget}\` | ${clean(row.asset)} | ${clean(row.example)} |\n`;
   }
   md += '\n';
 }

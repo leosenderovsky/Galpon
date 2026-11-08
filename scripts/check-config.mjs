@@ -25,6 +25,7 @@ const croppableAssetFields = new Map([
   ['brand.schema.json', new Set(['seo.socialImage', 'logo.favicon32', 'logo.appleTouchIcon', 'hero.backgroundImage', 'howToBuy.posterUrl'])],
   ['catalog.schema.json', new Set(['products[].images[]'])],
 ]);
+const validRoles = new Set(['brandName', 'brandShortName', 'legalName']);
 /** Rutas de brand.json que deben contener solo dígitos (número de WhatsApp para wa.me). */
 const DIGIT_FIELDS = (await readFile(new URL('./check-config.fields.json', import.meta.url), 'utf8').then(JSON.parse).catch(() => ({ digits: [] }))).digits;
 
@@ -37,6 +38,50 @@ const catalogSchema = JSON.parse(await readFile(catalogSchemaPath, 'utf8'));
 const sizeGuide = JSON.parse(await readFile(sizeGuidePath, 'utf8'));
 const sizeGuideSchema = JSON.parse(await readFile(sizeGuideSchemaPath, 'utf8'));
 const markers = JSON.parse(await readFile(markersPath, 'utf8'));
+
+const roleFields = new Map();
+function walkSchemaRoles(node, schemaName, fieldPath = '', insideArray = false) {
+  if (!node || typeof node !== 'object') return;
+  const role = node['x-role'];
+  if (role !== undefined) {
+    const location = `${schemaName} ${fieldPath || '/'}`;
+    if (schemaName !== 'brand.schema.json') errors.push(`${location}.x-role: solo se permite en brand.schema.json`);
+    if (!validRoles.has(role)) errors.push(`${location}.x-role: valor no permitido "${role}"`);
+    if (roleFields.has(role)) errors.push(`${location}.x-role: el rol "${role}" está repetido; ya aparece en ${roleFields.get(role)}`);
+    else roleFields.set(role, location);
+    if (insideArray) errors.push(`${location}.x-role: el campo debe estar fuera de arrays`);
+    if (node.type !== 'string') errors.push(`${location}.x-role: el campo debe ser de tipo string`);
+    if (node['x-exampleData'] !== true) errors.push(`${location}.x-role: el campo debe tener x-exampleData: true`);
+    const exampleValue = getPath(data, fieldPath);
+    if (!Array.isArray(node.examples) || node.examples.length === 0 || (exampleValue !== undefined && !node.examples.includes(exampleValue))) {
+      errors.push(`${location}.x-role: examples debe incluir el valor actual del campo`);
+    }
+  }
+  for (const [key, child] of Object.entries(node.properties ?? {})) {
+    walkSchemaRoles(child, schemaName, fieldPath ? `${fieldPath}.${key}` : key, insideArray);
+  }
+  for (const [pattern, child] of Object.entries(node.patternProperties ?? {})) {
+    const placeholder = pattern.includes('a-z0-9') ? '{categoryId}' : '{clave}';
+    walkSchemaRoles(child, schemaName, fieldPath ? `${fieldPath}.${placeholder}` : placeholder, insideArray);
+  }
+  if (node.items) walkSchemaRoles(node.items, schemaName, `${fieldPath}[]`, true);
+}
+
+function findOccurrences(node, needle, fieldPath = '') {
+  const occurrences = [];
+  if (typeof node === 'string') {
+    if (node.toLocaleLowerCase().includes(needle.toLocaleLowerCase())) occurrences.push(fieldPath || '/');
+    return occurrences;
+  }
+  if (Array.isArray(node)) {
+    for (const [index, item] of node.entries()) occurrences.push(...findOccurrences(item, needle, `${fieldPath}[${index}]`));
+    return occurrences;
+  }
+  if (node && typeof node === 'object') {
+    for (const [key, value] of Object.entries(node)) occurrences.push(...findOccurrences(value, needle, fieldPath ? `${fieldPath}.${key}` : key));
+  }
+  return occurrences;
+}
 
 function checkAsset(asset, schemaName, fieldPath) {
   const location = `${schemaName} ${fieldPath}.x-asset`;
@@ -154,6 +199,19 @@ try {
 } catch (error) { if (error.code !== 'ENOENT') throw error; }
 
 const getPath = (obj, p) => p.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
+
+walkSchemaRoles(schema, 'brand.schema.json');
+walkSchemaRoles(catalogSchema, 'catalog.schema.json');
+walkSchemaRoles(sizeGuideSchema, 'size-guide.schema.json');
+if (!roleFields.has('brandName')) errors.push('brand.schema.json: falta exactamente un campo con x-role "brandName"');
+const brandNameExample = schema.properties?.name?.examples?.[0];
+if (typeof brandNameExample === 'string') {
+  for (const [fileName, value] of [['brand.json', data], ['catalog.json', catalog]]) {
+    const occurrences = findOccurrences(value, brandNameExample);
+    console.log(`Informe x-role brandName: ${fileName}, ${occurrences.length} coincidencias sin distinguir mayúsculas de "${brandNameExample}".`);
+    for (const occurrence of occurrences) console.log(`  ${fileName} ${occurrence}`);
+  }
+}
 
 function colorToLinear(value) {
   const channel = Number.parseInt(value, 16) / 255;
