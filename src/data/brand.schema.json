@@ -695,7 +695,8 @@
           "description": "Ruta pública de la imagen (carpeta public/assets).",
           "x-skipMarkers": true,
           "x-asset": {
-            "path": "/assets/logo/favicon-32.png"
+            "path": "/assets/logo/favicon-32.png",
+            "ratio": "1:1"
           }
         },
         "appleTouchIcon": {
@@ -706,7 +707,8 @@
           "description": "Ruta pública de la imagen (carpeta public/assets).",
           "x-skipMarkers": true,
           "x-asset": {
-            "path": "/assets/logo/apple-touch-icon.png"
+            "path": "/assets/logo/apple-touch-icon.png",
+            "ratio": "1:1"
           }
         },
         "srcLight": {
@@ -781,6 +783,7 @@
           "x-asset": {
             "path": "/assets/hero/hero-1.jpg",
             "minWidth": 1600,
+            "ratio": "16:9",
             "maxKB": 250
           }
         },
@@ -960,7 +963,8 @@
           "x-skipMarkers": true,
           "x-asset": {
             "path": "/assets/hero/como-comprar-1.jpg",
-            "minWidth": 1600
+            "minWidth": 1600,
+            "ratio": "16:9"
           }
         },
         "placeholderMessage": {

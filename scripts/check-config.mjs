@@ -3,7 +3,7 @@
  * Valida src/data/brand.json contra brand.schema.json y revisa imágenes, URLs, colores, WhatsApp y variables de texto.
  * Con --strict además exige reemplazar los datos de ejemplo y rechaza los marcadores de prototype-markers.json.
  */
-import { readFile, stat } from 'node:fs/promises';
+import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import Ajv from 'ajv';
@@ -19,6 +19,12 @@ const sizeGuideSchemaPath = path.join(root, 'src/data/size-guide.schema.json');
 const markersPath = path.join(root, 'src/data/prototype-markers.json');
 const publicDir = path.join(root, 'public');
 const strict = process.argv.includes('--strict');
+const validAssetKeys = new Set(['path', 'minWidth', 'maxWidth', 'ratio', 'ratios', 'ratioTolerance', 'maxKB']);
+const ratioPattern = /^\d+:\d+$/;
+const croppableAssetFields = new Map([
+  ['brand.schema.json', new Set(['seo.socialImage', 'logo.favicon32', 'logo.appleTouchIcon', 'hero.backgroundImage', 'howToBuy.posterUrl'])],
+  ['catalog.schema.json', new Set(['products[].images[]'])],
+]);
 /** Rutas de brand.json que deben contener solo dígitos (número de WhatsApp para wa.me). */
 const DIGIT_FIELDS = (await readFile(new URL('./check-config.fields.json', import.meta.url), 'utf8').then(JSON.parse).catch(() => ({ digits: [] }))).digits;
 
@@ -31,6 +37,53 @@ const catalogSchema = JSON.parse(await readFile(catalogSchemaPath, 'utf8'));
 const sizeGuide = JSON.parse(await readFile(sizeGuidePath, 'utf8'));
 const sizeGuideSchema = JSON.parse(await readFile(sizeGuideSchemaPath, 'utf8'));
 const markers = JSON.parse(await readFile(markersPath, 'utf8'));
+
+function checkAsset(asset, schemaName, fieldPath) {
+  const location = `${schemaName} ${fieldPath}.x-asset`;
+  if (!asset || typeof asset !== 'object' || Array.isArray(asset)) {
+    errors.push(`${location}: debe ser un objeto`);
+    return;
+  }
+  for (const key of Object.keys(asset)) {
+    if (!validAssetKeys.has(key)) errors.push(`${location}.${key}: clave no permitida`);
+  }
+  if (typeof asset.path !== 'string' || asset.path.length === 0) errors.push(`${location}.path: es obligatorio y debe ser texto no vacío`);
+  for (const key of ['minWidth', 'maxWidth', 'maxKB']) {
+    if (asset[key] !== undefined && (typeof asset[key] !== 'number' || !Number.isFinite(asset[key]) || asset[key] < 0)) {
+      errors.push(`${location}.${key}: debe ser un número mayor o igual que cero`);
+    }
+  }
+  if (asset.ratio !== undefined && (typeof asset.ratio !== 'string' || !ratioPattern.test(asset.ratio))) {
+    errors.push(`${location}.ratio: debe tener el formato "W:H" con enteros`);
+  }
+  if (asset.ratios !== undefined && (!Array.isArray(asset.ratios) || asset.ratios.length === 0 || asset.ratios.some((ratio) => typeof ratio !== 'string' || !ratioPattern.test(ratio)))) {
+    errors.push(`${location}.ratios: debe ser una lista no vacía de proporciones "W:H" con enteros`);
+  }
+  if (asset.ratio !== undefined && asset.ratios !== undefined) errors.push(`${location}: ratio y ratios son excluyentes`);
+  if (asset.ratioTolerance !== undefined && (typeof asset.ratioTolerance !== 'number' || !Number.isFinite(asset.ratioTolerance) || asset.ratioTolerance < 0)) {
+    errors.push(`${location}.ratioTolerance: debe ser un número mayor o igual que cero`);
+  }
+  if (croppableAssetFields.get(schemaName)?.has(fieldPath) && asset.ratio === undefined && asset.ratios === undefined) {
+    errors.push(`${location}: falta ratio o ratios para una imagen recortable`);
+  }
+}
+
+function walkSchemaAssets(node, schemaName, fieldPath = '') {
+  if (!node || typeof node !== 'object') return;
+  if (Object.hasOwn(node, 'x-asset')) checkAsset(node['x-asset'], schemaName, fieldPath || '/');
+  for (const [key, child] of Object.entries(node.properties ?? {})) walkSchemaAssets(child, schemaName, fieldPath ? `${fieldPath}.${key}` : key);
+  for (const [pattern, child] of Object.entries(node.patternProperties ?? {})) {
+    const placeholder = pattern.includes('a-z0-9') ? '{categoryId}' : '{clave}';
+    walkSchemaAssets(child, schemaName, fieldPath ? `${fieldPath}.${placeholder}` : placeholder);
+  }
+  if (node.items) walkSchemaAssets(node.items, schemaName, `${fieldPath}[]`);
+}
+
+const schemaDirectory = path.join(root, 'src/data');
+for (const file of (await readdir(schemaDirectory)).filter((file) => file.endsWith('.schema.json')).sort()) {
+  const schemaValue = JSON.parse(await readFile(path.join(schemaDirectory, file), 'utf8'));
+  walkSchemaAssets(schemaValue, file);
+}
 
 const ajv = new Ajv({ allErrors: true, strict: false });
 addFormats(ajv);

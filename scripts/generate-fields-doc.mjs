@@ -8,7 +8,8 @@ const rows = [];
 
 function formatAsset(asset) {
   if (!asset) return '';
-  return Object.entries(asset).map(([key, value]) => `${key}: ${value}`).join(', ');
+  const keys = ['path', 'minWidth', 'maxWidth', 'ratio', 'ratios', 'ratioTolerance', 'maxKB'];
+  return keys.map((key) => `${key}: ${asset[key] === undefined ? '—' : Array.isArray(asset[key]) ? JSON.stringify(asset[key]) : asset[key]}`).join(', ');
 }
 function scalarRow(rows, node, fieldPath) {
   rows.push({ path: fieldPath, title: node.title || '', description: node.description || '', widget: node['x-widget'] || (node.type === 'boolean' ? 'boolean' : node.type === 'number' || node.type === 'integer' ? 'number' : 'text'), asset: formatAsset(node['x-asset']), example: node.examples?.[0] ?? '' });
