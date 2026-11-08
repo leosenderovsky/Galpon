@@ -40,6 +40,7 @@ const sizeGuideSchema = JSON.parse(await readFile(sizeGuideSchemaPath, 'utf8'));
 const markers = JSON.parse(await readFile(markersPath, 'utf8'));
 
 const roleFields = new Map();
+const brandRoleFields = new Map();
 function walkSchemaRoles(node, schemaName, fieldPath = '', insideArray = false) {
   if (!node || typeof node !== 'object') return;
   const role = node['x-role'];
@@ -48,7 +49,10 @@ function walkSchemaRoles(node, schemaName, fieldPath = '', insideArray = false) 
     if (schemaName !== 'brand.schema.json') errors.push(`${location}.x-role: solo se permite en brand.schema.json`);
     if (!validRoles.has(role)) errors.push(`${location}.x-role: valor no permitido "${role}"`);
     if (roleFields.has(role)) errors.push(`${location}.x-role: el rol "${role}" está repetido; ya aparece en ${roleFields.get(role)}`);
-    else roleFields.set(role, location);
+    else {
+      roleFields.set(role, location);
+      if (schemaName === 'brand.schema.json') brandRoleFields.set(role, { example: node.examples?.[0] });
+    }
     if (insideArray) errors.push(`${location}.x-role: el campo debe estar fuera de arrays`);
     if (node.type !== 'string') errors.push(`${location}.x-role: el campo debe ser de tipo string`);
     if (node['x-exampleData'] !== true) errors.push(`${location}.x-role: el campo debe tener x-exampleData: true`);
@@ -203,8 +207,8 @@ const getPath = (obj, p) => p.split('.').reduce((o, k) => (o == null ? undefined
 walkSchemaRoles(schema, 'brand.schema.json');
 walkSchemaRoles(catalogSchema, 'catalog.schema.json');
 walkSchemaRoles(sizeGuideSchema, 'size-guide.schema.json');
-if (!roleFields.has('brandName')) errors.push('brand.schema.json: falta exactamente un campo con x-role "brandName"');
-const brandNameExample = schema.properties?.name?.examples?.[0];
+if (!brandRoleFields.has('brandName')) errors.push('brand.schema.json: falta exactamente un campo con x-role "brandName"');
+const brandNameExample = brandRoleFields.get('brandName')?.example;
 if (typeof brandNameExample === 'string') {
   for (const [fileName, value] of [['brand.json', data], ['catalog.json', catalog]]) {
     const occurrences = findOccurrences(value, brandNameExample);
