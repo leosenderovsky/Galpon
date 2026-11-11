@@ -83,6 +83,26 @@ Si agregás un componente, sus textos van a `brand.json` y a `brand.schema.json`
 
 ## Datos, validación y pruebas
 
+### Formato de x-asset
+
+`x-asset` describe cómo el editor web recorta, comprime y guarda una imagen.
+
+| Clave | Tipo | Uso |
+| --- | --- | --- |
+| `path` | texto | Ruta de destino; puede incluir `{id}`. Obligatoria. |
+| `minWidth` | número | Ancho mínimo en píxeles. |
+| `maxWidth` | número | Ancho máximo en píxeles. |
+| `ratio` | `"W:H"` | Una proporción fija. |
+| `ratios` | lista de `"W:H"` | Proporciones fijas alternativas. |
+| `ratioTolerance` | número | Diferencia absoluta admitida; por defecto `0.02`. |
+| `maxKB` | número | Peso máximo en KB. |
+
+`ratio` y `ratios` son excluyentes; si la proporción es libre, se omiten ambas. Toda imagen recortable debe declarar una de las dos.
+
+### Anotación x-role
+
+En `brand.schema.json`, `x-role` identifica el campo que el editor puede reemplazar como marca: `brandName` es obligatorio y único; `brandShortName` y `legalName` son opcionales y únicos como máximo. Solo se admite en campos `string` fuera de arrays, con `x-exampleData: true` y `examples` que contenga el valor del prototipo.
+
 | Comando | Para qué sirve |
 | --- | --- |
 | `npm run generate:types` | Genera los tipos de marca, catálogo y guía desde sus esquemas. |

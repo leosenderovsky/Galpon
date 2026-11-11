@@ -8,9 +8,9 @@ Este documento se genera desde `brand.schema.json`, `catalog.schema.json` y `siz
 |---|---|---|---|---|---|
 | `schemaVersion` | Versión del esquema | Valor numérico. | `number` |  |  |
 | `site` | Identificador del sitio | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `name` | Nombre de la marca | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | GALPÓN |
-| `legalName` | Razón social | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | GALPÓN INDUMENTARIA |
-| `shortName` | Nombre abreviado | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
+| `name` | Nombre de la marca [x-role: brandName] | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | GALPÓN |
+| `legalName` | Razón social [x-role: legalName] | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | GALPÓN INDUMENTARIA |
+| `shortName` | Nombre abreviado [x-role: brandShortName] | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | G |
 | `tagline` | Frase de la marca | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | INDUMENTARIA Y TRABAJO |
 | `foundedYear` | Año de fundación | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `cuit` | CUIT | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -48,7 +48,7 @@ Este documento se genera desde `brand.schema.json`, `catalog.schema.json` y `siz
 | `typography.bodyFamily` | Familia tipográfica del texto | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
 | `seo.titleSuffix` | Título de sufijo del | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Indumentaria Masculina y de Trabajo |
 | `seo.description` | Descripción | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | Catálogo digital y landing con pedido directo por WhatsApp para indumentaria masculina y ropa de trabajo pesada. |
-| `seo.socialImage` | Imagen para redes | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/misc/og-image.jpg, minWidth: 1200, ratio: 1200:630, maxKB: 200 |  |
+| `seo.socialImage` | Imagen para redes | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/misc/og-image.jpg, minWidth: 1200, maxWidth: —, ratio: 1200:630, ratios: —, ratioTolerance: —, maxKB: 200 |  |
 | `address.short` | Dirección breve | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Parque Patricios, CABA |
 | `address.full` | Dirección completa | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Av. Amancio Alcorta 2490, Parque Patricios, CABA |
 | `address.city` | Ciudad | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Buenos Aires, Argentina |
@@ -59,15 +59,15 @@ Este documento se genera desde `brand.schema.json`, `catalog.schema.json` y `siz
 | `shipping.exchangeDays` | Días para cambios | Cantidad de días disponibles para solicitar un cambio. | `number` |  |  |
 | `shipping.homeDeliveryLabel` | Etiqueta de entrega a domicilio | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Envío a Domicilio (Correo Argentino / Andreani) |
 | `shipping.homeDeliveryDescription` | Descripción de la entrega a domicilio | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | Despacho garantizado por Correo Argentino o Andreani con número de seguimiento en tiempo real. |
-| `logo.src` | Archivo | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/logo/logo.png, maxKB: 120 |  |
+| `logo.src` | Archivo | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/logo/logo.png, minWidth: —, maxWidth: —, ratio: —, ratios: —, ratioTolerance: —, maxKB: 120 |  |
 | `logo.alt` | Texto alternativo | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
-| `logo.favicon32` | Ícono del sitio de 32 píxeles | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/logo/favicon-32.png |  |
-| `logo.appleTouchIcon` | Ícono para dispositivos Apple | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/logo/apple-touch-icon.png |  |
-| `logo.srcLight` | Logo para fondos oscuros | Ruta opcional de una versión clara del logo (public/assets/logo-light.png). | `image` | path: /assets/logo/logo-light.png |  |
+| `logo.favicon32` | Ícono del sitio de 32 píxeles | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/logo/favicon-32.png, minWidth: —, maxWidth: —, ratio: 1:1, ratios: —, ratioTolerance: —, maxKB: — |  |
+| `logo.appleTouchIcon` | Ícono para dispositivos Apple | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/logo/apple-touch-icon.png, minWidth: —, maxWidth: —, ratio: 1:1, ratios: —, ratioTolerance: —, maxKB: — |  |
+| `logo.srcLight` | Logo para fondos oscuros | Ruta opcional de una versión clara del logo (public/assets/logo-light.png). | `image` | path: /assets/logo/logo-light.png, minWidth: —, maxWidth: —, ratio: —, ratios: —, ratioTolerance: —, maxKB: — |  |
 | `hero.badge` | Sello | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | CONFECCIÓN INDUSTRIAL PESADA • DESDE 1978 |
 | `hero.title` | Título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | ROPA HECHA PARA BANCARSE TODO. |
 | `hero.description` | Descripción | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | Básicos pesados y ropa de trabajo resistente. Sin vueltas, sin descartables: directo del galpón textil a tu taller, obra o el asfalto diario. |
-| `hero.backgroundImage` | Fondo imagen | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/hero/hero-1.jpg, minWidth: 1600, maxKB: 250 |  |
+| `hero.backgroundImage` | Fondo imagen | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/hero/hero-1.jpg, minWidth: 1600, maxWidth: —, ratio: 16:9, ratios: —, ratioTolerance: —, maxKB: 250 |  |
 | `hero.ctaCatalogText` | Texto del botón para ver el catálogo | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Ver Catálogo Completo |
 | `hero.ctaHowToBuyText` | Texto del botón para conocer cómo comprar | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | ¿Cómo Comprar por WhatsApp? |
 | `hero.valueProps[].icon` | Ícono | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  |  |
@@ -79,7 +79,7 @@ Este documento se genera desde `brand.schema.json`, `catalog.schema.json` y `siz
 | `howToBuy.title` | Título | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | CÓMO COMPRAR EN 3 PASOS |
 | `howToBuy.description` | Descripción | Texto editable. Dejalo vacío para ocultar el elemento. | `textarea` |  | Despachamos pedidos en menos de 24 horas hábiles una vez acreditado el pago o coordinado el expreso. |
 | `howToBuy.videoUrl` | Video dirección web | Video de compra en formato H.264 + AAC, proporción 16:9, entre 30 y 60 segundos y hasta 15 MB. | `text` |  |  |
-| `howToBuy.posterUrl` | Imagen de portada dirección web | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/hero/como-comprar-1.jpg, minWidth: 1600 |  |
+| `howToBuy.posterUrl` | Imagen de portada dirección web | Ruta pública de la imagen (carpeta public/assets). | `image` | path: /assets/hero/como-comprar-1.jpg, minWidth: 1600, maxWidth: —, ratio: 16:9, ratios: —, ratioTolerance: —, maxKB: — |  |
 | `howToBuy.placeholderMessage` | Ayuda mensaje | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | Acá va el video de muestra del cliente real. Se prepara con IA a partir de su catálogo. |
 | `howToBuy.badge` | Sello | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | GUÍA INTERACTIVA |
 | `howToBuy.duration` | Duración | Texto editable. Dejalo vacío para ocultar el elemento. | `text` |  | 0:45 MIN |

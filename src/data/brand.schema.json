@@ -53,6 +53,7 @@
       "x-group": "Marca",
       "type": "string",
       "x-widget": "text",
+      "x-role": "brandName",
       "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
       "x-exampleData": true,
       "examples": [
@@ -64,6 +65,7 @@
       "x-group": "Marca",
       "type": "string",
       "x-widget": "text",
+      "x-role": "legalName",
       "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
       "x-exampleData": true,
       "examples": [
@@ -76,6 +78,11 @@
       "type": "string",
       "x-widget": "text",
       "description": "Texto editable. Dejalo vacío para ocultar el elemento.",
+      "x-role": "brandShortName",
+      "x-exampleData": true,
+      "examples": [
+        "G"
+      ],
       "x-skipMarkers": true
     },
     "tagline": {
@@ -695,7 +702,8 @@
           "description": "Ruta pública de la imagen (carpeta public/assets).",
           "x-skipMarkers": true,
           "x-asset": {
-            "path": "/assets/logo/favicon-32.png"
+            "path": "/assets/logo/favicon-32.png",
+            "ratio": "1:1"
           }
         },
         "appleTouchIcon": {
@@ -706,7 +714,8 @@
           "description": "Ruta pública de la imagen (carpeta public/assets).",
           "x-skipMarkers": true,
           "x-asset": {
-            "path": "/assets/logo/apple-touch-icon.png"
+            "path": "/assets/logo/apple-touch-icon.png",
+            "ratio": "1:1"
           }
         },
         "srcLight": {
@@ -781,6 +790,7 @@
           "x-asset": {
             "path": "/assets/hero/hero-1.jpg",
             "minWidth": 1600,
+            "ratio": "16:9",
             "maxKB": 250
           }
         },
@@ -960,7 +970,8 @@
           "x-skipMarkers": true,
           "x-asset": {
             "path": "/assets/hero/como-comprar-1.jpg",
-            "minWidth": 1600
+            "minWidth": 1600,
+            "ratio": "16:9"
           }
         },
         "placeholderMessage": {
